@@ -1,0 +1,6 @@
+{
+  "name": "FUTURE STARS - 11+ Examination Practice Platform",
+  "description": "Online 11+ examination practice system for English, Mathematics, and Verbal Reasoning with 50-question timed exams, AI question generator, and detailed solutions.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
