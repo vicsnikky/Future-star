@@ -143,9 +143,18 @@ export const ExamSetupModal: React.FC<ExamSetupModalProps> = ({
                       : 'border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 bg-white dark:bg-slate-800'
                   }`}
                 >
-                  <div className="font-bold text-sm text-slate-900 dark:text-slate-100">{mode} Practice</div>
+                  <div className="flex items-center justify-between">
+                    <span className="font-bold text-sm text-slate-900 dark:text-slate-100">{mode} Practice</span>
+                    {mode === 'Mixed' && (
+                      <span className="text-[10px] font-black px-1.5 py-0.5 rounded bg-amber-100 dark:bg-amber-950 text-amber-800 dark:text-amber-300 border border-amber-300/60">
+                        150 Qs • 1h 30m
+                      </span>
+                    )}
+                  </div>
                   <div className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
-                    {mode === 'Mixed' ? 'All 3 subjects combined' : `50 questions in ${mode}`}
+                    {mode === 'Mixed'
+                      ? '150 Qs (Maths + English + VR) • 1h 30m with 5-min subject breaks'
+                      : `50 questions in ${mode} • 40 minutes`}
                   </div>
                 </button>
               ))}
@@ -158,14 +167,24 @@ export const ExamSetupModal: React.FC<ExamSetupModalProps> = ({
               <Clock className="w-4 h-4 text-amber-800 dark:text-amber-400 shrink-0" />
               BEFORE YOU START (Exam Instructions):
             </div>
-            <ul className="list-disc pl-5 space-y-1 text-amber-900/90 dark:text-amber-300/90 leading-relaxed">
-              <li>You have <strong>50 questions</strong> to answer.</li>
-              <li>Time allowed: <strong>exactly 40 minutes</strong>.</li>
-              <li>You can move between questions, change answers, and flag questions for review.</li>
-              <li>You can review unanswered questions before submitting.</li>
-              <li>When the countdown timer reaches zero, your examination will automatically submit.</li>
-              <li>Make sure you have a stable internet connection. Good luck!</li>
-            </ul>
+            {subject === 'Mixed' ? (
+              <ul className="list-disc pl-5 space-y-1 text-amber-900/90 dark:text-amber-300/90 leading-relaxed">
+                <li>You have <strong>150 questions</strong> across 3 full sections: <strong>50 Mathematics, 50 English, and 50 Verbal Reasoning</strong>.</li>
+                <li>Total test time allowed: <strong>1 hour 30 minutes (90 minutes)</strong>.</li>
+                <li>☕ <strong>5-Minute Section Breaks</strong>: After completing each subject (Q50 and Q100), you can take an optional 5-minute break.</li>
+                <li>⏸️ <strong>Timer Pause</strong>: The examination timer completely pauses during the break!</li>
+                <li>▶️ <strong>Instant Resume</strong>: The moment you click <strong>Continue</strong>, the timer resumes counting down immediately.</li>
+                <li>Auto-submission occurs when the 1h 30m examination timer reaches 00:00. Good luck!</li>
+              </ul>
+            ) : (
+              <ul className="list-disc pl-5 space-y-1 text-amber-900/90 dark:text-amber-300/90 leading-relaxed">
+                <li>You have <strong>50 questions</strong> in {subject}.</li>
+                <li>Time allowed: <strong>exactly 40 minutes</strong>.</li>
+                <li>You can move between questions, change answers, and flag questions for review.</li>
+                <li>You can review unanswered questions before submitting.</li>
+                <li>When the countdown timer reaches zero, your examination will automatically submit. Good luck!</li>
+              </ul>
+            )}
           </div>
         </div>
 

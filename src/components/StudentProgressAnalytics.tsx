@@ -31,11 +31,21 @@ import { ExamAttempt } from '../types';
 interface StudentProgressAnalyticsProps {
   examHistory: ExamAttempt[];
   onStartExam?: (subject: any) => void;
+  candidateName?: string;
+  candidateEmail?: string;
+  isRegistered?: boolean;
+  isAdminView?: boolean;
+  onBack?: () => void;
 }
 
 export const StudentProgressAnalytics: React.FC<StudentProgressAnalyticsProps> = ({
   examHistory,
-  onStartExam
+  onStartExam,
+  candidateName,
+  candidateEmail,
+  isRegistered,
+  isAdminView = false,
+  onBack
 }) => {
   const [selectedSubject, setSelectedSubject] = useState<string>('All');
   const [metricView, setMetricView] = useState<'score' | 'speed'>('score');
@@ -83,7 +93,7 @@ export const StudentProgressAnalytics: React.FC<StudentProgressAnalyticsProps> =
 
   // Subject Performance Comparisons
   const subjectBreakdown = useMemo(() => {
-    const subjects = ['Mathematics', 'English', 'Verbal Reasoning'];
+    const subjects = ['Mathematics', 'English', 'Verbal Reasoning', 'Mixed'];
     return subjects.map(sub => {
       const attempts = examHistory.filter(e => e.subject === sub);
       if (attempts.length === 0) {
@@ -109,7 +119,7 @@ export const StudentProgressAnalytics: React.FC<StudentProgressAnalyticsProps> =
         totalCorrect,
         totalAnswered
       };
-    });
+    }).filter(s => s.attempts > 0 || s.subject !== 'Mixed');
   }, [examHistory]);
 
   // Topic Level Mastery Breakdown
@@ -164,6 +174,46 @@ export const StudentProgressAnalytics: React.FC<StudentProgressAnalyticsProps> =
 
   return (
     <div className="space-y-6">
+      {/* Administrator Inspection Header */}
+      {isAdminView && (
+        <div className="bg-gradient-to-r from-blue-950 via-slate-900 to-indigo-950 text-white p-5 sm:p-6 rounded-2xl border border-blue-900 shadow-sm">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div className="space-y-1.5">
+              <div className="flex items-center gap-2">
+                <span className="text-[10px] font-black uppercase px-2.5 py-1 rounded-full bg-blue-800 text-blue-200 tracking-wider">
+                  Admin Inspection Mode
+                </span>
+                <span
+                  className={`text-[10px] font-bold px-2.5 py-0.5 rounded-full ${
+                    isRegistered
+                      ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/40'
+                      : 'bg-amber-500/20 text-amber-300 border border-amber-500/40'
+                  }`}
+                >
+                  {isRegistered ? 'Registered Student' : 'Guest Practice Candidate'}
+                </span>
+              </div>
+              <h2 className="text-xl sm:text-2xl font-black text-white">
+                {candidateName ? `${candidateName}'s Progress Dashboard` : 'Candidate Progress Dashboard'}
+              </h2>
+              <p className="text-xs text-blue-200 font-mono">
+                {candidateEmail || 'No verified email linked'} • {examHistory.length} recorded examination attempts
+              </p>
+            </div>
+
+            {onBack && (
+              <button
+                type="button"
+                onClick={onBack}
+                className="px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-xs border border-white/20 backdrop-blur-xs flex items-center gap-2 transition-all shrink-0 self-start sm:self-center"
+              >
+                &larr; Back to Student Roster
+              </button>
+            )}
+          </div>
+        </div>
+      )}
+
       {/* Header Section */}
       <div className="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-xs">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
@@ -181,7 +231,7 @@ export const StudentProgressAnalytics: React.FC<StudentProgressAnalyticsProps> =
 
           {/* Subject Filter Pills */}
           <div className="flex items-center gap-1.5 p-1 bg-slate-100 dark:bg-slate-800 rounded-xl flex-wrap">
-            {['All', 'Mathematics', 'English', 'Verbal Reasoning'].map(sub => (
+            {['All', 'Mathematics', 'English', 'Verbal Reasoning', 'Mixed'].map(sub => (
               <button
                 key={sub}
                 onClick={() => setSelectedSubject(sub)}

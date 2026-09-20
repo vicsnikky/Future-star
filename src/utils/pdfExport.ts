@@ -35,7 +35,8 @@ export function downloadExamResultPdf(attempt: ExamAttempt) {
   doc.text(`Date & Time: ${new Date(attempt.submittedAt || attempt.startTime).toLocaleString('en-GB')}`, 14, 68);
   const timeMinutes = Math.floor((attempt.timeUsedSeconds || 0) / 60);
   const timeSeconds = (attempt.timeUsedSeconds || 0) % 60;
-  doc.text(`Duration Used: ${timeMinutes} mins ${timeSeconds} secs (Allowed: 40 mins)`, 14, 74);
+  const allowedMins = attempt.durationMinutes || (attempt.subject === 'Mixed' ? 90 : 40);
+  doc.text(`Duration Used: ${timeMinutes} mins ${timeSeconds} secs (Allowed: ${allowedMins} mins)`, 14, 74);
 
   // Score Box
   doc.setFillColor(241, 245, 249);

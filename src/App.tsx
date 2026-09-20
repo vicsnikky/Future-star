@@ -218,7 +218,7 @@ export default function App() {
 
     // Fetch approved pool
     const approvedPool = await getApprovedQuestions(subject);
-    const dynamic50 = buildDynamic50Exam(approvedPool, subject, examConfig);
+    const dynamicQuestions = buildDynamic50Exam(approvedPool, subject, examConfig);
 
     const isGuest = !currentUser;
     let guestUid = localStorage.getItem('fs_guest_uid');
@@ -233,6 +233,10 @@ export default function App() {
       candidateEmail ||
       `${candidateName.trim().toLowerCase().replace(/\s+/g, '.')}@guest.practice`;
 
+    const isMixed = subject === 'Mixed';
+    const totalQuestions = isMixed ? 150 : 50;
+    const durationMinutes = isMixed ? 90 : 40; // 1 hour 30 minutes for Mixed (150 Qs), 40 minutes for single subject (50 Qs)
+
     const newExam: ExamAttempt = {
       id: `exam-${Date.now()}`,
       studentId,
@@ -241,9 +245,9 @@ export default function App() {
       isRegistered: !isGuest,
       subject,
       startTime: new Date().toISOString(),
-      durationMinutes: 40,
-      totalQuestions: 50,
-      questions: dynamic50,
+      durationMinutes,
+      totalQuestions,
+      questions: dynamicQuestions,
       studentAnswers: {},
       flaggedQuestions: [],
       status: 'in_progress',

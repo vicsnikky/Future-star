@@ -27,6 +27,7 @@ import {
 import { ExamAttempt, UserProfile, ExamMode } from '../types';
 import { getAllExamAttempts, getAllRegisteredUsers, deleteExamAttempt } from '../services/dbService';
 import { downloadExamResultPdf } from '../utils/pdfExport';
+import { StudentProgressAnalytics } from './StudentProgressAnalytics';
 
 interface AdminStudentProgressProps {
   onInspectExamResult?: (exam: ExamAttempt) => void;
@@ -56,6 +57,7 @@ export const AdminStudentProgress: React.FC<AdminStudentProgressProps> = ({
   const [allExams, setAllExams] = useState<ExamAttempt[]>([]);
   const [registeredUsers, setRegisteredUsers] = useState<UserProfile[]>([]);
   const [selectedStudent, setSelectedStudent] = useState<StudentDossier | null>(null);
+  const [viewingAnalyticsStudent, setViewingAnalyticsStudent] = useState<StudentDossier | null>(null);
   const [inspectingAttempt, setInspectingAttempt] = useState<ExamAttempt | null>(null);
 
   // Filters
@@ -305,7 +307,61 @@ export const AdminStudentProgress: React.FC<AdminStudentProgressProps> = ({
         setSelectedStudent(refreshed);
       }
     }
+    if (viewingAnalyticsStudent) {
+      const refreshed = studentDossiers.find(s => s.key === viewingAnalyticsStudent.key);
+      if (refreshed) {
+        setViewingAnalyticsStudent(refreshed);
+      }
+    }
   }, [studentDossiers]);
+
+  // If admin is inspecting a student's full progress dashboard analytics
+  if (viewingAnalyticsStudent) {
+    return (
+      <div className="space-y-6">
+        {/* Navigation & Candidate Switcher Bar */}
+        <div className="p-4 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <button
+            type="button"
+            onClick={() => setViewingAnalyticsStudent(null)}
+            className="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 font-bold text-xs flex items-center gap-2 transition-colors cursor-pointer"
+          >
+            &larr; Back to Candidate Roster
+          </button>
+
+          <div className="flex items-center gap-2.5 w-full sm:w-auto">
+            <span className="text-xs font-semibold text-slate-500 dark:text-slate-400 shrink-0">
+              Switch Candidate:
+            </span>
+            <select
+              value={viewingAnalyticsStudent.key}
+              onChange={(e) => {
+                const found = studentDossiers.find(s => s.key === e.target.value);
+                if (found) setViewingAnalyticsStudent(found);
+              }}
+              className="text-xs px-3 py-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 font-semibold focus:outline-hidden focus:ring-2 focus:ring-blue-900 cursor-pointer"
+            >
+              {studentDossiers.map(s => (
+                <option key={s.key} value={s.key}>
+                  {s.name} ({s.isRegistered ? 'Registered' : 'Guest'} • {s.completedCount} exams)
+                </option>
+              ))}
+            </select>
+          </div>
+        </div>
+
+        {/* Full Interactive Progress & Analytics Dashboard */}
+        <StudentProgressAnalytics
+          examHistory={viewingAnalyticsStudent.attempts}
+          candidateName={viewingAnalyticsStudent.name}
+          candidateEmail={viewingAnalyticsStudent.email}
+          isRegistered={viewingAnalyticsStudent.isRegistered}
+          isAdminView={true}
+          onBack={() => setViewingAnalyticsStudent(null)}
+        />
+      </div>
+    );
+  }
 
   return (
     <div className="space-y-6">
@@ -655,19 +711,34 @@ export const AdminStudentProgress: React.FC<AdminStudentProgressProps> = ({
                         )}
                       </td>
 
-                      {/* Action Button */}
+                      {/* Action Buttons */}
                       <td className="py-3.5 px-4 sm:px-6 text-right">
-                        <button
-                          type="button"
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            setSelectedStudent(student);
-                          }}
-                          className="px-3 py-1.5 rounded-lg bg-blue-900 hover:bg-blue-800 text-white font-bold text-xs inline-flex items-center gap-1 transition-colors"
-                        >
-                          <span>Dossier</span>
-                          <ChevronRight className="w-3.5 h-3.5" />
-                        </button>
+                        <div className="flex items-center justify-end gap-1.5">
+                          <button
+                            type="button"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setViewingAnalyticsStudent(student);
+                            }}
+                            className="px-2.5 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs inline-flex items-center gap-1 transition-colors shadow-xs cursor-pointer"
+                            title={`Open progress dashboard & analytics for ${student.name}`}
+                          >
+                            <TrendingUp className="w-3.5 h-3.5" />
+                            <span>Analytics</span>
+                          </button>
+                          <button
+                            type="button"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setSelectedStudent(student);
+                            }}
+                            className="px-2.5 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 font-bold text-xs inline-flex items-center gap-1 transition-colors cursor-pointer"
+                            title={`Open candidate dossier for ${student.name}`}
+                          >
+                            <span>Dossier</span>
+                            <ChevronRight className="w-3.5 h-3.5" />
+                          </button>
+                        </div>
                       </td>
                     </tr>
                   );
@@ -719,13 +790,27 @@ export const AdminStudentProgress: React.FC<AdminStudentProgressProps> = ({
                 </div>
               </div>
 
-              <button
-                onClick={() => setSelectedStudent(null)}
-                className="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors"
-                aria-label="Close dossier"
-              >
-                <X className="w-5 h-5" />
-              </button>
+              <div className="flex items-center gap-2 shrink-0">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setViewingAnalyticsStudent(selectedStudent);
+                    setSelectedStudent(null);
+                  }}
+                  className="px-3 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs flex items-center gap-1.5 transition-colors shadow-xs cursor-pointer"
+                  title="Open full analytics dashboard with score graphs and subject breakdown"
+                >
+                  <TrendingUp className="w-3.5 h-3.5" />
+                  <span>Full Analytics</span>
+                </button>
+                <button
+                  onClick={() => setSelectedStudent(null)}
+                  className="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors cursor-pointer"
+                  aria-label="Close dossier"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
             </div>
 
             {/* Modal Scrollable Body */}

@@ -1,17 +1,17 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 import {
   Clock,
   Flag,
   ChevronLeft,
   ChevronRight,
   AlertTriangle,
-  CheckCircle,
-  HelpCircle,
-  ShieldAlert,
   Send,
   Keyboard,
   Moon,
-  Sun
+  Sun,
+  Coffee,
+  Play,
+  Pause
 } from 'lucide-react';
 import { ExamAttempt, Question } from '../types';
 import { KeyboardShortcutsModal } from './KeyboardShortcutsModal';
@@ -36,45 +36,107 @@ export const ExamView: React.FC<ExamViewProps> = ({
   const [showShortcutsModal, setShowShortcutsModal] = useState(false);
   const [showWarning, setShowWarning] = useState<string | null>(null);
 
-  // Calculate remaining seconds based on server/start timestamp
-  const startTimeMs = new Date(exam.startTime).getTime();
-  const totalAllowedSeconds = exam.durationMinutes * 60; // 40 * 60 = 2400
+  const isMixedExam = exam.subject === 'Mixed' || exam.totalQuestions === 150;
+  const totalAllowedSeconds = exam.durationMinutes * 60; // 90 * 60 = 5400 for Mixed, 2400 for single subjects
 
-  const calculateRemainingSeconds = () => {
-    const elapsedSeconds = Math.floor((Date.now() - startTimeMs) / 1000);
-    const remain = totalAllowedSeconds - elapsedSeconds;
-    return Math.max(0, remain);
+  // State-based exam countdown timer (freezes during breaks)
+  const [timeRemaining, setTimeRemaining] = useState<number>(() => {
+    if (exam.timeUsedSeconds !== undefined && exam.timeUsedSeconds > 0) {
+      return Math.max(0, totalAllowedSeconds - exam.timeUsedSeconds);
+    }
+    return totalAllowedSeconds;
+  });
+
+  // Break state for 5-minute pauses between subjects in Mixed mode
+  const [isBreakActive, setIsBreakActive] = useState(false);
+  const [breakSubjectCompleted, setBreakSubjectCompleted] = useState<'Mathematics' | 'English' | null>(null);
+  const [breakNextSubject, setBreakNextSubject] = useState<'English' | 'Verbal Reasoning' | null>(null);
+  const [breakTargetIndex, setBreakTargetIndex] = useState<number>(50);
+  const [breakSecondsRemaining, setBreakSecondsRemaining] = useState<number>(300); // 5 mins = 300s
+  const [break1Taken, setBreak1Taken] = useState(false);
+  const [break2Taken, setBreak2Taken] = useState(false);
+
+  // Section filter in question navigator for 150-question Mixed exam
+  const [navigatorSection, setNavigatorSection] = useState<'all' | 'math' | 'eng' | 'vr'>('all');
+
+  // Helper to determine subject of current question in Mixed mode
+  const getCurrentSectionName = (index: number): string => {
+    if (!isMixedExam) return `${exam.subject} Examination`;
+    if (index < 50) return 'Mixed Examination • Section 1: Mathematics';
+    if (index < 100) return 'Mixed Examination • Section 2: English';
+    return 'Mixed Examination • Section 3: Verbal Reasoning';
   };
 
-  const [timeRemaining, setTimeRemaining] = useState<number>(calculateRemainingSeconds);
-  const timerRef = useRef<any>(null);
-
-  // Timer countdown and warning triggers
+  // 1. Examination Timer Countdown (PAUSES completely when isBreakActive is true)
   useEffect(() => {
-    timerRef.current = setInterval(() => {
-      const remain = calculateRemainingSeconds();
-      setTimeRemaining(remain);
+    if (isBreakActive) return; // Exam timer completely PAUSED during break!
 
-      // Warning triggers at 10 minutes (600s), 5 minutes (300s), 1 minute (60s)
-      if (remain === 600) {
-        setShowWarning('Attention: Exactly 10 minutes remaining in this examination.');
-      } else if (remain === 300) {
-        setShowWarning('Warning: Exactly 5 minutes remaining. Please review your answers.');
-      } else if (remain === 60) {
-        setShowWarning('Final Warning: 1 minute remaining! Auto-submission will execute at 00:00.');
-      }
+    const interval = setInterval(() => {
+      setTimeRemaining(prev => {
+        const next = prev - 1;
 
-      // Auto-submission when timer hits zero
-      if (remain <= 0) {
-        clearInterval(timerRef.current);
-        handleFinalSubmit(true); // force auto submit
-      }
+        // Warnings at 10 minutes, 5 minutes, 1 minute
+        if (next === 600) {
+          setShowWarning('Attention: Exactly 10 minutes remaining in this examination.');
+        } else if (next === 300) {
+          setShowWarning('Warning: Exactly 5 minutes remaining. Please review your answers.');
+        } else if (next === 60) {
+          setShowWarning('Final Warning: 1 minute remaining! Auto-submission will execute at 00:00.');
+        }
+
+        if (next <= 0) {
+          clearInterval(interval);
+          handleFinalSubmit(true);
+          return 0;
+        }
+        return next;
+      });
     }, 1000);
 
-    return () => {
-      if (timerRef.current) clearInterval(timerRef.current);
-    };
-  }, [exam]);
+    return () => clearInterval(interval);
+  }, [isBreakActive, exam]);
+
+  // 2. Break Timer Countdown (Runs only when isBreakActive is true)
+  useEffect(() => {
+    if (!isBreakActive) return;
+
+    const breakInterval = setInterval(() => {
+      setBreakSecondsRemaining(prev => {
+        if (prev <= 1) {
+          // 5-minute break expired: automatically resume exam timer
+          handleResumeFromBreak();
+          return 0;
+        }
+        return prev - 1;
+      });
+    }, 1000);
+
+    return () => clearInterval(breakInterval);
+  }, [isBreakActive, breakTargetIndex]);
+
+  // Resume from 5-minute break immediately
+  const handleResumeFromBreak = () => {
+    setIsBreakActive(false);
+    if (breakTargetIndex !== undefined && breakTargetIndex >= 0 && breakTargetIndex < exam.totalQuestions) {
+      setCurrentIndex(breakTargetIndex);
+    }
+  };
+
+  // Trigger a 5-minute subject break
+  const triggerBreak = (
+    completed: 'Mathematics' | 'English',
+    next: 'English' | 'Verbal Reasoning',
+    targetIdx: number,
+    breakNum: 1 | 2
+  ) => {
+    setBreakSubjectCompleted(completed);
+    setBreakNextSubject(next);
+    setBreakTargetIndex(targetIdx);
+    setBreakSecondsRemaining(300); // 5 mins
+    if (breakNum === 1) setBreak1Taken(true);
+    if (breakNum === 2) setBreak2Taken(true);
+    setIsBreakActive(true);
+  };
 
   // Window unload warning if student tries to close tab during exam
   useEffect(() => {
@@ -112,47 +174,62 @@ export const ExamView: React.FC<ExamViewProps> = ({
     onUpdateExam({ ...exam, flaggedQuestions: updatedFlags });
   };
 
+  const handleNextQuestion = () => {
+    // Intercept section boundaries for 5-minute pause breaks in Mixed mode
+    if (isMixedExam && currentIndex === 49 && !break1Taken) {
+      triggerBreak('Mathematics', 'English', 50, 1);
+      return;
+    }
+    if (isMixedExam && currentIndex === 99 && !break2Taken) {
+      triggerBreak('English', 'Verbal Reasoning', 100, 2);
+      return;
+    }
+
+    if (currentIndex < exam.totalQuestions - 1) {
+      setCurrentIndex(prev => prev + 1);
+    } else {
+      setShowConfirmModal(true);
+    }
+  };
+
+  const handlePrevQuestion = () => {
+    if (currentIndex > 0) {
+      setCurrentIndex(prev => prev - 1);
+    }
+  };
+
   // Keyboard Navigation & Shortcuts Listener
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
+      if (isBreakActive) return; // Ignore exam hotkeys while resting
+
       const target = e.target as HTMLElement;
-      if (target && (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.isContentEditable)) {
-        return;
-      }
+      if (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA') return;
 
-      // Escape key: close active modal
+      const keyUpper = e.key.toUpperCase();
+
+      // Modal escape
       if (e.key === 'Escape') {
-        if (showConfirmModal) {
-          setShowConfirmModal(false);
-          return;
-        }
-        if (showShortcutsModal) {
-          setShowShortcutsModal(false);
-          return;
-        }
-      }
-
-      // Shift + D: Dark Mode toggle
-      if (e.shiftKey && (e.key === 'D' || e.key === 'd')) {
-        e.preventDefault();
-        onToggleDarkMode?.();
+        setShowConfirmModal(false);
+        setShowShortcutsModal(false);
         return;
       }
 
-      // Question mark (?): open shortcuts modal
+      // Help modal: ? or /
       if (e.key === '?' || (e.shiftKey && e.key === '/')) {
         e.preventDefault();
         setShowShortcutsModal(prev => !prev);
         return;
       }
 
-      // When modal is open, prevent other exam actions
-      if (showConfirmModal || showShortcutsModal) {
+      // Dark mode toggle: Shift + D
+      if (e.shiftKey && keyUpper === 'D' && onToggleDarkMode) {
+        e.preventDefault();
+        onToggleDarkMode();
         return;
       }
 
-      // Number keys (1-4) or letter keys (A-D) to select option
-      const keyUpper = e.key.toUpperCase();
+      // Option Selection: A, B, C, D or 1, 2, 3, 4
       let optIdx = -1;
       if (keyUpper === 'A' || e.key === '1') optIdx = 0;
       else if (keyUpper === 'B' || e.key === '2') optIdx = 1;
@@ -168,20 +245,14 @@ export const ExamView: React.FC<ExamViewProps> = ({
       // Next Question: ArrowRight or J
       if (e.key === 'ArrowRight' || keyUpper === 'J') {
         e.preventDefault();
-        if (currentIndex < exam.totalQuestions - 1) {
-          setCurrentIndex(prev => prev + 1);
-        } else {
-          setShowConfirmModal(true);
-        }
+        handleNextQuestion();
         return;
       }
 
       // Previous Question: ArrowLeft or K
       if (e.key === 'ArrowLeft' || keyUpper === 'K') {
         e.preventDefault();
-        if (currentIndex > 0) {
-          setCurrentIndex(prev => prev - 1);
-        }
+        handlePrevQuestion();
         return;
       }
 
@@ -202,11 +273,9 @@ export const ExamView: React.FC<ExamViewProps> = ({
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [currentIndex, currentQ, exam, isFlagged, showConfirmModal, showShortcutsModal, onToggleDarkMode]);
+  }, [currentIndex, currentQ, exam, isFlagged, showConfirmModal, showShortcutsModal, onToggleDarkMode, isBreakActive, break1Taken, break2Taken, isMixedExam]);
 
   const handleFinalSubmit = (forced = false) => {
-    if (timerRef.current) clearInterval(timerRef.current);
-
     // Calculate marks
     let correct = 0;
     let incorrect = 0;
@@ -231,30 +300,44 @@ export const ExamView: React.FC<ExamViewProps> = ({
       }
     });
 
-    const totalQuestions = exam.questions.length || 50;
+    const totalQuestions = exam.questions.length || exam.totalQuestions || 50;
     const percentage = Math.round((correct / totalQuestions) * 100);
-    const timeUsedSeconds = totalAllowedSeconds - timeRemaining;
+    const timeUsedSeconds = Math.max(0, totalAllowedSeconds - timeRemaining);
 
     const completedExam: ExamAttempt = {
       ...exam,
       status: 'completed',
       submittedAt: new Date().toISOString(),
-      timeUsedSeconds,
       score: correct,
       percentage,
       correctCount: correct,
       incorrectCount: incorrect,
       unansweredCount: unanswered,
+      timeUsedSeconds,
       topicBreakdown,
     };
 
     onSubmitExam(completedExam);
   };
 
-  // Counts for review modal
+  // Counts for review modal & navigator
   const answeredCount = Object.keys(exam.studentAnswers).filter(k => !!exam.studentAnswers[Number(k)]).length;
   const unansweredCount = exam.totalQuestions - answeredCount;
   const flaggedCount = exam.flaggedQuestions.length;
+
+  // Question Navigator indices filtered by section
+  const visibleNavigatorIndices = useMemo(() => {
+    if (!isMixedExam || navigatorSection === 'all') {
+      return exam.questions.map((_, i) => i);
+    }
+    if (navigatorSection === 'math') {
+      return exam.questions.map((_, i) => i).filter(i => i < 50);
+    }
+    if (navigatorSection === 'eng') {
+      return exam.questions.map((_, i) => i).filter(i => i >= 50 && i < 100);
+    }
+    return exam.questions.map((_, i) => i).filter(i => i >= 100);
+  }, [exam.questions, navigatorSection, isMixedExam]);
 
   return (
     <div className="min-h-screen bg-slate-100 dark:bg-slate-950 text-slate-900 dark:text-slate-100 flex flex-col transition-colors">
@@ -262,12 +345,17 @@ export const ExamView: React.FC<ExamViewProps> = ({
       <header className="sticky top-0 z-30 bg-blue-950 dark:bg-slate-900 text-white shadow-md border-b border-blue-900 dark:border-slate-800 transition-colors">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 h-18 flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <div className="w-10 h-10 rounded-xl bg-blue-800 dark:bg-blue-900 flex items-center justify-center font-bold text-lg text-white">
+            <div className="w-10 h-10 rounded-xl bg-blue-800 dark:bg-blue-900 flex items-center justify-center font-bold text-lg text-white shrink-0">
               FS
             </div>
             <div>
-              <div className="text-xs font-semibold uppercase tracking-wider text-blue-300 dark:text-blue-400">
-                {exam.subject} Examination
+              <div className="text-xs font-semibold uppercase tracking-wider text-blue-300 dark:text-blue-400 flex items-center gap-2">
+                <span>{getCurrentSectionName(currentIndex)}</span>
+                {isMixedExam && (
+                  <span className="hidden sm:inline-block px-2 py-0.2 rounded-full bg-blue-900 text-blue-200 text-[10px] font-bold">
+                    150 Questions • 1h 30m
+                  </span>
+                )}
               </div>
               <h1 className="text-lg font-bold">
                 Question {currentIndex + 1} of {exam.totalQuestions}
@@ -276,16 +364,42 @@ export const ExamView: React.FC<ExamViewProps> = ({
           </div>
 
           <div className="flex items-center gap-2 sm:gap-4">
-            {/* 40-Minute Countdown Display */}
-            <div className={`flex items-center gap-2 px-3.5 py-1.5 rounded-lg font-mono font-bold text-sm sm:text-base ${
-              timeRemaining < 300
-                ? 'bg-red-600 text-white animate-pulse'
-                : timeRemaining < 600
-                ? 'bg-amber-500 text-slate-900'
-                : 'bg-blue-900/80 dark:bg-slate-800 text-blue-100 border border-blue-700 dark:border-slate-700'
-            }`}>
-              <Clock className="w-4 h-4" />
+            {/* Optional Break Trigger button in Mixed Exam */}
+            {isMixedExam && (!break1Taken || !break2Taken) && (
+              <button
+                type="button"
+                id="exam-header-manual-break-btn"
+                onClick={() => {
+                  if (!break1Taken && currentIndex < 50) {
+                    triggerBreak('Mathematics', 'English', 50, 1);
+                  } else if (!break2Taken) {
+                    triggerBreak('English', 'Verbal Reasoning', 100, 2);
+                  }
+                }}
+                className="hidden md:flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-indigo-900/90 hover:bg-indigo-800 text-indigo-100 text-xs font-bold border border-indigo-700/80 transition-all shadow-xs"
+                title="Pause the exam timer and take an optional 5-minute break"
+              >
+                <Coffee className="w-3.5 h-3.5 text-amber-300" />
+                <span>Take 5m Break</span>
+              </button>
+            )}
+
+            {/* Countdown Display */}
+            <div
+              className={`flex items-center gap-2 px-3.5 py-1.5 rounded-lg font-mono font-bold text-sm sm:text-base ${
+                isBreakActive
+                  ? 'bg-amber-500 text-slate-950 ring-2 ring-amber-300 animate-pulse'
+                  : timeRemaining < 300
+                  ? 'bg-red-600 text-white animate-pulse'
+                  : timeRemaining < 600
+                  ? 'bg-amber-500 text-slate-900'
+                  : 'bg-blue-900/80 dark:bg-slate-800 text-blue-100 border border-blue-700 dark:border-slate-700'
+              }`}
+              title={isBreakActive ? 'Exam timer is paused' : 'Time remaining in exam'}
+            >
+              {isBreakActive ? <Pause className="w-4 h-4 text-slate-950" /> : <Clock className="w-4 h-4" />}
               <span>{formatTime(timeRemaining)}</span>
+              {isBreakActive && <span className="text-[10px] uppercase font-sans font-black tracking-wider">PAUSED</span>}
             </div>
 
             {/* Keyboard Shortcuts Trigger */}
@@ -348,115 +462,176 @@ export const ExamView: React.FC<ExamViewProps> = ({
           <div>
             {/* Meta tags: Topic, Difficulty, Flag button */}
             <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-4 mb-6">
-              <div className="flex items-center gap-2 flex-wrap">
-                <span className="text-xs font-bold px-2.5 py-1 rounded-md bg-blue-100 dark:bg-blue-950 text-blue-900 dark:text-blue-300">
+              <div className="flex items-center gap-2.5 flex-wrap">
+                <span className="px-3 py-1 rounded-full text-xs font-bold bg-blue-50 dark:bg-blue-950/80 text-blue-900 dark:text-blue-300 border border-blue-200 dark:border-blue-800">
                   {currentQ.subject}
                 </span>
-                <span className="text-xs font-semibold px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">
-                  Topic: {currentQ.topic}
+                <span className="px-3 py-1 rounded-full text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">
+                  {currentQ.topic || 'General Knowledge'}
                 </span>
-                <span className="text-xs font-bold px-2.5 py-1 rounded-md bg-purple-100 dark:bg-purple-950 text-purple-900 dark:text-purple-300">
-                  Hard • Grammar School Standard
+                <span className={`px-2.5 py-0.5 rounded-full text-xs font-bold ${
+                  currentQ.difficulty === 'Hard'
+                    ? 'bg-rose-100 dark:bg-rose-950/80 text-rose-800 dark:text-rose-300'
+                    : currentQ.difficulty === 'Medium'
+                    ? 'bg-amber-100 dark:bg-amber-950/80 text-amber-800 dark:text-amber-300'
+                    : 'bg-emerald-100 dark:bg-emerald-950/80 text-emerald-800 dark:text-emerald-300'
+                }`}>
+                  {currentQ.difficulty}
                 </span>
               </div>
 
+              {/* Flag Question for Review Toggle */}
               <button
-                id="flag-question-toggle-btn"
+                id="exam-flag-btn"
                 onClick={handleToggleFlag}
                 className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
                   isFlagged
-                    ? 'bg-amber-100 dark:bg-amber-950/80 text-amber-900 dark:text-amber-300 border border-amber-300 dark:border-amber-700'
-                    : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700'
+                    ? 'bg-amber-500 text-slate-950 shadow-xs ring-2 ring-amber-300'
+                    : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-amber-600 dark:hover:text-amber-400'
                 }`}
-                title="Shortcut: Press 'F'"
+                title="Flag this question for later review (F)"
               >
-                <Flag className={`w-3.5 h-3.5 ${isFlagged ? 'fill-amber-600 dark:fill-amber-400 text-amber-600 dark:text-amber-400' : ''}`} />
+                <Flag className={`w-3.5 h-3.5 ${isFlagged ? 'fill-current' : ''}`} />
                 <span>{isFlagged ? 'Flagged' : 'Flag Question'}</span>
-                <kbd className="hidden sm:inline text-[10px] font-mono px-1 py-0.5 rounded bg-white/60 dark:bg-slate-700/60 ml-1">F</kbd>
+                <kbd className="hidden sm:inline px-1 py-0.2 bg-slate-200 dark:bg-slate-700 rounded text-[9px]">F</kbd>
               </button>
             </div>
 
             {/* Question Text */}
             <div className="mb-8">
-              <div className="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-2">
-                Question {currentIndex + 1}
+              <div className="text-xs uppercase font-bold text-slate-400 tracking-wider mb-2">
+                Question {currentIndex + 1} of {exam.totalQuestions}
               </div>
-              <h2 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-slate-100 leading-relaxed">
+              <h2 className="text-lg sm:text-xl font-bold leading-relaxed text-slate-900 dark:text-slate-100">
                 {currentQ.questionText}
               </h2>
             </div>
 
-            {/* Answer Options */}
+            {/* Answer Options Grid */}
             <div className="space-y-3">
-              {currentQ.options.map((option, optIdx) => {
-                const optLetter = String.fromCharCode(65 + optIdx); // A, B, C, D
-                const isSelected = selectedAnswer === option;
+              {currentQ.options.map((opt, idx) => {
+                const isSelected = selectedAnswer === opt;
+                const letter = String.fromCharCode(65 + idx); // A, B, C, D
 
                 return (
                   <button
-                    key={optIdx}
-                    id={`exam-option-${currentIndex}-${optLetter}`}
-                    type="button"
-                    onClick={() => handleSelectOption(option)}
-                    className={`w-full p-4 rounded-xl border text-left flex items-center gap-4 transition-all ${
+                    key={idx}
+                    id={`exam-opt-btn-${idx}`}
+                    onClick={() => handleSelectOption(opt)}
+                    className={`w-full text-left p-4 rounded-xl border transition-all flex items-start gap-4 ${
                       isSelected
-                        ? 'border-blue-900 dark:border-blue-500 bg-blue-50/80 dark:bg-blue-950/50 ring-2 ring-blue-900/20 dark:ring-blue-500/20 text-blue-950 dark:text-blue-100 font-bold'
-                        : 'border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-200'
+                        ? 'border-blue-900 dark:border-blue-500 bg-blue-50/80 dark:bg-blue-950/60 ring-2 ring-blue-900/30 dark:ring-blue-500/30'
+                        : 'border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 bg-white dark:bg-slate-850 hover:bg-slate-50/60 dark:hover:bg-slate-800'
                     }`}
                   >
-                    <span className={`w-8 h-8 rounded-lg flex items-center justify-center font-bold text-sm shrink-0 ${
-                      isSelected
-                        ? 'bg-blue-900 dark:bg-blue-600 text-white'
-                        : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400'
-                    }`}>
-                      {optLetter}
-                    </span>
-                    <span className="text-base flex-1">{option}</span>
-                    <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-400 dark:text-slate-500 shrink-0">
-                      [{optLetter}]
-                    </span>
+                    <div
+                      className={`w-7 h-7 rounded-lg flex items-center justify-center font-bold text-xs shrink-0 transition-colors ${
+                        isSelected
+                          ? 'bg-blue-900 dark:bg-blue-600 text-white'
+                          : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300'
+                      }`}
+                    >
+                      {letter}
+                    </div>
+                    <div className="text-sm font-medium text-slate-800 dark:text-slate-200 pt-0.5 leading-snug">
+                      {opt}
+                    </div>
                   </button>
                 );
               })}
             </div>
+
+            {/* Section Boundary Prompt Banner on Q50 & Q100 in Mixed Exam */}
+            {isMixedExam && currentIndex === 49 && !break1Taken && (
+              <div className="mt-6 p-4 rounded-xl bg-amber-50 dark:bg-amber-950/50 border border-amber-300 dark:border-amber-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+                <div className="flex items-center gap-3">
+                  <Coffee className="w-5 h-5 text-amber-600 dark:text-amber-400 shrink-0" />
+                  <div>
+                    <div className="font-bold text-xs text-slate-900 dark:text-slate-100">
+                      You are completing Section 1: Mathematics!
+                    </div>
+                    <div className="text-[11px] text-slate-600 dark:text-slate-400">
+                      When you click Next, you can take a 5-minute break with the exam timer paused.
+                    </div>
+                  </div>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => triggerBreak('Mathematics', 'English', 50, 1)}
+                  className="px-3.5 py-1.5 rounded-lg bg-amber-600 hover:bg-amber-500 text-white font-bold text-xs shrink-0 transition-colors flex items-center gap-1.5 shadow-xs cursor-pointer"
+                >
+                  <Coffee className="w-3.5 h-3.5" />
+                  Take 5m Break Now
+                </button>
+              </div>
+            )}
+
+            {isMixedExam && currentIndex === 99 && !break2Taken && (
+              <div className="mt-6 p-4 rounded-xl bg-amber-50 dark:bg-amber-950/50 border border-amber-300 dark:border-amber-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+                <div className="flex items-center gap-3">
+                  <Coffee className="w-5 h-5 text-amber-600 dark:text-amber-400 shrink-0" />
+                  <div>
+                    <div className="font-bold text-xs text-slate-900 dark:text-slate-100">
+                      You are completing Section 2: English!
+                    </div>
+                    <div className="text-[11px] text-slate-600 dark:text-slate-400">
+                      When you click Next, you can take a 5-minute break with the exam timer paused before Verbal Reasoning.
+                    </div>
+                  </div>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => triggerBreak('English', 'Verbal Reasoning', 100, 2)}
+                  className="px-3.5 py-1.5 rounded-lg bg-amber-600 hover:bg-amber-500 text-white font-bold text-xs shrink-0 transition-colors flex items-center gap-1.5 shadow-xs cursor-pointer"
+                >
+                  <Coffee className="w-3.5 h-3.5" />
+                  Take 5m Break Now
+                </button>
+              </div>
+            )}
           </div>
 
-          {/* Bottom Nav Controls */}
-          <div className="mt-10 pt-6 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between gap-4">
+          {/* Navigation Controls: Previous / Next / Review */}
+          <div className="flex items-center justify-between border-t border-slate-100 dark:border-slate-800 pt-6 mt-8">
             <button
-              id="exam-prev-question-btn"
+              id="exam-prev-btn"
+              onClick={handlePrevQuestion}
               disabled={currentIndex === 0}
-              onClick={() => setCurrentIndex(prev => prev - 1)}
-              className="px-4 py-2.5 rounded-lg border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-semibold text-sm flex items-center gap-1.5 hover:bg-slate-50 dark:hover:bg-slate-800 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
-              title="Shortcut: Press '←' or 'K'"
+              className={`px-4 py-2.5 rounded-xl border text-xs sm:text-sm font-semibold flex items-center gap-2 transition-colors ${
+                currentIndex === 0
+                  ? 'opacity-40 cursor-not-allowed border-slate-200 dark:border-slate-800 text-slate-400'
+                  : 'border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'
+              }`}
             >
               <ChevronLeft className="w-4 h-4" />
-              Previous
-              <kbd className="hidden sm:inline font-mono text-[10px] opacity-60 ml-0.5">←</kbd>
+              <span>Previous</span>
             </button>
 
-            <div className="text-xs text-slate-500 dark:text-slate-400 font-medium">
-              Candidate: <span className="font-bold text-slate-800 dark:text-slate-200">{exam.studentName}</span>
+            <div className="text-xs text-slate-400 font-medium hidden sm:block">
+              Use arrow keys <kbd className="px-1 py-0.5 bg-slate-100 dark:bg-slate-800 rounded text-[10px]">←</kbd>{' '}
+              <kbd className="px-1 py-0.5 bg-slate-100 dark:bg-slate-800 rounded text-[10px]">→</kbd> to navigate
             </div>
 
             {currentIndex < exam.totalQuestions - 1 ? (
               <button
-                id="exam-next-question-btn"
-                onClick={() => setCurrentIndex(prev => prev + 1)}
-                className="px-5 py-2.5 rounded-lg bg-blue-900 dark:bg-blue-700 hover:bg-blue-800 dark:hover:bg-blue-600 text-white font-bold text-sm flex items-center gap-1.5 transition-colors"
-                title="Shortcut: Press '→' or 'J'"
+                id="exam-next-btn"
+                onClick={handleNextQuestion}
+                className="px-5 py-2.5 rounded-xl bg-blue-900 hover:bg-blue-800 dark:bg-blue-600 dark:hover:bg-blue-500 text-white text-xs sm:text-sm font-bold flex items-center gap-2 transition-colors shadow-xs"
               >
-                Next
-                <kbd className="hidden sm:inline font-mono text-[10px] bg-blue-950/60 dark:bg-blue-900 px-1 py-0.5 rounded text-white/80">→</kbd>
+                <span>
+                  {isMixedExam && (currentIndex === 49 || currentIndex === 99)
+                    ? 'Complete Section & Next'
+                    : 'Next Question'}
+                </span>
                 <ChevronRight className="w-4 h-4" />
               </button>
             ) : (
               <button
-                id="exam-final-review-btn"
+                id="exam-review-submit-btn"
                 onClick={() => setShowConfirmModal(true)}
-                className="px-5 py-2.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm flex items-center gap-1.5 transition-colors"
+                className="px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs sm:text-sm font-bold flex items-center gap-2 transition-colors shadow-xs"
               >
-                Review & Submit
+                <span>Review & Finish</span>
                 <Send className="w-4 h-4" />
               </button>
             )}
@@ -465,14 +640,64 @@ export const ExamView: React.FC<ExamViewProps> = ({
 
         {/* Right 1 Column: Question Navigation Grid */}
         <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-xs p-6 flex flex-col transition-colors">
-          <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800 mb-4">
+          <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800 mb-3">
             <h3 className="font-bold text-sm text-slate-900 dark:text-slate-100 uppercase tracking-wider">
-              Question Navigator (50)
+              Question Navigator ({exam.totalQuestions})
             </h3>
           </div>
 
+          {/* Section Filter Pills for Mixed 150-Question Exam */}
+          {isMixedExam && (
+            <div className="grid grid-cols-2 gap-1.5 mb-3 p-1 bg-slate-100 dark:bg-slate-800 rounded-xl">
+              <button
+                type="button"
+                onClick={() => setNavigatorSection('all')}
+                className={`py-1 rounded-lg text-[10px] font-bold text-center transition-all ${
+                  navigatorSection === 'all'
+                    ? 'bg-blue-900 dark:bg-blue-600 text-white shadow-xs'
+                    : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'
+                }`}
+              >
+                All (150)
+              </button>
+              <button
+                type="button"
+                onClick={() => setNavigatorSection('math')}
+                className={`py-1 rounded-lg text-[10px] font-bold text-center transition-all ${
+                  navigatorSection === 'math'
+                    ? 'bg-blue-900 dark:bg-blue-600 text-white shadow-xs'
+                    : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'
+                }`}
+              >
+                Maths (1-50)
+              </button>
+              <button
+                type="button"
+                onClick={() => setNavigatorSection('eng')}
+                className={`py-1 rounded-lg text-[10px] font-bold text-center transition-all ${
+                  navigatorSection === 'eng'
+                    ? 'bg-blue-900 dark:bg-blue-600 text-white shadow-xs'
+                    : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'
+                }`}
+              >
+                English (51-100)
+              </button>
+              <button
+                type="button"
+                onClick={() => setNavigatorSection('vr')}
+                className={`py-1 rounded-lg text-[10px] font-bold text-center transition-all ${
+                  navigatorSection === 'vr'
+                    ? 'bg-blue-900 dark:bg-blue-600 text-white shadow-xs'
+                    : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'
+                }`}
+              >
+                VR (101-150)
+              </button>
+            </div>
+          )}
+
           {/* Legend */}
-          <div className="grid grid-cols-2 gap-2 text-xs text-slate-600 dark:text-slate-400 mb-4 pb-3 border-b border-slate-100 dark:border-slate-800">
+          <div className="grid grid-cols-2 gap-2 text-xs text-slate-600 dark:text-slate-400 mb-3 pb-3 border-b border-slate-100 dark:border-slate-800">
             <div className="flex items-center gap-1.5">
               <span className="w-3.5 h-3.5 rounded-sm bg-blue-900 dark:bg-blue-600 border border-blue-900 dark:border-blue-600 inline-block" />
               <span>Current</span>
@@ -491,9 +716,9 @@ export const ExamView: React.FC<ExamViewProps> = ({
             </div>
           </div>
 
-          {/* Grid of 50 Questions */}
+          {/* Grid of Questions */}
           <div className="grid grid-cols-5 gap-2 overflow-y-auto max-h-96 pr-1">
-            {exam.questions.map((_, i) => {
+            {visibleNavigatorIndices.map((i) => {
               const hasAnswer = !!exam.studentAnswers[i];
               const flagged = exam.flaggedQuestions.includes(i);
               const isCurrent = i === currentIndex;
@@ -531,7 +756,7 @@ export const ExamView: React.FC<ExamViewProps> = ({
           <div className="mt-6 pt-4 border-t border-slate-100 dark:border-slate-800 space-y-1.5 text-xs text-slate-600 dark:text-slate-400">
             <div className="flex justify-between">
               <span>Answered:</span>
-              <span className="font-bold text-slate-900 dark:text-white">{answeredCount} / 50</span>
+              <span className="font-bold text-slate-900 dark:text-white">{answeredCount} / {exam.totalQuestions}</span>
             </div>
             <div className="flex justify-between">
               <span>Unanswered:</span>
@@ -552,6 +777,93 @@ export const ExamView: React.FC<ExamViewProps> = ({
         </div>
       </main>
 
+      {/* 5-MINUTE SUBJECT BREAK MODAL WITH TIMER PAUSE & RESUME */}
+      {isBreakActive && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/80 backdrop-blur-sm p-4 animate-fadeIn">
+          <div className="w-full max-w-lg bg-white dark:bg-slate-900 rounded-3xl shadow-2xl border border-blue-200 dark:border-blue-900 overflow-hidden text-center p-6 sm:p-8 space-y-6">
+            {/* Break Icon & Badge */}
+            <div className="space-y-2">
+              <div className="w-16 h-16 rounded-2xl bg-amber-100 dark:bg-amber-950/80 text-amber-800 dark:text-amber-300 mx-auto flex items-center justify-center shadow-inner">
+                <Coffee className="w-8 h-8" />
+              </div>
+              <span className="inline-block px-3 py-1 rounded-full text-xs font-black uppercase tracking-wider bg-amber-100 dark:bg-amber-950 text-amber-900 dark:text-amber-300 border border-amber-300/60">
+                5-Minute Subject Rest Interval
+              </span>
+              <h2 className="text-2xl font-black text-slate-900 dark:text-slate-100 tracking-tight">
+                Section Complete: {breakSubjectCompleted}!
+              </h2>
+              <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 max-w-sm mx-auto leading-relaxed">
+                Fantastic job completing the 50 questions in {breakSubjectCompleted}. Up next is <strong>{breakNextSubject}</strong>.
+              </p>
+            </div>
+
+            {/* Timer Paused Banner & Live 5:00 Break Clock */}
+            <div className="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 space-y-3">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 dark:bg-blue-950 text-blue-900 dark:text-blue-300 text-xs font-bold">
+                <Pause className="w-3.5 h-3.5 text-blue-700 dark:text-blue-400" />
+                <span>Examination Timer Paused (Exam clock is frozen)</span>
+              </div>
+
+              <div className="text-4xl sm:text-5xl font-mono font-black text-amber-700 dark:text-amber-400 tracking-wider">
+                {formatTime(breakSecondsRemaining)}
+              </div>
+              <p className="text-[11px] text-slate-500 dark:text-slate-400">
+                Break auto-advances to {breakNextSubject} when timer expires.
+              </p>
+            </div>
+
+            {/* Quick Rest Tips */}
+            <div className="grid grid-cols-3 gap-2.5 text-left text-xs">
+              <div className="p-3 rounded-xl bg-blue-50 dark:bg-blue-950/40 border border-blue-100 dark:border-blue-900/50">
+                <div className="font-bold text-blue-900 dark:text-blue-300 flex items-center gap-1 mb-1">
+                  💧 Hydrate
+                </div>
+                <div className="text-[11px] text-slate-600 dark:text-slate-400 leading-snug">
+                  Drink some water to refresh your brain.
+                </div>
+              </div>
+              <div className="p-3 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-100 dark:border-emerald-900/50">
+                <div className="font-bold text-emerald-900 dark:text-emerald-300 flex items-center gap-1 mb-1">
+                  🧘 Stretch
+                </div>
+                <div className="text-[11px] text-slate-600 dark:text-slate-400 leading-snug">
+                  Rest your eyes and stretch your shoulders.
+                </div>
+              </div>
+              <div className="p-3 rounded-xl bg-purple-50 dark:bg-purple-950/40 border border-purple-100 dark:border-purple-900/50">
+                <div className="font-bold text-purple-900 dark:text-purple-300 flex items-center gap-1 mb-1">
+                  🧠 Reset
+                </div>
+                <div className="text-[11px] text-slate-600 dark:text-slate-400 leading-snug">
+                  Take three slow, deep breaths.
+                </div>
+              </div>
+            </div>
+
+            {/* Action Buttons: Continue to Resume Exam Timer */}
+            <div className="space-y-2 pt-2">
+              <button
+                type="button"
+                id="break-resume-btn"
+                onClick={handleResumeFromBreak}
+                className="w-full py-3.5 px-6 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-black text-sm flex items-center justify-center gap-2 shadow-lg shadow-emerald-600/20 transition-all cursor-pointer"
+              >
+                <Play className="w-4 h-4 fill-white" />
+                <span>Continue to {breakNextSubject} (Resume Exam Timer)</span>
+              </button>
+
+              <button
+                type="button"
+                onClick={handleResumeFromBreak}
+                className="text-xs text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 transition-colors py-1 cursor-pointer"
+              >
+                Skip remaining break time and begin immediately &rarr;
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Confirmation Modal before manual submit */}
       {showConfirmModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/60 dark:bg-black/70 backdrop-blur-xs p-4">
@@ -561,59 +873,58 @@ export const ExamView: React.FC<ExamViewProps> = ({
                 <Send className="w-5 h-5" />
               </div>
               <div>
-                <h3 className="text-lg font-bold text-slate-900 dark:text-white">Confirm Exam Submission</h3>
-                <p className="text-xs text-slate-500 dark:text-slate-400">Are you sure you want to finish?</p>
+                <h3 className="text-lg font-bold text-slate-900 dark:text-slate-100">Submit Examination?</h3>
+                <p className="text-xs text-slate-500 dark:text-slate-400">Review your completion before final scoring.</p>
               </div>
             </div>
 
-            {/* Status breakdown */}
-            <div className="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 space-y-2 text-sm">
+            <div className="bg-slate-50 dark:bg-slate-800/60 rounded-xl p-4 space-y-2 text-xs">
               <div className="flex justify-between">
                 <span className="text-slate-600 dark:text-slate-400">Total Questions:</span>
-                <span className="font-bold text-slate-900 dark:text-white">50</span>
+                <span className="font-bold text-slate-900 dark:text-slate-100">{exam.totalQuestions}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-emerald-700 dark:text-emerald-400 font-medium">Answered:</span>
+                <span className="text-slate-600 dark:text-slate-400">Answered Questions:</span>
                 <span className="font-bold text-emerald-700 dark:text-emerald-400">{answeredCount}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-rose-700 dark:text-rose-400 font-medium">Unanswered:</span>
+                <span className="text-slate-600 dark:text-slate-400">Unanswered Questions:</span>
                 <span className="font-bold text-rose-700 dark:text-rose-400">{unansweredCount}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-amber-700 dark:text-amber-400 font-medium">Flagged for review:</span>
+                <span className="text-slate-600 dark:text-slate-400">Flagged Questions:</span>
                 <span className="font-bold text-amber-700 dark:text-amber-400">{flaggedCount}</span>
+              </div>
+              <div className="flex justify-between border-t border-slate-200 dark:border-slate-700 pt-2">
+                <span className="text-slate-600 dark:text-slate-400">Time Remaining:</span>
+                <span className="font-bold font-mono text-blue-900 dark:text-blue-400">{formatTime(timeRemaining)}</span>
               </div>
             </div>
 
             {unansweredCount > 0 && (
-              <div className="p-3 rounded-lg bg-amber-50 dark:bg-amber-950/60 border border-amber-200 dark:border-amber-800 text-amber-900 dark:text-amber-300 text-xs flex items-center gap-2">
+              <div className="p-3 rounded-lg bg-amber-50 dark:bg-amber-950/60 border border-amber-200 dark:border-amber-900/60 text-amber-900 dark:text-amber-300 text-xs flex items-center gap-2">
                 <AlertTriangle className="w-4 h-4 shrink-0" />
-                <span>
-                  You have {unansweredCount} unanswered questions remaining. You can go back and answer them before submitting!
-                </span>
+                <span>You still have {unansweredCount} unanswered questions. Unanswered questions receive 0 marks.</span>
               </div>
             )}
 
             <div className="flex items-center justify-end gap-3 pt-2">
               <button
-                id="exam-continue-btn"
                 type="button"
                 onClick={() => setShowConfirmModal(false)}
-                className="px-4 py-2.5 rounded-lg border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-semibold text-sm hover:bg-slate-50 dark:hover:bg-slate-800"
+                className="px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-xs font-semibold hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
               >
-                Continue Examination
+                Keep Reviewing
               </button>
               <button
-                id="exam-confirm-submit-btn"
                 type="button"
                 onClick={() => {
                   setShowConfirmModal(false);
                   handleFinalSubmit(false);
                 }}
-                className="px-5 py-2.5 rounded-lg bg-blue-900 hover:bg-blue-800 dark:bg-blue-700 dark:hover:bg-blue-600 text-white font-bold text-sm shadow-sm transition-colors"
+                className="px-5 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold shadow-xs transition-colors"
               >
-                Submit Examination
+                Yes, Submit Exam
               </button>
             </div>
           </div>
