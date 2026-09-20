@@ -1,0 +1,91 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "Registered student or administrator profile",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string", "description": "Firebase Auth UID" },
+        "email": { "type": "string", "description": "User email address" },
+        "displayName": { "type": "string", "description": "Full name of candidate or admin" },
+        "role": { "type": "string", "enum": ["student", "admin"], "description": "Access role" },
+        "createdAt": { "type": "string", "description": "Registration date ISO string" }
+      },
+      "required": ["uid", "email", "displayName", "role", "createdAt"]
+    },
+    "ExamAttempt": {
+      "title": "ExamAttempt",
+      "description": "Timed 50-question mock examination attempt completed by registered or guest student",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Unique examination identifier" },
+        "studentId": { "type": "string", "description": "Registered UID or guest session ID" },
+        "studentName": { "type": "string", "description": "Candidate full name" },
+        "studentEmail": { "type": "string", "description": "Student email address or guest identifier" },
+        "subject": { "type": "string", "description": "Examination subject" },
+        "startTime": { "type": "string", "description": "Exam start ISO timestamp" },
+        "durationMinutes": { "type": "number", "description": "Allocated duration in minutes" },
+        "totalQuestions": { "type": "number", "description": "Total questions count" },
+        "status": { "type": "string", "enum": ["in_progress", "completed", "abandoned"], "description": "Status" },
+        "submittedAt": { "type": "string", "description": "Completion ISO timestamp" },
+        "score": { "type": "number", "description": "Score out of total" },
+        "percentage": { "type": "number", "description": "Percentage score" },
+        "timeUsedSeconds": { "type": "number", "description": "Time elapsed in seconds" },
+        "correctCount": { "type": "number", "description": "Count of correct answers" },
+        "incorrectCount": { "type": "number", "description": "Count of incorrect answers" },
+        "unansweredCount": { "type": "number", "description": "Count of unanswered questions" }
+      },
+      "required": ["id", "studentId", "studentName", "subject", "startTime", "status"]
+    },
+    "Question": {
+      "title": "Question",
+      "description": "11+ examination question item",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Question ID" },
+        "subject": { "type": "string", "description": "Exam subject" },
+        "topic": { "type": "string", "description": "Topic within subject" },
+        "difficulty": { "type": "string", "description": "Difficulty level" },
+        "questionText": { "type": "string", "description": "Prompt text" },
+        "correctAnswer": { "type": "string", "description": "Correct option" },
+        "explanation": { "type": "string", "description": "Detailed explanation" },
+        "approved": { "type": "boolean", "description": "Approval status" },
+        "createdAt": { "type": "string", "description": "Creation timestamp" }
+      },
+      "required": ["id", "subject", "topic", "difficulty", "questionText", "correctAnswer", "approved"]
+    },
+    "PdfDocument": {
+      "title": "PdfDocument",
+      "description": "Uploaded past paper PDF metadata",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Document ID" },
+        "name": { "type": "string", "description": "File name" },
+        "size": { "type": "number", "description": "File size in bytes" },
+        "uploadedAt": { "type": "string", "description": "Upload timestamp" },
+        "extractedCount": { "type": "number", "description": "Extracted questions count" },
+        "approvedCount": { "type": "number", "description": "Approved questions count" },
+        "status": { "type": "string", "description": "Processing status" }
+      },
+      "required": ["id", "name", "uploadedAt", "status"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": { "$ref": "#/entities/User" },
+      "description": "Registered students and administrators"
+    },
+    "/exam_attempts/{attemptId}": {
+      "schema": { "$ref": "#/entities/ExamAttempt" },
+      "description": "Mock exam attempts for registered and guest students"
+    },
+    "/questions/{questionId}": {
+      "schema": { "$ref": "#/entities/Question" },
+      "description": "Question bank items"
+    },
+    "/pdf_documents/{docId}": {
+      "schema": { "$ref": "#/entities/PdfDocument" },
+      "description": "Past paper PDF extraction documents"
+    }
+  }
+}

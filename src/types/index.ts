@@ -35,6 +35,7 @@ export interface ExamAttempt {
   studentId: string;
   studentName: string;
   studentEmail: string;
+  isRegistered?: boolean;
   subject: ExamMode;
   startTime: string; // ISO string
   durationMinutes: number; // 40

@@ -213,19 +213,32 @@ export default function App() {
   }, [currentUser]);
 
   // Start Examination flow
-  const handleStartExamFlow = async (candidateName: string, subject: ExamMode) => {
+  const handleStartExamFlow = async (candidateName: string, subject: ExamMode, candidateEmail?: string) => {
     setIsExamSetupOpen(false);
 
     // Fetch approved pool
     const approvedPool = await getApprovedQuestions(subject);
     const dynamic50 = buildDynamic50Exam(approvedPool, subject, examConfig);
 
-    const studentId = currentUser?.uid || `guest-${Date.now()}`;
+    const isGuest = !currentUser;
+    let guestUid = localStorage.getItem('fs_guest_uid');
+    if (!guestUid) {
+      guestUid = `guest-${Date.now()}`;
+      localStorage.setItem('fs_guest_uid', guestUid);
+    }
+
+    const studentId = currentUser?.uid || guestUid;
+    const cleanEmail =
+      currentUser?.email ||
+      candidateEmail ||
+      `${candidateName.trim().toLowerCase().replace(/\s+/g, '.')}@guest.practice`;
+
     const newExam: ExamAttempt = {
       id: `exam-${Date.now()}`,
       studentId,
-      studentName: candidateName,
-      studentEmail: currentUser?.email || 'student@futurestars.edu',
+      studentName: candidateName.trim(),
+      studentEmail: cleanEmail,
+      isRegistered: !isGuest,
       subject,
       startTime: new Date().toISOString(),
       durationMinutes: 40,
@@ -239,7 +252,7 @@ export default function App() {
     setActiveExam(newExam);
     setCurrentView('active_exam');
 
-    // Save to Firestore (offline supported)
+    // Save to Firestore and local cache
     await saveExamAttempt(newExam);
   };
 
@@ -478,6 +491,10 @@ export default function App() {
               pdfDocs={pdfDocs}
               examConfig={examConfig}
               onRefreshData={loadAdminData}
+              onViewExamResult={(exam) => {
+                setSelectedResultExam(exam);
+                setCurrentView('exam_result');
+              }}
             />
           </main>
         )}
@@ -526,6 +543,8 @@ export default function App() {
         onClose={() => setIsExamSetupOpen(false)}
         defaultName={currentUser?.displayName || ''}
         defaultSubject={setupDefaultSubject}
+        defaultEmail={currentUser?.email || ''}
+        isUserLoggedIn={!!currentUser}
         onStartExam={handleStartExamFlow}
       />
 

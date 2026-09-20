@@ -14,9 +14,10 @@ import {
   ArrowRight,
   RefreshCw,
   AlertCircle,
-  Eye
+  Eye,
+  Users
 } from 'lucide-react';
-import { Question, SubjectType, DifficultyLevel, PdfDocument, ExamDifficultyConfig } from '../types';
+import { Question, SubjectType, DifficultyLevel, PdfDocument, ExamDifficultyConfig, ExamAttempt } from '../types';
 import { generateAIQuestions, extractQuestionsFromPdf } from '../services/aiService';
 import {
   saveQuestion,
@@ -25,12 +26,14 @@ import {
   savePdfDocument,
   saveExamConfig
 } from '../services/dbService';
+import { AdminStudentProgress } from './AdminStudentProgress';
 
 interface AdminDashboardProps {
   questions: Question[];
   pdfDocs: PdfDocument[];
   examConfig: ExamDifficultyConfig;
   onRefreshData: () => void;
+  onViewExamResult?: (exam: ExamAttempt) => void;
 }
 
 export const AdminDashboard: React.FC<AdminDashboardProps> = ({
@@ -38,8 +41,9 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
   pdfDocs,
   examConfig,
   onRefreshData,
+  onViewExamResult,
 }) => {
-  const [activeTab, setActiveTab] = useState<'question_bank' | 'ai_generator' | 'pdf_upload' | 'settings'>('question_bank');
+  const [activeTab, setActiveTab] = useState<'student_progress' | 'question_bank' | 'ai_generator' | 'pdf_upload' | 'settings'>('student_progress');
 
   // Search & Filter state
   const [searchQuery, setSearchQuery] = useState('');
@@ -245,10 +249,21 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
       </div>
 
       {/* Tabs */}
-      <div className="flex items-center gap-2 border-b border-slate-200">
+      <div className="flex items-center gap-2 border-b border-slate-200 overflow-x-auto">
+        <button
+          onClick={() => setActiveTab('student_progress')}
+          className={`px-4 py-3 text-sm font-bold border-b-2 flex items-center gap-1.5 transition-all shrink-0 ${
+            activeTab === 'student_progress'
+              ? 'border-blue-900 text-blue-900'
+              : 'border-transparent text-slate-500 hover:text-slate-800'
+          }`}
+        >
+          <Users className="w-4 h-4 text-blue-700" />
+          Student Progress & Practice
+        </button>
         <button
           onClick={() => setActiveTab('question_bank')}
-          className={`px-4 py-3 text-sm font-bold border-b-2 transition-all ${
+          className={`px-4 py-3 text-sm font-bold border-b-2 transition-all shrink-0 ${
             activeTab === 'question_bank'
               ? 'border-blue-900 text-blue-900'
               : 'border-transparent text-slate-500 hover:text-slate-800'
@@ -258,7 +273,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
         </button>
         <button
           onClick={() => setActiveTab('ai_generator')}
-          className={`px-4 py-3 text-sm font-bold border-b-2 flex items-center gap-1.5 transition-all ${
+          className={`px-4 py-3 text-sm font-bold border-b-2 flex items-center gap-1.5 transition-all shrink-0 ${
             activeTab === 'ai_generator'
               ? 'border-blue-900 text-blue-900'
               : 'border-transparent text-slate-500 hover:text-slate-800'
@@ -269,7 +284,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
         </button>
         <button
           onClick={() => setActiveTab('pdf_upload')}
-          className={`px-4 py-3 text-sm font-bold border-b-2 flex items-center gap-1.5 transition-all ${
+          className={`px-4 py-3 text-sm font-bold border-b-2 flex items-center gap-1.5 transition-all shrink-0 ${
             activeTab === 'pdf_upload'
               ? 'border-blue-900 text-blue-900'
               : 'border-transparent text-slate-500 hover:text-slate-800'
@@ -280,7 +295,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
         </button>
         <button
           onClick={() => setActiveTab('settings')}
-          className={`px-4 py-3 text-sm font-bold border-b-2 flex items-center gap-1.5 transition-all ${
+          className={`px-4 py-3 text-sm font-bold border-b-2 flex items-center gap-1.5 transition-all shrink-0 ${
             activeTab === 'settings'
               ? 'border-blue-900 text-blue-900'
               : 'border-transparent text-slate-500 hover:text-slate-800'
@@ -290,6 +305,11 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
           Exam Settings
         </button>
       </div>
+
+      {/* Tab 0: Student Progress & Practice Tracking */}
+      {activeTab === 'student_progress' && (
+        <AdminStudentProgress onInspectExamResult={onViewExamResult} />
+      )}
 
       {/* Tab 1: Question Bank */}
       {activeTab === 'question_bank' && (

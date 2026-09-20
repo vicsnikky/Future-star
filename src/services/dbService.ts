@@ -12,7 +12,7 @@ import {
   limit
 } from 'firebase/firestore';
 import { db } from '../lib/firebase';
-import { Question, ExamAttempt, PdfDocument, ExamDifficultyConfig } from '../types';
+import { Question, ExamAttempt, PdfDocument, ExamDifficultyConfig, UserProfile } from '../types';
 import { SEED_QUESTIONS } from '../data/seedQuestions';
 
 const QUESTIONS_COLLECTION = 'questions';
@@ -144,8 +144,28 @@ export async function deleteQuestion(id: string): Promise<void> {
 
 // 7. Save or Update Active Exam Attempt (Auto-save)
 export async function saveExamAttempt(attempt: ExamAttempt): Promise<void> {
-  const docRef = doc(db, EXAMS_COLLECTION, attempt.id);
-  await setDoc(docRef, attempt, { merge: true });
+  // Local persistence cache backup
+  try {
+    const rawLocal = localStorage.getItem('fs_saved_exams');
+    const list: ExamAttempt[] = rawLocal ? JSON.parse(rawLocal) : [];
+    const idx = list.findIndex(e => e.id === attempt.id);
+    if (idx >= 0) {
+      list[idx] = attempt;
+    } else {
+      list.unshift(attempt);
+    }
+    localStorage.setItem('fs_saved_exams', JSON.stringify(list.slice(0, 100)));
+  } catch (err) {
+    console.warn('LocalStorage save error:', err);
+  }
+
+  // Firestore sync
+  try {
+    const docRef = doc(db, EXAMS_COLLECTION, attempt.id);
+    await setDoc(docRef, attempt, { merge: true });
+  } catch (err) {
+    console.warn('Firestore exam save error (saved to local cache):', err);
+  }
 }
 
 // 8. Get Active / In-progress exam for a student
@@ -160,15 +180,39 @@ export async function getActiveExam(studentId: string): Promise<ExamAttempt | nu
     if (!snap.empty) {
       return snap.docs[0].data() as ExamAttempt;
     }
-    return null;
   } catch (e) {
-    console.error('Error fetching active exam:', e);
-    return null;
+    console.error('Error fetching active exam from Firestore:', e);
   }
+
+  // Fallback to local
+  try {
+    const rawLocal = localStorage.getItem('fs_saved_exams');
+    if (rawLocal) {
+      const list: ExamAttempt[] = JSON.parse(rawLocal);
+      const found = list.find(e => e.studentId === studentId && e.status === 'in_progress');
+      if (found) return found;
+    }
+  } catch {}
+
+  return null;
 }
 
 // 9. Get student exam history
 export async function getStudentExamHistory(studentId: string): Promise<ExamAttempt[]> {
+  const attemptMap = new Map<string, ExamAttempt>();
+
+  // Check local cache
+  try {
+    const rawLocal = localStorage.getItem('fs_saved_exams');
+    if (rawLocal) {
+      const list: ExamAttempt[] = JSON.parse(rawLocal);
+      list
+        .filter(e => (e.studentId === studentId || e.studentEmail === studentId) && e.status === 'completed')
+        .forEach(e => attemptMap.set(e.id, e));
+    }
+  } catch {}
+
+  // Fetch Firestore
   try {
     const q = query(
       collection(db, EXAMS_COLLECTION),
@@ -176,36 +220,120 @@ export async function getStudentExamHistory(studentId: string): Promise<ExamAtte
       where('status', '==', 'completed')
     );
     const snap = await getDocs(q);
-    const results: ExamAttempt[] = [];
     snap.forEach((docSnap) => {
-      results.push(docSnap.data() as ExamAttempt);
+      const data = docSnap.data() as ExamAttempt;
+      attemptMap.set(data.id, data);
     });
-    // Sort descending by submittedAt or startTime
-    results.sort((a, b) => new Date(b.submittedAt || b.startTime).getTime() - new Date(a.submittedAt || a.startTime).getTime());
-    return results;
   } catch (e) {
     console.error('Error fetching student exam history:', e);
-    return [];
   }
+
+  const results = Array.from(attemptMap.values());
+  results.sort((a, b) => new Date(b.submittedAt || b.startTime).getTime() - new Date(a.submittedAt || a.startTime).getTime());
+  return results;
 }
 
-// 10. Get all completed exams for Admin stats
+// 10. Get all completed exams for Admin stats (Combines registered & guest/unregistered)
 export async function getAllCompletedExams(): Promise<ExamAttempt[]> {
+  const attemptMap = new Map<string, ExamAttempt>();
+
+  // Check local cache
+  try {
+    const rawLocal = localStorage.getItem('fs_saved_exams');
+    if (rawLocal) {
+      const list: ExamAttempt[] = JSON.parse(rawLocal);
+      list
+        .filter(e => e.status === 'completed')
+        .forEach(e => attemptMap.set(e.id, e));
+    }
+  } catch {}
+
+  // Fetch Firestore
   try {
     const q = query(
       collection(db, EXAMS_COLLECTION),
       where('status', '==', 'completed')
     );
     const snap = await getDocs(q);
-    const results: ExamAttempt[] = [];
     snap.forEach((docSnap) => {
-      results.push(docSnap.data() as ExamAttempt);
+      const data = docSnap.data() as ExamAttempt;
+      attemptMap.set(data.id, data);
     });
-    return results;
   } catch (e) {
     console.error('Error fetching admin exam stats:', e);
-    return [];
   }
+
+  const results = Array.from(attemptMap.values());
+  results.sort((a, b) => new Date(b.submittedAt || b.startTime).getTime() - new Date(a.submittedAt || a.startTime).getTime());
+  return results;
+}
+
+// 10b. Get all exam attempts (completed and in-progress) for comprehensive Admin tracking
+export async function getAllExamAttempts(): Promise<ExamAttempt[]> {
+  const attemptMap = new Map<string, ExamAttempt>();
+
+  // Check local cache
+  try {
+    const rawLocal = localStorage.getItem('fs_saved_exams');
+    if (rawLocal) {
+      const list: ExamAttempt[] = JSON.parse(rawLocal);
+      list.forEach(e => attemptMap.set(e.id, e));
+    }
+  } catch {}
+
+  // Fetch Firestore
+  try {
+    const snap = await getDocs(collection(db, EXAMS_COLLECTION));
+    snap.forEach((docSnap) => {
+      const data = docSnap.data() as ExamAttempt;
+      attemptMap.set(data.id, data);
+    });
+  } catch (e) {
+    console.error('Error fetching all exam attempts from Firestore:', e);
+  }
+
+  const results = Array.from(attemptMap.values());
+  results.sort((a, b) => new Date(b.submittedAt || b.startTime).getTime() - new Date(a.submittedAt || a.startTime).getTime());
+  return results;
+}
+
+// 10c. Get all registered students and users from Firestore
+export async function getAllRegisteredUsers(): Promise<UserProfile[]> {
+  const usersMap = new Map<string, UserProfile>();
+
+  try {
+    const snap = await getDocs(collection(db, 'users'));
+    snap.forEach((docSnap) => {
+      const data = docSnap.data() as UserProfile;
+      usersMap.set(data.uid || docSnap.id, {
+        ...data,
+        uid: data.uid || docSnap.id,
+      });
+    });
+  } catch (e) {
+    console.error('Error fetching registered users from Firestore:', e);
+  }
+
+  return Array.from(usersMap.values()).sort(
+    (a, b) => new Date(b.createdAt || 0).getTime() - new Date(a.createdAt || 0).getTime()
+  );
+}
+
+// 10d. Delete an exam attempt if admin wants to clean up test data
+export async function deleteExamAttempt(attemptId: string): Promise<void> {
+  try {
+    await deleteDoc(doc(db, EXAMS_COLLECTION, attemptId));
+  } catch (e) {
+    console.warn('Error deleting attempt from Firestore:', e);
+  }
+  try {
+    const rawLocal = localStorage.getItem('fs_saved_exams');
+    if (rawLocal) {
+      const list: ExamAttempt[] = JSON.parse(rawLocal);
+      const filtered = list.filter(e => e.id !== attemptId);
+      localStorage.setItem('fs_saved_exams', JSON.stringify(filtered));
+    }
+  } catch {}
 }
 
 // 11. PDF Documents tracker
