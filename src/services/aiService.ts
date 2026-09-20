@@ -209,7 +209,7 @@ export async function extractQuestionsFromPdf(params: {
         return data.questions.map((item: any) => ({
           subject: (item.subject || 'Mathematics') as SubjectType,
           topic: item.topic || 'General Practice',
-          difficulty: (item.difficulty || 'Medium') as DifficultyLevel,
+          difficulty: 'Hard',
           questionText: item.questionText,
           options: item.options,
           correctAnswer: item.correctAnswer,
@@ -258,7 +258,7 @@ function parseTextToQuestions(text: string, pdfName: string): Omit<Question, 'id
         extracted.push({
           subject: 'Mathematics',
           topic: 'General 11+ Past Paper',
-          difficulty: 'Medium',
+          difficulty: 'Hard',
           questionText: currentQ.questionText,
           options: currentOpts.length === 4 ? currentOpts : [...currentOpts, 'None of these'],
           correctAnswer: currentOpts[0],
@@ -283,7 +283,7 @@ function parseTextToQuestions(text: string, pdfName: string): Omit<Question, 'id
     extracted.push({
       subject: 'Mathematics',
       topic: 'General 11+ Past Paper',
-      difficulty: 'Medium',
+      difficulty: 'Hard',
       questionText: currentQ.questionText,
       options: currentOpts.length === 4 ? currentOpts : [...currentOpts, 'None of these'],
       correctAnswer: currentOpts[0],
@@ -302,7 +302,7 @@ function parseTextToQuestions(text: string, pdfName: string): Omit<Question, 'id
       {
         subject: 'Mathematics',
         topic: 'Decimals & Money',
-        difficulty: 'Medium',
+        difficulty: 'Hard',
         questionText: 'A pack of 6 pens costs £4.20. How much do 9 pens cost?',
         options: ['£5.40', '£6.30', '£6.00', '£7.20'],
         correctAnswer: '£6.30',
@@ -330,7 +330,7 @@ function parseTextToQuestions(text: string, pdfName: string): Omit<Question, 'id
       {
         subject: 'Verbal Reasoning',
         topic: 'Codes',
-        difficulty: 'Medium',
+        difficulty: 'Hard',
         questionText: 'If CAT = 3-1-20, what is FOX?',
         options: ['6-15-24', '6-14-23', '5-15-24', '6-16-25'],
         correctAnswer: '6-15-24',

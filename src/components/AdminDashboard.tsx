@@ -13,7 +13,8 @@ import {
   Plus,
   ArrowRight,
   RefreshCw,
-  AlertCircle
+  AlertCircle,
+  Eye
 } from 'lucide-react';
 import { Question, SubjectType, DifficultyLevel, PdfDocument, ExamDifficultyConfig } from '../types';
 import { generateAIQuestions, extractQuestionsFromPdf } from '../services/aiService';
@@ -44,11 +45,13 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
   const [searchQuery, setSearchQuery] = useState('');
   const [filterSubject, setFilterSubject] = useState<string>('All');
   const [filterStatus, setFilterStatus] = useState<'all' | 'approved' | 'pending'>('all');
+  const [filterSource, setFilterSource] = useState<'all' | 'past_paper' | 'curated_seed' | 'ai_generated'>('all');
+  const [filterPdf, setFilterPdf] = useState<string>('all');
 
-  // AI Generator Form
+  // AI Generator Form (Fixed strictly to Hard)
   const [aiSubject, setAiSubject] = useState<SubjectType>('Mathematics');
   const [aiTopic, setAiTopic] = useState('Fractions');
-  const [aiDifficulty, setAiDifficulty] = useState<DifficultyLevel>('Medium');
+  const [aiDifficulty] = useState<DifficultyLevel>('Hard');
   const [aiCount, setAiCount] = useState<number>(5);
   const [aiGenerating, setAiGenerating] = useState(false);
   const [aiGeneratedPreview, setAiGeneratedPreview] = useState<Omit<Question, 'id'>[]>([]);
@@ -60,25 +63,39 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
   const [currentPdfName, setCurrentPdfName] = useState('');
   const [pdfError, setPdfError] = useState<string>('');
 
-  // Editing Modal / Inline
+  // Editing & Detail Inspect Modals
   const [editingQuestion, setEditingQuestion] = useState<Question | null>(null);
+  const [viewingQuestionDetails, setViewingQuestionDetails] = useState<Question | null>(null);
 
   // Settings state
   const [localConfig, setLocalConfig] = useState<ExamDifficultyConfig>(examConfig);
   const [configSaved, setConfigSaved] = useState(false);
 
+  // List of available past paper PDFs for filtering
+  const availablePdfs = Array.from(
+    new Set(
+      questions
+        .filter(q => q.sourcePdfName)
+        .map(q => q.sourcePdfName as string)
+    )
+  );
+
   // Filtered Question Bank
   const filteredQuestions = questions.filter(q => {
     const matchesSearch = !searchQuery ||
       q.questionText.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      q.topic.toLowerCase().includes(searchQuery.toLowerCase());
+      q.topic.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      (q.sourcePdfName && q.sourcePdfName.toLowerCase().includes(searchQuery.toLowerCase()));
 
     const matchesSubject = filterSubject === 'All' || q.subject === filterSubject;
     const matchesStatus = filterStatus === 'all' ||
       (filterStatus === 'approved' && q.approved) ||
       (filterStatus === 'pending' && !q.approved);
 
-    return matchesSearch && matchesSubject && matchesStatus;
+    const matchesSource = filterSource === 'all' || q.sourceType === filterSource;
+    const matchesPdf = filterPdf === 'all' || q.sourcePdfName === filterPdf;
+
+    return matchesSearch && matchesSubject && matchesStatus && matchesSource && matchesPdf;
   });
 
   // Action Handlers
@@ -278,38 +295,88 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
       {activeTab === 'question_bank' && (
         <div className="space-y-4">
           {/* Filters */}
-          <div className="bg-white p-4 rounded-xl border border-slate-200 flex flex-col sm:flex-row items-center gap-3">
-            <div className="relative flex-1 w-full">
-              <Search className="w-4 h-4 text-slate-400 absolute left-3 top-3" />
-              <input
-                type="text"
-                placeholder="Search questions by text or topic..."
-                value={searchQuery}
-                onChange={e => setSearchQuery(e.target.value)}
-                className="w-full pl-9 pr-3 py-2 text-sm rounded-lg border border-slate-200 focus:outline-hidden focus:ring-1 focus:ring-blue-900"
-              />
+          <div className="bg-white p-4 rounded-xl border border-slate-200 flex flex-col gap-3">
+            <div className="flex flex-col sm:flex-row items-center gap-3">
+              <div className="relative flex-1 w-full">
+                <Search className="w-4 h-4 text-slate-400 absolute left-3 top-3" />
+                <input
+                  type="text"
+                  placeholder="Search questions by text, topic, or PDF name..."
+                  value={searchQuery}
+                  onChange={e => setSearchQuery(e.target.value)}
+                  className="w-full pl-9 pr-3 py-2 text-sm rounded-lg border border-slate-200 focus:outline-hidden focus:ring-1 focus:ring-blue-900"
+                />
+              </div>
+
+              <select
+                value={filterSubject}
+                onChange={e => setFilterSubject(e.target.value)}
+                className="px-3 py-2 text-xs font-semibold rounded-lg border border-slate-200 bg-white"
+              >
+                <option value="All">All Subjects</option>
+                <option value="Mathematics">Mathematics</option>
+                <option value="English">English</option>
+                <option value="Verbal Reasoning">Verbal Reasoning</option>
+              </select>
+
+              <select
+                value={filterSource}
+                onChange={e => setFilterSource(e.target.value as any)}
+                className="px-3 py-2 text-xs font-semibold rounded-lg border border-slate-200 bg-white"
+              >
+                <option value="all">All Sources</option>
+                <option value="past_paper">Past Paper PDF (Extracted)</option>
+                <option value="curated_seed">Curated Question Bank</option>
+                <option value="ai_generated">AI Generated</option>
+              </select>
+
+              <select
+                value={filterStatus}
+                onChange={e => setFilterStatus(e.target.value as any)}
+                className="px-3 py-2 text-xs font-semibold rounded-lg border border-slate-200 bg-white"
+              >
+                <option value="all">All Approval Status</option>
+                <option value="approved">Approved for Students</option>
+                <option value="pending">Pending Approval</option>
+              </select>
             </div>
 
-            <select
-              value={filterSubject}
-              onChange={e => setFilterSubject(e.target.value)}
-              className="px-3 py-2 text-xs font-semibold rounded-lg border border-slate-200 bg-white"
-            >
-              <option value="All">All Subjects</option>
-              <option value="Mathematics">Mathematics</option>
-              <option value="English">English</option>
-              <option value="Verbal Reasoning">Verbal Reasoning</option>
-            </select>
+            {/* Sub-filter for specific Past Paper PDF */}
+            {availablePdfs.length > 0 && (
+              <div className="flex items-center gap-2 pt-2 border-t border-slate-100 flex-wrap text-xs">
+                <span className="font-bold text-slate-600 flex items-center gap-1">
+                  <FileText className="w-3.5 h-3.5 text-blue-700" /> Filter by Past Paper PDF:
+                </span>
+                <select
+                  value={filterPdf}
+                  onChange={e => {
+                    setFilterPdf(e.target.value);
+                    if (e.target.value !== 'all') {
+                      setFilterSource('past_paper');
+                    }
+                  }}
+                  className="px-2.5 py-1 text-xs font-medium rounded-md border border-slate-200 bg-slate-50"
+                >
+                  <option value="all">All Past Papers ({availablePdfs.length})</option>
+                  {availablePdfs.map(pdf => (
+                    <option key={pdf} value={pdf}>{pdf}</option>
+                  ))}
+                </select>
 
-            <select
-              value={filterStatus}
-              onChange={e => setFilterStatus(e.target.value as any)}
-              className="px-3 py-2 text-xs font-semibold rounded-lg border border-slate-200 bg-white"
-            >
-              <option value="all">All Approval Status</option>
-              <option value="approved">Approved for Students</option>
-              <option value="pending">Pending Approval</option>
-            </select>
+                {filterPdf !== 'all' && (
+                  <button
+                    onClick={() => { setFilterPdf('all'); setFilterSource('all'); }}
+                    className="text-[11px] text-blue-700 bg-blue-50 px-2 py-0.5 rounded-full hover:bg-blue-100 font-semibold flex items-center gap-1 cursor-pointer"
+                  >
+                    <span>Filtered: {filterPdf}</span>
+                    <span className="font-bold">✕ Clear</span>
+                  </button>
+                )}
+                <span className="text-slate-400 ml-auto">
+                  Showing {filteredQuestions.length} questions (All Hard Grammar Standard)
+                </span>
+              </div>
+            )}
           </div>
 
           {/* Table */}
@@ -321,7 +388,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
                     <th className="px-4 py-3">Subject & Topic</th>
                     <th className="px-4 py-3">Question</th>
                     <th className="px-4 py-3">Correct Answer</th>
-                    <th className="px-4 py-3">Source</th>
+                    <th className="px-4 py-3">Source & PDF Origin</th>
                     <th className="px-4 py-3">Status</th>
                     <th className="px-4 py-3 text-right">Actions</th>
                   </tr>
@@ -331,7 +398,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
                     <tr key={q.id} className="hover:bg-slate-50/70">
                       <td className="px-4 py-3 whitespace-nowrap">
                         <span className="font-bold text-slate-900 block">{q.subject}</span>
-                        <span className="text-slate-500">{q.topic} • {q.difficulty}</span>
+                        <span className="text-slate-500">{q.topic} • <span className="font-semibold text-purple-700">Hard</span></span>
                       </td>
                       <td className="px-4 py-3 max-w-md">
                         <span className="font-medium text-slate-800 line-clamp-2">{q.questionText}</span>
@@ -339,8 +406,25 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
                       <td className="px-4 py-3 font-bold text-emerald-700 whitespace-nowrap">
                         {q.correctAnswer}
                       </td>
-                      <td className="px-4 py-3 whitespace-nowrap text-slate-500">
-                        {q.sourceType}
+                      <td className="px-4 py-3 whitespace-nowrap">
+                        {q.sourceType === 'past_paper' ? (
+                          <div className="flex flex-col">
+                            <span className="inline-flex items-center gap-1 text-blue-700 bg-blue-50 px-2 py-0.5 rounded font-semibold text-[11px] border border-blue-200 w-fit">
+                              <FileText className="w-3 h-3" /> Past Paper PDF
+                            </span>
+                            {q.sourcePdfName && (
+                              <span className="text-[10px] text-slate-500 truncate max-w-[180px] mt-0.5" title={q.sourcePdfName}>
+                                {q.sourcePdfName}
+                              </span>
+                            )}
+                          </div>
+                        ) : q.sourceType === 'ai_generated' ? (
+                          <span className="inline-flex items-center gap-1 text-amber-800 bg-amber-50 px-2 py-0.5 rounded font-semibold text-[11px] border border-amber-200">
+                            <Sparkles className="w-3 h-3 text-amber-600" /> AI Generated
+                          </span>
+                        ) : (
+                          <span className="text-slate-600 font-medium">Curated Bank</span>
+                        )}
                       </td>
                       <td className="px-4 py-3 whitespace-nowrap">
                         <span className={`inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-bold ${
@@ -350,10 +434,17 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
                         </span>
                       </td>
                       <td className="px-4 py-3 text-right whitespace-nowrap space-x-1">
+                        <button
+                          onClick={() => setViewingQuestionDetails(q)}
+                          className="p-1.5 rounded-md bg-blue-50 text-blue-700 hover:bg-blue-100 transition-colors"
+                          title="View Full Question Details & PDF Origin"
+                        >
+                          <Eye className="w-4 h-4" />
+                        </button>
                         {!q.approved && (
                           <button
                             onClick={() => handleApproveQuestion(q)}
-                            className="p-1.5 rounded-md bg-emerald-100 text-emerald-800 hover:bg-emerald-200"
+                            className="p-1.5 rounded-md bg-emerald-100 text-emerald-800 hover:bg-emerald-200 transition-colors"
                             title="Approve Question"
                           >
                             <CheckCircle className="w-4 h-4" />
@@ -361,14 +452,14 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
                         )}
                         <button
                           onClick={() => setEditingQuestion(q)}
-                          className="p-1.5 rounded-md bg-slate-100 text-slate-700 hover:bg-slate-200"
+                          className="p-1.5 rounded-md bg-slate-100 text-slate-700 hover:bg-slate-200 transition-colors"
                           title="Edit Question"
                         >
                           <Edit2 className="w-4 h-4" />
                         </button>
                         <button
                           onClick={() => handleRejectOrDelete(q.id)}
-                          className="p-1.5 rounded-md bg-rose-100 text-rose-800 hover:bg-rose-200"
+                          className="p-1.5 rounded-md bg-rose-100 text-rose-800 hover:bg-rose-200 transition-colors"
                           title="Delete Question"
                         >
                           <Trash2 className="w-4 h-4" />
@@ -427,16 +518,11 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-slate-700 mb-1">Difficulty</label>
-                <select
-                  value={aiDifficulty}
-                  onChange={e => setAiDifficulty(e.target.value as DifficultyLevel)}
-                  className="w-full px-3 py-2 text-sm rounded-lg border border-slate-300 bg-white"
-                >
-                  <option value="Easy">Easy</option>
-                  <option value="Medium">Medium</option>
-                  <option value="Hard">Hard</option>
-                </select>
+                <label className="block text-xs font-bold text-slate-700 mb-1">Standard & Difficulty</label>
+                <div className="w-full px-3 py-2 text-sm font-semibold rounded-lg border border-purple-200 bg-purple-50 text-purple-900 flex items-center justify-between">
+                  <span>Hard (Grammar Level)</span>
+                  <span className="text-[10px] uppercase font-bold bg-purple-200/80 text-purple-950 px-1.5 py-0.5 rounded">Fixed</span>
+                </div>
               </div>
 
               <div>

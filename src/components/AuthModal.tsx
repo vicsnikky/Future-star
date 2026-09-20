@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Lock, User, AlertCircle, ArrowLeft, Shield } from 'lucide-react';
+import { Mail, Lock, User, AlertCircle, ArrowLeft, Shield, Eye, EyeOff } from 'lucide-react';
 import { signInWithEmailAndPassword, createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import { auth, db } from '../lib/firebase';
 import { doc, setDoc, getDoc } from 'firebase/firestore';
@@ -19,6 +19,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, onSuccess
   const [isAdminMode, setIsAdminMode] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
   const [displayName, setDisplayName] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
@@ -41,6 +42,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, onSuccess
     setLoading(true);
 
     const cleanEmail = email.toLowerCase().trim();
+    const cleanPassword = password.trim();
     const isAdmin = isTargetAdmin(cleanEmail) || isAdminMode;
 
     try {
@@ -51,7 +53,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, onSuccess
           return;
         }
 
-        const userCredential = await createUserWithEmailAndPassword(auth, cleanEmail, password);
+        const userCredential = await createUserWithEmailAndPassword(auth, cleanEmail, cleanPassword);
         const user = userCredential.user;
         await updateProfile(user, { displayName });
 
@@ -70,16 +72,16 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, onSuccess
       } else {
         let user;
         try {
-          const userCredential = await signInWithEmailAndPassword(auth, cleanEmail, password);
+          const userCredential = await signInWithEmailAndPassword(auth, cleanEmail, cleanPassword);
           user = userCredential.user;
         } catch (signInErr: any) {
-          // If this is the default admin credentials and account hasn't been created in Firebase yet, auto-provision
+          // If this is the designated admin credentials and account hasn't been created yet, auto-provision
           if (
             cleanEmail === DEFAULT_ADMIN_EMAIL &&
-            password === DEFAULT_ADMIN_PASS &&
-            (signInErr.code === 'auth/user-not-found' || signInErr.code === 'auth/invalid-credential')
+            cleanPassword === DEFAULT_ADMIN_PASS &&
+            (signInErr.code === 'auth/user-not-found' || signInErr.code === 'auth/invalid-credential' || signInErr.code === 'auth/internal-error')
           ) {
-            const newCredential = await createUserWithEmailAndPassword(auth, cleanEmail, password);
+            const newCredential = await createUserWithEmailAndPassword(auth, cleanEmail, cleanPassword);
             user = newCredential.user;
             await updateProfile(user, { displayName: 'Future Stars Administrator' });
           } else {
@@ -115,14 +117,35 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, onSuccess
       }
     } catch (err: any) {
       console.error('Authentication error:', err);
-      if (err.code === 'auth/wrong-password' || err.code === 'auth/user-not-found' || err.code === 'auth/invalid-credential') {
-        setError('Invalid email or password. Please try again.');
-      } else if (err.code === 'auth/email-already-in-use') {
-        setError('An account with this email already exists. Try signing in.');
-      } else if (err.code === 'auth/weak-password') {
-        setError('Password should be at least 6 characters.');
+      const errCode = err.code || '';
+      const errMsg = (err.message || '').toUpperCase();
+
+      if (
+        errCode === 'auth/wrong-password' ||
+        errCode === 'auth/user-not-found' ||
+        errCode === 'auth/invalid-credential' ||
+        errCode === 'auth/invalid-login-credentials' ||
+        errMsg.includes('INVALID_LOGIN_CREDENTIALS') ||
+        errMsg.includes('INVALID-CREDENTIAL')
+      ) {
+        setError('Incorrect email or password. Please verify your credentials and try again.');
+      } else if (errCode === 'auth/internal-error' || errMsg.includes('INTERNAL-ERROR')) {
+        setError('Incorrect email or password, or connection timeout. Please check your credentials and try again.');
+      } else if (errCode === 'auth/email-already-in-use') {
+        setError('An account with this email already exists. Try signing in instead.');
+      } else if (errCode === 'auth/weak-password') {
+        setError('Password must be at least 6 characters.');
+      } else if (errCode === 'auth/too-many-requests') {
+        setError('Too many failed sign-in attempts. Please wait a moment before trying again.');
+      } else if (errCode === 'auth/network-request-failed') {
+        setError('Network connection error. Please check your internet connection and try again.');
+      } else if (errCode === 'auth/invalid-email') {
+        setError('Please enter a valid email address.');
       } else {
-        setError(err.message || 'Authentication failed. Please check credentials.');
+        const cleanMsg = (err.message || '')
+          .replace(/^Firebase:\s*Error\s*\(([^)]+)\)\.?/i, '$1')
+          .replace(/^auth\//i, '');
+        setError(cleanMsg || 'Authentication failed. Please verify credentials.');
       }
     } finally {
       setLoading(false);
@@ -213,20 +236,54 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, onSuccess
           </div>
 
           <div>
-            <label className="block text-xs font-semibold text-slate-700 mb-1">
-              Password
-            </label>
+            <div className="flex items-center justify-between mb-1">
+              <label className="block text-xs font-semibold text-slate-700">
+                Password
+              </label>
+              <button
+                type="button"
+                id="auth-toggle-password-text-btn"
+                onClick={() => setShowPassword((prev) => !prev)}
+                className="text-[11px] font-medium text-blue-900 hover:text-blue-700 flex items-center gap-1 transition-colors"
+              >
+                {showPassword ? (
+                  <>
+                    <EyeOff className="w-3 h-3" />
+                    <span>Hide password</span>
+                  </>
+                ) : (
+                  <>
+                    <Eye className="w-3 h-3" />
+                    <span>Show password</span>
+                  </>
+                )}
+              </button>
+            </div>
             <div className="relative">
               <Lock className="w-4 h-4 text-slate-400 absolute left-3 top-3" />
               <input
                 id="auth-password-input"
-                type="password"
+                type={showPassword ? 'text' : 'password'}
                 required
-                placeholder="••••••••"
+                placeholder={showPassword ? 'Enter your password' : '••••••••'}
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full pl-9 pr-3 py-2 text-sm rounded-lg border border-slate-300 focus:outline-hidden focus:ring-2 focus:ring-blue-900"
+                className="w-full pl-9 pr-10 py-2 text-sm rounded-lg border border-slate-300 focus:outline-hidden focus:ring-2 focus:ring-blue-900 font-sans"
               />
+              <button
+                id="auth-toggle-password-icon-btn"
+                type="button"
+                onClick={() => setShowPassword((prev) => !prev)}
+                className="absolute right-3 top-2.5 text-slate-400 hover:text-slate-600 focus:outline-hidden p-0.5 rounded transition-colors"
+                title={showPassword ? 'Hide password' : 'Show password'}
+                aria-label={showPassword ? 'Hide password' : 'Show password'}
+              >
+                {showPassword ? (
+                  <EyeOff className="w-4 h-4" />
+                ) : (
+                  <Eye className="w-4 h-4" />
+                )}
+              </button>
             </div>
           </div>
 

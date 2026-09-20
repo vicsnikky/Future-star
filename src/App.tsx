@@ -31,6 +31,7 @@ import { ResultView } from './components/ResultView';
 import { StudentDashboard } from './components/StudentDashboard';
 import { MyMistakes } from './components/MyMistakes';
 import { AdminDashboard } from './components/AdminDashboard';
+import { KeyboardShortcutsModal } from './components/KeyboardShortcutsModal';
 import {
   BookOpen,
   LogOut,
@@ -38,7 +39,11 @@ import {
   Shield,
   Home,
   Target,
-  FileText
+  FileText,
+  TrendingUp,
+  Moon,
+  Sun,
+  Keyboard
 } from 'lucide-react';
 
 export default function App() {
@@ -49,6 +54,63 @@ export default function App() {
   const [currentView, setCurrentView] = useState<
     'landing' | 'student_dashboard' | 'admin_dashboard' | 'active_exam' | 'exam_result' | 'my_mistakes'
   >('landing');
+  const [studentDashboardTab, setStudentDashboardTab] = useState<'practice' | 'progress'>('practice');
+
+  // Dark mode state with persistence
+  const [isDarkMode, setIsDarkMode] = useState<boolean>(() => {
+    if (typeof window !== 'undefined') {
+      const saved = localStorage.getItem('fs_theme');
+      if (saved) return saved === 'dark';
+      return window.matchMedia('(prefers-color-scheme: dark)').matches;
+    }
+    return false;
+  });
+
+  const [showGlobalShortcutsModal, setShowGlobalShortcutsModal] = useState(false);
+
+  // Sync dark mode with html documentElement class
+  useEffect(() => {
+    if (isDarkMode) {
+      document.documentElement.classList.add('dark');
+      localStorage.setItem('fs_theme', 'dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem('fs_theme', 'light');
+    }
+  }, [isDarkMode]);
+
+  const toggleDarkMode = () => setIsDarkMode(prev => !prev);
+
+  // Global Keyboard Shortcuts (Shift+D for Dark Mode, ? for shortcuts modal)
+  useEffect(() => {
+    const handleGlobalKeyDown = (e: KeyboardEvent) => {
+      const activeTag = document.activeElement?.tagName?.toLowerCase();
+      if (activeTag === 'input' || activeTag === 'textarea' || activeTag === 'select') {
+        return;
+      }
+
+      // Shift+D -> Toggle theme
+      if (e.shiftKey && e.key.toLowerCase() === 'd') {
+        e.preventDefault();
+        toggleDarkMode();
+        return;
+      }
+
+      // ? -> Open Shortcuts Guide (when outside exam view, where ExamView manages its own modal)
+      if (e.key === '?' && currentView !== 'active_exam') {
+        e.preventDefault();
+        setShowGlobalShortcutsModal(prev => !prev);
+        return;
+      }
+
+      if (e.key === 'Escape' && showGlobalShortcutsModal) {
+        setShowGlobalShortcutsModal(false);
+      }
+    };
+
+    window.addEventListener('keydown', handleGlobalKeyDown);
+    return () => window.removeEventListener('keydown', handleGlobalKeyDown);
+  }, [currentView, showGlobalShortcutsModal]);
 
   // Modals
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
@@ -64,9 +126,9 @@ export default function App() {
   const [adminQuestions, setAdminQuestions] = useState<Question[]>([]);
   const [pdfDocs, setPdfDocs] = useState<PdfDocument[]>([]);
   const [examConfig, setExamConfig] = useState<ExamDifficultyConfig>({
-    easyCount: 15,
-    mediumCount: 25,
-    hardCount: 10,
+    easyCount: 0,
+    mediumCount: 0,
+    hardCount: 50,
     negativeMarking: false,
   });
 
@@ -209,41 +271,62 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900 flex flex-col font-sans">
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 flex flex-col font-sans transition-colors">
       {/* Global Navigation when authenticated */}
       {currentUser && currentView !== 'active_exam' && (
-        <nav className="sticky top-0 z-40 bg-white border-b border-slate-200">
+        <nav className="sticky top-0 z-40 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 transition-colors">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
             <div className="flex items-center gap-3">
               <button
                 onClick={() => setCurrentView(currentUser.role === 'admin' ? 'admin_dashboard' : 'student_dashboard')}
-                className="flex items-center gap-2.5"
+                className="flex items-center gap-2.5 cursor-pointer"
               >
-                <div className="w-9 h-9 rounded-xl bg-blue-900 text-white flex items-center justify-center font-black text-base shadow-xs">
+                <div className="w-9 h-9 rounded-xl bg-blue-900 dark:bg-blue-600 text-white flex items-center justify-center font-black text-base shadow-xs">
                   FS
                 </div>
                 <div className="text-left">
-                  <span className="font-extrabold text-lg tracking-tight text-blue-950 block">FUTURE STARS</span>
-                  <span className="text-[10px] text-slate-500 font-semibold uppercase tracking-wider block">11+ Examination Platform</span>
+                  <span className="font-extrabold text-lg tracking-tight text-blue-950 dark:text-blue-100 block">FUTURE STARS</span>
+                  <span className="text-[10px] text-slate-500 dark:text-slate-400 font-semibold uppercase tracking-wider block">11+ Examination Platform</span>
                 </div>
               </button>
 
-              <div className="hidden md:flex items-center gap-1 ml-6 border-l border-slate-200 pl-4">
+              <div className="hidden md:flex items-center gap-1 ml-6 border-l border-slate-200 dark:border-slate-800 pl-4">
                 {currentUser.role === 'student' ? (
                   <>
                     <button
-                      onClick={() => setCurrentView('student_dashboard')}
+                      onClick={() => {
+                        setStudentDashboardTab('practice');
+                        setCurrentView('student_dashboard');
+                      }}
                       className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
-                        currentView === 'student_dashboard' ? 'bg-blue-50 text-blue-900' : 'text-slate-600 hover:text-slate-900'
+                        currentView === 'student_dashboard' && studentDashboardTab === 'practice'
+                          ? 'bg-blue-50 dark:bg-blue-950/70 text-blue-900 dark:text-blue-300'
+                          : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'
                       }`}
                     >
                       <Home className="w-3.5 h-3.5 inline mr-1" />
                       Dashboard
                     </button>
                     <button
+                      onClick={() => {
+                        setStudentDashboardTab('progress');
+                        setCurrentView('student_dashboard');
+                      }}
+                      className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
+                        currentView === 'student_dashboard' && studentDashboardTab === 'progress'
+                          ? 'bg-blue-50 dark:bg-blue-950/70 text-blue-900 dark:text-blue-300'
+                          : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'
+                      }`}
+                    >
+                      <TrendingUp className="w-3.5 h-3.5 inline mr-1 text-emerald-600 dark:text-emerald-400" />
+                      Progress Analytics
+                    </button>
+                    <button
                       onClick={() => setCurrentView('my_mistakes')}
                       className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
-                        currentView === 'my_mistakes' ? 'bg-blue-50 text-blue-900' : 'text-slate-600 hover:text-slate-900'
+                        currentView === 'my_mistakes'
+                          ? 'bg-blue-50 dark:bg-blue-950/70 text-blue-900 dark:text-blue-300'
+                          : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'
                       }`}
                     >
                       <Target className="w-3.5 h-3.5 inline mr-1" />
@@ -253,7 +336,7 @@ export default function App() {
                 ) : (
                   <button
                     onClick={() => setCurrentView('admin_dashboard')}
-                    className="px-3 py-1.5 rounded-lg text-xs font-bold bg-amber-50 text-amber-900 flex items-center gap-1"
+                    className="px-3 py-1.5 rounded-lg text-xs font-bold bg-amber-50 dark:bg-amber-950/70 text-amber-900 dark:text-amber-300 flex items-center gap-1"
                   >
                     <Shield className="w-3.5 h-3.5" />
                     Admin Curriculum & Question Bank
@@ -262,27 +345,49 @@ export default function App() {
               </div>
             </div>
 
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2 sm:gap-3">
+              {/* Keyboard Shortcuts Trigger */}
+              <button
+                id="global-shortcuts-btn"
+                onClick={() => setShowGlobalShortcutsModal(true)}
+                className="p-2 rounded-lg text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                title="Keyboard Shortcuts Guide (?)"
+                aria-label="View shortcuts guide"
+              >
+                <Keyboard className="w-4 h-4" />
+              </button>
+
+              {/* Dark Mode Toggle */}
+              <button
+                id="global-theme-toggle-btn"
+                onClick={toggleDarkMode}
+                className="p-2 rounded-lg text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                title={`Switch to ${isDarkMode ? 'Light' : 'Dark'} Mode (Shift+D)`}
+                aria-label="Toggle dark mode"
+              >
+                {isDarkMode ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-slate-600" />}
+              </button>
+
               <button
                 id="global-start-exam-header-btn"
                 onClick={() => {
                   setSetupDefaultSubject('Mathematics');
                   setIsExamSetupOpen(true);
                 }}
-                className="px-4 py-1.5 rounded-lg bg-blue-900 hover:bg-blue-800 text-white font-bold text-xs shadow-xs transition-colors"
+                className="px-3.5 py-1.5 rounded-lg bg-blue-900 dark:bg-blue-600 hover:bg-blue-800 dark:hover:bg-blue-500 text-white font-bold text-xs shadow-xs transition-colors"
               >
                 New 50-Q Exam
               </button>
 
-              <div className="flex items-center gap-2 pl-3 border-l border-slate-200">
+              <div className="flex items-center gap-2 pl-3 border-l border-slate-200 dark:border-slate-800">
                 <div className="text-right hidden sm:block">
-                  <div className="text-xs font-bold text-slate-800">{currentUser.displayName}</div>
+                  <div className="text-xs font-bold text-slate-800 dark:text-slate-200">{currentUser.displayName}</div>
                   <div className="text-[10px] text-slate-400 capitalize">{currentUser.role}</div>
                 </div>
                 <button
                   id="sign-out-btn"
                   onClick={handleSignOut}
-                  className="p-1.5 rounded-lg text-slate-400 hover:text-rose-600 hover:bg-rose-50 transition-colors"
+                  className="p-1.5 rounded-lg text-slate-400 hover:text-rose-600 dark:hover:text-rose-400 hover:bg-rose-50 dark:hover:bg-rose-950/40 transition-colors"
                   title="Sign Out"
                 >
                   <LogOut className="w-4 h-4" />
@@ -307,6 +412,9 @@ export default function App() {
               setSetupDefaultSubject(subj);
               setIsExamSetupOpen(true);
             }}
+            isDarkMode={isDarkMode}
+            onToggleDarkMode={toggleDarkMode}
+            onOpenShortcuts={() => setShowGlobalShortcutsModal(true)}
           />
         )}
 
@@ -316,6 +424,8 @@ export default function App() {
             <StudentDashboard
               user={currentUser}
               examHistory={examHistory}
+              activeTab={studentDashboardTab}
+              onTabChange={setStudentDashboardTab}
               onStartExam={(mode) => {
                 setSetupDefaultSubject(mode);
                 setIsExamSetupOpen(true);
@@ -378,6 +488,8 @@ export default function App() {
             exam={activeExam}
             onUpdateExam={handleUpdateExam}
             onSubmitExam={handleSubmitExam}
+            isDarkMode={isDarkMode}
+            onToggleDarkMode={toggleDarkMode}
           />
         )}
 
@@ -415,6 +527,14 @@ export default function App() {
         defaultName={currentUser?.displayName || ''}
         defaultSubject={setupDefaultSubject}
         onStartExam={handleStartExamFlow}
+      />
+
+      {/* Global Keyboard Shortcuts Guide Modal */}
+      <KeyboardShortcutsModal
+        isOpen={showGlobalShortcutsModal}
+        onClose={() => setShowGlobalShortcutsModal(false)}
+        isDarkMode={isDarkMode}
+        onToggleDarkMode={toggleDarkMode}
       />
     </div>
   );

@@ -1,45 +1,90 @@
 import React from 'react';
-import { Sparkles, ArrowRight, BookOpen, Clock, Award, ShieldCheck, CheckCircle2, ChevronRight, HelpCircle } from 'lucide-react';
+import {
+  Sparkles,
+  ArrowRight,
+  BookOpen,
+  Clock,
+  Award,
+  ShieldCheck,
+  CheckCircle2,
+  ChevronRight,
+  HelpCircle,
+  Moon,
+  Sun,
+  Keyboard
+} from 'lucide-react';
 import { ExamMode } from '../types';
 
 interface LandingPageProps {
   onStartPractising: () => void;
   onLoginClick: () => void;
   onSelectSubject: (mode: ExamMode) => void;
+  isDarkMode?: boolean;
+  onToggleDarkMode?: () => void;
+  onOpenShortcuts?: () => void;
 }
 
 export const LandingPage: React.FC<LandingPageProps> = ({
   onStartPractising,
   onLoginClick,
   onSelectSubject,
+  isDarkMode = false,
+  onToggleDarkMode,
+  onOpenShortcuts,
 }) => {
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900">
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors">
       {/* Navigation Header */}
-      <header className="sticky top-0 z-30 bg-white/95 backdrop-blur-md border-b border-slate-200">
+      <header className="sticky top-0 z-30 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-colors">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-blue-900 text-white flex items-center justify-center font-bold text-xl shadow-sm">
+            <div className="w-10 h-10 rounded-xl bg-blue-900 dark:bg-blue-600 text-white flex items-center justify-center font-bold text-xl shadow-sm">
               FS
             </div>
             <div>
-              <span className="font-extrabold text-xl tracking-tight text-blue-950">FUTURE STARS</span>
-              <span className="hidden sm:inline-block ml-2 text-xs font-semibold px-2 py-0.5 rounded bg-blue-100 text-blue-800">11+ Examination System</span>
+              <span className="font-extrabold text-xl tracking-tight text-blue-950 dark:text-blue-100">FUTURE STARS</span>
+              <span className="hidden sm:inline-block ml-2 text-xs font-semibold px-2 py-0.5 rounded bg-blue-100 dark:bg-blue-950 text-blue-800 dark:text-blue-300">11+ Examination System</span>
             </div>
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 sm:gap-3">
+            {/* Keyboard Shortcuts Guide Button */}
+            {onOpenShortcuts && (
+              <button
+                id="landing-shortcuts-btn"
+                onClick={onOpenShortcuts}
+                className="p-2 rounded-lg text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                title="Keyboard Shortcuts (?)"
+                aria-label="View keyboard shortcuts"
+              >
+                <Keyboard className="w-4 h-4" />
+              </button>
+            )}
+
+            {/* Dark Mode Toggle */}
+            {onToggleDarkMode && (
+              <button
+                id="landing-theme-toggle-btn"
+                onClick={onToggleDarkMode}
+                className="p-2 rounded-lg text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                title={`Switch to ${isDarkMode ? 'Light' : 'Dark'} Mode (Shift+D)`}
+                aria-label="Toggle dark mode"
+              >
+                {isDarkMode ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-slate-600" />}
+              </button>
+            )}
+
             <button
               id="landing-login-nav-btn"
               onClick={onLoginClick}
-              className="px-4 py-2 text-sm font-semibold text-slate-700 hover:text-blue-900 transition-colors"
+              className="px-3 sm:px-4 py-2 text-sm font-semibold text-slate-700 dark:text-slate-300 hover:text-blue-900 dark:hover:text-blue-400 transition-colors"
             >
               Sign In
             </button>
             <button
               id="landing-start-nav-btn"
               onClick={onStartPractising}
-              className="px-5 py-2 text-sm font-semibold rounded-lg bg-blue-900 hover:bg-blue-800 text-white shadow-sm transition-all"
+              className="px-4 sm:px-5 py-2 text-sm font-semibold rounded-lg bg-blue-900 dark:bg-blue-600 hover:bg-blue-800 dark:hover:bg-blue-500 text-white shadow-sm transition-all"
             >
               Start Practising
             </button>
