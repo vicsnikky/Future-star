@@ -83,14 +83,20 @@ export default function App() {
             const userRef = doc(db, 'users', firebaseUser.uid);
             const userSnap = await getDoc(userRef);
             let profile: UserProfile;
+            const isDesignatedAdmin = firebaseUser.email?.toLowerCase().trim() === 'futurestarstutorial16@gmail.com' ||
+                                      firebaseUser.email?.includes('admin');
+
             if (userSnap.exists()) {
               profile = userSnap.data() as UserProfile;
+              if (isDesignatedAdmin && profile.role !== 'admin') {
+                profile.role = 'admin';
+              }
             } else {
               profile = {
                 uid: firebaseUser.uid,
                 email: firebaseUser.email || '',
-                displayName: firebaseUser.displayName || 'Student',
-                role: firebaseUser.email?.includes('admin') ? 'admin' : 'student',
+                displayName: firebaseUser.displayName || (isDesignatedAdmin ? 'Future Stars Administrator' : 'Student'),
+                role: isDesignatedAdmin ? 'admin' : 'student',
                 createdAt: new Date().toISOString(),
               };
             }

@@ -9,7 +9,11 @@ service cloud.firestore {
     // Users & profiles
     match /users/{userId} {
       allow read: if true;
-      allow write: if isAuthenticated() && (request.auth.uid == userId || request.auth.token.email.matches('.*admin.*'));
+      allow write: if isAuthenticated() && (
+        request.auth.uid == userId ||
+        request.auth.token.email.matches('.*admin.*') ||
+        request.auth.token.email == 'futurestarstutorial16@gmail.com'
+      );
     }
 
     // Questions: anyone can read approved questions, admins can write/approve

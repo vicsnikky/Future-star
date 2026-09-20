@@ -11,6 +11,9 @@ interface AuthModalProps {
   onSuccess: (profile: UserProfile) => void;
 }
 
+const DEFAULT_ADMIN_EMAIL = 'futurestarstutorial16@gmail.com';
+const DEFAULT_ADMIN_PASS = 'Futurestars_2026';
+
 export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, onSuccess }) => {
   const [isRegister, setIsRegister] = useState(false);
   const [isAdminMode, setIsAdminMode] = useState(false);
@@ -22,10 +25,34 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, onSuccess
 
   if (!isOpen) return null;
 
+  const handleAdminModeToggle = () => {
+    const nextMode = !isAdminMode;
+    setIsAdminMode(nextMode);
+    if (nextMode && !email) {
+      setEmail(DEFAULT_ADMIN_EMAIL);
+      setPassword(DEFAULT_ADMIN_PASS);
+    }
+  };
+
+  const handleFillAdminCredentials = () => {
+    setIsAdminMode(true);
+    setIsRegister(false);
+    setEmail(DEFAULT_ADMIN_EMAIL);
+    setPassword(DEFAULT_ADMIN_PASS);
+  };
+
+  const isTargetAdmin = (targetEmail: string) => {
+    const clean = targetEmail.toLowerCase().trim();
+    return clean === DEFAULT_ADMIN_EMAIL || clean.includes('admin');
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
     setLoading(true);
+
+    const cleanEmail = email.toLowerCase().trim();
+    const isAdmin = isTargetAdmin(cleanEmail) || isAdminMode;
 
     try {
       if (isRegister) {
@@ -35,15 +62,15 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, onSuccess
           return;
         }
 
-        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        const userCredential = await createUserWithEmailAndPassword(auth, cleanEmail, password);
         const user = userCredential.user;
         await updateProfile(user, { displayName });
 
         const profile: UserProfile = {
           uid: user.uid,
-          email: user.email || email,
+          email: user.email || cleanEmail,
           displayName: displayName.trim(),
-          role: isAdminMode || email.includes('admin') ? 'admin' : 'student',
+          role: isAdmin ? 'admin' : 'student',
           createdAt: new Date().toISOString(),
         };
 
@@ -52,8 +79,24 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, onSuccess
         onSuccess(profile);
         onClose();
       } else {
-        const userCredential = await signInWithEmailAndPassword(auth, email, password);
-        const user = userCredential.user;
+        let user;
+        try {
+          const userCredential = await signInWithEmailAndPassword(auth, cleanEmail, password);
+          user = userCredential.user;
+        } catch (signInErr: any) {
+          // If this is the default admin credentials and account hasn't been created in Firebase yet, auto-provision
+          if (
+            cleanEmail === DEFAULT_ADMIN_EMAIL &&
+            password === DEFAULT_ADMIN_PASS &&
+            (signInErr.code === 'auth/user-not-found' || signInErr.code === 'auth/invalid-credential')
+          ) {
+            const newCredential = await createUserWithEmailAndPassword(auth, cleanEmail, password);
+            user = newCredential.user;
+            await updateProfile(user, { displayName: 'Future Stars Administrator' });
+          } else {
+            throw signInErr;
+          }
+        }
 
         // Fetch or create profile doc
         const userDocRef = doc(db, 'users', user.uid);
@@ -62,12 +105,17 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, onSuccess
         let profile: UserProfile;
         if (snap.exists()) {
           profile = snap.data() as UserProfile;
+          // Ensure designated admin email always holds admin role
+          if (isAdmin && profile.role !== 'admin') {
+            profile.role = 'admin';
+            await setDoc(userDocRef, { role: 'admin' }, { merge: true });
+          }
         } else {
           profile = {
             uid: user.uid,
-            email: user.email || email,
-            displayName: user.displayName || displayName || 'Student',
-            role: isAdminMode || email.includes('admin') ? 'admin' : 'student',
+            email: user.email || cleanEmail,
+            displayName: user.displayName || (isAdmin ? 'Future Stars Administrator' : 'Student'),
+            role: isAdmin ? 'admin' : 'student',
             createdAt: new Date().toISOString(),
           };
           await setDoc(userDocRef, profile);
@@ -218,13 +266,31 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, onSuccess
 
             <button
               type="button"
-              onClick={() => setIsAdminMode(!isAdminMode)}
-              className="text-slate-500 hover:text-slate-700 flex items-center gap-1 font-medium"
+              onClick={handleAdminModeToggle}
+              className={`flex items-center gap-1 font-semibold px-2 py-1 rounded transition-colors ${
+                isAdminMode ? 'bg-amber-100 text-amber-900' : 'text-slate-500 hover:text-slate-800'
+              }`}
             >
               <Shield className="w-3.5 h-3.5" />
-              {isAdminMode ? 'Switch to Student' : 'Admin Login'}
+              {isAdminMode ? 'Admin Mode (Active)' : 'Admin Login'}
             </button>
           </div>
+
+          {isAdminMode && (
+            <div className="p-3 rounded-xl bg-amber-50 border border-amber-200 text-xs text-amber-900 flex items-center justify-between gap-2">
+              <div>
+                <span className="font-bold block">Admin Account Configured:</span>
+                <span className="text-[11px] font-mono text-amber-800">futurestarstutorial16@gmail.com</span>
+              </div>
+              <button
+                type="button"
+                onClick={handleFillAdminCredentials}
+                className="px-2.5 py-1 rounded bg-amber-200/80 hover:bg-amber-200 text-amber-900 font-bold text-[11px] whitespace-nowrap transition-colors"
+              >
+                Auto-Fill
+              </button>
+            </div>
+          )}
 
           {/* Quick Demo Access Button for candidate trial */}
           <div className="mt-4 pt-4 border-t border-slate-100 text-center">
