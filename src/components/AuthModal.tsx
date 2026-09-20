@@ -26,19 +26,8 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, onSuccess
   if (!isOpen) return null;
 
   const handleAdminModeToggle = () => {
-    const nextMode = !isAdminMode;
-    setIsAdminMode(nextMode);
-    if (nextMode && !email) {
-      setEmail(DEFAULT_ADMIN_EMAIL);
-      setPassword(DEFAULT_ADMIN_PASS);
-    }
-  };
-
-  const handleFillAdminCredentials = () => {
-    setIsAdminMode(true);
-    setIsRegister(false);
-    setEmail(DEFAULT_ADMIN_EMAIL);
-    setPassword(DEFAULT_ADMIN_PASS);
+    setIsAdminMode(prev => !prev);
+    setError('');
   };
 
   const isTargetAdmin = (targetEmail: string) => {
@@ -272,23 +261,16 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, onSuccess
               }`}
             >
               <Shield className="w-3.5 h-3.5" />
-              {isAdminMode ? 'Admin Mode (Active)' : 'Admin Login'}
+              {isAdminMode ? 'Switch to Student' : 'Admin Login'}
             </button>
           </div>
 
           {isAdminMode && (
-            <div className="p-3 rounded-xl bg-amber-50 border border-amber-200 text-xs text-amber-900 flex items-center justify-between gap-2">
-              <div>
-                <span className="font-bold block">Admin Account Configured:</span>
-                <span className="text-[11px] font-mono text-amber-800">futurestarstutorial16@gmail.com</span>
-              </div>
-              <button
-                type="button"
-                onClick={handleFillAdminCredentials}
-                className="px-2.5 py-1 rounded bg-amber-200/80 hover:bg-amber-200 text-amber-900 font-bold text-[11px] whitespace-nowrap transition-colors"
-              >
-                Auto-Fill
-              </button>
+            <div className="p-2.5 rounded-xl bg-amber-50 border border-amber-200 text-xs text-amber-900 flex items-center gap-2">
+              <Shield className="w-4 h-4 text-amber-600 shrink-0" />
+              <span>
+                <strong>Administrator Access:</strong> Please provide your admin email and password above to access curriculum controls.
+              </span>
             </div>
           )}
 

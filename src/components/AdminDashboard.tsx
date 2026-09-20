@@ -16,7 +16,7 @@ import {
   AlertCircle
 } from 'lucide-react';
 import { Question, SubjectType, DifficultyLevel, PdfDocument, ExamDifficultyConfig } from '../types';
-import { generateAIQuestions, extractQuestionsFromPdfText } from '../services/aiService';
+import { generateAIQuestions, extractQuestionsFromPdf } from '../services/aiService';
 import {
   saveQuestion,
   updateQuestion,
@@ -52,11 +52,13 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
   const [aiCount, setAiCount] = useState<number>(5);
   const [aiGenerating, setAiGenerating] = useState(false);
   const [aiGeneratedPreview, setAiGeneratedPreview] = useState<Omit<Question, 'id'>[]>([]);
+  const [aiError, setAiError] = useState<string>('');
 
   // PDF Extraction Simulation / OCR
   const [pdfUploading, setPdfUploading] = useState(false);
   const [extractedPreview, setExtractedPreview] = useState<Omit<Question, 'id'>[]>([]);
   const [currentPdfName, setCurrentPdfName] = useState('');
+  const [pdfError, setPdfError] = useState<string>('');
 
   // Editing Modal / Inline
   const [editingQuestion, setEditingQuestion] = useState<Question | null>(null);
@@ -101,6 +103,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
   const handleRunAiGenerator = async (e: React.FormEvent) => {
     e.preventDefault();
     setAiGenerating(true);
+    setAiError('');
     try {
       const generated = await generateAIQuestions({
         subject: aiSubject,
@@ -109,8 +112,9 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
         count: aiCount,
       });
       setAiGeneratedPreview(generated);
-    } catch (err) {
+    } catch (err: any) {
       console.error('Failed to generate AI questions:', err);
+      setAiError(err?.message || 'Failed to generate questions. Falling back to question bank.');
     } finally {
       setAiGenerating(false);
     }
@@ -133,32 +137,53 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
     if (!file) return;
 
     setPdfUploading(true);
+    setPdfError('');
     setCurrentPdfName(file.name);
 
-    // Read text content or simulate OCR text
-    const reader = new FileReader();
-    reader.onload = async () => {
-      const text = (reader.result as string) || '';
-      const extracted = await extractQuestionsFromPdfText(file.name, text || 'Sample 11+ past paper text with questions');
+    try {
+      const reader = new FileReader();
+      reader.onload = async () => {
+        try {
+          const dataUrl = (reader.result as string) || '';
+          const base64Data = dataUrl.includes(',') ? dataUrl.split(',')[1] : '';
 
-      setExtractedPreview(extracted);
+          const extracted = await extractQuestionsFromPdf({
+            fileName: file.name,
+            fileBase64: base64Data,
+            mimeType: file.type || 'application/pdf',
+          });
 
-      // Save PDF Document meta
-      await savePdfDocument({
-        name: file.name,
-        size: file.size,
-        uploadedAt: new Date().toISOString(),
-        extractedCount: extracted.length,
-        approvedCount: 0,
-        status: 'processed'
-      });
+          setExtractedPreview(extracted);
 
+          // Save PDF Document meta
+          await savePdfDocument({
+            name: file.name,
+            size: file.size,
+            uploadedAt: new Date().toISOString(),
+            extractedCount: extracted.length,
+            approvedCount: 0,
+            status: 'processed'
+          });
+
+          onRefreshData();
+        } catch (innerErr: any) {
+          console.error('Error processing PDF extraction:', innerErr);
+          setPdfError(innerErr?.message || 'Error processing PDF document');
+        } finally {
+          setPdfUploading(false);
+        }
+      };
+
+      reader.onerror = () => {
+        setPdfError('Failed to read document file.');
+        setPdfUploading(false);
+      };
+
+      reader.readAsDataURL(file);
+    } catch (err: any) {
+      setPdfError(err?.message || 'Failed to upload document.');
       setPdfUploading(false);
-      onRefreshData();
-    };
-
-    // Read as text
-    reader.readAsText(file);
+    }
   };
 
   const handleApproveExtractedQuestion = async (item: Omit<Question, 'id'>, index: number) => {
@@ -436,6 +461,13 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
                   {aiGenerating ? 'Generating Questions...' : 'Generate Questions with AI'}
                 </button>
               </div>
+
+              {aiError && (
+                <div className="sm:col-span-4 p-3 rounded-lg bg-rose-50 border border-rose-200 text-rose-800 text-xs flex items-center gap-2">
+                  <AlertCircle className="w-4 h-4 shrink-0" />
+                  <span>{aiError}</span>
+                </div>
+              )}
             </form>
           </div>
 
@@ -543,6 +575,13 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
               <div className="mt-4 p-4 rounded-xl bg-blue-50 text-blue-900 text-xs flex items-center gap-3">
                 <RefreshCw className="w-4 h-4 animate-spin shrink-0" />
                 <span>Processing & extracting 11+ questions from {currentPdfName}...</span>
+              </div>
+            )}
+
+            {pdfError && (
+              <div className="mt-4 p-4 rounded-xl bg-rose-50 border border-rose-200 text-rose-800 text-xs flex items-center gap-2">
+                <AlertCircle className="w-4 h-4 shrink-0" />
+                <span>{pdfError}</span>
               </div>
             )}
           </div>

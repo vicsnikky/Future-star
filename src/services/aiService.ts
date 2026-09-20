@@ -28,73 +28,33 @@ export interface GenerateQuestionsParams {
 }
 
 export async function generateAIQuestions(params: GenerateQuestionsParams): Promise<Omit<Question, 'id'>[]> {
-  const ai = getGenAI();
+  try {
+    const res = await fetch('/api/generate-questions', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(params),
+    });
 
-  const prompt = `You are a senior UK 11+ Examination author for FUTURE STARS educational platform.
-Generate exactly ${params.count} original, high-quality UK 11+ entrance exam questions for:
-Subject: ${params.subject}
-Topic: ${params.topic}
-Difficulty: ${params.difficulty} (Easy / Medium / Hard appropriate for 10-11 year old students)
-
-${params.referenceContext ? `Reference Context / Concepts from Past Papers:\n"${params.referenceContext}"\n(Do NOT copy the past paper verbatim; construct brand new questions testing the same reasoning/patterns).` : ''}
-
-QUALITY CONTROL MANDATES:
-1. Exactly one unambiguously correct answer.
-2. 4 sensible multiple-choice options (A, B, C, D) with common student misconception distractors.
-3. The 'correctAnswer' must match one of the options character-for-character.
-4. Provide a clear, child-friendly explanation and a comprehensive step-by-step solution.
-5. Double-check all mathematical calculations or reasoning chains for 100% correctness.
-`;
-
-  if (ai) {
-    try {
-      const response = await ai.models.generateContent({
-        model: 'gemini-2.5-flash',
-        contents: prompt,
-        config: {
-          responseMimeType: 'application/json',
-          responseSchema: {
-            type: Type.ARRAY,
-            items: {
-              type: Type.OBJECT,
-              properties: {
-                questionText: { type: Type.STRING },
-                options: {
-                  type: Type.ARRAY,
-                  items: { type: Type.STRING },
-                  description: '4 options (A, B, C, D)'
-                },
-                correctAnswer: { type: Type.STRING },
-                explanation: { type: Type.STRING },
-                stepByStepSolution: { type: Type.STRING },
-              },
-              required: ['questionText', 'options', 'correctAnswer', 'explanation', 'stepByStepSolution']
-            }
-          }
-        }
-      });
-
-      if (response.text) {
-        const parsed = JSON.parse(response.text);
-        if (Array.isArray(parsed) && parsed.length > 0) {
-          return parsed.map((item: any) => ({
-            subject: params.subject,
-            topic: params.topic,
-            difficulty: params.difficulty,
-            questionText: item.questionText,
-            options: item.options,
-            correctAnswer: item.correctAnswer,
-            explanation: item.explanation,
-            stepByStepSolution: item.stepByStepSolution,
-            sourceType: 'ai_generated',
-            approved: false, // Must be approved by administrator
-            createdAt: new Date().toISOString()
-          }));
-        }
+    if (res.ok) {
+      const data = await res.json();
+      if (Array.isArray(data.questions) && data.questions.length > 0) {
+        return data.questions.map((item: any) => ({
+          subject: (item.subject || params.subject) as SubjectType,
+          topic: item.topic || params.topic,
+          difficulty: (item.difficulty || params.difficulty) as DifficultyLevel,
+          questionText: item.questionText,
+          options: item.options,
+          correctAnswer: item.correctAnswer,
+          explanation: item.explanation,
+          stepByStepSolution: item.stepByStepSolution,
+          sourceType: 'ai_generated',
+          approved: false, // Must be approved by administrator
+          createdAt: new Date().toISOString()
+        }));
       }
-    } catch (err) {
-      console.warn('Gemini API call failed or encountered rate limits, using intelligent fallback generator:', err);
     }
+  } catch (err) {
+    console.warn('Backend question generator call encountered issue, using robust client generator fallback:', err);
   }
 
   // Robust algorithmic 11+ dynamic question generator fallback
@@ -224,83 +184,63 @@ function generateProceduralQuestions(params: GenerateQuestionsParams): Omit<Ques
   return result;
 }
 
-// PDF Extraction with OCR / text reasoning using Gemini multimodal or mock fallback
-export async function extractQuestionsFromPdfText(
-  pdfFileName: string,
-  rawTextContent: string
-): Promise<Omit<Question, 'id'>[]> {
-  const ai = getGenAI();
+// PDF Extraction with OCR / text reasoning using Gemini multimodal or fallback parser
+export async function extractQuestionsFromPdf(params: {
+  fileName: string;
+  rawTextContent?: string;
+  fileBase64?: string;
+  mimeType?: string;
+}): Promise<Omit<Question, 'id'>[]> {
+  try {
+    const res = await fetch('/api/extract-pdf-questions', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        fileName: params.fileName,
+        fileBase64: params.fileBase64,
+        mimeType: params.mimeType || 'application/pdf',
+        rawText: params.rawTextContent || '',
+      }),
+    });
 
-  const prompt = `You are an expert UK 11+ Examination OCR and Extraction engine.
-Analyse the extracted text from past paper PDF "${pdfFileName}":
-"""
-${rawTextContent.slice(0, 15000)}
-"""
-Extract every identifiable multiple-choice or short 11+ question into a structured JSON array.
-Identify:
-1. questionText
-2. 4 multiple-choice options (A, B, C, D)
-3. correctAnswer (if provided or deduce from mathematical/grammatical certainty)
-4. explanation
-5. stepByStepSolution
-6. subject (English, Mathematics, or Verbal Reasoning)
-7. topic
-8. difficulty (Easy, Medium, Hard)
-`;
-
-  if (ai) {
-    try {
-      const response = await ai.models.generateContent({
-        model: 'gemini-2.5-flash',
-        contents: prompt,
-        config: {
-          responseMimeType: 'application/json',
-          responseSchema: {
-            type: Type.ARRAY,
-            items: {
-              type: Type.OBJECT,
-              properties: {
-                questionText: { type: Type.STRING },
-                options: { type: Type.ARRAY, items: { type: Type.STRING } },
-                correctAnswer: { type: Type.STRING },
-                explanation: { type: Type.STRING },
-                stepByStepSolution: { type: Type.STRING },
-                subject: { type: Type.STRING, enum: ['English', 'Mathematics', 'Verbal Reasoning'] },
-                topic: { type: Type.STRING },
-                difficulty: { type: Type.STRING, enum: ['Easy', 'Medium', 'Hard'] },
-              },
-              required: ['questionText', 'options', 'correctAnswer', 'explanation', 'stepByStepSolution', 'subject', 'topic', 'difficulty']
-            }
-          }
-        }
-      });
-
-      if (response.text) {
-        const parsed = JSON.parse(response.text);
-        if (Array.isArray(parsed) && parsed.length > 0) {
-          return parsed.map((item: any) => ({
-            subject: item.subject as SubjectType,
-            topic: item.topic || 'General',
-            difficulty: item.difficulty as DifficultyLevel,
-            questionText: item.questionText,
-            options: item.options,
-            correctAnswer: item.correctAnswer,
-            explanation: item.explanation,
-            stepByStepSolution: item.stepByStepSolution,
-            sourceType: 'past_paper',
-            sourcePdfName: pdfFileName,
-            approved: false, // Per prompt: Extracted questions must NEVER automatically be approved
-            createdAt: new Date().toISOString()
-          }));
-        }
+    if (res.ok) {
+      const data = await res.json();
+      if (Array.isArray(data.questions) && data.questions.length > 0) {
+        return data.questions.map((item: any) => ({
+          subject: (item.subject || 'Mathematics') as SubjectType,
+          topic: item.topic || 'General Practice',
+          difficulty: (item.difficulty || 'Medium') as DifficultyLevel,
+          questionText: item.questionText,
+          options: item.options,
+          correctAnswer: item.correctAnswer,
+          explanation: item.explanation,
+          stepByStepSolution: item.stepByStepSolution,
+          sourceType: 'past_paper' as const,
+          sourcePdfName: params.fileName,
+          approved: false, // Per prompt: Extracted questions must NEVER automatically be approved
+          createdAt: new Date().toISOString(),
+        }));
       }
-    } catch (e) {
-      console.warn('PDF AI extraction fell back to regex parser:', e);
     }
+  } catch (e) {
+    console.warn('Backend PDF extraction failed, using fallback parser:', e);
   }
 
   // Regex and pattern parser for offline / simulated extraction
-  return parseTextToQuestions(rawTextContent, pdfFileName);
+  return parseTextToQuestions(params.rawTextContent || '', params.fileName);
+}
+
+// Backward-compatible wrapper
+export async function extractQuestionsFromPdfText(
+  pdfFileName: string,
+  rawTextContent: string,
+  fileBase64?: string
+): Promise<Omit<Question, 'id'>[]> {
+  return extractQuestionsFromPdf({
+    fileName: pdfFileName,
+    rawTextContent,
+    fileBase64
+  });
 }
 
 function parseTextToQuestions(text: string, pdfName: string): Omit<Question, 'id'>[] {
