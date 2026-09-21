@@ -344,10 +344,13 @@ export const ExamView: React.FC<ExamViewProps> = ({
       {/* Top Header Bar */}
       <header className="sticky top-0 z-30 bg-blue-950 dark:bg-slate-900 text-white shadow-md border-b border-blue-900 dark:border-slate-800 transition-colors">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 h-18 flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            <div className="w-10 h-10 rounded-xl bg-blue-800 dark:bg-blue-900 flex items-center justify-center font-bold text-lg text-white shrink-0">
-              FS
-            </div>
+          <div className="flex items-center gap-3.5">
+            <img
+              src="https://i.ibb.co/9mXgHJMv/logo1.jpg"
+              alt="FUTURE STARS Logo"
+              className="w-10 h-10 rounded-xl object-contain bg-white shadow-xs border border-blue-800/60 shrink-0"
+              referrerPolicy="no-referrer"
+            />
             <div>
               <div className="text-xs font-semibold uppercase tracking-wider text-blue-300 dark:text-blue-400 flex items-center gap-2">
                 <span>{getCurrentSectionName(currentIndex)}</span>

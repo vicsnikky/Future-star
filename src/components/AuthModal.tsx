@@ -169,9 +169,12 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, onSuccess
       <div className="w-full max-w-md bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden my-auto max-h-[90vh] flex flex-col">
         <div className="px-6 pt-6 pb-4 bg-slate-50 border-b border-slate-100 flex items-center justify-between shrink-0">
           <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-lg bg-blue-900 text-white flex items-center justify-center font-bold text-sm">
-              FS
-            </div>
+            <img
+              src="https://i.ibb.co/9mXgHJMv/logo1.jpg"
+              alt="FUTURE STARS Logo"
+              className="w-9 h-9 rounded-lg object-contain bg-white shadow-xs border border-slate-200"
+              referrerPolicy="no-referrer"
+            />
             <div>
               <h3 className="font-bold text-slate-900 text-base">
                 {isRegister ? 'Create Account' : 'Welcome Back'}

@@ -38,9 +38,12 @@ export const LandingPage: React.FC<LandingPageProps> = ({
       <header className="sticky top-0 z-30 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-colors">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-blue-900 dark:bg-blue-600 text-white flex items-center justify-center font-bold text-xl shadow-sm">
-              FS
-            </div>
+            <img
+              src="https://i.ibb.co/9mXgHJMv/logo1.jpg"
+              alt="FUTURE STARS Logo"
+              className="w-11 h-11 rounded-xl object-contain bg-white shadow-sm border border-slate-200 dark:border-slate-700"
+              referrerPolicy="no-referrer"
+            />
             <div>
               <span className="font-extrabold text-xl tracking-tight text-blue-950 dark:text-blue-100">FUTURE STARS</span>
               <span className="hidden sm:inline-block ml-2 text-xs font-semibold px-2 py-0.5 rounded bg-blue-100 dark:bg-blue-950 text-blue-800 dark:text-blue-300">11+ Examination System</span>
@@ -128,21 +131,44 @@ export const LandingPage: React.FC<LandingPageProps> = ({
 
           <div className="mt-12 grid grid-cols-2 sm:grid-cols-4 gap-4 text-left max-w-4xl mx-auto">
             <div className="p-4 rounded-xl bg-white border border-slate-200 shadow-xs">
-              <div className="text-2xl font-black text-blue-900">50</div>
-              <div className="text-xs font-medium text-slate-500 mt-1">Questions per Examination</div>
+              <div className="text-2xl font-black text-blue-900">50 / 150</div>
+              <div className="text-xs font-medium text-slate-500 mt-1">Single or Mixed 150 Qs</div>
             </div>
             <div className="p-4 rounded-xl bg-white border border-slate-200 shadow-xs">
-              <div className="text-2xl font-black text-blue-900">40 Min</div>
-              <div className="text-xs font-medium text-slate-500 mt-1">Realistic Exam Countdown</div>
+              <div className="text-2xl font-black text-blue-900">40m / 90m</div>
+              <div className="text-xs font-medium text-slate-500 mt-1">Real Exam Countdown</div>
             </div>
             <div className="p-4 rounded-xl bg-white border border-slate-200 shadow-xs">
-              <div className="text-2xl font-black text-blue-900">100%</div>
-              <div className="text-xs font-medium text-slate-500 mt-1">Dynamic Fresh Questions</div>
+              <div className="text-2xl font-black text-blue-900">5 Min</div>
+              <div className="text-xs font-medium text-slate-500 mt-1">Paused Subject Breaks</div>
             </div>
             <div className="p-4 rounded-xl bg-white border border-slate-200 shadow-xs">
               <div className="text-2xl font-black text-blue-900">PDF</div>
               <div className="text-xs font-medium text-slate-500 mt-1">Official Result Certificate</div>
             </div>
+          </div>
+
+          {/* Registration Callout Banner (Enabling Admin Progress Tracking) */}
+          <div className="mt-10 max-w-4xl mx-auto p-5 sm:p-6 rounded-2xl bg-gradient-to-r from-blue-900 via-indigo-900 to-blue-950 text-white text-left shadow-lg border border-blue-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5">
+            <div className="space-y-1.5 max-w-2xl">
+              <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-amber-400/20 text-amber-300 text-[11px] font-bold uppercase tracking-wider">
+                <Sparkles className="w-3 h-3" />
+                Student Registration Recommended
+              </div>
+              <h3 className="text-lg sm:text-xl font-black">
+                Register Your Student Account So We Can Track Your Progress
+              </h3>
+              <p className="text-xs sm:text-sm text-blue-200 leading-relaxed">
+                Please register your account with your name and email so our tutors and administrators can track your progress, review your mock exam history, analyze topic strengths, and support you every step of the way toward grammar school entrance success.
+              </p>
+            </div>
+            <button
+              id="landing-register-prompt-btn"
+              onClick={onLoginClick}
+              className="px-6 py-3 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-black text-sm shrink-0 shadow-md hover:shadow-lg transition-all cursor-pointer"
+            >
+              Register / Sign In Now
+            </button>
           </div>
         </div>
       </section>
@@ -232,11 +258,41 @@ export const LandingPage: React.FC<LandingPageProps> = ({
               </div>
               <button
                 onClick={() => onSelectSubject('Verbal Reasoning')}
-                className="mt-6 w-full py-2.5 px-4 rounded-lg bg-blue-900 hover:bg-blue-800 text-white font-semibold text-sm flex items-center justify-center gap-1.5 transition-colors"
+                className="mt-6 w-full py-2.5 px-4 rounded-lg bg-blue-900 hover:bg-blue-800 text-white font-semibold text-sm flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
               >
                 Practise Verbal Reasoning <ChevronRight className="w-4 h-4" />
               </button>
             </div>
+          </div>
+
+          {/* 150-Question Mixed Exam Showcase Banner */}
+          <div className="mt-10 rounded-2xl bg-gradient-to-r from-amber-500/15 via-blue-900/5 to-indigo-900/15 border-2 border-amber-400/60 p-6 sm:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-sm">
+            <div className="space-y-2 max-w-3xl">
+              <div className="flex items-center gap-2 flex-wrap">
+                <span className="px-3 py-1 rounded-full bg-amber-500 text-slate-950 text-xs font-black uppercase tracking-wider">
+                  Full 11+ Mock Exam
+                </span>
+                <span className="px-2.5 py-0.5 rounded-full bg-blue-100 text-blue-900 text-xs font-bold">
+                  150 Questions • 1 Hour 30 Minutes
+                </span>
+                <span className="px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-900 text-xs font-bold">
+                  5-Min Paused Subject Breaks
+                </span>
+              </div>
+              <h3 className="text-2xl font-black text-slate-900">
+                150-Question Mixed Examination (Maths + English + Verbal Reasoning)
+              </h3>
+              <p className="text-sm text-slate-600 leading-relaxed">
+                Take the ultimate grammar school readiness challenge: 50 Mathematics + 50 English + 50 Verbal Reasoning. After finishing each subject section, you can take a 5-minute pause break. The exam clock freezes completely and immediately resumes the instant you press Continue.
+              </p>
+            </div>
+            <button
+              id="landing-mixed-exam-btn"
+              onClick={() => onSelectSubject('Mixed')}
+              className="px-8 py-4 rounded-xl bg-blue-900 hover:bg-blue-800 text-white font-black text-base shadow-md hover:shadow-lg flex items-center gap-2 shrink-0 transition-all cursor-pointer"
+            >
+              Start 150-Question Mixed Exam <ArrowRight className="w-5 h-5" />
+            </button>
           </div>
         </div>
       </section>
@@ -421,9 +477,17 @@ export const LandingPage: React.FC<LandingPageProps> = ({
       {/* Footer */}
       <footer className="py-8 bg-slate-900 text-slate-400 text-xs border-t border-slate-800">
         <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-2">
-            <span className="font-bold text-white text-sm">FUTURE STARS</span>
-            <span>• UK 11+ Entrance Examination Practice System</span>
+          <div className="flex items-center gap-3">
+            <img
+              src="https://i.ibb.co/9mXgHJMv/logo1.jpg"
+              alt="FUTURE STARS Logo"
+              className="w-8 h-8 rounded-lg object-contain bg-white shadow-xs border border-slate-700"
+              referrerPolicy="no-referrer"
+            />
+            <div className="flex items-center gap-2">
+              <span className="font-bold text-white text-sm">FUTURE STARS</span>
+              <span>• UK 11+ Entrance Examination Practice System</span>
+            </div>
           </div>
           <p>© {new Date().getFullYear()} FUTURE STARS Educational Platform. All rights reserved.</p>
         </div>

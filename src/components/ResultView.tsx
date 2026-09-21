@@ -110,6 +110,15 @@ export const ResultView: React.FC<ResultViewProps> = ({
         {/* Certificate / Score Card */}
         <div className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden">
           <div className="bg-blue-950 text-white p-8 sm:p-10 text-center relative">
+            <div className="flex justify-center mb-4">
+              <img
+                src="https://i.ibb.co/9mXgHJMv/logo1.jpg"
+                alt="FUTURE STARS Logo"
+                className="w-16 h-16 rounded-2xl object-contain bg-white shadow-md border-2 border-amber-400"
+                referrerPolicy="no-referrer"
+              />
+            </div>
+
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-800 text-blue-200 text-xs font-bold uppercase tracking-wider mb-4">
               <Award className="w-4 h-4 text-amber-400" />
               FUTURE STARS • 11+ Examination Official Result
@@ -126,7 +135,7 @@ export const ResultView: React.FC<ResultViewProps> = ({
               <div className="bg-blue-900/60 border border-blue-800 rounded-2xl p-4">
                 <div className="text-xs text-blue-300 font-semibold uppercase">Total Score</div>
                 <div className="text-3xl font-black text-white mt-1">
-                  {exam.score} <span className="text-lg text-blue-300 font-normal">/ 50</span>
+                  {exam.score} <span className="text-lg text-blue-300 font-normal">/ {exam.totalQuestions || (exam.questions?.length) || 50}</span>
                 </div>
               </div>
 

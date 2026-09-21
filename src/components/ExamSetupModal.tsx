@@ -43,9 +43,17 @@ export const ExamSetupModal: React.FC<ExamSetupModalProps> = ({
         {/* Header - Fixed */}
         <div className="bg-blue-950 text-white p-5 sm:p-6 shrink-0">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-semibold uppercase tracking-wider text-blue-300">
-              FUTURE STARS • 11+ Examination
-            </span>
+            <div className="flex items-center gap-2.5">
+              <img
+                src="https://i.ibb.co/9mXgHJMv/logo1.jpg"
+                alt="FUTURE STARS Logo"
+                className="w-8 h-8 rounded-lg object-contain bg-white shadow-xs border border-blue-800"
+                referrerPolicy="no-referrer"
+              />
+              <span className="text-xs font-semibold uppercase tracking-wider text-blue-300">
+                FUTURE STARS • 11+ Examination
+              </span>
+            </div>
             <button
               onClick={onClose}
               className="text-blue-200 hover:text-white text-lg font-bold p-1 rounded-lg hover:bg-blue-900/50"
@@ -71,12 +79,12 @@ export const ExamSetupModal: React.FC<ExamSetupModalProps> = ({
 
           {/* Guest / Unregistered Notice */}
           {!isUserLoggedIn && (
-            <div className="p-3 rounded-xl bg-blue-50/80 dark:bg-blue-950/40 border border-blue-200 dark:border-blue-900/50 text-xs text-blue-900 dark:text-blue-200 flex items-start gap-2.5">
+            <div className="p-3.5 rounded-xl bg-blue-50/90 dark:bg-blue-950/60 border border-blue-200 dark:border-blue-900/60 text-xs text-blue-900 dark:text-blue-200 flex items-start gap-2.5">
               <ShieldAlert className="w-4 h-4 text-blue-700 dark:text-blue-400 shrink-0 mt-0.5" />
               <div>
-                <span className="font-bold">Practicing Without An Account (Guest Candidate):</span>
-                <p className="mt-0.5 text-blue-800 dark:text-blue-300">
-                  Your mock scores and progress will be securely saved and accessible to your tutor under your candidate name.
+                <span className="font-bold">Practicing As Guest Candidate:</span>
+                <p className="mt-0.5 text-blue-800 dark:text-blue-300 leading-relaxed">
+                  We strongly recommend registering your student account so our tutors and administrators can track your progress over time, review your full exam analytics, and identify areas to boost your 11+ score.
                 </p>
               </div>
             </div>

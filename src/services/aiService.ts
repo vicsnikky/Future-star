@@ -21,7 +21,8 @@ function getGenAI(): GoogleGenAI | null {
 
 export interface GenerateQuestionsParams {
   subject: SubjectType;
-  topic: string;
+  topic?: string;
+  categories?: string[];
   difficulty: DifficultyLevel;
   count: number;
   referenceContext?: string;
@@ -38,19 +39,25 @@ export async function generateAIQuestions(params: GenerateQuestionsParams): Prom
     if (res.ok) {
       const data = await res.json();
       if (Array.isArray(data.questions) && data.questions.length > 0) {
-        return data.questions.map((item: any) => ({
-          subject: (item.subject || params.subject) as SubjectType,
-          topic: item.topic || params.topic,
-          difficulty: (item.difficulty || params.difficulty) as DifficultyLevel,
-          questionText: item.questionText,
-          options: item.options,
-          correctAnswer: item.correctAnswer,
-          explanation: item.explanation,
-          stepByStepSolution: item.stepByStepSolution,
-          sourceType: 'ai_generated',
-          approved: false, // Must be approved by administrator
-          createdAt: new Date().toISOString()
-        }));
+        return data.questions.map((item: any, idx: number) => {
+          const fallbackTopic = (params.categories && params.categories.length > 0)
+            ? params.categories[idx % params.categories.length]
+            : (params.topic || 'General Practice');
+
+          return {
+            subject: (item.subject || params.subject) as SubjectType,
+            topic: item.topic || fallbackTopic,
+            difficulty: (item.difficulty || params.difficulty) as DifficultyLevel,
+            questionText: item.questionText,
+            options: item.options,
+            correctAnswer: item.correctAnswer,
+            explanation: item.explanation,
+            stepByStepSolution: item.stepByStepSolution,
+            sourceType: 'ai_generated',
+            approved: false, // Must be approved by administrator
+            createdAt: new Date().toISOString()
+          };
+        });
       }
     }
   } catch (err) {
@@ -67,8 +74,12 @@ function generateProceduralQuestions(params: GenerateQuestionsParams): Omit<Ques
 
   for (let i = 0; i < params.count; i++) {
     const salt = Math.floor(Math.random() * 80) + 12;
+    const activeTopic = (params.categories && params.categories.length > 0)
+      ? params.categories[i % params.categories.length]
+      : (params.topic || 'General Practice');
+
     if (params.subject === 'Mathematics') {
-      if (params.topic.toLowerCase().includes('fraction')) {
+      if (activeTopic.toLowerCase().includes('fraction')) {
         const den = 6 + (i % 6) * 2;
         const num1 = 1 + (i % 3);
         const num2 = 1;
@@ -79,7 +90,7 @@ function generateProceduralQuestions(params: GenerateQuestionsParams): Omit<Ques
         options.sort(() => Math.random() - 0.5);
         result.push({
           subject: 'Mathematics',
-          topic: params.topic,
+          topic: activeTopic,
           difficulty: params.difficulty,
           questionText: `What is ${num1}/${den} + ${num2}/${den} simplified?`,
           options,
@@ -90,7 +101,7 @@ function generateProceduralQuestions(params: GenerateQuestionsParams): Omit<Ques
           approved: false,
           createdAt: new Date().toISOString()
         });
-      } else if (params.topic.toLowerCase().includes('percent')) {
+      } else if (activeTopic.toLowerCase().includes('percent') || activeTopic.toLowerCase().includes('money')) {
         const pct = 10 * (1 + (i % 5));
         const base = 50 + i * 20;
         const val = (pct / 100) * base;
@@ -99,7 +110,7 @@ function generateProceduralQuestions(params: GenerateQuestionsParams): Omit<Ques
         options.sort(() => Math.random() - 0.5);
         result.push({
           subject: 'Mathematics',
-          topic: params.topic,
+          topic: activeTopic,
           difficulty: params.difficulty,
           questionText: `A jacket priced at £${base} has a ${pct}% discount. What is the final price?`,
           options,
@@ -118,7 +129,7 @@ function generateProceduralQuestions(params: GenerateQuestionsParams): Omit<Ques
         const options = [`${a}`, `${a + 2}`, `${a - 3}`, `${a + 5}`].sort(() => Math.random() - 0.5);
         result.push({
           subject: 'Mathematics',
-          topic: params.topic,
+          topic: activeTopic,
           difficulty: params.difficulty,
           questionText: `Solve for y: 3y + ${b} = ${sum}`,
           options,
@@ -132,16 +143,16 @@ function generateProceduralQuestions(params: GenerateQuestionsParams): Omit<Ques
       }
     } else if (params.subject === 'English') {
       const vocabPairs = [
-        { word: 'CANDID', syn: 'Frank and honest', ants: ['Deceptive', 'Timid', 'Lethargic'], topic: 'Vocabulary' },
-        { word: 'ARDUOUS', syn: 'Difficult and tiring', ants: ['Effortless', 'Cheerful', 'Ancient'], topic: 'Vocabulary' },
-        { word: 'TRANQUIL', syn: 'Calm and peaceful', ants: ['Stormy', 'Noisy', 'Frantic'], topic: 'Synonyms' },
-        { word: 'EPHEMERAL', syn: 'Short-lived and fleeting', ants: ['Permanent', 'Immense', 'Heavy'], topic: 'Word meaning' }
+        { word: 'CANDID', syn: 'Frank and honest', ants: ['Deceptive', 'Timid', 'Lethargic'] },
+        { word: 'ARDUOUS', syn: 'Difficult and tiring', ants: ['Effortless', 'Cheerful', 'Ancient'] },
+        { word: 'TRANQUIL', syn: 'Calm and peaceful', ants: ['Stormy', 'Noisy', 'Frantic'] },
+        { word: 'EPHEMERAL', syn: 'Short-lived and fleeting', ants: ['Permanent', 'Immense', 'Heavy'] }
       ];
       const selected = vocabPairs[i % vocabPairs.length];
       const opts = [selected.syn, ...selected.ants].sort(() => Math.random() - 0.5);
       result.push({
         subject: 'English',
-        topic: params.topic || selected.topic,
+        topic: activeTopic,
         difficulty: params.difficulty,
         questionText: `Which option gives the most accurate meaning for the word "${selected.word}"?`,
         options: opts,
@@ -167,7 +178,7 @@ function generateProceduralQuestions(params: GenerateQuestionsParams): Omit<Ques
 
       result.push({
         subject: 'Verbal Reasoning',
-        topic: params.topic || 'Letter sequences',
+        topic: activeTopic,
         difficulty: params.difficulty,
         questionText: `Find the next letter in the pattern: ${c1}, ${c2}, ${c3}, ${c4}, ( ? )`,
         options: opts,

@@ -298,9 +298,12 @@ export default function App() {
                 onClick={() => setCurrentView(currentUser.role === 'admin' ? 'admin_dashboard' : 'student_dashboard')}
                 className="flex items-center gap-2.5 cursor-pointer"
               >
-                <div className="w-9 h-9 rounded-xl bg-blue-900 dark:bg-blue-600 text-white flex items-center justify-center font-black text-base shadow-xs">
-                  FS
-                </div>
+                <img
+                  src="https://i.ibb.co/9mXgHJMv/logo1.jpg"
+                  alt="FUTURE STARS Logo"
+                  className="w-10 h-10 rounded-xl object-contain bg-white shadow-xs border border-slate-200 dark:border-slate-700"
+                  referrerPolicy="no-referrer"
+                />
                 <div className="text-left">
                   <span className="font-extrabold text-lg tracking-tight text-blue-950 dark:text-blue-100 block">FUTURE STARS</span>
                   <span className="text-[10px] text-slate-500 dark:text-slate-400 font-semibold uppercase tracking-wider block">11+ Examination Platform</span>

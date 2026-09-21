@@ -15,7 +15,11 @@ import {
   RefreshCw,
   AlertCircle,
   Eye,
-  Users
+  Users,
+  CheckSquare,
+  Square,
+  Layers,
+  BookOpen
 } from 'lucide-react';
 import { Question, SubjectType, DifficultyLevel, PdfDocument, ExamDifficultyConfig, ExamAttempt } from '../types';
 import { generateAIQuestions, extractQuestionsFromPdf } from '../services/aiService';
@@ -27,6 +31,7 @@ import {
   saveExamConfig
 } from '../services/dbService';
 import { AdminStudentProgress } from './AdminStudentProgress';
+import { UK_CURRICULUM_CATEGORIES, getCategoriesForSubject, CurriculumCategory } from '../data/ukCurriculumCategories';
 
 interface AdminDashboardProps {
   questions: Question[];
@@ -52,14 +57,45 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
   const [filterSource, setFilterSource] = useState<'all' | 'past_paper' | 'curated_seed' | 'ai_generated'>('all');
   const [filterPdf, setFilterPdf] = useState<string>('all');
 
-  // AI Generator Form (Fixed strictly to Hard)
+  // AI Generator Form with UK Curriculum Category Multi-Selection
   const [aiSubject, setAiSubject] = useState<SubjectType>('Mathematics');
-  const [aiTopic, setAiTopic] = useState('Fractions');
+  const [aiTopic, setAiTopic] = useState('');
+  const [selectedCategories, setSelectedCategories] = useState<string[]>([
+    'Numbers & Place Value',
+    'Fractions, Decimals & Percentages',
+    'Ratio & Proportion'
+  ]);
   const [aiDifficulty] = useState<DifficultyLevel>('Hard');
-  const [aiCount, setAiCount] = useState<number>(5);
+  const [aiCount, setAiCount] = useState<number>(6);
   const [aiGenerating, setAiGenerating] = useState(false);
   const [aiGeneratedPreview, setAiGeneratedPreview] = useState<Omit<Question, 'id'>[]>([]);
   const [aiError, setAiError] = useState<string>('');
+
+  const handleSubjectChange = (newSubject: SubjectType) => {
+    setAiSubject(newSubject);
+    const available = getCategoriesForSubject(newSubject);
+    // Auto-select initial 3 categories for convenience
+    setSelectedCategories(available.slice(0, 3).map(c => c.name));
+  };
+
+  const handleToggleCategory = (categoryName: string) => {
+    setSelectedCategories(prev => {
+      if (prev.includes(categoryName)) {
+        return prev.filter(c => c !== categoryName);
+      } else {
+        return [...prev, categoryName];
+      }
+    });
+  };
+
+  const handleSelectAllCategories = () => {
+    const cats = getCategoriesForSubject(aiSubject).map(c => c.name);
+    setSelectedCategories(cats);
+  };
+
+  const handleClearCategories = () => {
+    setSelectedCategories([]);
+  };
 
   // PDF Extraction Simulation / OCR
   const [pdfUploading, setPdfUploading] = useState(false);
@@ -123,12 +159,18 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
   // Generate AI Questions
   const handleRunAiGenerator = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (selectedCategories.length === 0 && !aiTopic.trim()) {
+      setAiError('Please select at least one UK curriculum category or enter a topic.');
+      return;
+    }
+
     setAiGenerating(true);
     setAiError('');
     try {
       const generated = await generateAIQuestions({
         subject: aiSubject,
-        topic: aiTopic,
+        topic: aiTopic.trim() || (selectedCategories[0] ?? 'General Practice'),
+        categories: selectedCategories.length > 0 ? selectedCategories : [aiTopic.trim()],
         difficulty: aiDifficulty,
         count: aiCount,
       });
@@ -149,6 +191,19 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
       reviewedAt: new Date().toISOString(),
     });
     setAiGeneratedPreview(prev => prev.filter((_, i) => i !== index));
+    onRefreshData();
+  };
+
+  // Bulk Approve All AI Questions
+  const handleApproveAllAiQuestions = async () => {
+    for (const item of aiGeneratedPreview) {
+      await saveQuestion({
+        ...item,
+        approved: true,
+        reviewedAt: new Date().toISOString(),
+      });
+    }
+    setAiGeneratedPreview([]);
     onRefreshData();
   };
 
@@ -227,14 +282,23 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
     <div className="space-y-6">
       {/* Top Banner */}
       <div className="bg-slate-900 text-white p-6 rounded-2xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-        <div>
-          <div className="text-xs font-bold uppercase tracking-wider text-amber-400">
-            FUTURE STARS Administrator Portal
+        <div className="flex items-center gap-4">
+          <img
+            src="https://i.ibb.co/9mXgHJMv/logo1.jpg"
+            alt="FUTURE STARS Logo"
+            className="w-14 h-14 rounded-xl object-contain bg-white shadow-md border border-slate-700 shrink-0 p-1"
+            referrerPolicy="no-referrer"
+          />
+          <div>
+            <div className="text-xs font-bold uppercase tracking-wider text-amber-400 flex items-center gap-1.5">
+              <span>FUTURE STARS 11+</span>
+              <span className="text-[10px] bg-amber-400/20 text-amber-300 px-1.5 py-0.5 rounded font-mono">ADMIN</span>
+            </div>
+            <h1 className="text-2xl font-black mt-1">Question Bank & Curriculum Control</h1>
+            <p className="text-xs text-slate-400 mt-1">
+              Manage approved 11+ questions, review OCR extractions from past paper PDFs, and generate new questions with AI.
+            </p>
           </div>
-          <h1 className="text-2xl font-black mt-1">Question Bank & Curriculum Control</h1>
-          <p className="text-xs text-slate-400 mt-1">
-            Manage approved 11+ questions, review OCR extractions from past paper PDFs, and generate new questions with AI.
-          </p>
         </div>
 
         <div className="flex items-center gap-2">
@@ -498,78 +562,192 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
       {activeTab === 'ai_generator' && (
         <div className="space-y-6">
           <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-xs">
-            <h2 className="text-lg font-bold text-slate-900 mb-1 flex items-center gap-2">
-              <Sparkles className="w-5 h-5 text-amber-500" />
-              Generate Original 11+ Examination Questions
-            </h2>
-            <p className="text-xs text-slate-500 mb-6">
-              AI crafts new, high-difficulty questions testing similar reasoning patterns. Generated questions require administrator review before entering the student question bank.
-            </p>
-
-            <form onSubmit={handleRunAiGenerator} className="grid grid-cols-1 sm:grid-cols-4 gap-4">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
               <div>
-                <label className="block text-xs font-bold text-slate-700 mb-1">Subject</label>
-                <select
-                  value={aiSubject}
-                  onChange={e => {
-                    const s = e.target.value as SubjectType;
-                    setAiSubject(s);
-                    if (s === 'Mathematics') setAiTopic('Fractions');
-                    else if (s === 'English') setAiTopic('Vocabulary');
-                    else setAiTopic('Letter sequences');
-                  }}
-                  className="w-full px-3 py-2 text-sm rounded-lg border border-slate-300 bg-white"
-                >
-                  <option value="Mathematics">Mathematics</option>
-                  <option value="English">English</option>
-                  <option value="Verbal Reasoning">Verbal Reasoning</option>
-                </select>
+                <h2 className="text-lg font-bold text-slate-900 flex items-center gap-2">
+                  <Sparkles className="w-5 h-5 text-amber-500" />
+                  Generate Original 11+ Examination Questions
+                </h2>
+                <p className="text-xs text-slate-500 mt-0.5">
+                  Select one or more official UK Curriculum categories below. AI generates authentic GL & CEM grammar school entrance questions matching these domains.
+                </p>
+              </div>
+              <span className="text-[11px] font-bold px-2.5 py-1 rounded-full bg-blue-50 text-blue-800 border border-blue-200 shrink-0 self-start sm:self-auto">
+                UK 11+ Curriculum Aligned
+              </span>
+            </div>
+
+            <form onSubmit={handleRunAiGenerator} className="space-y-5">
+              {/* Top Row Controls: Subject, Quantity & Difficulty */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div>
+                  <label className="block text-xs font-bold text-slate-700 mb-1">Subject Area</label>
+                  <select
+                    value={aiSubject}
+                    onChange={e => handleSubjectChange(e.target.value as SubjectType)}
+                    className="w-full px-3 py-2 text-sm font-semibold rounded-lg border border-slate-300 bg-white shadow-2xs focus:ring-2 focus:ring-blue-500"
+                  >
+                    <option value="Mathematics">Mathematics</option>
+                    <option value="English">English</option>
+                    <option value="Verbal Reasoning">Verbal Reasoning</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block text-xs font-bold text-slate-700 mb-1">Questions to Generate</label>
+                  <div className="flex items-center gap-2">
+                    <input
+                      type="number"
+                      min="1"
+                      max="20"
+                      value={aiCount}
+                      onChange={e => setAiCount(Number(e.target.value))}
+                      className="w-full px-3 py-2 text-sm rounded-lg border border-slate-300 shadow-2xs focus:ring-2 focus:ring-blue-500"
+                    />
+                    <div className="flex gap-1">
+                      {[5, 10, 15].map(cnt => (
+                        <button
+                          key={cnt}
+                          type="button"
+                          onClick={() => setAiCount(cnt)}
+                          className={`px-2 py-1 text-xs font-bold rounded border ${
+                            aiCount === cnt ? 'bg-blue-900 text-white border-blue-900' : 'bg-slate-100 text-slate-700 border-slate-200 hover:bg-slate-200'
+                          }`}
+                        >
+                          {cnt}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-xs font-bold text-slate-700 mb-1">Standard & Difficulty</label>
+                  <div className="w-full px-3 py-2 text-sm font-semibold rounded-lg border border-purple-200 bg-purple-50 text-purple-900 flex items-center justify-between">
+                    <span>Hard (Grammar School Standard)</span>
+                    <span className="text-[10px] uppercase font-bold bg-purple-200/80 text-purple-950 px-1.5 py-0.5 rounded">Fixed</span>
+                  </div>
+                </div>
               </div>
 
+              {/* UK Curriculum Categories Multi-Selection Panel */}
+              <div className="rounded-xl border border-slate-200 bg-slate-50/70 p-4 space-y-3">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                  <div className="flex items-center gap-2">
+                    <BookOpen className="w-4 h-4 text-blue-900" />
+                    <span className="text-xs font-bold text-slate-900 uppercase tracking-wider">
+                      {aiSubject} UK Curriculum Categories
+                    </span>
+                    <span className="text-xs font-bold px-2 py-0.5 rounded-full bg-blue-100 text-blue-800">
+                      {selectedCategories.length} selected
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-2 text-xs">
+                    <button
+                      type="button"
+                      onClick={handleSelectAllCategories}
+                      className="text-blue-700 hover:text-blue-900 font-bold underline cursor-pointer"
+                    >
+                      Select All
+                    </button>
+                    <span className="text-slate-300">|</span>
+                    <button
+                      type="button"
+                      onClick={handleClearCategories}
+                      className="text-slate-500 hover:text-slate-800 font-medium cursor-pointer"
+                    >
+                      Clear All
+                    </button>
+                  </div>
+                </div>
+
+                <p className="text-[11px] text-slate-500">
+                  Click on categories to toggle them. When you select multiple categories, AI will generate questions distributed across all your chosen categories.
+                </p>
+
+                {/* Categories Grid */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5 max-h-72 overflow-y-auto pr-1">
+                  {getCategoriesForSubject(aiSubject).map(cat => {
+                    const isSelected = selectedCategories.includes(cat.name);
+                    return (
+                      <button
+                        key={cat.id}
+                        type="button"
+                        onClick={() => handleToggleCategory(cat.name)}
+                        className={`text-left p-3 rounded-xl border transition-all cursor-pointer flex items-start gap-2.5 ${
+                          isSelected
+                            ? 'bg-blue-50/90 border-blue-400 shadow-2xs ring-1 ring-blue-300'
+                            : 'bg-white border-slate-200 hover:border-slate-300 hover:bg-slate-50/50'
+                        }`}
+                      >
+                        <div className="mt-0.5 shrink-0 text-blue-900">
+                          {isSelected ? (
+                            <CheckSquare className="w-4 h-4 text-blue-800 fill-blue-100" />
+                          ) : (
+                            <Square className="w-4 h-4 text-slate-400" />
+                          )}
+                        </div>
+                        <div className="min-w-0 flex-1">
+                          <div className="flex items-center justify-between gap-1 mb-0.5">
+                            <span className={`text-xs font-bold leading-tight truncate ${isSelected ? 'text-blue-950' : 'text-slate-800'}`}>
+                              {cat.name}
+                            </span>
+                          </div>
+                          <span className="inline-block text-[10px] font-semibold text-slate-500 bg-slate-100 px-1.5 py-0.2 rounded mb-1">
+                            {cat.examFocus}
+                          </span>
+                          <p className="text-[11px] text-slate-600 line-clamp-2 leading-snug">
+                            {cat.description}
+                          </p>
+                        </div>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* Optional Custom Topic Override */}
               <div>
-                <label className="block text-xs font-bold text-slate-700 mb-1">Topic</label>
+                <label className="block text-xs font-bold text-slate-700 mb-1">
+                  Additional Bespoke Focus (Optional)
+                </label>
                 <input
                   type="text"
                   value={aiTopic}
                   onChange={e => setAiTopic(e.target.value)}
-                  placeholder="e.g. Percentages"
-                  className="w-full px-3 py-2 text-sm rounded-lg border border-slate-300"
+                  placeholder="e.g. Multi-step algebraic fractions involving perimeter"
+                  className="w-full px-3 py-2 text-sm rounded-lg border border-slate-300 shadow-2xs focus:ring-2 focus:ring-blue-500"
                 />
               </div>
 
-              <div>
-                <label className="block text-xs font-bold text-slate-700 mb-1">Standard & Difficulty</label>
-                <div className="w-full px-3 py-2 text-sm font-semibold rounded-lg border border-purple-200 bg-purple-50 text-purple-900 flex items-center justify-between">
-                  <span>Hard (Grammar Level)</span>
-                  <span className="text-[10px] uppercase font-bold bg-purple-200/80 text-purple-950 px-1.5 py-0.5 rounded">Fixed</span>
+              {/* Summary and Generate Button */}
+              <div className="pt-2 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+                <div className="text-xs text-slate-600">
+                  {selectedCategories.length > 0 ? (
+                    <span>
+                      Will generate <strong>{aiCount}</strong> questions distributed across <strong>{selectedCategories.length}</strong> selected {selectedCategories.length === 1 ? 'category' : 'categories'}.
+                    </span>
+                  ) : (
+                    <span className="text-amber-700 font-medium">
+                      Please select at least one category above to generate questions.
+                    </span>
+                  )}
                 </div>
-              </div>
 
-              <div>
-                <label className="block text-xs font-bold text-slate-700 mb-1">Quantity</label>
-                <input
-                  type="number"
-                  min="1"
-                  max="20"
-                  value={aiCount}
-                  onChange={e => setAiCount(Number(e.target.value))}
-                  className="w-full px-3 py-2 text-sm rounded-lg border border-slate-300"
-                />
-              </div>
-
-              <div className="sm:col-span-4 pt-2 flex justify-end">
                 <button
                   type="submit"
-                  disabled={aiGenerating}
-                  className="px-6 py-2.5 rounded-lg bg-blue-900 hover:bg-blue-800 text-white font-bold text-sm flex items-center gap-2 shadow-xs transition-colors disabled:opacity-50"
+                  disabled={aiGenerating || (selectedCategories.length === 0 && !aiTopic.trim())}
+                  className="px-6 py-2.5 rounded-lg bg-blue-900 hover:bg-blue-800 text-white font-bold text-sm flex items-center gap-2 shadow-xs transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   <Sparkles className="w-4 h-4 text-amber-400" />
-                  {aiGenerating ? 'Generating Questions...' : 'Generate Questions with AI'}
+                  {aiGenerating
+                    ? 'Authoring Questions with AI...'
+                    : `Generate ${aiCount} Questions (${selectedCategories.length} Categories)`}
                 </button>
               </div>
 
               {aiError && (
-                <div className="sm:col-span-4 p-3 rounded-lg bg-rose-50 border border-rose-200 text-rose-800 text-xs flex items-center gap-2">
+                <div className="p-3 rounded-lg bg-rose-50 border border-rose-200 text-rose-800 text-xs flex items-center gap-2">
                   <AlertCircle className="w-4 h-4 shrink-0" />
                   <span>{aiError}</span>
                 </div>
@@ -580,34 +758,55 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
           {/* AI Generated Preview List for Admin Review & Quality Control */}
           {aiGeneratedPreview.length > 0 && (
             <div className="space-y-4">
-              <div className="flex items-center justify-between">
-                <h3 className="font-bold text-base text-slate-900">
-                  AI Generated Questions for Review ({aiGeneratedPreview.length})
-                </h3>
-                <span className="text-xs text-amber-700 bg-amber-50 px-2.5 py-1 rounded-md border border-amber-200">
-                  Quality Control: Verify calculations & explanations before approving
-                </span>
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-slate-900 text-white p-4 rounded-xl">
+                <div>
+                  <h3 className="font-bold text-base flex items-center gap-2">
+                    <Sparkles className="w-4 h-4 text-amber-400" />
+                    AI Generated Questions for Review ({aiGeneratedPreview.length})
+                  </h3>
+                  <p className="text-xs text-slate-300 mt-0.5">
+                    Verify calculations, options, and step-by-step explanations. Approved questions enter the live student bank.
+                  </p>
+                </div>
+                <div className="flex items-center gap-2">
+                  <button
+                    onClick={handleApproveAllAiQuestions}
+                    className="px-4 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs flex items-center gap-1.5 shadow-sm transition-colors cursor-pointer"
+                  >
+                    <CheckCircle className="w-4 h-4" /> Approve All ({aiGeneratedPreview.length})
+                  </button>
+                  <button
+                    onClick={() => setAiGeneratedPreview([])}
+                    className="px-3 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold text-xs cursor-pointer"
+                  >
+                    Dismiss All
+                  </button>
+                </div>
               </div>
 
               <div className="space-y-4">
                 {aiGeneratedPreview.map((item, idx) => (
                   <div key={idx} className="p-5 rounded-2xl bg-white border border-slate-200 shadow-xs space-y-3">
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-2">
+                    <div className="flex items-center justify-between flex-wrap gap-2">
+                      <div className="flex items-center gap-2 flex-wrap">
                         <span className="text-xs font-bold px-2 py-0.5 rounded bg-blue-100 text-blue-900">{item.subject}</span>
-                        <span className="text-xs font-semibold px-2 py-0.5 rounded bg-slate-100 text-slate-700">{item.topic}</span>
-                        <span className="text-xs px-2 py-0.5 rounded bg-slate-100 text-slate-600">{item.difficulty}</span>
+                        <span className="text-xs font-semibold px-2 py-0.5 rounded bg-indigo-50 text-indigo-900 border border-indigo-200">
+                          {item.topic}
+                        </span>
+                        <span className="text-xs px-2 py-0.5 rounded bg-purple-50 text-purple-900 font-bold border border-purple-200">
+                          {item.difficulty}
+                        </span>
                       </div>
                       <div className="flex items-center gap-2">
                         <button
                           onClick={() => handleApproveAiQuestion(item, idx)}
-                          className="px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs flex items-center gap-1"
+                          className="px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs flex items-center gap-1 cursor-pointer"
                         >
-                          <CheckCircle className="w-3.5 h-3.5" /> Approve Question
+                          <CheckCircle className="w-3.5 h-3.5" /> Approve
                         </button>
                         <button
                           onClick={() => setAiGeneratedPreview(prev => prev.filter((_, i) => i !== idx))}
-                          className="px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-rose-50 text-rose-700 font-bold text-xs"
+                          className="px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-rose-50 text-rose-700 font-bold text-xs cursor-pointer"
                         >
                           Reject
                         </button>
@@ -620,18 +819,18 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
                       {item.options.map((opt, optIdx) => (
                         <div
                           key={optIdx}
-                          className={`p-2 rounded-lg border ${
-                            opt === item.correctAnswer ? 'bg-emerald-50 border-emerald-400 font-bold text-emerald-900' : 'bg-slate-50 border-slate-200'
+                          className={`p-2.5 rounded-lg border ${
+                            opt === item.correctAnswer ? 'bg-emerald-50 border-emerald-400 font-bold text-emerald-900 ring-1 ring-emerald-300' : 'bg-slate-50 border-slate-200'
                           }`}
                         >
-                          {String.fromCharCode(65 + optIdx)}. {opt}
+                          <span className="font-bold text-slate-500 mr-1">{String.fromCharCode(65 + optIdx)}.</span> {opt}
                         </div>
                       ))}
                     </div>
 
-                    <div className="p-3 rounded-lg bg-slate-50 border border-slate-100 text-xs text-slate-600 space-y-1">
+                    <div className="p-3.5 rounded-lg bg-slate-50 border border-slate-200 text-xs text-slate-700 space-y-1">
                       <p><strong>Explanation:</strong> {item.explanation}</p>
-                      {item.stepByStepSolution && <p><strong>Solution:</strong> {item.stepByStepSolution}</p>}
+                      {item.stepByStepSolution && <p><strong>Step-by-Step Solution:</strong> {item.stepByStepSolution}</p>}
                     </div>
                   </div>
                 ))}

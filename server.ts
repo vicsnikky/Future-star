@@ -27,16 +27,21 @@ function getGenAI(): GoogleGenAI | null {
 function generateProceduralQuestions(params: {
   subject: string;
   topic?: string;
+  categories?: string[];
   difficulty?: string;
   count: number;
   referenceContext?: string;
 }) {
   const result = [];
   const subject = params.subject || 'Mathematics';
-  const topic = params.topic || 'General Practice';
-  const difficulty = params.difficulty || 'Medium';
+  const difficulty = params.difficulty || 'Hard';
+
+  const categoryList: string[] = (Array.isArray(params.categories) && params.categories.length > 0)
+    ? params.categories
+    : [params.topic || 'General Practice'];
 
   for (let i = 0; i < params.count; i++) {
+    const topic = categoryList[i % categoryList.length];
     if (subject === 'Mathematics') {
       if (topic.toLowerCase().includes('fraction')) {
         const den = 6 + (i % 6) * 2;
@@ -194,8 +199,14 @@ async function startServer() {
   // 1. Generate AI Questions Endpoint
   app.post('/api/generate-questions', async (req, res) => {
     try {
-      const { subject, topic, difficulty, count = 5, referenceContext } = req.body;
+      const { subject, topic, categories, difficulty, count = 5, referenceContext } = req.body;
       const parsedCount = Math.min(Math.max(Number(count) || 5, 1), 20);
+
+      const selectedCategories: string[] = Array.isArray(categories) && categories.length > 0
+        ? categories
+        : (topic ? [topic] : ['General Practice']);
+
+      const categoriesStr = selectedCategories.join(', ');
 
       const ai = getGenAI();
 
@@ -204,7 +215,8 @@ async function startServer() {
         const fallbackQuestions = generateProceduralQuestions({
           subject: subject || 'Mathematics',
           topic,
-          difficulty,
+          categories: selectedCategories,
+          difficulty: difficulty || 'Hard',
           count: parsedCount,
           referenceContext
         });
@@ -212,10 +224,11 @@ async function startServer() {
       }
 
       const prompt = `You are a senior UK 11+ Examination author for the FUTURE STARS platform.
-Generate exactly ${parsedCount} original, high-calibre UK 11+ grammar school entrance examination questions for:
+Generate exactly ${parsedCount} original, high-calibre UK 11+ grammar school entrance examination questions (GL Assessment and CEM standard).
 Subject: ${subject || 'Mathematics'}
-Topic: ${topic || 'General Practice'}
-Difficulty: ${difficulty || 'Medium'} (tailored for 10-11 year old students)
+Target Categories/Topics: ${categoriesStr}
+(Distribute the ${parsedCount} questions evenly across the above selected categories. For each question, specify which selected category it belongs to in the 'topic' field).
+Difficulty: ${difficulty || 'Hard'} (Grammar School entrance level for 10-11 year old students)
 
 ${referenceContext ? `Reference Context from Past Papers:\n"${referenceContext}"\n(Do NOT copy verbatim; construct new questions assessing the same cognitive skills).` : ''}
 
@@ -224,7 +237,8 @@ QUALITY CONTROL MANDATES:
 2. Exactly 4 plausible multiple-choice options (A, B, C, D) with typical student misconception distractors.
 3. The 'correctAnswer' must match one of the options character-for-character.
 4. Provide a clear, encouraging, child-friendly explanation and a step-by-step solution.
-5. All calculations and reasoning must be 100% verified.
+5. Set 'topic' to the relevant category from: ${categoriesStr}.
+6. All calculations and reasoning must be 100% verified.
 `;
 
       let questions = await callGeminiWithFallback(ai, prompt, {
@@ -232,6 +246,7 @@ QUALITY CONTROL MANDATES:
         items: {
           type: Type.OBJECT,
           properties: {
+            topic: { type: Type.STRING, description: 'The specific category or topic from the requested list' },
             questionText: { type: Type.STRING },
             options: {
               type: Type.ARRAY,
@@ -242,7 +257,7 @@ QUALITY CONTROL MANDATES:
             explanation: { type: Type.STRING },
             stepByStepSolution: { type: Type.STRING },
           },
-          required: ['questionText', 'options', 'correctAnswer', 'explanation', 'stepByStepSolution']
+          required: ['topic', 'questionText', 'options', 'correctAnswer', 'explanation', 'stepByStepSolution']
         }
       });
 
@@ -250,15 +265,16 @@ QUALITY CONTROL MANDATES:
         questions = generateProceduralQuestions({
           subject: subject || 'Mathematics',
           topic,
-          difficulty,
+          categories: selectedCategories,
+          difficulty: difficulty || 'Hard',
           count: parsedCount,
           referenceContext
         });
       } else {
-        questions = questions.map((item: any) => ({
+        questions = questions.map((item: any, idx: number) => ({
           subject: subject || 'Mathematics',
-          topic: topic || 'General',
-          difficulty: difficulty || 'Medium',
+          topic: item.topic || selectedCategories[idx % selectedCategories.length] || 'General Practice',
+          difficulty: difficulty || 'Hard',
           questionText: item.questionText,
           options: Array.isArray(item.options) ? item.options : ['Option A', 'Option B', 'Option C', 'Option D'],
           correctAnswer: item.correctAnswer || (item.options ? item.options[0] : 'Option A'),
@@ -277,6 +293,7 @@ QUALITY CONTROL MANDATES:
       const fallbackQuestions = generateProceduralQuestions({
         subject: req.body?.subject || 'Mathematics',
         topic: req.body?.topic,
+        categories: req.body?.categories,
         difficulty: req.body?.difficulty,
         count: Number(req.body?.count) || 5,
         referenceContext: req.body?.referenceContext
