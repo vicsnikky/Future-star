@@ -15,6 +15,7 @@ import {
 } from 'lucide-react';
 import { ExamAttempt, Question } from '../types';
 import { KeyboardShortcutsModal } from './KeyboardShortcutsModal';
+import { sanitizeQuestion } from '../services/questionSanitizer';
 
 interface ExamViewProps {
   exam: ExamAttempt;
@@ -154,7 +155,10 @@ export const ExamView: React.FC<ExamViewProps> = ({
     return `${mins.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
   };
 
-  const currentQ: Question = exam.questions[currentIndex] || exam.questions[0];
+  const currentQ: Question = useMemo(
+    () => sanitizeQuestion(exam.questions[currentIndex] || exam.questions[0]),
+    [exam.questions, currentIndex]
+  );
   const selectedAnswer = exam.studentAnswers[currentIndex] || '';
   const isFlagged = exam.flaggedQuestions.includes(currentIndex);
 

@@ -20,7 +20,9 @@ import {
   getPdfDocuments,
   getExamConfig,
 } from './services/dbService';
-import { buildDynamic50Exam } from './services/examEngine';
+import { buildDynamic50Exam, shuffleArray } from './services/examEngine';
+import { sanitizeQuestion, deduplicateQuestions, normalizeQuestionText } from './services/questionSanitizer';
+import { SEED_QUESTIONS } from './data/seedQuestions';
 
 // Components
 import { LandingPage } from './components/LandingPage';
@@ -466,9 +468,20 @@ export default function App() {
               examHistory={examHistory}
               onBack={() => setCurrentView('student_dashboard')}
               onPracticeMistakes={(qs) => {
-                // Launch custom practice with mistaken questions
+                // Launch custom practice with mistaken questions (deduplicated, no repeats)
                 const candidateName = currentUser?.displayName || 'Student';
-                const dynamic50 = buildDynamic50Exam(qs, 'Mixed', examConfig);
+                const uniqueMistakes = deduplicateQuestions(qs);
+                let practiceQuestions = uniqueMistakes;
+
+                // If fewer than 25 questions, supplement with unique questions from SEED_QUESTIONS
+                if (practiceQuestions.length < 25) {
+                  const existingKeys = new Set(practiceQuestions.map(q => normalizeQuestionText(q.questionText)));
+                  const availableSupplements = SEED_QUESTIONS.filter(q => !existingKeys.has(normalizeQuestionText(q.questionText)));
+                  const extra = shuffleArray(availableSupplements).slice(0, 25 - practiceQuestions.length);
+                  practiceQuestions = [...practiceQuestions, ...extra.map(sanitizeQuestion)];
+                }
+
+                const count = practiceQuestions.length;
                 const newExam: ExamAttempt = {
                   id: `exam-mistakes-${Date.now()}`,
                   studentId: currentUser?.uid || 'student',
@@ -476,9 +489,9 @@ export default function App() {
                   studentEmail: currentUser?.email || 'student@futurestars.edu',
                   subject: 'Mixed',
                   startTime: new Date().toISOString(),
-                  durationMinutes: 40,
-                  totalQuestions: 50,
-                  questions: dynamic50,
+                  durationMinutes: Math.max(15, Math.ceil(count * 0.8)),
+                  totalQuestions: count,
+                  questions: practiceQuestions,
                   studentAnswers: {},
                   flaggedQuestions: [],
                   status: 'in_progress',

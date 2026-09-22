@@ -14,6 +14,7 @@ import {
 import { db } from '../lib/firebase';
 import { Question, ExamAttempt, PdfDocument, ExamDifficultyConfig, UserProfile } from '../types';
 import { SEED_QUESTIONS } from '../data/seedQuestions';
+import { sanitizeQuestion, normalizeQuestionText } from './questionSanitizer';
 
 const QUESTIONS_COLLECTION = 'questions';
 const EXAMS_COLLECTION = 'exam_attempts';
@@ -60,14 +61,15 @@ export async function ensureSeedQuestionsLoaded(): Promise<number> {
   }
 }
 
-// 2. Fetch all approved questions for exams (Combining 760+ bank with Firestore)
+// 2. Fetch all approved questions for exams (Combining 490+ curated bank with Firestore)
 export async function getApprovedQuestions(subject?: string): Promise<Question[]> {
   const questionMap = new Map<string, Question>();
 
-  // Load curated 760+ questions
+  // Load curated questions
   for (const q of SEED_QUESTIONS) {
     if (!subject || subject === 'Mixed' || q.subject === subject) {
-      questionMap.set(q.questionText.trim(), { ...q, difficulty: 'Hard' });
+      const sanitized = sanitizeQuestion({ ...q, difficulty: 'Hard' });
+      questionMap.set(normalizeQuestionText(sanitized.questionText), sanitized);
     }
   }
 
@@ -89,7 +91,8 @@ export async function getApprovedQuestions(subject?: string): Promise<Question[]
     const snap = await getDocs(qRef);
     snap.forEach((docSnap) => {
       const data = docSnap.data() as Question;
-      questionMap.set(data.questionText.trim(), { ...data, id: docSnap.id, difficulty: 'Hard' });
+      const sanitized = sanitizeQuestion({ ...data, id: docSnap.id, difficulty: 'Hard' });
+      questionMap.set(normalizeQuestionText(sanitized.questionText), sanitized);
     });
   } catch (err) {
     console.warn('Firestore offline or fallback; using comprehensive local question bank:', err);
@@ -98,19 +101,21 @@ export async function getApprovedQuestions(subject?: string): Promise<Question[]
   return Array.from(questionMap.values());
 }
 
-// 3. Fetch all questions for Admin review (combining curated 760+ and custom/PDF-extracted)
+// 3. Fetch all questions for Admin review (combining curated 490+ and custom/PDF-extracted)
 export async function getAllQuestionsForAdmin(): Promise<Question[]> {
   const questionMap = new Map<string, Question>();
 
   for (const q of SEED_QUESTIONS) {
-    questionMap.set(q.questionText.trim(), { ...q, difficulty: 'Hard' });
+    const sanitized = sanitizeQuestion({ ...q, difficulty: 'Hard' });
+    questionMap.set(normalizeQuestionText(sanitized.questionText), sanitized);
   }
 
   try {
     const snap = await getDocs(collection(db, QUESTIONS_COLLECTION));
     snap.forEach((docSnap) => {
       const data = docSnap.data() as Question;
-      questionMap.set(data.questionText.trim(), { ...data, id: docSnap.id, difficulty: 'Hard' });
+      const sanitized = sanitizeQuestion({ ...data, id: docSnap.id, difficulty: 'Hard' });
+      questionMap.set(normalizeQuestionText(sanitized.questionText), sanitized);
     });
   } catch (error) {
     console.error('Error getting admin questions from Firestore:', error);

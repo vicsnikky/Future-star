@@ -1,6 +1,6 @@
 {
   "name": "FUTURE STARS - 11+ Examination Practice Platform",
-  "description": "Online 11+ examination practice system for English, Mathematics, and Verbal Reasoning with 50-question timed exams, AI question generator, and detailed solutions.",
+  "description": "Online British curriculum examination practice and academic progression platform covering Primary (Years 1–6 / KS2 SATs & 11+ Grammar School Entrance), Secondary Key Stage 3, GCSEs (AQA, Pearson Edexcel, OCR), and Sixth Form (AS/A-Levels).",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

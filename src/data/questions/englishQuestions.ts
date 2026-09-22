@@ -104,9 +104,9 @@ export const ENGLISH_QUESTIONS: Question[] = [
     "questionText": "Choose the word that is most opposite in meaning to \"DEBILITATE\":",
     "options": [
       "To",
-      "To",
       "Weaken",
-      "Invigorate"
+      "Invigorate",
+      "None of the above"
     ],
     "correctAnswer": "Invigorate",
     "explanation": "\"Invigorate\" provides the direct antithesis to \"DEBILITATE\".",
@@ -218,9 +218,9 @@ export const ENGLISH_QUESTIONS: Question[] = [
     "questionText": "Choose the word that is most opposite in meaning to \"HAUGHTY\":",
     "options": [
       "Humble",
-      "Humble",
       "Friendly",
-      "Arrogant"
+      "Arrogant",
+      "None of the above"
     ],
     "correctAnswer": "Humble",
     "explanation": "\"Humble\" provides the direct antithesis to \"HAUGHTY\".",
@@ -554,1716 +554,6 @@ export const ENGLISH_QUESTIONS: Question[] = [
   },
   {
     "id": "eng-ant-30",
-    "subject": "English",
-    "topic": "Antonyms & Contrasts",
-    "difficulty": "Hard",
-    "questionText": "Choose the word that is most opposite in meaning to \"FASTIDIOUS\":",
-    "options": [
-      "Particular",
-      "Uncritical",
-      "Pleasant",
-      "Careless"
-    ],
-    "correctAnswer": "Uncritical",
-    "explanation": "\"Uncritical\" provides the direct antithesis to \"FASTIDIOUS\".",
-    "stepByStepSolution": "Antonym analysis: \"FASTIDIOUS\" means very attentive to and concerned about accuracy and detail; its direct polar opposite is \"Uncritical\".",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-voc-31",
-    "subject": "English",
-    "topic": "Advanced Vocabulary & Semantics",
-    "difficulty": "Hard",
-    "questionText": "Which of the following definitions most accurately describes the word \"ABHORRENT\"?",
-    "options": [
-      "Inspiring disgust and loathing; repugnant",
-      "Deeply admirable",
-      "Unusually quiet",
-      "Extremely pleasant"
-    ],
-    "correctAnswer": "Inspiring disgust and loathing; repugnant",
-    "explanation": "\"ABHORRENT\" refers to: inspiring disgust and loathing; repugnant.",
-    "stepByStepSolution": "Contextual analysis: \"ABHORRENT\" originates from formal literary usage signifying \"Inspiring disgust and loathing; repugnant\".",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-syn-32",
-    "subject": "English",
-    "topic": "Synonyms & Word Nuance",
-    "difficulty": "Hard",
-    "questionText": "Select the word that is closest in meaning to \"AUDACIOUS\":",
-    "options": [
-      "Daring",
-      "Polite",
-      "Fearful",
-      "Silent"
-    ],
-    "correctAnswer": "Daring",
-    "explanation": "\"AUDACIOUS\" and \"Daring\" both describe something with this characteristic.",
-    "stepByStepSolution": "Synonym matching: \"AUDACIOUS\" means showing a willingness to take surprisingly bold risks, which aligns directly with \"Daring\".",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-ant-33",
-    "subject": "English",
-    "topic": "Antonyms & Contrasts",
-    "difficulty": "Hard",
-    "questionText": "Choose the word that is most opposite in meaning to \"BENEVOLENT\":",
-    "options": [
-      "Charitable",
-      "Malevolent",
-      "Greedy",
-      "Hostile"
-    ],
-    "correctAnswer": "Malevolent",
-    "explanation": "\"Malevolent\" provides the direct antithesis to \"BENEVOLENT\".",
-    "stepByStepSolution": "Antonym analysis: \"BENEVOLENT\" means well meaning, kind, and charitable; its direct polar opposite is \"Malevolent\".",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-voc-34",
-    "subject": "English",
-    "topic": "Advanced Vocabulary & Semantics",
-    "difficulty": "Hard",
-    "questionText": "Which of the following definitions most accurately describes the word \"CANDID\"?",
-    "options": [
-      "Truthful and straightforward; frank",
-      "Boastful and loud",
-      "Unclear and vague",
-      "Deceptive and secretive"
-    ],
-    "correctAnswer": "Truthful and straightforward; frank",
-    "explanation": "\"CANDID\" refers to: truthful and straightforward; frank.",
-    "stepByStepSolution": "Contextual analysis: \"CANDID\" originates from formal literary usage signifying \"Truthful and straightforward; frank\".",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-syn-35",
-    "subject": "English",
-    "topic": "Synonyms & Word Nuance",
-    "difficulty": "Hard",
-    "questionText": "Select the word that is closest in meaning to \"CONVOLUTED\":",
-    "options": [
-      "Short",
-      "Bright",
-      "Intricate",
-      "Simple"
-    ],
-    "correctAnswer": "Intricate",
-    "explanation": "\"CONVOLUTED\" and \"Intricate\" both describe something with this characteristic.",
-    "stepByStepSolution": "Synonym matching: \"CONVOLUTED\" means extremely complex and difficult to follow, which aligns directly with \"Intricate\".",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-ant-36",
-    "subject": "English",
-    "topic": "Antonyms & Contrasts",
-    "difficulty": "Hard",
-    "questionText": "Choose the word that is most opposite in meaning to \"DEBILITATE\":",
-    "options": [
-      "Invigorate",
-      "Weaken",
-      "To",
-      "To"
-    ],
-    "correctAnswer": "Invigorate",
-    "explanation": "\"Invigorate\" provides the direct antithesis to \"DEBILITATE\".",
-    "stepByStepSolution": "Antonym analysis: \"DEBILITATE\" means to make someone weak and infirm; its direct polar opposite is \"Invigorate\".",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-voc-37",
-    "subject": "English",
-    "topic": "Advanced Vocabulary & Semantics",
-    "difficulty": "Hard",
-    "questionText": "Which of the following definitions most accurately describes the word \"DILIGENT\"?",
-    "options": [
-      "Having or showing steady, earnest, and energetic effort",
-      "Lazy and negligent",
-      "Confused and clumsy",
-      "Sudden and hasty"
-    ],
-    "correctAnswer": "Having or showing steady, earnest, and energetic effort",
-    "explanation": "\"DILIGENT\" refers to: having or showing steady, earnest, and energetic effort.",
-    "stepByStepSolution": "Contextual analysis: \"DILIGENT\" originates from formal literary usage signifying \"Having or showing steady, earnest, and energetic effort\".",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-syn-38",
-    "subject": "English",
-    "topic": "Synonyms & Word Nuance",
-    "difficulty": "Hard",
-    "questionText": "Select the word that is closest in meaning to \"ELOQUENT\":",
-    "options": [
-      "Articulate",
-      "Inarticulate",
-      "Angry",
-      "Rude"
-    ],
-    "correctAnswer": "Articulate",
-    "explanation": "\"ELOQUENT\" and \"Articulate\" both describe something with this characteristic.",
-    "stepByStepSolution": "Synonym matching: \"ELOQUENT\" means fluent or persuasive in speaking or writing, which aligns directly with \"Articulate\".",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-ant-39",
-    "subject": "English",
-    "topic": "Antonyms & Contrasts",
-    "difficulty": "Hard",
-    "questionText": "Choose the word that is most opposite in meaning to \"EPHEMERAL\":",
-    "options": [
-      "Transitory",
-      "Permanent",
-      "Solid",
-      "Enduring"
-    ],
-    "correctAnswer": "Enduring",
-    "explanation": "\"Enduring\" provides the direct antithesis to \"EPHEMERAL\".",
-    "stepByStepSolution": "Antonym analysis: \"EPHEMERAL\" means lasting for a very short time; transitory; its direct polar opposite is \"Enduring\".",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-voc-40",
-    "subject": "English",
-    "topic": "Advanced Vocabulary & Semantics",
-    "difficulty": "Hard",
-    "questionText": "Which of the following definitions most accurately describes the word \"FORMIDABLE\"?",
-    "options": [
-      "Inspiring fear or respect through being impressively powerful",
-      "Weak and helpless",
-      "Silly and amusing",
-      "Boring and dull"
-    ],
-    "correctAnswer": "Inspiring fear or respect through being impressively powerful",
-    "explanation": "\"FORMIDABLE\" refers to: inspiring fear or respect through being impressively powerful.",
-    "stepByStepSolution": "Contextual analysis: \"FORMIDABLE\" originates from formal literary usage signifying \"Inspiring fear or respect through being impressively powerful\".",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-syn-41",
-    "subject": "English",
-    "topic": "Synonyms & Word Nuance",
-    "difficulty": "Hard",
-    "questionText": "Select the word that is closest in meaning to \"GARRULOUS\":",
-    "options": [
-      "Loquacious",
-      "Reserved",
-      "Extremely",
-      "Honest"
-    ],
-    "correctAnswer": "Loquacious",
-    "explanation": "\"GARRULOUS\" and \"Loquacious\" both describe something with this characteristic.",
-    "stepByStepSolution": "Synonym matching: \"GARRULOUS\" means excessively talkative, especially on trivial matters, which aligns directly with \"Loquacious\".",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-ant-42",
-    "subject": "English",
-    "topic": "Antonyms & Contrasts",
-    "difficulty": "Hard",
-    "questionText": "Choose the word that is most opposite in meaning to \"HAUGHTY\":",
-    "options": [
-      "Arrogant",
-      "Friendly",
-      "Humble",
-      "Humble"
-    ],
-    "correctAnswer": "Humble",
-    "explanation": "\"Humble\" provides the direct antithesis to \"HAUGHTY\".",
-    "stepByStepSolution": "Antonym analysis: \"HAUGHTY\" means arrogantly superior and disdainful; its direct polar opposite is \"Humble\".",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-voc-43",
-    "subject": "English",
-    "topic": "Advanced Vocabulary & Semantics",
-    "difficulty": "Hard",
-    "questionText": "Which of the following definitions most accurately describes the word \"IMMACULATE\"?",
-    "options": [
-      "Perfectly clean, neat, or free from flaws",
-      "Incomplete",
-      "Rough and uneven",
-      "Filthy and tarnished"
-    ],
-    "correctAnswer": "Perfectly clean, neat, or free from flaws",
-    "explanation": "\"IMMACULATE\" refers to: perfectly clean, neat, or free from flaws.",
-    "stepByStepSolution": "Contextual analysis: \"IMMACULATE\" originates from formal literary usage signifying \"Perfectly clean, neat, or free from flaws\".",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-syn-44",
-    "subject": "English",
-    "topic": "Synonyms & Word Nuance",
-    "difficulty": "Hard",
-    "questionText": "Select the word that is closest in meaning to \"JUXTAPOSITION\":",
-    "options": [
-      "Separation",
-      "Comparison",
-      "Identical",
-      "Gradual"
-    ],
-    "correctAnswer": "Comparison",
-    "explanation": "\"JUXTAPOSITION\" and \"Comparison\" both describe something with this characteristic.",
-    "stepByStepSolution": "Synonym matching: \"JUXTAPOSITION\" means placing two elements close together for contrasting effect, which aligns directly with \"Comparison\".",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-ant-45",
-    "subject": "English",
-    "topic": "Antonyms & Contrasts",
-    "difficulty": "Hard",
-    "questionText": "Choose the word that is most opposite in meaning to \"LAUDABLE\":",
-    "options": [
-      "Reprehensible",
-      "Commendable",
-      "Disgraceful",
-      "Ordinary"
-    ],
-    "correctAnswer": "Reprehensible",
-    "explanation": "\"Reprehensible\" provides the direct antithesis to \"LAUDABLE\".",
-    "stepByStepSolution": "Antonym analysis: \"LAUDABLE\" means deserving praise and commendation; its direct polar opposite is \"Reprehensible\".",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-voc-46",
-    "subject": "English",
-    "topic": "Advanced Vocabulary & Semantics",
-    "difficulty": "Hard",
-    "questionText": "Which of the following definitions most accurately describes the word \"METICULOUS\"?",
-    "options": [
-      "Showing great attention to detail; very careful and precise",
-      "Angry and irritable",
-      "Careless and sloppy",
-      "Fast and hurried"
-    ],
-    "correctAnswer": "Showing great attention to detail; very careful and precise",
-    "explanation": "\"METICULOUS\" refers to: showing great attention to detail; very careful and precise.",
-    "stepByStepSolution": "Contextual analysis: \"METICULOUS\" originates from formal literary usage signifying \"Showing great attention to detail; very careful and precise\".",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-syn-47",
-    "subject": "English",
-    "topic": "Synonyms & Word Nuance",
-    "difficulty": "Hard",
-    "questionText": "Select the word that is closest in meaning to \"NOMADIC\":",
-    "options": [
-      "Wealthy",
-      "Itinerant",
-      "Settled",
-      "Crowded"
-    ],
-    "correctAnswer": "Itinerant",
-    "explanation": "\"NOMADIC\" and \"Itinerant\" both describe something with this characteristic.",
-    "stepByStepSolution": "Synonym matching: \"NOMADIC\" means living the life of wandering from place to place without permanent home, which aligns directly with \"Itinerant\".",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-ant-48",
-    "subject": "English",
-    "topic": "Antonyms & Contrasts",
-    "difficulty": "Hard",
-    "questionText": "Choose the word that is most opposite in meaning to \"OBSOLETE\":",
-    "options": [
-      "Contemporary",
-      "Antiquated",
-      "Valuable",
-      "Modern"
-    ],
-    "correctAnswer": "Contemporary",
-    "explanation": "\"Contemporary\" provides the direct antithesis to \"OBSOLETE\".",
-    "stepByStepSolution": "Antonym analysis: \"OBSOLETE\" means no longer produced or used; out of date; its direct polar opposite is \"Contemporary\".",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-voc-49",
-    "subject": "English",
-    "topic": "Advanced Vocabulary & Semantics",
-    "difficulty": "Hard",
-    "questionText": "Which of the following definitions most accurately describes the word \"PRECARIOUS\"?",
-    "options": [
-      "Not securely held or in position; dangerously likely to fall",
-      "Secure and stable",
-      "Safe and protected",
-      "Strong and unyielding"
-    ],
-    "correctAnswer": "Not securely held or in position; dangerously likely to fall",
-    "explanation": "\"PRECARIOUS\" refers to: not securely held or in position; dangerously likely to fall.",
-    "stepByStepSolution": "Contextual analysis: \"PRECARIOUS\" originates from formal literary usage signifying \"Not securely held or in position; dangerously likely to fall\".",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-syn-50",
-    "subject": "English",
-    "topic": "Synonyms & Word Nuance",
-    "difficulty": "Hard",
-    "questionText": "Select the word that is closest in meaning to \"QUINTESSENTIAL\":",
-    "options": [
-      "Rare",
-      "Inferior",
-      "Unusual",
-      "Archetypal"
-    ],
-    "correctAnswer": "Archetypal",
-    "explanation": "\"QUINTESSENTIAL\" and \"Archetypal\" both describe something with this characteristic.",
-    "stepByStepSolution": "Synonym matching: \"QUINTESSENTIAL\" means representing the most perfect or typical example of a quality, which aligns directly with \"Archetypal\".",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-ant-51",
-    "subject": "English",
-    "topic": "Antonyms & Contrasts",
-    "difficulty": "Hard",
-    "questionText": "Choose the word that is most opposite in meaning to \"RESILIENT\":",
-    "options": [
-      "Rigid",
-      "Fragile",
-      "Vulnerable",
-      "Tenacious"
-    ],
-    "correctAnswer": "Vulnerable",
-    "explanation": "\"Vulnerable\" provides the direct antithesis to \"RESILIENT\".",
-    "stepByStepSolution": "Antonym analysis: \"RESILIENT\" means able to withstand or recover quickly from difficult conditions; its direct polar opposite is \"Vulnerable\".",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-voc-52",
-    "subject": "English",
-    "topic": "Advanced Vocabulary & Semantics",
-    "difficulty": "Hard",
-    "questionText": "Which of the following definitions most accurately describes the word \"SCRUTINIZE\"?",
-    "options": [
-      "To examine or inspect closely and thoroughly",
-      "To hide away",
-      "To ignore completely",
-      "To glance at casually"
-    ],
-    "correctAnswer": "To examine or inspect closely and thoroughly",
-    "explanation": "\"SCRUTINIZE\" refers to: to examine or inspect closely and thoroughly.",
-    "stepByStepSolution": "Contextual analysis: \"SCRUTINIZE\" originates from formal literary usage signifying \"To examine or inspect closely and thoroughly\".",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-syn-53",
-    "subject": "English",
-    "topic": "Synonyms & Word Nuance",
-    "difficulty": "Hard",
-    "questionText": "Select the word that is closest in meaning to \"TENACIOUS\":",
-    "options": [
-      "Weak",
-      "Persevering",
-      "Indecisive",
-      "Surrendering"
-    ],
-    "correctAnswer": "Persevering",
-    "explanation": "\"TENACIOUS\" and \"Persevering\" both describe something with this characteristic.",
-    "stepByStepSolution": "Synonym matching: \"TENACIOUS\" means tending to keep a firm hold of something; persistent and determined, which aligns directly with \"Persevering\".",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-ant-54",
-    "subject": "English",
-    "topic": "Antonyms & Contrasts",
-    "difficulty": "Hard",
-    "questionText": "Choose the word that is most opposite in meaning to \"UBIQUITOUS\":",
-    "options": [
-      "Hidden",
-      "Rare",
-      "Scarce",
-      "Omnipresent"
-    ],
-    "correctAnswer": "Scarce",
-    "explanation": "\"Scarce\" provides the direct antithesis to \"UBIQUITOUS\".",
-    "stepByStepSolution": "Antonym analysis: \"UBIQUITOUS\" means present, appearing, or found everywhere; its direct polar opposite is \"Scarce\".",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-voc-55",
-    "subject": "English",
-    "topic": "Advanced Vocabulary & Semantics",
-    "difficulty": "Hard",
-    "questionText": "Which of the following definitions most accurately describes the word \"VORACIOUS\"?",
-    "options": [
-      "Wanting or devouring great quantities of food or information",
-      "Indifferent and bored",
-      "Slow and tired",
-      "Satisfied easily"
-    ],
-    "correctAnswer": "Wanting or devouring great quantities of food or information",
-    "explanation": "\"VORACIOUS\" refers to: wanting or devouring great quantities of food or information.",
-    "stepByStepSolution": "Contextual analysis: \"VORACIOUS\" originates from formal literary usage signifying \"Wanting or devouring great quantities of food or information\".",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-syn-56",
-    "subject": "English",
-    "topic": "Synonyms & Word Nuance",
-    "difficulty": "Hard",
-    "questionText": "Select the word that is closest in meaning to \"ZEALOUS\":",
-    "options": [
-      "Tired",
-      "Apathetic",
-      "Fervent",
-      "Hostile"
-    ],
-    "correctAnswer": "Fervent",
-    "explanation": "\"ZEALOUS\" and \"Fervent\" both describe something with this characteristic.",
-    "stepByStepSolution": "Synonym matching: \"ZEALOUS\" means having or showing great energy or enthusiasm in pursuit of a cause, which aligns directly with \"Fervent\".",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-ant-57",
-    "subject": "English",
-    "topic": "Antonyms & Contrasts",
-    "difficulty": "Hard",
-    "questionText": "Choose the word that is most opposite in meaning to \"AUSTERE\":",
-    "options": [
-      "Lavish",
-      "Severe",
-      "Friendly",
-      "Opulent"
-    ],
-    "correctAnswer": "Opulent",
-    "explanation": "\"Opulent\" provides the direct antithesis to \"AUSTERE\".",
-    "stepByStepSolution": "Antonym analysis: \"AUSTERE\" means severe or strict in manner, attitude, or appearance; its direct polar opposite is \"Opulent\".",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-voc-58",
-    "subject": "English",
-    "topic": "Advanced Vocabulary & Semantics",
-    "difficulty": "Hard",
-    "questionText": "Which of the following definitions most accurately describes the word \"PRAGMATIC\"?",
-    "options": [
-      "Dealing with things sensibly and realistically based on practical considerations",
-      "Emotional and frantic",
-      "Reckless and impulsive",
-      "Idealistic and impractical"
-    ],
-    "correctAnswer": "Dealing with things sensibly and realistically based on practical considerations",
-    "explanation": "\"PRAGMATIC\" refers to: dealing with things sensibly and realistically based on practical considerations.",
-    "stepByStepSolution": "Contextual analysis: \"PRAGMATIC\" originates from formal literary usage signifying \"Dealing with things sensibly and realistically based on practical considerations\".",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-syn-59",
-    "subject": "English",
-    "topic": "Synonyms & Word Nuance",
-    "difficulty": "Hard",
-    "questionText": "Select the word that is closest in meaning to \"AMBIGUOUS\":",
-    "options": [
-      "True",
-      "Equivocal",
-      "Explicit",
-      "Simple"
-    ],
-    "correctAnswer": "Equivocal",
-    "explanation": "\"AMBIGUOUS\" and \"Equivocal\" both describe something with this characteristic.",
-    "stepByStepSolution": "Synonym matching: \"AMBIGUOUS\" means open to more than one interpretation; unclear, which aligns directly with \"Equivocal\".",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-ant-60",
-    "subject": "English",
-    "topic": "Antonyms & Contrasts",
-    "difficulty": "Hard",
-    "questionText": "Choose the word that is most opposite in meaning to \"FASTIDIOUS\":",
-    "options": [
-      "Careless",
-      "Pleasant",
-      "Uncritical",
-      "Particular"
-    ],
-    "correctAnswer": "Uncritical",
-    "explanation": "\"Uncritical\" provides the direct antithesis to \"FASTIDIOUS\".",
-    "stepByStepSolution": "Antonym analysis: \"FASTIDIOUS\" means very attentive to and concerned about accuracy and detail; its direct polar opposite is \"Uncritical\".",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-voc-61",
-    "subject": "English",
-    "topic": "Advanced Vocabulary & Semantics",
-    "difficulty": "Hard",
-    "questionText": "Which of the following definitions most accurately describes the word \"ABHORRENT\"?",
-    "options": [
-      "Inspiring disgust and loathing; repugnant",
-      "Extremely pleasant",
-      "Unusually quiet",
-      "Deeply admirable"
-    ],
-    "correctAnswer": "Inspiring disgust and loathing; repugnant",
-    "explanation": "\"ABHORRENT\" refers to: inspiring disgust and loathing; repugnant.",
-    "stepByStepSolution": "Contextual analysis: \"ABHORRENT\" originates from formal literary usage signifying \"Inspiring disgust and loathing; repugnant\".",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-syn-62",
-    "subject": "English",
-    "topic": "Synonyms & Word Nuance",
-    "difficulty": "Hard",
-    "questionText": "Select the word that is closest in meaning to \"AUDACIOUS\":",
-    "options": [
-      "Fearful",
-      "Silent",
-      "Daring",
-      "Polite"
-    ],
-    "correctAnswer": "Daring",
-    "explanation": "\"AUDACIOUS\" and \"Daring\" both describe something with this characteristic.",
-    "stepByStepSolution": "Synonym matching: \"AUDACIOUS\" means showing a willingness to take surprisingly bold risks, which aligns directly with \"Daring\".",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-ant-63",
-    "subject": "English",
-    "topic": "Antonyms & Contrasts",
-    "difficulty": "Hard",
-    "questionText": "Choose the word that is most opposite in meaning to \"BENEVOLENT\":",
-    "options": [
-      "Hostile",
-      "Greedy",
-      "Charitable",
-      "Malevolent"
-    ],
-    "correctAnswer": "Malevolent",
-    "explanation": "\"Malevolent\" provides the direct antithesis to \"BENEVOLENT\".",
-    "stepByStepSolution": "Antonym analysis: \"BENEVOLENT\" means well meaning, kind, and charitable; its direct polar opposite is \"Malevolent\".",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-voc-64",
-    "subject": "English",
-    "topic": "Advanced Vocabulary & Semantics",
-    "difficulty": "Hard",
-    "questionText": "Which of the following definitions most accurately describes the word \"CANDID\"?",
-    "options": [
-      "Truthful and straightforward; frank",
-      "Deceptive and secretive",
-      "Unclear and vague",
-      "Boastful and loud"
-    ],
-    "correctAnswer": "Truthful and straightforward; frank",
-    "explanation": "\"CANDID\" refers to: truthful and straightforward; frank.",
-    "stepByStepSolution": "Contextual analysis: \"CANDID\" originates from formal literary usage signifying \"Truthful and straightforward; frank\".",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-syn-65",
-    "subject": "English",
-    "topic": "Synonyms & Word Nuance",
-    "difficulty": "Hard",
-    "questionText": "Select the word that is closest in meaning to \"CONVOLUTED\":",
-    "options": [
-      "Intricate",
-      "Simple",
-      "Bright",
-      "Short"
-    ],
-    "correctAnswer": "Intricate",
-    "explanation": "\"CONVOLUTED\" and \"Intricate\" both describe something with this characteristic.",
-    "stepByStepSolution": "Synonym matching: \"CONVOLUTED\" means extremely complex and difficult to follow, which aligns directly with \"Intricate\".",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-ant-66",
-    "subject": "English",
-    "topic": "Antonyms & Contrasts",
-    "difficulty": "Hard",
-    "questionText": "Choose the word that is most opposite in meaning to \"DEBILITATE\":",
-    "options": [
-      "To",
-      "To",
-      "Weaken",
-      "Invigorate"
-    ],
-    "correctAnswer": "Invigorate",
-    "explanation": "\"Invigorate\" provides the direct antithesis to \"DEBILITATE\".",
-    "stepByStepSolution": "Antonym analysis: \"DEBILITATE\" means to make someone weak and infirm; its direct polar opposite is \"Invigorate\".",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-voc-67",
-    "subject": "English",
-    "topic": "Advanced Vocabulary & Semantics",
-    "difficulty": "Hard",
-    "questionText": "Which of the following definitions most accurately describes the word \"DILIGENT\"?",
-    "options": [
-      "Having or showing steady, earnest, and energetic effort",
-      "Lazy and negligent",
-      "Confused and clumsy",
-      "Sudden and hasty"
-    ],
-    "correctAnswer": "Having or showing steady, earnest, and energetic effort",
-    "explanation": "\"DILIGENT\" refers to: having or showing steady, earnest, and energetic effort.",
-    "stepByStepSolution": "Contextual analysis: \"DILIGENT\" originates from formal literary usage signifying \"Having or showing steady, earnest, and energetic effort\".",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-syn-68",
-    "subject": "English",
-    "topic": "Synonyms & Word Nuance",
-    "difficulty": "Hard",
-    "questionText": "Select the word that is closest in meaning to \"ELOQUENT\":",
-    "options": [
-      "Rude",
-      "Angry",
-      "Inarticulate",
-      "Articulate"
-    ],
-    "correctAnswer": "Articulate",
-    "explanation": "\"ELOQUENT\" and \"Articulate\" both describe something with this characteristic.",
-    "stepByStepSolution": "Synonym matching: \"ELOQUENT\" means fluent or persuasive in speaking or writing, which aligns directly with \"Articulate\".",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-ant-69",
-    "subject": "English",
-    "topic": "Antonyms & Contrasts",
-    "difficulty": "Hard",
-    "questionText": "Choose the word that is most opposite in meaning to \"EPHEMERAL\":",
-    "options": [
-      "Enduring",
-      "Solid",
-      "Transitory",
-      "Permanent"
-    ],
-    "correctAnswer": "Enduring",
-    "explanation": "\"Enduring\" provides the direct antithesis to \"EPHEMERAL\".",
-    "stepByStepSolution": "Antonym analysis: \"EPHEMERAL\" means lasting for a very short time; transitory; its direct polar opposite is \"Enduring\".",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-voc-70",
-    "subject": "English",
-    "topic": "Advanced Vocabulary & Semantics",
-    "difficulty": "Hard",
-    "questionText": "Which of the following definitions most accurately describes the word \"FORMIDABLE\"?",
-    "options": [
-      "Inspiring fear or respect through being impressively powerful",
-      "Boring and dull",
-      "Silly and amusing",
-      "Weak and helpless"
-    ],
-    "correctAnswer": "Inspiring fear or respect through being impressively powerful",
-    "explanation": "\"FORMIDABLE\" refers to: inspiring fear or respect through being impressively powerful.",
-    "stepByStepSolution": "Contextual analysis: \"FORMIDABLE\" originates from formal literary usage signifying \"Inspiring fear or respect through being impressively powerful\".",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-syn-71",
-    "subject": "English",
-    "topic": "Synonyms & Word Nuance",
-    "difficulty": "Hard",
-    "questionText": "Select the word that is closest in meaning to \"GARRULOUS\":",
-    "options": [
-      "Loquacious",
-      "Honest",
-      "Reserved",
-      "Extremely"
-    ],
-    "correctAnswer": "Loquacious",
-    "explanation": "\"GARRULOUS\" and \"Loquacious\" both describe something with this characteristic.",
-    "stepByStepSolution": "Synonym matching: \"GARRULOUS\" means excessively talkative, especially on trivial matters, which aligns directly with \"Loquacious\".",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-ant-72",
-    "subject": "English",
-    "topic": "Antonyms & Contrasts",
-    "difficulty": "Hard",
-    "questionText": "Choose the word that is most opposite in meaning to \"HAUGHTY\":",
-    "options": [
-      "Humble",
-      "Humble",
-      "Arrogant",
-      "Friendly"
-    ],
-    "correctAnswer": "Humble",
-    "explanation": "\"Humble\" provides the direct antithesis to \"HAUGHTY\".",
-    "stepByStepSolution": "Antonym analysis: \"HAUGHTY\" means arrogantly superior and disdainful; its direct polar opposite is \"Humble\".",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-voc-73",
-    "subject": "English",
-    "topic": "Advanced Vocabulary & Semantics",
-    "difficulty": "Hard",
-    "questionText": "Which of the following definitions most accurately describes the word \"IMMACULATE\"?",
-    "options": [
-      "Perfectly clean, neat, or free from flaws",
-      "Incomplete",
-      "Rough and uneven",
-      "Filthy and tarnished"
-    ],
-    "correctAnswer": "Perfectly clean, neat, or free from flaws",
-    "explanation": "\"IMMACULATE\" refers to: perfectly clean, neat, or free from flaws.",
-    "stepByStepSolution": "Contextual analysis: \"IMMACULATE\" originates from formal literary usage signifying \"Perfectly clean, neat, or free from flaws\".",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-syn-74",
-    "subject": "English",
-    "topic": "Synonyms & Word Nuance",
-    "difficulty": "Hard",
-    "questionText": "Select the word that is closest in meaning to \"JUXTAPOSITION\":",
-    "options": [
-      "Separation",
-      "Comparison",
-      "Identical",
-      "Gradual"
-    ],
-    "correctAnswer": "Comparison",
-    "explanation": "\"JUXTAPOSITION\" and \"Comparison\" both describe something with this characteristic.",
-    "stepByStepSolution": "Synonym matching: \"JUXTAPOSITION\" means placing two elements close together for contrasting effect, which aligns directly with \"Comparison\".",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-ant-75",
-    "subject": "English",
-    "topic": "Antonyms & Contrasts",
-    "difficulty": "Hard",
-    "questionText": "Choose the word that is most opposite in meaning to \"LAUDABLE\":",
-    "options": [
-      "Disgraceful",
-      "Commendable",
-      "Reprehensible",
-      "Ordinary"
-    ],
-    "correctAnswer": "Reprehensible",
-    "explanation": "\"Reprehensible\" provides the direct antithesis to \"LAUDABLE\".",
-    "stepByStepSolution": "Antonym analysis: \"LAUDABLE\" means deserving praise and commendation; its direct polar opposite is \"Reprehensible\".",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-voc-76",
-    "subject": "English",
-    "topic": "Advanced Vocabulary & Semantics",
-    "difficulty": "Hard",
-    "questionText": "Which of the following definitions most accurately describes the word \"METICULOUS\"?",
-    "options": [
-      "Showing great attention to detail; very careful and precise",
-      "Fast and hurried",
-      "Angry and irritable",
-      "Careless and sloppy"
-    ],
-    "correctAnswer": "Showing great attention to detail; very careful and precise",
-    "explanation": "\"METICULOUS\" refers to: showing great attention to detail; very careful and precise.",
-    "stepByStepSolution": "Contextual analysis: \"METICULOUS\" originates from formal literary usage signifying \"Showing great attention to detail; very careful and precise\".",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-syn-77",
-    "subject": "English",
-    "topic": "Synonyms & Word Nuance",
-    "difficulty": "Hard",
-    "questionText": "Select the word that is closest in meaning to \"NOMADIC\":",
-    "options": [
-      "Crowded",
-      "Wealthy",
-      "Itinerant",
-      "Settled"
-    ],
-    "correctAnswer": "Itinerant",
-    "explanation": "\"NOMADIC\" and \"Itinerant\" both describe something with this characteristic.",
-    "stepByStepSolution": "Synonym matching: \"NOMADIC\" means living the life of wandering from place to place without permanent home, which aligns directly with \"Itinerant\".",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-ant-78",
-    "subject": "English",
-    "topic": "Antonyms & Contrasts",
-    "difficulty": "Hard",
-    "questionText": "Choose the word that is most opposite in meaning to \"OBSOLETE\":",
-    "options": [
-      "Contemporary",
-      "Antiquated",
-      "Modern",
-      "Valuable"
-    ],
-    "correctAnswer": "Contemporary",
-    "explanation": "\"Contemporary\" provides the direct antithesis to \"OBSOLETE\".",
-    "stepByStepSolution": "Antonym analysis: \"OBSOLETE\" means no longer produced or used; out of date; its direct polar opposite is \"Contemporary\".",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-voc-79",
-    "subject": "English",
-    "topic": "Advanced Vocabulary & Semantics",
-    "difficulty": "Hard",
-    "questionText": "Which of the following definitions most accurately describes the word \"PRECARIOUS\"?",
-    "options": [
-      "Not securely held or in position; dangerously likely to fall",
-      "Secure and stable",
-      "Safe and protected",
-      "Strong and unyielding"
-    ],
-    "correctAnswer": "Not securely held or in position; dangerously likely to fall",
-    "explanation": "\"PRECARIOUS\" refers to: not securely held or in position; dangerously likely to fall.",
-    "stepByStepSolution": "Contextual analysis: \"PRECARIOUS\" originates from formal literary usage signifying \"Not securely held or in position; dangerously likely to fall\".",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-syn-80",
-    "subject": "English",
-    "topic": "Synonyms & Word Nuance",
-    "difficulty": "Hard",
-    "questionText": "Select the word that is closest in meaning to \"QUINTESSENTIAL\":",
-    "options": [
-      "Archetypal",
-      "Unusual",
-      "Inferior",
-      "Rare"
-    ],
-    "correctAnswer": "Archetypal",
-    "explanation": "\"QUINTESSENTIAL\" and \"Archetypal\" both describe something with this characteristic.",
-    "stepByStepSolution": "Synonym matching: \"QUINTESSENTIAL\" means representing the most perfect or typical example of a quality, which aligns directly with \"Archetypal\".",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-ant-81",
-    "subject": "English",
-    "topic": "Antonyms & Contrasts",
-    "difficulty": "Hard",
-    "questionText": "Choose the word that is most opposite in meaning to \"RESILIENT\":",
-    "options": [
-      "Tenacious",
-      "Vulnerable",
-      "Fragile",
-      "Rigid"
-    ],
-    "correctAnswer": "Vulnerable",
-    "explanation": "\"Vulnerable\" provides the direct antithesis to \"RESILIENT\".",
-    "stepByStepSolution": "Antonym analysis: \"RESILIENT\" means able to withstand or recover quickly from difficult conditions; its direct polar opposite is \"Vulnerable\".",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-voc-82",
-    "subject": "English",
-    "topic": "Advanced Vocabulary & Semantics",
-    "difficulty": "Hard",
-    "questionText": "Which of the following definitions most accurately describes the word \"SCRUTINIZE\"?",
-    "options": [
-      "To examine or inspect closely and thoroughly",
-      "To hide away",
-      "To glance at casually",
-      "To ignore completely"
-    ],
-    "correctAnswer": "To examine or inspect closely and thoroughly",
-    "explanation": "\"SCRUTINIZE\" refers to: to examine or inspect closely and thoroughly.",
-    "stepByStepSolution": "Contextual analysis: \"SCRUTINIZE\" originates from formal literary usage signifying \"To examine or inspect closely and thoroughly\".",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-syn-83",
-    "subject": "English",
-    "topic": "Synonyms & Word Nuance",
-    "difficulty": "Hard",
-    "questionText": "Select the word that is closest in meaning to \"TENACIOUS\":",
-    "options": [
-      "Surrendering",
-      "Indecisive",
-      "Persevering",
-      "Weak"
-    ],
-    "correctAnswer": "Persevering",
-    "explanation": "\"TENACIOUS\" and \"Persevering\" both describe something with this characteristic.",
-    "stepByStepSolution": "Synonym matching: \"TENACIOUS\" means tending to keep a firm hold of something; persistent and determined, which aligns directly with \"Persevering\".",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-ant-84",
-    "subject": "English",
-    "topic": "Antonyms & Contrasts",
-    "difficulty": "Hard",
-    "questionText": "Choose the word that is most opposite in meaning to \"UBIQUITOUS\":",
-    "options": [
-      "Omnipresent",
-      "Scarce",
-      "Hidden",
-      "Rare"
-    ],
-    "correctAnswer": "Scarce",
-    "explanation": "\"Scarce\" provides the direct antithesis to \"UBIQUITOUS\".",
-    "stepByStepSolution": "Antonym analysis: \"UBIQUITOUS\" means present, appearing, or found everywhere; its direct polar opposite is \"Scarce\".",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-voc-85",
-    "subject": "English",
-    "topic": "Advanced Vocabulary & Semantics",
-    "difficulty": "Hard",
-    "questionText": "Which of the following definitions most accurately describes the word \"VORACIOUS\"?",
-    "options": [
-      "Wanting or devouring great quantities of food or information",
-      "Satisfied easily",
-      "Slow and tired",
-      "Indifferent and bored"
-    ],
-    "correctAnswer": "Wanting or devouring great quantities of food or information",
-    "explanation": "\"VORACIOUS\" refers to: wanting or devouring great quantities of food or information.",
-    "stepByStepSolution": "Contextual analysis: \"VORACIOUS\" originates from formal literary usage signifying \"Wanting or devouring great quantities of food or information\".",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-syn-86",
-    "subject": "English",
-    "topic": "Synonyms & Word Nuance",
-    "difficulty": "Hard",
-    "questionText": "Select the word that is closest in meaning to \"ZEALOUS\":",
-    "options": [
-      "Apathetic",
-      "Hostile",
-      "Fervent",
-      "Tired"
-    ],
-    "correctAnswer": "Fervent",
-    "explanation": "\"ZEALOUS\" and \"Fervent\" both describe something with this characteristic.",
-    "stepByStepSolution": "Synonym matching: \"ZEALOUS\" means having or showing great energy or enthusiasm in pursuit of a cause, which aligns directly with \"Fervent\".",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-ant-87",
-    "subject": "English",
-    "topic": "Antonyms & Contrasts",
-    "difficulty": "Hard",
-    "questionText": "Choose the word that is most opposite in meaning to \"AUSTERE\":",
-    "options": [
-      "Severe",
-      "Friendly",
-      "Opulent",
-      "Lavish"
-    ],
-    "correctAnswer": "Opulent",
-    "explanation": "\"Opulent\" provides the direct antithesis to \"AUSTERE\".",
-    "stepByStepSolution": "Antonym analysis: \"AUSTERE\" means severe or strict in manner, attitude, or appearance; its direct polar opposite is \"Opulent\".",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-voc-88",
-    "subject": "English",
-    "topic": "Advanced Vocabulary & Semantics",
-    "difficulty": "Hard",
-    "questionText": "Which of the following definitions most accurately describes the word \"PRAGMATIC\"?",
-    "options": [
-      "Dealing with things sensibly and realistically based on practical considerations",
-      "Idealistic and impractical",
-      "Reckless and impulsive",
-      "Emotional and frantic"
-    ],
-    "correctAnswer": "Dealing with things sensibly and realistically based on practical considerations",
-    "explanation": "\"PRAGMATIC\" refers to: dealing with things sensibly and realistically based on practical considerations.",
-    "stepByStepSolution": "Contextual analysis: \"PRAGMATIC\" originates from formal literary usage signifying \"Dealing with things sensibly and realistically based on practical considerations\".",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-syn-89",
-    "subject": "English",
-    "topic": "Synonyms & Word Nuance",
-    "difficulty": "Hard",
-    "questionText": "Select the word that is closest in meaning to \"AMBIGUOUS\":",
-    "options": [
-      "Equivocal",
-      "Simple",
-      "Explicit",
-      "True"
-    ],
-    "correctAnswer": "Equivocal",
-    "explanation": "\"AMBIGUOUS\" and \"Equivocal\" both describe something with this characteristic.",
-    "stepByStepSolution": "Synonym matching: \"AMBIGUOUS\" means open to more than one interpretation; unclear, which aligns directly with \"Equivocal\".",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-ant-90",
-    "subject": "English",
-    "topic": "Antonyms & Contrasts",
-    "difficulty": "Hard",
-    "questionText": "Choose the word that is most opposite in meaning to \"FASTIDIOUS\":",
-    "options": [
-      "Careless",
-      "Pleasant",
-      "Uncritical",
-      "Particular"
-    ],
-    "correctAnswer": "Uncritical",
-    "explanation": "\"Uncritical\" provides the direct antithesis to \"FASTIDIOUS\".",
-    "stepByStepSolution": "Antonym analysis: \"FASTIDIOUS\" means very attentive to and concerned about accuracy and detail; its direct polar opposite is \"Uncritical\".",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-voc-91",
-    "subject": "English",
-    "topic": "Advanced Vocabulary & Semantics",
-    "difficulty": "Hard",
-    "questionText": "Which of the following definitions most accurately describes the word \"ABHORRENT\"?",
-    "options": [
-      "Inspiring disgust and loathing; repugnant",
-      "Unusually quiet",
-      "Deeply admirable",
-      "Extremely pleasant"
-    ],
-    "correctAnswer": "Inspiring disgust and loathing; repugnant",
-    "explanation": "\"ABHORRENT\" refers to: inspiring disgust and loathing; repugnant.",
-    "stepByStepSolution": "Contextual analysis: \"ABHORRENT\" originates from formal literary usage signifying \"Inspiring disgust and loathing; repugnant\".",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-syn-92",
-    "subject": "English",
-    "topic": "Synonyms & Word Nuance",
-    "difficulty": "Hard",
-    "questionText": "Select the word that is closest in meaning to \"AUDACIOUS\":",
-    "options": [
-      "Polite",
-      "Daring",
-      "Fearful",
-      "Silent"
-    ],
-    "correctAnswer": "Daring",
-    "explanation": "\"AUDACIOUS\" and \"Daring\" both describe something with this characteristic.",
-    "stepByStepSolution": "Synonym matching: \"AUDACIOUS\" means showing a willingness to take surprisingly bold risks, which aligns directly with \"Daring\".",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-ant-93",
-    "subject": "English",
-    "topic": "Antonyms & Contrasts",
-    "difficulty": "Hard",
-    "questionText": "Choose the word that is most opposite in meaning to \"BENEVOLENT\":",
-    "options": [
-      "Greedy",
-      "Hostile",
-      "Malevolent",
-      "Charitable"
-    ],
-    "correctAnswer": "Malevolent",
-    "explanation": "\"Malevolent\" provides the direct antithesis to \"BENEVOLENT\".",
-    "stepByStepSolution": "Antonym analysis: \"BENEVOLENT\" means well meaning, kind, and charitable; its direct polar opposite is \"Malevolent\".",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-voc-94",
-    "subject": "English",
-    "topic": "Advanced Vocabulary & Semantics",
-    "difficulty": "Hard",
-    "questionText": "Which of the following definitions most accurately describes the word \"CANDID\"?",
-    "options": [
-      "Truthful and straightforward; frank",
-      "Deceptive and secretive",
-      "Boastful and loud",
-      "Unclear and vague"
-    ],
-    "correctAnswer": "Truthful and straightforward; frank",
-    "explanation": "\"CANDID\" refers to: truthful and straightforward; frank.",
-    "stepByStepSolution": "Contextual analysis: \"CANDID\" originates from formal literary usage signifying \"Truthful and straightforward; frank\".",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-syn-95",
-    "subject": "English",
-    "topic": "Synonyms & Word Nuance",
-    "difficulty": "Hard",
-    "questionText": "Select the word that is closest in meaning to \"CONVOLUTED\":",
-    "options": [
-      "Bright",
-      "Short",
-      "Intricate",
-      "Simple"
-    ],
-    "correctAnswer": "Intricate",
-    "explanation": "\"CONVOLUTED\" and \"Intricate\" both describe something with this characteristic.",
-    "stepByStepSolution": "Synonym matching: \"CONVOLUTED\" means extremely complex and difficult to follow, which aligns directly with \"Intricate\".",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-ant-96",
-    "subject": "English",
-    "topic": "Antonyms & Contrasts",
-    "difficulty": "Hard",
-    "questionText": "Choose the word that is most opposite in meaning to \"DEBILITATE\":",
-    "options": [
-      "Weaken",
-      "Invigorate",
-      "To",
-      "To"
-    ],
-    "correctAnswer": "Invigorate",
-    "explanation": "\"Invigorate\" provides the direct antithesis to \"DEBILITATE\".",
-    "stepByStepSolution": "Antonym analysis: \"DEBILITATE\" means to make someone weak and infirm; its direct polar opposite is \"Invigorate\".",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-voc-97",
-    "subject": "English",
-    "topic": "Advanced Vocabulary & Semantics",
-    "difficulty": "Hard",
-    "questionText": "Which of the following definitions most accurately describes the word \"DILIGENT\"?",
-    "options": [
-      "Having or showing steady, earnest, and energetic effort",
-      "Lazy and negligent",
-      "Confused and clumsy",
-      "Sudden and hasty"
-    ],
-    "correctAnswer": "Having or showing steady, earnest, and energetic effort",
-    "explanation": "\"DILIGENT\" refers to: having or showing steady, earnest, and energetic effort.",
-    "stepByStepSolution": "Contextual analysis: \"DILIGENT\" originates from formal literary usage signifying \"Having or showing steady, earnest, and energetic effort\".",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-syn-98",
-    "subject": "English",
-    "topic": "Synonyms & Word Nuance",
-    "difficulty": "Hard",
-    "questionText": "Select the word that is closest in meaning to \"ELOQUENT\":",
-    "options": [
-      "Angry",
-      "Rude",
-      "Articulate",
-      "Inarticulate"
-    ],
-    "correctAnswer": "Articulate",
-    "explanation": "\"ELOQUENT\" and \"Articulate\" both describe something with this characteristic.",
-    "stepByStepSolution": "Synonym matching: \"ELOQUENT\" means fluent or persuasive in speaking or writing, which aligns directly with \"Articulate\".",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-ant-99",
-    "subject": "English",
-    "topic": "Antonyms & Contrasts",
-    "difficulty": "Hard",
-    "questionText": "Choose the word that is most opposite in meaning to \"EPHEMERAL\":",
-    "options": [
-      "Solid",
-      "Enduring",
-      "Transitory",
-      "Permanent"
-    ],
-    "correctAnswer": "Enduring",
-    "explanation": "\"Enduring\" provides the direct antithesis to \"EPHEMERAL\".",
-    "stepByStepSolution": "Antonym analysis: \"EPHEMERAL\" means lasting for a very short time; transitory; its direct polar opposite is \"Enduring\".",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-voc-100",
-    "subject": "English",
-    "topic": "Advanced Vocabulary & Semantics",
-    "difficulty": "Hard",
-    "questionText": "Which of the following definitions most accurately describes the word \"FORMIDABLE\"?",
-    "options": [
-      "Weak and helpless",
-      "Silly and amusing",
-      "Boring and dull",
-      "Inspiring fear or respect through being impressively powerful"
-    ],
-    "correctAnswer": "Inspiring fear or respect through being impressively powerful",
-    "explanation": "\"FORMIDABLE\" refers to: inspiring fear or respect through being impressively powerful.",
-    "stepByStepSolution": "Contextual analysis: \"FORMIDABLE\" originates from formal literary usage signifying \"Inspiring fear or respect through being impressively powerful\".",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-syn-101",
-    "subject": "English",
-    "topic": "Synonyms & Word Nuance",
-    "difficulty": "Hard",
-    "questionText": "Select the word that is closest in meaning to \"GARRULOUS\":",
-    "options": [
-      "Loquacious",
-      "Reserved",
-      "Extremely",
-      "Honest"
-    ],
-    "correctAnswer": "Loquacious",
-    "explanation": "\"GARRULOUS\" and \"Loquacious\" both describe something with this characteristic.",
-    "stepByStepSolution": "Synonym matching: \"GARRULOUS\" means excessively talkative, especially on trivial matters, which aligns directly with \"Loquacious\".",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-ant-102",
-    "subject": "English",
-    "topic": "Antonyms & Contrasts",
-    "difficulty": "Hard",
-    "questionText": "Choose the word that is most opposite in meaning to \"HAUGHTY\":",
-    "options": [
-      "Humble",
-      "Humble",
-      "Friendly",
-      "Arrogant"
-    ],
-    "correctAnswer": "Humble",
-    "explanation": "\"Humble\" provides the direct antithesis to \"HAUGHTY\".",
-    "stepByStepSolution": "Antonym analysis: \"HAUGHTY\" means arrogantly superior and disdainful; its direct polar opposite is \"Humble\".",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-voc-103",
-    "subject": "English",
-    "topic": "Advanced Vocabulary & Semantics",
-    "difficulty": "Hard",
-    "questionText": "Which of the following definitions most accurately describes the word \"IMMACULATE\"?",
-    "options": [
-      "Incomplete",
-      "Rough and uneven",
-      "Filthy and tarnished",
-      "Perfectly clean, neat, or free from flaws"
-    ],
-    "correctAnswer": "Perfectly clean, neat, or free from flaws",
-    "explanation": "\"IMMACULATE\" refers to: perfectly clean, neat, or free from flaws.",
-    "stepByStepSolution": "Contextual analysis: \"IMMACULATE\" originates from formal literary usage signifying \"Perfectly clean, neat, or free from flaws\".",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-syn-104",
-    "subject": "English",
-    "topic": "Synonyms & Word Nuance",
-    "difficulty": "Hard",
-    "questionText": "Select the word that is closest in meaning to \"JUXTAPOSITION\":",
-    "options": [
-      "Gradual",
-      "Identical",
-      "Comparison",
-      "Separation"
-    ],
-    "correctAnswer": "Comparison",
-    "explanation": "\"JUXTAPOSITION\" and \"Comparison\" both describe something with this characteristic.",
-    "stepByStepSolution": "Synonym matching: \"JUXTAPOSITION\" means placing two elements close together for contrasting effect, which aligns directly with \"Comparison\".",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-ant-105",
-    "subject": "English",
-    "topic": "Antonyms & Contrasts",
-    "difficulty": "Hard",
-    "questionText": "Choose the word that is most opposite in meaning to \"LAUDABLE\":",
-    "options": [
-      "Ordinary",
-      "Reprehensible",
-      "Disgraceful",
-      "Commendable"
-    ],
-    "correctAnswer": "Reprehensible",
-    "explanation": "\"Reprehensible\" provides the direct antithesis to \"LAUDABLE\".",
-    "stepByStepSolution": "Antonym analysis: \"LAUDABLE\" means deserving praise and commendation; its direct polar opposite is \"Reprehensible\".",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-voc-106",
-    "subject": "English",
-    "topic": "Advanced Vocabulary & Semantics",
-    "difficulty": "Hard",
-    "questionText": "Which of the following definitions most accurately describes the word \"METICULOUS\"?",
-    "options": [
-      "Fast and hurried",
-      "Angry and irritable",
-      "Careless and sloppy",
-      "Showing great attention to detail; very careful and precise"
-    ],
-    "correctAnswer": "Showing great attention to detail; very careful and precise",
-    "explanation": "\"METICULOUS\" refers to: showing great attention to detail; very careful and precise.",
-    "stepByStepSolution": "Contextual analysis: \"METICULOUS\" originates from formal literary usage signifying \"Showing great attention to detail; very careful and precise\".",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-syn-107",
-    "subject": "English",
-    "topic": "Synonyms & Word Nuance",
-    "difficulty": "Hard",
-    "questionText": "Select the word that is closest in meaning to \"NOMADIC\":",
-    "options": [
-      "Crowded",
-      "Settled",
-      "Wealthy",
-      "Itinerant"
-    ],
-    "correctAnswer": "Itinerant",
-    "explanation": "\"NOMADIC\" and \"Itinerant\" both describe something with this characteristic.",
-    "stepByStepSolution": "Synonym matching: \"NOMADIC\" means living the life of wandering from place to place without permanent home, which aligns directly with \"Itinerant\".",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-ant-108",
-    "subject": "English",
-    "topic": "Antonyms & Contrasts",
-    "difficulty": "Hard",
-    "questionText": "Choose the word that is most opposite in meaning to \"OBSOLETE\":",
-    "options": [
-      "Valuable",
-      "Modern",
-      "Antiquated",
-      "Contemporary"
-    ],
-    "correctAnswer": "Contemporary",
-    "explanation": "\"Contemporary\" provides the direct antithesis to \"OBSOLETE\".",
-    "stepByStepSolution": "Antonym analysis: \"OBSOLETE\" means no longer produced or used; out of date; its direct polar opposite is \"Contemporary\".",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-voc-109",
-    "subject": "English",
-    "topic": "Advanced Vocabulary & Semantics",
-    "difficulty": "Hard",
-    "questionText": "Which of the following definitions most accurately describes the word \"PRECARIOUS\"?",
-    "options": [
-      "Safe and protected",
-      "Secure and stable",
-      "Strong and unyielding",
-      "Not securely held or in position; dangerously likely to fall"
-    ],
-    "correctAnswer": "Not securely held or in position; dangerously likely to fall",
-    "explanation": "\"PRECARIOUS\" refers to: not securely held or in position; dangerously likely to fall.",
-    "stepByStepSolution": "Contextual analysis: \"PRECARIOUS\" originates from formal literary usage signifying \"Not securely held or in position; dangerously likely to fall\".",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-syn-110",
-    "subject": "English",
-    "topic": "Synonyms & Word Nuance",
-    "difficulty": "Hard",
-    "questionText": "Select the word that is closest in meaning to \"QUINTESSENTIAL\":",
-    "options": [
-      "Rare",
-      "Unusual",
-      "Inferior",
-      "Archetypal"
-    ],
-    "correctAnswer": "Archetypal",
-    "explanation": "\"QUINTESSENTIAL\" and \"Archetypal\" both describe something with this characteristic.",
-    "stepByStepSolution": "Synonym matching: \"QUINTESSENTIAL\" means representing the most perfect or typical example of a quality, which aligns directly with \"Archetypal\".",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-ant-111",
-    "subject": "English",
-    "topic": "Antonyms & Contrasts",
-    "difficulty": "Hard",
-    "questionText": "Choose the word that is most opposite in meaning to \"RESILIENT\":",
-    "options": [
-      "Fragile",
-      "Rigid",
-      "Vulnerable",
-      "Tenacious"
-    ],
-    "correctAnswer": "Vulnerable",
-    "explanation": "\"Vulnerable\" provides the direct antithesis to \"RESILIENT\".",
-    "stepByStepSolution": "Antonym analysis: \"RESILIENT\" means able to withstand or recover quickly from difficult conditions; its direct polar opposite is \"Vulnerable\".",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-voc-112",
-    "subject": "English",
-    "topic": "Advanced Vocabulary & Semantics",
-    "difficulty": "Hard",
-    "questionText": "Which of the following definitions most accurately describes the word \"SCRUTINIZE\"?",
-    "options": [
-      "To hide away",
-      "To glance at casually",
-      "To ignore completely",
-      "To examine or inspect closely and thoroughly"
-    ],
-    "correctAnswer": "To examine or inspect closely and thoroughly",
-    "explanation": "\"SCRUTINIZE\" refers to: to examine or inspect closely and thoroughly.",
-    "stepByStepSolution": "Contextual analysis: \"SCRUTINIZE\" originates from formal literary usage signifying \"To examine or inspect closely and thoroughly\".",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-syn-113",
-    "subject": "English",
-    "topic": "Synonyms & Word Nuance",
-    "difficulty": "Hard",
-    "questionText": "Select the word that is closest in meaning to \"TENACIOUS\":",
-    "options": [
-      "Weak",
-      "Persevering",
-      "Indecisive",
-      "Surrendering"
-    ],
-    "correctAnswer": "Persevering",
-    "explanation": "\"TENACIOUS\" and \"Persevering\" both describe something with this characteristic.",
-    "stepByStepSolution": "Synonym matching: \"TENACIOUS\" means tending to keep a firm hold of something; persistent and determined, which aligns directly with \"Persevering\".",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-ant-114",
-    "subject": "English",
-    "topic": "Antonyms & Contrasts",
-    "difficulty": "Hard",
-    "questionText": "Choose the word that is most opposite in meaning to \"UBIQUITOUS\":",
-    "options": [
-      "Scarce",
-      "Hidden",
-      "Rare",
-      "Omnipresent"
-    ],
-    "correctAnswer": "Scarce",
-    "explanation": "\"Scarce\" provides the direct antithesis to \"UBIQUITOUS\".",
-    "stepByStepSolution": "Antonym analysis: \"UBIQUITOUS\" means present, appearing, or found everywhere; its direct polar opposite is \"Scarce\".",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-voc-115",
-    "subject": "English",
-    "topic": "Advanced Vocabulary & Semantics",
-    "difficulty": "Hard",
-    "questionText": "Which of the following definitions most accurately describes the word \"VORACIOUS\"?",
-    "options": [
-      "Satisfied easily",
-      "Slow and tired",
-      "Indifferent and bored",
-      "Wanting or devouring great quantities of food or information"
-    ],
-    "correctAnswer": "Wanting or devouring great quantities of food or information",
-    "explanation": "\"VORACIOUS\" refers to: wanting or devouring great quantities of food or information.",
-    "stepByStepSolution": "Contextual analysis: \"VORACIOUS\" originates from formal literary usage signifying \"Wanting or devouring great quantities of food or information\".",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-syn-116",
-    "subject": "English",
-    "topic": "Synonyms & Word Nuance",
-    "difficulty": "Hard",
-    "questionText": "Select the word that is closest in meaning to \"ZEALOUS\":",
-    "options": [
-      "Hostile",
-      "Fervent",
-      "Apathetic",
-      "Tired"
-    ],
-    "correctAnswer": "Fervent",
-    "explanation": "\"ZEALOUS\" and \"Fervent\" both describe something with this characteristic.",
-    "stepByStepSolution": "Synonym matching: \"ZEALOUS\" means having or showing great energy or enthusiasm in pursuit of a cause, which aligns directly with \"Fervent\".",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-ant-117",
-    "subject": "English",
-    "topic": "Antonyms & Contrasts",
-    "difficulty": "Hard",
-    "questionText": "Choose the word that is most opposite in meaning to \"AUSTERE\":",
-    "options": [
-      "Lavish",
-      "Severe",
-      "Opulent",
-      "Friendly"
-    ],
-    "correctAnswer": "Opulent",
-    "explanation": "\"Opulent\" provides the direct antithesis to \"AUSTERE\".",
-    "stepByStepSolution": "Antonym analysis: \"AUSTERE\" means severe or strict in manner, attitude, or appearance; its direct polar opposite is \"Opulent\".",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-voc-118",
-    "subject": "English",
-    "topic": "Advanced Vocabulary & Semantics",
-    "difficulty": "Hard",
-    "questionText": "Which of the following definitions most accurately describes the word \"PRAGMATIC\"?",
-    "options": [
-      "Dealing with things sensibly and realistically based on practical considerations",
-      "Idealistic and impractical",
-      "Reckless and impulsive",
-      "Emotional and frantic"
-    ],
-    "correctAnswer": "Dealing with things sensibly and realistically based on practical considerations",
-    "explanation": "\"PRAGMATIC\" refers to: dealing with things sensibly and realistically based on practical considerations.",
-    "stepByStepSolution": "Contextual analysis: \"PRAGMATIC\" originates from formal literary usage signifying \"Dealing with things sensibly and realistically based on practical considerations\".",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-syn-119",
-    "subject": "English",
-    "topic": "Synonyms & Word Nuance",
-    "difficulty": "Hard",
-    "questionText": "Select the word that is closest in meaning to \"AMBIGUOUS\":",
-    "options": [
-      "Simple",
-      "Explicit",
-      "Equivocal",
-      "True"
-    ],
-    "correctAnswer": "Equivocal",
-    "explanation": "\"AMBIGUOUS\" and \"Equivocal\" both describe something with this characteristic.",
-    "stepByStepSolution": "Synonym matching: \"AMBIGUOUS\" means open to more than one interpretation; unclear, which aligns directly with \"Equivocal\".",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-ant-120",
     "subject": "English",
     "topic": "Antonyms & Contrasts",
     "difficulty": "Hard",
@@ -3358,695 +1648,11 @@ export const ENGLISH_QUESTIONS: Question[] = [
     "createdAt": "2026-09-20T00:00:00.000Z"
   },
   {
-    "id": "eng-fig-175",
-    "subject": "English",
-    "topic": "Literary Devices & Figurative Language",
-    "difficulty": "Hard",
-    "questionText": "Identify the primary literary device used in the quotation: \"The ancient locomotive groaned and coughed black soot as it labored up the incline.\"",
-    "options": [
-      "Personification",
-      "Oxymoron",
-      "Hyperbole",
-      "Euphemism"
-    ],
-    "correctAnswer": "Personification",
-    "explanation": "Giving human traits such as \"groaned and coughed\" to a machine is personification.",
-    "stepByStepSolution": "Analysis: Giving human traits such as \"groaned and coughed\" to a machine is personification.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-fig-176",
-    "subject": "English",
-    "topic": "Literary Devices & Figurative Language",
-    "difficulty": "Hard",
-    "questionText": "Identify the primary literary device used in the quotation: \"His argument was as clear as muddy water after a stampede.\"",
-    "options": [
-      "Metaphor",
-      "Synecdoche",
-      "Irony & Simile",
-      "Onomatopoeia"
-    ],
-    "correctAnswer": "Irony & Simile",
-    "explanation": "Using \"as clear as muddy water\" uses \"as\" (simile) with contradictory intent to mean the exact opposite (irony).",
-    "stepByStepSolution": "Analysis: Using \"as clear as muddy water\" uses \"as\" (simile) with contradictory intent to mean the exact opposite (irony).",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-fig-177",
-    "subject": "English",
-    "topic": "Literary Devices & Figurative Language",
-    "difficulty": "Hard",
-    "questionText": "Identify the primary literary device used in the quotation: \"The silence in the grand hall was deafening.\"",
-    "options": [
-      "Personification",
-      "Pleonasm",
-      "Oxymoron",
-      "Alliteration"
-    ],
-    "correctAnswer": "Oxymoron",
-    "explanation": "Combining two contradictory terms (\"silence\" and \"deafening\") creates an oxymoron.",
-    "stepByStepSolution": "Analysis: Combining two contradictory terms (\"silence\" and \"deafening\") creates an oxymoron.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-fig-178",
-    "subject": "English",
-    "topic": "Literary Devices & Figurative Language",
-    "difficulty": "Hard",
-    "questionText": "Identify the primary literary device used in the quotation: \"She waited an eternity in the queue at the post office.\"",
-    "options": [
-      "Understatement",
-      "Hyperbole",
-      "Metaphor",
-      "Simile"
-    ],
-    "correctAnswer": "Hyperbole",
-    "explanation": "An intentional, deliberate exaggeration not meant to be taken literally is hyperbole.",
-    "stepByStepSolution": "Analysis: An intentional, deliberate exaggeration not meant to be taken literally is hyperbole.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-fig-179",
-    "subject": "English",
-    "topic": "Literary Devices & Figurative Language",
-    "difficulty": "Hard",
-    "questionText": "Identify the primary literary device used in the quotation: \"The ancient locomotive groaned and coughed black soot as it labored up the incline.\"",
-    "options": [
-      "Personification",
-      "Euphemism",
-      "Hyperbole",
-      "Oxymoron"
-    ],
-    "correctAnswer": "Personification",
-    "explanation": "Giving human traits such as \"groaned and coughed\" to a machine is personification.",
-    "stepByStepSolution": "Analysis: Giving human traits such as \"groaned and coughed\" to a machine is personification.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-fig-180",
-    "subject": "English",
-    "topic": "Literary Devices & Figurative Language",
-    "difficulty": "Hard",
-    "questionText": "Identify the primary literary device used in the quotation: \"His argument was as clear as muddy water after a stampede.\"",
-    "options": [
-      "Metaphor",
-      "Irony & Simile",
-      "Onomatopoeia",
-      "Synecdoche"
-    ],
-    "correctAnswer": "Irony & Simile",
-    "explanation": "Using \"as clear as muddy water\" uses \"as\" (simile) with contradictory intent to mean the exact opposite (irony).",
-    "stepByStepSolution": "Analysis: Using \"as clear as muddy water\" uses \"as\" (simile) with contradictory intent to mean the exact opposite (irony).",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-fig-181",
-    "subject": "English",
-    "topic": "Literary Devices & Figurative Language",
-    "difficulty": "Hard",
-    "questionText": "Identify the primary literary device used in the quotation: \"The silence in the grand hall was deafening.\"",
-    "options": [
-      "Personification",
-      "Oxymoron",
-      "Pleonasm",
-      "Alliteration"
-    ],
-    "correctAnswer": "Oxymoron",
-    "explanation": "Combining two contradictory terms (\"silence\" and \"deafening\") creates an oxymoron.",
-    "stepByStepSolution": "Analysis: Combining two contradictory terms (\"silence\" and \"deafening\") creates an oxymoron.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-fig-182",
-    "subject": "English",
-    "topic": "Literary Devices & Figurative Language",
-    "difficulty": "Hard",
-    "questionText": "Identify the primary literary device used in the quotation: \"She waited an eternity in the queue at the post office.\"",
-    "options": [
-      "Understatement",
-      "Metaphor",
-      "Hyperbole",
-      "Simile"
-    ],
-    "correctAnswer": "Hyperbole",
-    "explanation": "An intentional, deliberate exaggeration not meant to be taken literally is hyperbole.",
-    "stepByStepSolution": "Analysis: An intentional, deliberate exaggeration not meant to be taken literally is hyperbole.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-fig-183",
-    "subject": "English",
-    "topic": "Literary Devices & Figurative Language",
-    "difficulty": "Hard",
-    "questionText": "Identify the primary literary device used in the quotation: \"The ancient locomotive groaned and coughed black soot as it labored up the incline.\"",
-    "options": [
-      "Personification",
-      "Oxymoron",
-      "Hyperbole",
-      "Euphemism"
-    ],
-    "correctAnswer": "Personification",
-    "explanation": "Giving human traits such as \"groaned and coughed\" to a machine is personification.",
-    "stepByStepSolution": "Analysis: Giving human traits such as \"groaned and coughed\" to a machine is personification.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-fig-184",
-    "subject": "English",
-    "topic": "Literary Devices & Figurative Language",
-    "difficulty": "Hard",
-    "questionText": "Identify the primary literary device used in the quotation: \"His argument was as clear as muddy water after a stampede.\"",
-    "options": [
-      "Metaphor",
-      "Irony & Simile",
-      "Onomatopoeia",
-      "Synecdoche"
-    ],
-    "correctAnswer": "Irony & Simile",
-    "explanation": "Using \"as clear as muddy water\" uses \"as\" (simile) with contradictory intent to mean the exact opposite (irony).",
-    "stepByStepSolution": "Analysis: Using \"as clear as muddy water\" uses \"as\" (simile) with contradictory intent to mean the exact opposite (irony).",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-fig-185",
-    "subject": "English",
-    "topic": "Literary Devices & Figurative Language",
-    "difficulty": "Hard",
-    "questionText": "Identify the primary literary device used in the quotation: \"The silence in the grand hall was deafening.\"",
-    "options": [
-      "Personification",
-      "Oxymoron",
-      "Pleonasm",
-      "Alliteration"
-    ],
-    "correctAnswer": "Oxymoron",
-    "explanation": "Combining two contradictory terms (\"silence\" and \"deafening\") creates an oxymoron.",
-    "stepByStepSolution": "Analysis: Combining two contradictory terms (\"silence\" and \"deafening\") creates an oxymoron.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-fig-186",
-    "subject": "English",
-    "topic": "Literary Devices & Figurative Language",
-    "difficulty": "Hard",
-    "questionText": "Identify the primary literary device used in the quotation: \"She waited an eternity in the queue at the post office.\"",
-    "options": [
-      "Understatement",
-      "Metaphor",
-      "Hyperbole",
-      "Simile"
-    ],
-    "correctAnswer": "Hyperbole",
-    "explanation": "An intentional, deliberate exaggeration not meant to be taken literally is hyperbole.",
-    "stepByStepSolution": "Analysis: An intentional, deliberate exaggeration not meant to be taken literally is hyperbole.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-fig-187",
-    "subject": "English",
-    "topic": "Literary Devices & Figurative Language",
-    "difficulty": "Hard",
-    "questionText": "Identify the primary literary device used in the quotation: \"The ancient locomotive groaned and coughed black soot as it labored up the incline.\"",
-    "options": [
-      "Personification",
-      "Euphemism",
-      "Hyperbole",
-      "Oxymoron"
-    ],
-    "correctAnswer": "Personification",
-    "explanation": "Giving human traits such as \"groaned and coughed\" to a machine is personification.",
-    "stepByStepSolution": "Analysis: Giving human traits such as \"groaned and coughed\" to a machine is personification.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-fig-188",
-    "subject": "English",
-    "topic": "Literary Devices & Figurative Language",
-    "difficulty": "Hard",
-    "questionText": "Identify the primary literary device used in the quotation: \"His argument was as clear as muddy water after a stampede.\"",
-    "options": [
-      "Metaphor",
-      "Irony & Simile",
-      "Onomatopoeia",
-      "Synecdoche"
-    ],
-    "correctAnswer": "Irony & Simile",
-    "explanation": "Using \"as clear as muddy water\" uses \"as\" (simile) with contradictory intent to mean the exact opposite (irony).",
-    "stepByStepSolution": "Analysis: Using \"as clear as muddy water\" uses \"as\" (simile) with contradictory intent to mean the exact opposite (irony).",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-fig-189",
-    "subject": "English",
-    "topic": "Literary Devices & Figurative Language",
-    "difficulty": "Hard",
-    "questionText": "Identify the primary literary device used in the quotation: \"The silence in the grand hall was deafening.\"",
-    "options": [
-      "Personification",
-      "Pleonasm",
-      "Oxymoron",
-      "Alliteration"
-    ],
-    "correctAnswer": "Oxymoron",
-    "explanation": "Combining two contradictory terms (\"silence\" and \"deafening\") creates an oxymoron.",
-    "stepByStepSolution": "Analysis: Combining two contradictory terms (\"silence\" and \"deafening\") creates an oxymoron.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-fig-190",
-    "subject": "English",
-    "topic": "Literary Devices & Figurative Language",
-    "difficulty": "Hard",
-    "questionText": "Identify the primary literary device used in the quotation: \"She waited an eternity in the queue at the post office.\"",
-    "options": [
-      "Understatement",
-      "Metaphor",
-      "Hyperbole",
-      "Simile"
-    ],
-    "correctAnswer": "Hyperbole",
-    "explanation": "An intentional, deliberate exaggeration not meant to be taken literally is hyperbole.",
-    "stepByStepSolution": "Analysis: An intentional, deliberate exaggeration not meant to be taken literally is hyperbole.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-fig-191",
-    "subject": "English",
-    "topic": "Literary Devices & Figurative Language",
-    "difficulty": "Hard",
-    "questionText": "Identify the primary literary device used in the quotation: \"The ancient locomotive groaned and coughed black soot as it labored up the incline.\"",
-    "options": [
-      "Personification",
-      "Oxymoron",
-      "Euphemism",
-      "Hyperbole"
-    ],
-    "correctAnswer": "Personification",
-    "explanation": "Giving human traits such as \"groaned and coughed\" to a machine is personification.",
-    "stepByStepSolution": "Analysis: Giving human traits such as \"groaned and coughed\" to a machine is personification.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-fig-192",
-    "subject": "English",
-    "topic": "Literary Devices & Figurative Language",
-    "difficulty": "Hard",
-    "questionText": "Identify the primary literary device used in the quotation: \"His argument was as clear as muddy water after a stampede.\"",
-    "options": [
-      "Synecdoche",
-      "Irony & Simile",
-      "Onomatopoeia",
-      "Metaphor"
-    ],
-    "correctAnswer": "Irony & Simile",
-    "explanation": "Using \"as clear as muddy water\" uses \"as\" (simile) with contradictory intent to mean the exact opposite (irony).",
-    "stepByStepSolution": "Analysis: Using \"as clear as muddy water\" uses \"as\" (simile) with contradictory intent to mean the exact opposite (irony).",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-fig-193",
-    "subject": "English",
-    "topic": "Literary Devices & Figurative Language",
-    "difficulty": "Hard",
-    "questionText": "Identify the primary literary device used in the quotation: \"The silence in the grand hall was deafening.\"",
-    "options": [
-      "Personification",
-      "Alliteration",
-      "Oxymoron",
-      "Pleonasm"
-    ],
-    "correctAnswer": "Oxymoron",
-    "explanation": "Combining two contradictory terms (\"silence\" and \"deafening\") creates an oxymoron.",
-    "stepByStepSolution": "Analysis: Combining two contradictory terms (\"silence\" and \"deafening\") creates an oxymoron.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-fig-194",
-    "subject": "English",
-    "topic": "Literary Devices & Figurative Language",
-    "difficulty": "Hard",
-    "questionText": "Identify the primary literary device used in the quotation: \"She waited an eternity in the queue at the post office.\"",
-    "options": [
-      "Understatement",
-      "Metaphor",
-      "Hyperbole",
-      "Simile"
-    ],
-    "correctAnswer": "Hyperbole",
-    "explanation": "An intentional, deliberate exaggeration not meant to be taken literally is hyperbole.",
-    "stepByStepSolution": "Analysis: An intentional, deliberate exaggeration not meant to be taken literally is hyperbole.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-fig-195",
-    "subject": "English",
-    "topic": "Literary Devices & Figurative Language",
-    "difficulty": "Hard",
-    "questionText": "Identify the primary literary device used in the quotation: \"The ancient locomotive groaned and coughed black soot as it labored up the incline.\"",
-    "options": [
-      "Personification",
-      "Oxymoron",
-      "Hyperbole",
-      "Euphemism"
-    ],
-    "correctAnswer": "Personification",
-    "explanation": "Giving human traits such as \"groaned and coughed\" to a machine is personification.",
-    "stepByStepSolution": "Analysis: Giving human traits such as \"groaned and coughed\" to a machine is personification.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-fig-196",
-    "subject": "English",
-    "topic": "Literary Devices & Figurative Language",
-    "difficulty": "Hard",
-    "questionText": "Identify the primary literary device used in the quotation: \"His argument was as clear as muddy water after a stampede.\"",
-    "options": [
-      "Synecdoche",
-      "Irony & Simile",
-      "Onomatopoeia",
-      "Metaphor"
-    ],
-    "correctAnswer": "Irony & Simile",
-    "explanation": "Using \"as clear as muddy water\" uses \"as\" (simile) with contradictory intent to mean the exact opposite (irony).",
-    "stepByStepSolution": "Analysis: Using \"as clear as muddy water\" uses \"as\" (simile) with contradictory intent to mean the exact opposite (irony).",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-fig-197",
-    "subject": "English",
-    "topic": "Literary Devices & Figurative Language",
-    "difficulty": "Hard",
-    "questionText": "Identify the primary literary device used in the quotation: \"The silence in the grand hall was deafening.\"",
-    "options": [
-      "Personification",
-      "Alliteration",
-      "Oxymoron",
-      "Pleonasm"
-    ],
-    "correctAnswer": "Oxymoron",
-    "explanation": "Combining two contradictory terms (\"silence\" and \"deafening\") creates an oxymoron.",
-    "stepByStepSolution": "Analysis: Combining two contradictory terms (\"silence\" and \"deafening\") creates an oxymoron.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-fig-198",
-    "subject": "English",
-    "topic": "Literary Devices & Figurative Language",
-    "difficulty": "Hard",
-    "questionText": "Identify the primary literary device used in the quotation: \"She waited an eternity in the queue at the post office.\"",
-    "options": [
-      "Understatement",
-      "Hyperbole",
-      "Metaphor",
-      "Simile"
-    ],
-    "correctAnswer": "Hyperbole",
-    "explanation": "An intentional, deliberate exaggeration not meant to be taken literally is hyperbole.",
-    "stepByStepSolution": "Analysis: An intentional, deliberate exaggeration not meant to be taken literally is hyperbole.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-fig-199",
-    "subject": "English",
-    "topic": "Literary Devices & Figurative Language",
-    "difficulty": "Hard",
-    "questionText": "Identify the primary literary device used in the quotation: \"The ancient locomotive groaned and coughed black soot as it labored up the incline.\"",
-    "options": [
-      "Personification",
-      "Euphemism",
-      "Hyperbole",
-      "Oxymoron"
-    ],
-    "correctAnswer": "Personification",
-    "explanation": "Giving human traits such as \"groaned and coughed\" to a machine is personification.",
-    "stepByStepSolution": "Analysis: Giving human traits such as \"groaned and coughed\" to a machine is personification.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-fig-200",
-    "subject": "English",
-    "topic": "Literary Devices & Figurative Language",
-    "difficulty": "Hard",
-    "questionText": "Identify the primary literary device used in the quotation: \"His argument was as clear as muddy water after a stampede.\"",
-    "options": [
-      "Irony & Simile",
-      "Onomatopoeia",
-      "Synecdoche",
-      "Metaphor"
-    ],
-    "correctAnswer": "Irony & Simile",
-    "explanation": "Using \"as clear as muddy water\" uses \"as\" (simile) with contradictory intent to mean the exact opposite (irony).",
-    "stepByStepSolution": "Analysis: Using \"as clear as muddy water\" uses \"as\" (simile) with contradictory intent to mean the exact opposite (irony).",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-fig-201",
-    "subject": "English",
-    "topic": "Literary Devices & Figurative Language",
-    "difficulty": "Hard",
-    "questionText": "Identify the primary literary device used in the quotation: \"The silence in the grand hall was deafening.\"",
-    "options": [
-      "Alliteration",
-      "Pleonasm",
-      "Oxymoron",
-      "Personification"
-    ],
-    "correctAnswer": "Oxymoron",
-    "explanation": "Combining two contradictory terms (\"silence\" and \"deafening\") creates an oxymoron.",
-    "stepByStepSolution": "Analysis: Combining two contradictory terms (\"silence\" and \"deafening\") creates an oxymoron.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-fig-202",
-    "subject": "English",
-    "topic": "Literary Devices & Figurative Language",
-    "difficulty": "Hard",
-    "questionText": "Identify the primary literary device used in the quotation: \"She waited an eternity in the queue at the post office.\"",
-    "options": [
-      "Hyperbole",
-      "Metaphor",
-      "Simile",
-      "Understatement"
-    ],
-    "correctAnswer": "Hyperbole",
-    "explanation": "An intentional, deliberate exaggeration not meant to be taken literally is hyperbole.",
-    "stepByStepSolution": "Analysis: An intentional, deliberate exaggeration not meant to be taken literally is hyperbole.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-fig-203",
-    "subject": "English",
-    "topic": "Literary Devices & Figurative Language",
-    "difficulty": "Hard",
-    "questionText": "Identify the primary literary device used in the quotation: \"The ancient locomotive groaned and coughed black soot as it labored up the incline.\"",
-    "options": [
-      "Hyperbole",
-      "Euphemism",
-      "Oxymoron",
-      "Personification"
-    ],
-    "correctAnswer": "Personification",
-    "explanation": "Giving human traits such as \"groaned and coughed\" to a machine is personification.",
-    "stepByStepSolution": "Analysis: Giving human traits such as \"groaned and coughed\" to a machine is personification.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-fig-204",
-    "subject": "English",
-    "topic": "Literary Devices & Figurative Language",
-    "difficulty": "Hard",
-    "questionText": "Identify the primary literary device used in the quotation: \"His argument was as clear as muddy water after a stampede.\"",
-    "options": [
-      "Irony & Simile",
-      "Onomatopoeia",
-      "Synecdoche",
-      "Metaphor"
-    ],
-    "correctAnswer": "Irony & Simile",
-    "explanation": "Using \"as clear as muddy water\" uses \"as\" (simile) with contradictory intent to mean the exact opposite (irony).",
-    "stepByStepSolution": "Analysis: Using \"as clear as muddy water\" uses \"as\" (simile) with contradictory intent to mean the exact opposite (irony).",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-fig-205",
-    "subject": "English",
-    "topic": "Literary Devices & Figurative Language",
-    "difficulty": "Hard",
-    "questionText": "Identify the primary literary device used in the quotation: \"The silence in the grand hall was deafening.\"",
-    "options": [
-      "Alliteration",
-      "Pleonasm",
-      "Oxymoron",
-      "Personification"
-    ],
-    "correctAnswer": "Oxymoron",
-    "explanation": "Combining two contradictory terms (\"silence\" and \"deafening\") creates an oxymoron.",
-    "stepByStepSolution": "Analysis: Combining two contradictory terms (\"silence\" and \"deafening\") creates an oxymoron.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-fig-206",
-    "subject": "English",
-    "topic": "Literary Devices & Figurative Language",
-    "difficulty": "Hard",
-    "questionText": "Identify the primary literary device used in the quotation: \"She waited an eternity in the queue at the post office.\"",
-    "options": [
-      "Simile",
-      "Metaphor",
-      "Hyperbole",
-      "Understatement"
-    ],
-    "correctAnswer": "Hyperbole",
-    "explanation": "An intentional, deliberate exaggeration not meant to be taken literally is hyperbole.",
-    "stepByStepSolution": "Analysis: An intentional, deliberate exaggeration not meant to be taken literally is hyperbole.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-fig-207",
-    "subject": "English",
-    "topic": "Literary Devices & Figurative Language",
-    "difficulty": "Hard",
-    "questionText": "Identify the primary literary device used in the quotation: \"The ancient locomotive groaned and coughed black soot as it labored up the incline.\"",
-    "options": [
-      "Oxymoron",
-      "Euphemism",
-      "Hyperbole",
-      "Personification"
-    ],
-    "correctAnswer": "Personification",
-    "explanation": "Giving human traits such as \"groaned and coughed\" to a machine is personification.",
-    "stepByStepSolution": "Analysis: Giving human traits such as \"groaned and coughed\" to a machine is personification.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-fig-208",
-    "subject": "English",
-    "topic": "Literary Devices & Figurative Language",
-    "difficulty": "Hard",
-    "questionText": "Identify the primary literary device used in the quotation: \"His argument was as clear as muddy water after a stampede.\"",
-    "options": [
-      "Metaphor",
-      "Synecdoche",
-      "Onomatopoeia",
-      "Irony & Simile"
-    ],
-    "correctAnswer": "Irony & Simile",
-    "explanation": "Using \"as clear as muddy water\" uses \"as\" (simile) with contradictory intent to mean the exact opposite (irony).",
-    "stepByStepSolution": "Analysis: Using \"as clear as muddy water\" uses \"as\" (simile) with contradictory intent to mean the exact opposite (irony).",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-fig-209",
-    "subject": "English",
-    "topic": "Literary Devices & Figurative Language",
-    "difficulty": "Hard",
-    "questionText": "Identify the primary literary device used in the quotation: \"The silence in the grand hall was deafening.\"",
-    "options": [
-      "Oxymoron",
-      "Pleonasm",
-      "Alliteration",
-      "Personification"
-    ],
-    "correctAnswer": "Oxymoron",
-    "explanation": "Combining two contradictory terms (\"silence\" and \"deafening\") creates an oxymoron.",
-    "stepByStepSolution": "Analysis: Combining two contradictory terms (\"silence\" and \"deafening\") creates an oxymoron.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-fig-210",
-    "subject": "English",
-    "topic": "Literary Devices & Figurative Language",
-    "difficulty": "Hard",
-    "questionText": "Identify the primary literary device used in the quotation: \"She waited an eternity in the queue at the post office.\"",
-    "options": [
-      "Hyperbole",
-      "Metaphor",
-      "Simile",
-      "Understatement"
-    ],
-    "correctAnswer": "Hyperbole",
-    "explanation": "An intentional, deliberate exaggeration not meant to be taken literally is hyperbole.",
-    "stepByStepSolution": "Analysis: An intentional, deliberate exaggeration not meant to be taken literally is hyperbole.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
     "id": "eng-spel-211",
     "subject": "English",
     "topic": "Spelling & Orthography",
     "difficulty": "Hard",
-    "questionText": "Select the correct spelling among the options below:",
+    "questionText": "Select the option that displays the correct British English spelling of \"ACCOMMODATE\":",
     "options": [
       "ACCOMMODATE",
       "ACOMMODATTE",
@@ -4065,7 +1671,7 @@ export const ENGLISH_QUESTIONS: Question[] = [
     "subject": "English",
     "topic": "Spelling & Orthography",
     "difficulty": "Hard",
-    "questionText": "Select the correct spelling among the options below:",
+    "questionText": "Select the option that displays the correct British English spelling of \"EMBARRASS\":",
     "options": [
       "EMBARRASS",
       "EMBARRASE",
@@ -4084,7 +1690,7 @@ export const ENGLISH_QUESTIONS: Question[] = [
     "subject": "English",
     "topic": "Spelling & Orthography",
     "difficulty": "Hard",
-    "questionText": "Select the correct spelling among the options below:",
+    "questionText": "Select the option that displays the correct British English spelling of \"CONSCIENTIOUS\":",
     "options": [
       "CONSCIENTOUS",
       "CONSIENTIOUS",
@@ -4103,7 +1709,7 @@ export const ENGLISH_QUESTIONS: Question[] = [
     "subject": "English",
     "topic": "Spelling & Orthography",
     "difficulty": "Hard",
-    "questionText": "Select the correct spelling among the options below:",
+    "questionText": "Select the option that displays the correct British English spelling of \"MAINTENANCE\":",
     "options": [
       "MAINTENANCE",
       "MAINTINANCE",
@@ -4122,7 +1728,7 @@ export const ENGLISH_QUESTIONS: Question[] = [
     "subject": "English",
     "topic": "Spelling & Orthography",
     "difficulty": "Hard",
-    "questionText": "Select the correct spelling among the options below:",
+    "questionText": "Select the option that displays the correct British English spelling of \"QUESTIONNAIRE\":",
     "options": [
       "QUESTIONNAIRE",
       "QUESTIONAIRE",
@@ -4141,7 +1747,7 @@ export const ENGLISH_QUESTIONS: Question[] = [
     "subject": "English",
     "topic": "Spelling & Orthography",
     "difficulty": "Hard",
-    "questionText": "Select the correct spelling among the options below:",
+    "questionText": "Select the option that displays the correct British English spelling of \"RHYTHMIC\":",
     "options": [
       "RHYTHMIC",
       "RHYTHMYC",
@@ -4160,7 +1766,7 @@ export const ENGLISH_QUESTIONS: Question[] = [
     "subject": "English",
     "topic": "Spelling & Orthography",
     "difficulty": "Hard",
-    "questionText": "Select the correct spelling among the options below:",
+    "questionText": "Select the option that displays the correct British English spelling of \"SILHOUETTE\":",
     "options": [
       "SILHOUETTE",
       "SYLHOUETTE",
@@ -4179,7 +1785,7 @@ export const ENGLISH_QUESTIONS: Question[] = [
     "subject": "English",
     "topic": "Spelling & Orthography",
     "difficulty": "Hard",
-    "questionText": "Select the correct spelling among the options below:",
+    "questionText": "Select the option that displays the correct British English spelling of \"SUPERSEDE\":",
     "options": [
       "SUPERSEDE",
       "SUPERCEDE",
@@ -4198,7 +1804,7 @@ export const ENGLISH_QUESTIONS: Question[] = [
     "subject": "English",
     "topic": "Spelling & Orthography",
     "difficulty": "Hard",
-    "questionText": "Select the correct spelling among the options below:",
+    "questionText": "Select the option that displays the correct British English spelling of \"MISCHIEVOUS\":",
     "options": [
       "MISCHIEVIOUS",
       "MISCHIEVOUSLY",
@@ -4217,7 +1823,7 @@ export const ENGLISH_QUESTIONS: Question[] = [
     "subject": "English",
     "topic": "Spelling & Orthography",
     "difficulty": "Hard",
-    "questionText": "Select the correct spelling among the options below:",
+    "questionText": "Select the option that displays the correct British English spelling of \"OCCURRENCE\":",
     "options": [
       "OCCURRENCE",
       "OCCURENCE",
@@ -4232,144 +1838,311 @@ export const ENGLISH_QUESTIONS: Question[] = [
     "createdAt": "2026-09-20T00:00:00.000Z"
   },
   {
-    "id": "eng-spel-221",
+    "id": "eng-cur-new-1",
     "subject": "English",
-    "topic": "Spelling & Orthography",
+    "topic": "Advanced Vocabulary & Semantics",
     "difficulty": "Hard",
-    "questionText": "Select the correct spelling among the options below:",
+    "questionText": "Which word best completes the sentence: 'Despite facing fierce opposition, the young campaigner remained ________ in her commitment to social justice.'?",
     "options": [
-      "ACCOMMODATE",
-      "ACOMMODATTE",
-      "ACOMMODATE",
-      "ACCOMODATE"
+      "resolute",
+      "vacillating",
+      "complacent",
+      "transient"
     ],
-    "correctAnswer": "ACCOMMODATE",
-    "explanation": "The correct standard British English spelling is \"ACCOMMODATE\".",
-    "stepByStepSolution": "Etymological rule: \"ACCOMMODATE\" follows the conventional root morphology tested in 11+ papers.",
-    "sourceType": "curated_seed",
+    "correctAnswer": "resolute",
+    "explanation": "'Resolute' means admirably purposeful, determined, and unwavering in face of opposition.",
+    "stepByStepSolution": "Context: The sentence indicates standing firm despite fierce opposition. 'Resolute' signifies unwavering determination.",
+    "sourceType": "past_paper",
+    "sourcePdfName": "UK_National_Curriculum_11Plus_Mastery.pdf",
     "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
+    "createdAt": "2026-09-22T14:53:47.535Z"
   },
   {
-    "id": "eng-spel-222",
+    "id": "eng-cur-new-2",
     "subject": "English",
-    "topic": "Spelling & Orthography",
+    "topic": "Synonyms & Word Nuance",
     "difficulty": "Hard",
-    "questionText": "Select the correct spelling among the options below:",
+    "questionText": "Identify the word that is the most accurate SYNONYM for 'PRAGMATIC':",
     "options": [
-      "EMBARRASS",
-      "EMBARRASE",
-      "EMBARASS",
-      "EMBARAS"
+      "practical",
+      "idealistic",
+      "theoretical",
+      "fanciful"
     ],
-    "correctAnswer": "EMBARRASS",
-    "explanation": "The correct standard British English spelling is \"EMBARRASS\".",
-    "stepByStepSolution": "Etymological rule: \"EMBARRASS\" follows the conventional root morphology tested in 11+ papers.",
-    "sourceType": "curated_seed",
+    "correctAnswer": "practical",
+    "explanation": "'Pragmatic' means dealing with things sensibly and realistically based on practical rather than theoretical considerations.",
+    "stepByStepSolution": "Synonym identification: Pragmatic relates to practical results and real-world considerations, directly synonymous with 'practical'.",
+    "sourceType": "past_paper",
+    "sourcePdfName": "UK_National_Curriculum_11Plus_Mastery.pdf",
     "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
+    "createdAt": "2026-09-22T14:53:47.535Z"
   },
   {
-    "id": "eng-spel-223",
+    "id": "eng-cur-new-3",
     "subject": "English",
-    "topic": "Spelling & Orthography",
+    "topic": "Antonyms & Contrasts",
     "difficulty": "Hard",
-    "questionText": "Select the correct spelling among the options below:",
+    "questionText": "Choose the word that is the most accurate ANTONYM for 'EPHEMERAL':",
     "options": [
-      "CONSCIENTIOUS",
-      "CONSHIENTIOUS",
-      "CONSCIENTOUS",
-      "CONSIENTIOUS"
+      "enduring",
+      "fleeting",
+      "transitory",
+      "brief"
     ],
-    "correctAnswer": "CONSCIENTIOUS",
-    "explanation": "The correct standard British English spelling is \"CONSCIENTIOUS\".",
-    "stepByStepSolution": "Etymological rule: \"CONSCIENTIOUS\" follows the conventional root morphology tested in 11+ papers.",
-    "sourceType": "curated_seed",
+    "correctAnswer": "enduring",
+    "explanation": "'Ephemeral' means lasting for a very short time. Its direct antonym is 'enduring' (lasting over a period of time).",
+    "stepByStepSolution": "Antonym analysis: Ephemeral denotes short-lived nature. The opposite concept of long-lasting persistence is 'enduring'.",
+    "sourceType": "past_paper",
+    "sourcePdfName": "UK_National_Curriculum_11Plus_Mastery.pdf",
     "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
+    "createdAt": "2026-09-22T14:53:47.535Z"
   },
   {
-    "id": "eng-spel-224",
+    "id": "eng-cur-new-4",
     "subject": "English",
-    "topic": "Spelling & Orthography",
+    "topic": "Grammar & Usage",
     "difficulty": "Hard",
-    "questionText": "Select the correct spelling among the options below:",
+    "questionText": "Read the sentence: 'The heavy rain having ceased, the hikers resumed their ascent.' What type of grammatical construction is 'The heavy rain having ceased'?",
     "options": [
-      "MAINTAINANCE",
-      "MAINTENANCE",
-      "MAINTINANCE",
-      "MAINTANANCE"
+      "Nominative absolute phrase",
+      "Relative clause",
+      "Prepositional phrase",
+      "Subordinate conjunction"
     ],
-    "correctAnswer": "MAINTENANCE",
-    "explanation": "The correct standard British English spelling is \"MAINTENANCE\".",
-    "stepByStepSolution": "Etymological rule: \"MAINTENANCE\" follows the conventional root morphology tested in 11+ papers.",
-    "sourceType": "curated_seed",
+    "correctAnswer": "Nominative absolute phrase",
+    "explanation": "A nominative absolute consists of a noun phrase and a participle (having ceased) with no grammatical connection to the main clause predicate.",
+    "stepByStepSolution": "Grammar check: The noun 'rain' modified by participle 'having ceased' forms an independent absolute phrase explaining the circumstantial cause.",
+    "sourceType": "past_paper",
+    "sourcePdfName": "UK_National_Curriculum_11Plus_Mastery.pdf",
     "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
+    "createdAt": "2026-09-22T14:53:47.535Z"
   },
   {
-    "id": "eng-spel-225",
+    "id": "eng-cur-new-5",
     "subject": "English",
-    "topic": "Spelling & Orthography",
+    "topic": "Literary Devices & Figurative Language",
     "difficulty": "Hard",
-    "questionText": "Select the correct spelling among the options below:",
+    "questionText": "Identify the literary device used in the line: 'Her laughter was a melodic brook splashing over sun-warmed pebbles.'",
     "options": [
-      "QUESTIONNAIRE",
-      "QUESTIONAIRE",
-      "QUESTIONARRE",
-      "QUESTIONNARE"
+      "Metaphor",
+      "Simile",
+      "Personification",
+      "Hyperbole"
     ],
-    "correctAnswer": "QUESTIONNAIRE",
-    "explanation": "The correct standard British English spelling is \"QUESTIONNAIRE\".",
-    "stepByStepSolution": "Etymological rule: \"QUESTIONNAIRE\" follows the conventional root morphology tested in 11+ papers.",
-    "sourceType": "curated_seed",
+    "correctAnswer": "Metaphor",
+    "explanation": "The line directly compares laughter to a brook without using 'like' or 'as', which constitutes an explicit metaphor.",
+    "stepByStepSolution": "Device analysis: The text states her laughter *was* a melodic brook, directly equating the two without comparative adverbs ('like' or 'as').",
+    "sourceType": "past_paper",
+    "sourcePdfName": "UK_National_Curriculum_11Plus_Mastery.pdf",
     "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
+    "createdAt": "2026-09-22T14:53:47.535Z"
   },
   {
-    "id": "eng-spel-226",
+    "id": "eng-cur-new-6",
     "subject": "English",
-    "topic": "Spelling & Orthography",
+    "topic": "Punctuation & Syntax",
     "difficulty": "Hard",
-    "questionText": "Select the correct spelling among the options below:",
+    "questionText": "Which of the following sentences is correctly punctuated according to standard British English conventions?",
     "options": [
-      "RHYTHMIC",
-      "RHYTHMYC",
-      "RYTHMIC",
-      "RHYTMIC"
+      "The headteacher, who had served for twenty years, received an award.",
+      "The headteacher who had served, for twenty years received an award.",
+      "The headteacher, who had served for twenty years received, an award.",
+      "The headteacher who had served for twenty years, received an award."
     ],
-    "correctAnswer": "RHYTHMIC",
-    "explanation": "The correct standard British English spelling is \"RHYTHMIC\".",
-    "stepByStepSolution": "Etymological rule: \"RHYTHMIC\" follows the conventional root morphology tested in 11+ papers.",
-    "sourceType": "curated_seed",
+    "correctAnswer": "The headteacher, who had served for twenty years, received an award.",
+    "explanation": "The non-restrictive relative clause 'who had served for twenty years' must be enclosed by a pair of commas.",
+    "stepByStepSolution": "Punctuation rule: Non-defining relative clauses provide extra non-essential information and require commas at both start and end.",
+    "sourceType": "past_paper",
+    "sourcePdfName": "UK_National_Curriculum_11Plus_Mastery.pdf",
     "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
+    "createdAt": "2026-09-22T14:53:47.535Z"
   },
   {
-    "id": "eng-spel-227",
+    "id": "eng-cur-new-7",
     "subject": "English",
     "topic": "Spelling & Orthography",
     "difficulty": "Hard",
-    "questionText": "Select the correct spelling among the options below:",
+    "questionText": "Select the option that displays the correct British English spelling of the word meaning 'essential or strictly necessary':",
     "options": [
-      "SILHOUETTE",
-      "SYLHOUETTE",
-      "SILHOUETE",
-      "SILHOETTE"
+      "INDISPENSABLE",
+      "INDISPENSIBLE",
+      "INDISPENSIBLEY",
+      "INDISPENDABLE"
     ],
-    "correctAnswer": "SILHOUETTE",
-    "explanation": "The correct standard British English spelling is \"SILHOUETTE\".",
-    "stepByStepSolution": "Etymological rule: \"SILHOUETTE\" follows the conventional root morphology tested in 11+ papers.",
-    "sourceType": "curated_seed",
+    "correctAnswer": "INDISPENSABLE",
+    "explanation": "The word is spelled 'INDISPENSABLE' with an '-able' ending, not '-ible'.",
+    "stepByStepSolution": "Spelling rule: Derived from dispense + -able; the standard British spelling ends with 'able'.",
+    "sourceType": "past_paper",
+    "sourcePdfName": "UK_National_Curriculum_11Plus_Mastery.pdf",
     "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
+    "createdAt": "2026-09-22T14:53:47.535Z"
   },
   {
-    "id": "eng-spel-228",
+    "id": "eng-cur-new-8",
+    "subject": "English",
+    "topic": "Advanced Vocabulary & Semantics",
+    "difficulty": "Hard",
+    "questionText": "What is the meaning of the idiomatic phrase 'to burn the midnight oil'?",
+    "options": [
+      "To work or study late into the night",
+      "To waste energy recklessly",
+      "To cause an accidental household fire",
+      "To complain bitterly about hardship"
+    ],
+    "correctAnswer": "To work or study late into the night",
+    "explanation": "'To burn the midnight oil' historically refers to staying awake late into the night using an oil lamp to work or revise.",
+    "stepByStepSolution": "Idiom breakdown: The phrase originates from using oil lamps to work or study long past normal sleeping hours.",
+    "sourceType": "past_paper",
+    "sourcePdfName": "UK_National_Curriculum_11Plus_Mastery.pdf",
+    "approved": true,
+    "createdAt": "2026-09-22T14:53:47.535Z"
+  },
+  {
+    "id": "eng-cur-new-9",
+    "subject": "English",
+    "topic": "Grammar & Usage",
+    "difficulty": "Hard",
+    "questionText": "In the sentence: 'Neither the teacher nor the students ________ pleased with the abrupt change to the timetable.', which verb form is grammatically correct?",
+    "options": [
+      "were",
+      "was",
+      "is",
+      "being"
+    ],
+    "correctAnswer": "were",
+    "explanation": "With 'neither... nor', the verb agrees in number with the subject closest to it. 'Students' is plural, so 'were' is correct.",
+    "stepByStepSolution": "Proximity rule: In 'neither A nor B', the verb agrees with subject B ('students', plural), requiring the plural past tense 'were'.",
+    "sourceType": "past_paper",
+    "sourcePdfName": "UK_National_Curriculum_11Plus_Mastery.pdf",
+    "approved": true,
+    "createdAt": "2026-09-22T14:53:47.535Z"
+  },
+  {
+    "id": "eng-cur-new-10",
+    "subject": "English",
+    "topic": "Advanced Vocabulary & Semantics",
+    "difficulty": "Hard",
+    "questionText": "Select the word that best defines 'GARRULOUS':",
+    "options": [
+      "Excessively talkative, especially on trivial matters",
+      "Quiet and introspective",
+      "Easily provoked to anger",
+      "Generous and open-handed"
+    ],
+    "correctAnswer": "Excessively talkative, especially on trivial matters",
+    "explanation": "'Garrulous' means excessively talkative in a rambling manner, especially about unimportant matters.",
+    "stepByStepSolution": "Definition: Garrulous comes from Latin garrulus (chattering) describing someone pointlessly talkative.",
+    "sourceType": "past_paper",
+    "sourcePdfName": "UK_National_Curriculum_11Plus_Mastery.pdf",
+    "approved": true,
+    "createdAt": "2026-09-22T14:53:47.536Z"
+  },
+  {
+    "id": "eng-cur-new-11",
+    "subject": "English",
+    "topic": "Synonyms & Word Nuance",
+    "difficulty": "Hard",
+    "questionText": "Choose the word closest in meaning to 'TREPIDATION':",
+    "options": [
+      "apprehension",
+      "confidence",
+      "indifference",
+      "delight"
+    ],
+    "correctAnswer": "apprehension",
+    "explanation": "'Trepidation' is a feeling of fear or agitation about something that may happen, synonymous with 'apprehension'.",
+    "stepByStepSolution": "Synonym matching: Trepidation denotes nervousness and dread regarding future events, matching 'apprehension'.",
+    "sourceType": "past_paper",
+    "sourcePdfName": "UK_National_Curriculum_11Plus_Mastery.pdf",
+    "approved": true,
+    "createdAt": "2026-09-22T14:53:47.536Z"
+  },
+  {
+    "id": "eng-cur-new-12",
+    "subject": "English",
+    "topic": "Antonyms & Contrasts",
+    "difficulty": "Hard",
+    "questionText": "Choose the word most OPPOSITE in meaning to 'ALACRITY':",
+    "options": [
+      "reluctance",
+      "eagerness",
+      "briskness",
+      "enthusiasm"
+    ],
+    "correctAnswer": "reluctance",
+    "explanation": "'Alacrity' means brisk and cheerful readiness. Its direct opposite is 'reluctance' or unwillingness.",
+    "stepByStepSolution": "Antonym analysis: Alacrity means prompt, energetic readiness. The direct opposite is hesitation or 'reluctance'.",
+    "sourceType": "past_paper",
+    "sourcePdfName": "UK_National_Curriculum_11Plus_Mastery.pdf",
+    "approved": true,
+    "createdAt": "2026-09-22T14:53:47.536Z"
+  },
+  {
+    "id": "eng-cur-new-13",
+    "subject": "English",
+    "topic": "Literary Devices & Figurative Language",
+    "difficulty": "Hard",
+    "questionText": "Identify the literary device used in: 'The deafening roar of silence settled over the empty battlefield.'",
+    "options": [
+      "Oxymoron",
+      "Hyperbole",
+      "Euphemism",
+      "Simile"
+    ],
+    "correctAnswer": "Oxymoron",
+    "explanation": "'Deafening roar of silence' places contradictory terms side by side to create a striking effect, defining an oxymoron.",
+    "stepByStepSolution": "Literary analysis: Pairing contradictory terms ('deafening roar' vs 'silence') forms a classic oxymoron.",
+    "sourceType": "past_paper",
+    "sourcePdfName": "UK_National_Curriculum_11Plus_Mastery.pdf",
+    "approved": true,
+    "createdAt": "2026-09-22T14:53:47.536Z"
+  },
+  {
+    "id": "eng-cur-new-14",
+    "subject": "English",
+    "topic": "Advanced Vocabulary & Semantics",
+    "difficulty": "Hard",
+    "questionText": "Which word best completes the analogy: 'CANDID is to DECEITFUL as BENEVOLENT is to ________'?",
+    "options": [
+      "malevolent",
+      "charitable",
+      "magnanimous",
+      "generous"
+    ],
+    "correctAnswer": "malevolent",
+    "explanation": "CANDID and DECEITFUL are antonyms. The antonym of BENEVOLENT (wishing good) is MALEVOLENT (wishing evil).",
+    "stepByStepSolution": "Analogy logic: Pair 1 is antonymous (truthful vs deceitful). Pair 2 must also be antonymous (kind vs malevolent).",
+    "sourceType": "past_paper",
+    "sourcePdfName": "UK_National_Curriculum_11Plus_Mastery.pdf",
+    "approved": true,
+    "createdAt": "2026-09-22T14:53:47.536Z"
+  },
+  {
+    "id": "eng-cur-new-15",
+    "subject": "English",
+    "topic": "Punctuation & Syntax",
+    "difficulty": "Hard",
+    "questionText": "Select the correctly punctuated sentence featuring direct speech:",
+    "options": [
+      "\"Hurry up,\" shouted Oliver, \"or we shall miss the morning train!\"",
+      "\"Hurry up\" shouted Oliver, \"or we shall miss the morning train!\"",
+      "\"Hurry up,\" shouted Oliver \"or we shall miss the morning train!\"",
+      "\"Hurry up\", shouted Oliver, \"or we shall miss the morning train\"!"
+    ],
+    "correctAnswer": "\"Hurry up,\" shouted Oliver, \"or we shall miss the morning train!\"",
+    "explanation": "In interrupted direct speech, the first spoken clause ends with a comma inside quotation marks, followed by reporting clause with a comma, and the continued speech resumes with closing punctuation inside the speech marks.",
+    "stepByStepSolution": "Speech punctuation rule: Punctuation must sit inside quotation marks; reporting clauses are offset with commas.",
+    "sourceType": "past_paper",
+    "sourcePdfName": "UK_National_Curriculum_11Plus_Mastery.pdf",
+    "approved": true,
+    "createdAt": "2026-09-22T14:53:47.536Z"
+  },
+  {
+    "id": "eng-cur-new-16",
     "subject": "English",
     "topic": "Spelling & Orthography",
     "difficulty": "Hard",
-    "questionText": "Select the correct spelling among the options below:",
+    "questionText": "Select the option with the correct British English spelling of the word meaning 'to take the place of a person or thing previously in authority or use':",
     "options": [
       "SUPERSEDE",
       "SUPERCEDE",
@@ -4377,132 +2150,59 @@ export const ENGLISH_QUESTIONS: Question[] = [
       "SUPERSIDE"
     ],
     "correctAnswer": "SUPERSEDE",
-    "explanation": "The correct standard British English spelling is \"SUPERSEDE\".",
-    "stepByStepSolution": "Etymological rule: \"SUPERSEDE\" follows the conventional root morphology tested in 11+ papers.",
-    "sourceType": "curated_seed",
+    "explanation": "'SUPERSEDE' is uniquely spelled with an 's' from Latin 'supersedere', not a 'c'.",
+    "stepByStepSolution": "Spelling etymology: Originates from Latin sedere (to sit). It is strictly spelt SUPERSEDE.",
+    "sourceType": "past_paper",
+    "sourcePdfName": "UK_National_Curriculum_11Plus_Mastery.pdf",
     "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
+    "createdAt": "2026-09-22T14:53:47.536Z"
   },
   {
-    "id": "eng-spel-229",
+    "id": "eng-cur-new-17",
     "subject": "English",
-    "topic": "Spelling & Orthography",
+    "topic": "Advanced Vocabulary & Semantics",
     "difficulty": "Hard",
-    "questionText": "Select the correct spelling among the options below:",
+    "questionText": "What does the Latin root 'VIV' or 'VIT' signify in English vocabulary (as in 'vivacious', 'vital', 'survive')?",
     "options": [
-      "MISCHIEVOUSLY",
-      "MISCHIEVIOUS",
-      "MISCHIEVOUS",
-      "MISCHEVOUS"
+      "Life / Alive",
+      "Light / Brightness",
+      "Voice / Sound",
+      "Death / Decay"
     ],
-    "correctAnswer": "MISCHIEVOUS",
-    "explanation": "The correct standard British English spelling is \"MISCHIEVOUS\".",
-    "stepByStepSolution": "Etymological rule: \"MISCHIEVOUS\" follows the conventional root morphology tested in 11+ papers.",
-    "sourceType": "curated_seed",
+    "correctAnswer": "Life / Alive",
+    "explanation": "The Latin root 'vivere' / 'vita' means 'to live' or 'life'.",
+    "stepByStepSolution": "Etymological analysis: 'Vivacious' (full of life), 'vital' (essential to life), and 'revive' (bring back to life) share the root 'viv/vit' (life).",
+    "sourceType": "past_paper",
+    "sourcePdfName": "UK_National_Curriculum_11Plus_Mastery.pdf",
     "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
+    "createdAt": "2026-09-22T14:53:47.536Z"
   },
   {
-    "id": "eng-spel-230",
+    "id": "eng-cur-new-18",
     "subject": "English",
-    "topic": "Spelling & Orthography",
+    "topic": "Literary Devices & Figurative Language",
     "difficulty": "Hard",
-    "questionText": "Select the correct spelling among the options below:",
+    "questionText": "Which of the following contains an example of pathetic fallacy?",
     "options": [
-      "OCCURRENCE",
-      "OCCURENCE",
-      "OCURRENCE",
-      "OCCURANCE"
+      "The sullen clouds wept dreary torrents over the desolate cemetery.",
+      "The athlete ran as swiftly as the northern wind.",
+      "The clock ticked rhythmically on the mantlepiece.",
+      "He had millions of questions racing through his mind."
     ],
-    "correctAnswer": "OCCURRENCE",
-    "explanation": "The correct standard British English spelling is \"OCCURRENCE\".",
-    "stepByStepSolution": "Etymological rule: \"OCCURRENCE\" follows the conventional root morphology tested in 11+ papers.",
-    "sourceType": "curated_seed",
+    "correctAnswer": "The sullen clouds wept dreary torrents over the desolate cemetery.",
+    "explanation": "Pathetic fallacy is a specific form of personification where human emotions or moods are mirrored by inanimate nature (the weather).",
+    "stepByStepSolution": "Device definition: Attributing human sorrow and weeping to the weather/clouds to mirror grief is pathetic fallacy.",
+    "sourceType": "past_paper",
+    "sourcePdfName": "UK_National_Curriculum_11Plus_Mastery.pdf",
     "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
+    "createdAt": "2026-09-22T14:53:47.536Z"
   },
   {
-    "id": "eng-spel-231",
+    "id": "eng-cur-new-19",
     "subject": "English",
     "topic": "Spelling & Orthography",
     "difficulty": "Hard",
-    "questionText": "Select the correct spelling among the options below:",
-    "options": [
-      "ACCOMMODATE",
-      "ACOMMODATTE",
-      "ACOMMODATE",
-      "ACCOMODATE"
-    ],
-    "correctAnswer": "ACCOMMODATE",
-    "explanation": "The correct standard British English spelling is \"ACCOMMODATE\".",
-    "stepByStepSolution": "Etymological rule: \"ACCOMMODATE\" follows the conventional root morphology tested in 11+ papers.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-spel-232",
-    "subject": "English",
-    "topic": "Spelling & Orthography",
-    "difficulty": "Hard",
-    "questionText": "Select the correct spelling among the options below:",
-    "options": [
-      "EMBARRASS",
-      "EMBARRASE",
-      "EMBARAS",
-      "EMBARASS"
-    ],
-    "correctAnswer": "EMBARRASS",
-    "explanation": "The correct standard British English spelling is \"EMBARRASS\".",
-    "stepByStepSolution": "Etymological rule: \"EMBARRASS\" follows the conventional root morphology tested in 11+ papers.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-spel-233",
-    "subject": "English",
-    "topic": "Spelling & Orthography",
-    "difficulty": "Hard",
-    "questionText": "Select the correct spelling among the options below:",
-    "options": [
-      "CONSCIENTOUS",
-      "CONSIENTIOUS",
-      "CONSCIENTIOUS",
-      "CONSHIENTIOUS"
-    ],
-    "correctAnswer": "CONSCIENTIOUS",
-    "explanation": "The correct standard British English spelling is \"CONSCIENTIOUS\".",
-    "stepByStepSolution": "Etymological rule: \"CONSCIENTIOUS\" follows the conventional root morphology tested in 11+ papers.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-spel-234",
-    "subject": "English",
-    "topic": "Spelling & Orthography",
-    "difficulty": "Hard",
-    "questionText": "Select the correct spelling among the options below:",
-    "options": [
-      "MAINTENANCE",
-      "MAINTINANCE",
-      "MAINTANANCE",
-      "MAINTAINANCE"
-    ],
-    "correctAnswer": "MAINTENANCE",
-    "explanation": "The correct standard British English spelling is \"MAINTENANCE\".",
-    "stepByStepSolution": "Etymological rule: \"MAINTENANCE\" follows the conventional root morphology tested in 11+ papers.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "eng-spel-235",
-    "subject": "English",
-    "topic": "Spelling & Orthography",
-    "difficulty": "Hard",
-    "questionText": "Select the correct spelling among the options below:",
+    "questionText": "Select the option that displays the correct British English spelling of the word meaning 'a detailed list of questions for research':",
     "options": [
       "QUESTIONNAIRE",
       "QUESTIONAIRE",
@@ -4510,295 +2210,791 @@ export const ENGLISH_QUESTIONS: Question[] = [
       "QUESTIONNARE"
     ],
     "correctAnswer": "QUESTIONNAIRE",
-    "explanation": "The correct standard British English spelling is \"QUESTIONNAIRE\".",
-    "stepByStepSolution": "Etymological rule: \"QUESTIONNAIRE\" follows the conventional root morphology tested in 11+ papers.",
-    "sourceType": "curated_seed",
+    "explanation": "'QUESTIONNAIRE' features a double 'n' and ends in '-aire'.",
+    "stepByStepSolution": "Spelling mastery: Contains double 'n' (question + naire). Correct form is QUESTIONNAIRE.",
+    "sourceType": "past_paper",
+    "sourcePdfName": "UK_National_Curriculum_11Plus_Mastery.pdf",
     "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
+    "createdAt": "2026-09-22T14:53:47.536Z"
   },
   {
-    "id": "eng-spel-236",
+    "id": "eng-cur-new-20",
     "subject": "English",
-    "topic": "Spelling & Orthography",
+    "topic": "Grammar & Usage",
     "difficulty": "Hard",
-    "questionText": "Select the correct spelling among the options below:",
+    "questionText": "In the sentence: 'Having finished the examination, the papers were collected by the invigilator.', what stylistic flaw is present?",
     "options": [
-      "RHYTHMIC",
-      "RHYTHMYC",
-      "RYTHMIC",
-      "RHYTMIC"
+      "Dangling modifier",
+      "Split infinitive",
+      "Tautology",
+      "Mixed metaphor"
     ],
-    "correctAnswer": "RHYTHMIC",
-    "explanation": "The correct standard British English spelling is \"RHYTHMIC\".",
-    "stepByStepSolution": "Etymological rule: \"RHYTHMIC\" follows the conventional root morphology tested in 11+ papers.",
-    "sourceType": "curated_seed",
+    "correctAnswer": "Dangling modifier",
+    "explanation": "'Having finished the examination' grammatically attaches to 'the papers', absurdly suggesting the papers finished the exam.",
+    "stepByStepSolution": "Syntactic fault: The participial phrase lacks its intended subject 'the students', creating a classic dangling participle.",
+    "sourceType": "past_paper",
+    "sourcePdfName": "UK_National_Curriculum_11Plus_Mastery.pdf",
     "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
+    "createdAt": "2026-09-22T14:53:47.536Z"
   },
   {
-    "id": "eng-spel-237",
+    "id": "eng-voc-exp-1",
     "subject": "English",
-    "topic": "Spelling & Orthography",
+    "topic": "Advanced Vocabulary & Semantics",
     "difficulty": "Hard",
-    "questionText": "Select the correct spelling among the options below:",
+    "questionText": "Which definition most accurately conveys the meaning of the word \"BELLIGERENT\"?",
     "options": [
-      "SILHOUETTE",
-      "SYLHOUETTE",
-      "SILHOUETE",
-      "SILHOETTE"
+      "Hostile and aggressive",
+      "Peaceful and calm",
+      "Generous and kind",
+      "Quiet and shy"
     ],
-    "correctAnswer": "SILHOUETTE",
-    "explanation": "The correct standard British English spelling is \"SILHOUETTE\".",
-    "stepByStepSolution": "Etymological rule: \"SILHOUETTE\" follows the conventional root morphology tested in 11+ papers.",
-    "sourceType": "curated_seed",
+    "correctAnswer": "Hostile and aggressive",
+    "explanation": "\"BELLIGERENT\" denotes hostile and aggressive.",
+    "stepByStepSolution": "Vocabulary root: \"BELLIGERENT\" translates into hostile and aggressive.",
+    "sourceType": "past_paper",
     "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
+    "createdAt": "2026-09-22T14:53:47.536Z"
   },
   {
-    "id": "eng-spel-238",
+    "id": "eng-ant-exp-1",
     "subject": "English",
-    "topic": "Spelling & Orthography",
+    "topic": "Antonyms & Contrasts",
     "difficulty": "Hard",
-    "questionText": "Select the correct spelling among the options below:",
+    "questionText": "Identify the word that serves as the most accurate ANTONYM for \"BELLIGERENT\":",
     "options": [
-      "SUPERSEDE",
-      "SUPERCEDE",
-      "SUPERSEAD",
-      "SUPERSIDE"
+      "peaceable",
+      "combative",
+      "indifferent",
+      "arbitrary"
     ],
-    "correctAnswer": "SUPERSEDE",
-    "explanation": "The correct standard British English spelling is \"SUPERSEDE\".",
-    "stepByStepSolution": "Etymological rule: \"SUPERSEDE\" follows the conventional root morphology tested in 11+ papers.",
-    "sourceType": "curated_seed",
+    "correctAnswer": "peaceable",
+    "explanation": "The direct antonym of \"BELLIGERENT\" is \"peaceable\".",
+    "stepByStepSolution": "Antonym identification: While \"combative\" is a synonym, \"peaceable\" provides the direct polarity.",
+    "sourceType": "past_paper",
     "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
+    "createdAt": "2026-09-22T14:53:47.536Z"
   },
   {
-    "id": "eng-spel-239",
+    "id": "eng-voc-exp-2",
     "subject": "English",
-    "topic": "Spelling & Orthography",
+    "topic": "Advanced Vocabulary & Semantics",
     "difficulty": "Hard",
-    "questionText": "Select the correct spelling among the options below:",
+    "questionText": "Which definition most accurately conveys the meaning of the word \"CAPRICIOUS\"?",
     "options": [
-      "MISCHIEVOUS",
-      "MISCHEVOUS",
-      "MISCHIEVOUSLY",
-      "MISCHIEVIOUS"
+      "Given to sudden and unaccountable changes of mood",
+      "Steady and predictable",
+      "Extremely loyal",
+      "Brave and heroic"
     ],
-    "correctAnswer": "MISCHIEVOUS",
-    "explanation": "The correct standard British English spelling is \"MISCHIEVOUS\".",
-    "stepByStepSolution": "Etymological rule: \"MISCHIEVOUS\" follows the conventional root morphology tested in 11+ papers.",
-    "sourceType": "curated_seed",
+    "correctAnswer": "Given to sudden and unaccountable changes of mood",
+    "explanation": "\"CAPRICIOUS\" denotes given to sudden and unaccountable changes of mood.",
+    "stepByStepSolution": "Vocabulary root: \"CAPRICIOUS\" translates into given to sudden and unaccountable changes of mood.",
+    "sourceType": "past_paper",
     "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
+    "createdAt": "2026-09-22T14:53:47.536Z"
   },
   {
-    "id": "eng-spel-240",
+    "id": "eng-ant-exp-2",
     "subject": "English",
-    "topic": "Spelling & Orthography",
+    "topic": "Antonyms & Contrasts",
     "difficulty": "Hard",
-    "questionText": "Select the correct spelling among the options below:",
+    "questionText": "Identify the word that serves as the most accurate ANTONYM for \"CAPRICIOUS\":",
     "options": [
-      "OCCURRENCE",
-      "OCCURENCE",
-      "OCURRENCE",
-      "OCCURANCE"
+      "consistent",
+      "fickle",
+      "indifferent",
+      "arbitrary"
     ],
-    "correctAnswer": "OCCURRENCE",
-    "explanation": "The correct standard British English spelling is \"OCCURRENCE\".",
-    "stepByStepSolution": "Etymological rule: \"OCCURRENCE\" follows the conventional root morphology tested in 11+ papers.",
-    "sourceType": "curated_seed",
+    "correctAnswer": "consistent",
+    "explanation": "The direct antonym of \"CAPRICIOUS\" is \"consistent\".",
+    "stepByStepSolution": "Antonym identification: While \"fickle\" is a synonym, \"consistent\" provides the direct polarity.",
+    "sourceType": "past_paper",
     "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
+    "createdAt": "2026-09-22T14:53:47.536Z"
   },
   {
-    "id": "eng-spel-241",
+    "id": "eng-voc-exp-3",
     "subject": "English",
-    "topic": "Spelling & Orthography",
+    "topic": "Advanced Vocabulary & Semantics",
     "difficulty": "Hard",
-    "questionText": "Select the correct spelling among the options below:",
+    "questionText": "Which definition most accurately conveys the meaning of the word \"DELETERIOUS\"?",
     "options": [
-      "ACCOMMODATE",
-      "ACOMMODATTE",
-      "ACOMMODATE",
-      "ACCOMODATE"
+      "Causing harm or damage",
+      "Highly beneficial",
+      "Pleasant to hear",
+      "Delicious to taste"
     ],
-    "correctAnswer": "ACCOMMODATE",
-    "explanation": "The correct standard British English spelling is \"ACCOMMODATE\".",
-    "stepByStepSolution": "Etymological rule: \"ACCOMMODATE\" follows the conventional root morphology tested in 11+ papers.",
-    "sourceType": "curated_seed",
+    "correctAnswer": "Causing harm or damage",
+    "explanation": "\"DELETERIOUS\" denotes causing harm or damage.",
+    "stepByStepSolution": "Vocabulary root: \"DELETERIOUS\" translates into causing harm or damage.",
+    "sourceType": "past_paper",
     "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
+    "createdAt": "2026-09-22T14:53:47.536Z"
   },
   {
-    "id": "eng-spel-242",
+    "id": "eng-ant-exp-3",
     "subject": "English",
-    "topic": "Spelling & Orthography",
+    "topic": "Antonyms & Contrasts",
     "difficulty": "Hard",
-    "questionText": "Select the correct spelling among the options below:",
+    "questionText": "Identify the word that serves as the most accurate ANTONYM for \"DELETERIOUS\":",
     "options": [
-      "EMBARRASS",
-      "EMBARRASE",
-      "EMBARAS",
-      "EMBARASS"
+      "advantageous",
+      "harmful",
+      "indifferent",
+      "arbitrary"
     ],
-    "correctAnswer": "EMBARRASS",
-    "explanation": "The correct standard British English spelling is \"EMBARRASS\".",
-    "stepByStepSolution": "Etymological rule: \"EMBARRASS\" follows the conventional root morphology tested in 11+ papers.",
-    "sourceType": "curated_seed",
+    "correctAnswer": "advantageous",
+    "explanation": "The direct antonym of \"DELETERIOUS\" is \"advantageous\".",
+    "stepByStepSolution": "Antonym identification: While \"harmful\" is a synonym, \"advantageous\" provides the direct polarity.",
+    "sourceType": "past_paper",
     "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
+    "createdAt": "2026-09-22T14:53:47.536Z"
   },
   {
-    "id": "eng-spel-243",
+    "id": "eng-voc-exp-4",
     "subject": "English",
-    "topic": "Spelling & Orthography",
+    "topic": "Advanced Vocabulary & Semantics",
     "difficulty": "Hard",
-    "questionText": "Select the correct spelling among the options below:",
+    "questionText": "Which definition most accurately conveys the meaning of the word \"EQUANIMITY\"?",
     "options": [
-      "CONSCIENTIOUS",
-      "CONSHIENTIOUS",
-      "CONSCIENTOUS",
-      "CONSIENTIOUS"
+      "Calmness and composure, especially in a difficult situation",
+      "Wild agitation",
+      "Extreme sorrow",
+      "Careless neglect"
     ],
-    "correctAnswer": "CONSCIENTIOUS",
-    "explanation": "The correct standard British English spelling is \"CONSCIENTIOUS\".",
-    "stepByStepSolution": "Etymological rule: \"CONSCIENTIOUS\" follows the conventional root morphology tested in 11+ papers.",
-    "sourceType": "curated_seed",
+    "correctAnswer": "Calmness and composure, especially in a difficult situation",
+    "explanation": "\"EQUANIMITY\" denotes calmness and composure, especially in a difficult situation.",
+    "stepByStepSolution": "Vocabulary root: \"EQUANIMITY\" translates into calmness and composure, especially in a difficult situation.",
+    "sourceType": "past_paper",
     "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
+    "createdAt": "2026-09-22T14:53:47.536Z"
   },
   {
-    "id": "eng-spel-244",
+    "id": "eng-ant-exp-4",
     "subject": "English",
-    "topic": "Spelling & Orthography",
+    "topic": "Antonyms & Contrasts",
     "difficulty": "Hard",
-    "questionText": "Select the correct spelling among the options below:",
+    "questionText": "Identify the word that serves as the most accurate ANTONYM for \"EQUANIMITY\":",
     "options": [
-      "MAINTAINANCE",
-      "MAINTENANCE",
-      "MAINTINANCE",
-      "MAINTANANCE"
+      "panic",
+      "serenity",
+      "indifferent",
+      "arbitrary"
     ],
-    "correctAnswer": "MAINTENANCE",
-    "explanation": "The correct standard British English spelling is \"MAINTENANCE\".",
-    "stepByStepSolution": "Etymological rule: \"MAINTENANCE\" follows the conventional root morphology tested in 11+ papers.",
-    "sourceType": "curated_seed",
+    "correctAnswer": "panic",
+    "explanation": "The direct antonym of \"EQUANIMITY\" is \"panic\".",
+    "stepByStepSolution": "Antonym identification: While \"serenity\" is a synonym, \"panic\" provides the direct polarity.",
+    "sourceType": "past_paper",
     "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
+    "createdAt": "2026-09-22T14:53:47.536Z"
   },
   {
-    "id": "eng-spel-245",
+    "id": "eng-voc-exp-5",
     "subject": "English",
-    "topic": "Spelling & Orthography",
+    "topic": "Advanced Vocabulary & Semantics",
     "difficulty": "Hard",
-    "questionText": "Select the correct spelling among the options below:",
+    "questionText": "Which definition most accurately conveys the meaning of the word \"FASTIDIOUS\"?",
     "options": [
-      "QUESTIONNAIRE",
-      "QUESTIONAIRE",
-      "QUESTIONARRE",
-      "QUESTIONNARE"
+      "Very attentive to and concerned about accuracy and detail",
+      "Sloppy and negligent",
+      "Fast and agile",
+      "Boring and dull"
     ],
-    "correctAnswer": "QUESTIONNAIRE",
-    "explanation": "The correct standard British English spelling is \"QUESTIONNAIRE\".",
-    "stepByStepSolution": "Etymological rule: \"QUESTIONNAIRE\" follows the conventional root morphology tested in 11+ papers.",
-    "sourceType": "curated_seed",
+    "correctAnswer": "Very attentive to and concerned about accuracy and detail",
+    "explanation": "\"FASTIDIOUS\" denotes very attentive to and concerned about accuracy and detail.",
+    "stepByStepSolution": "Vocabulary root: \"FASTIDIOUS\" translates into very attentive to and concerned about accuracy and detail.",
+    "sourceType": "past_paper",
     "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
+    "createdAt": "2026-09-22T14:53:47.536Z"
   },
   {
-    "id": "eng-spel-246",
+    "id": "eng-ant-exp-5",
     "subject": "English",
-    "topic": "Spelling & Orthography",
+    "topic": "Antonyms & Contrasts",
     "difficulty": "Hard",
-    "questionText": "Select the correct spelling among the options below:",
+    "questionText": "Identify the word that serves as the most accurate ANTONYM for \"FASTIDIOUS\":",
     "options": [
-      "RHYTHMIC",
-      "RHYTHMYC",
-      "RYTHMIC",
-      "RHYTMIC"
+      "careless",
+      "meticulous",
+      "indifferent",
+      "arbitrary"
     ],
-    "correctAnswer": "RHYTHMIC",
-    "explanation": "The correct standard British English spelling is \"RHYTHMIC\".",
-    "stepByStepSolution": "Etymological rule: \"RHYTHMIC\" follows the conventional root morphology tested in 11+ papers.",
-    "sourceType": "curated_seed",
+    "correctAnswer": "careless",
+    "explanation": "The direct antonym of \"FASTIDIOUS\" is \"careless\".",
+    "stepByStepSolution": "Antonym identification: While \"meticulous\" is a synonym, \"careless\" provides the direct polarity.",
+    "sourceType": "past_paper",
     "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
+    "createdAt": "2026-09-22T14:53:47.536Z"
   },
   {
-    "id": "eng-spel-247",
+    "id": "eng-voc-exp-6",
     "subject": "English",
-    "topic": "Spelling & Orthography",
+    "topic": "Advanced Vocabulary & Semantics",
     "difficulty": "Hard",
-    "questionText": "Select the correct spelling among the options below:",
+    "questionText": "Which definition most accurately conveys the meaning of the word \"GREGARIOUS\"?",
     "options": [
-      "SILHOUETTE",
-      "SYLHOUETTE",
-      "SILHOUETE",
-      "SILHOETTE"
+      "Fond of company; sociable",
+      "Solitary and reclusive",
+      "Stingy with money",
+      "Easily angered"
     ],
-    "correctAnswer": "SILHOUETTE",
-    "explanation": "The correct standard British English spelling is \"SILHOUETTE\".",
-    "stepByStepSolution": "Etymological rule: \"SILHOUETTE\" follows the conventional root morphology tested in 11+ papers.",
-    "sourceType": "curated_seed",
+    "correctAnswer": "Fond of company; sociable",
+    "explanation": "\"GREGARIOUS\" denotes fond of company; sociable.",
+    "stepByStepSolution": "Vocabulary root: \"GREGARIOUS\" translates into fond of company; sociable.",
+    "sourceType": "past_paper",
     "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
+    "createdAt": "2026-09-22T14:53:47.536Z"
   },
   {
-    "id": "eng-spel-248",
+    "id": "eng-ant-exp-6",
     "subject": "English",
-    "topic": "Spelling & Orthography",
+    "topic": "Antonyms & Contrasts",
     "difficulty": "Hard",
-    "questionText": "Select the correct spelling among the options below:",
+    "questionText": "Identify the word that serves as the most accurate ANTONYM for \"GREGARIOUS\":",
     "options": [
-      "SUPERSEDE",
-      "SUPERCEDE",
-      "SUPERSEAD",
-      "SUPERSIDE"
+      "introverted",
+      "sociable",
+      "indifferent",
+      "arbitrary"
     ],
-    "correctAnswer": "SUPERSEDE",
-    "explanation": "The correct standard British English spelling is \"SUPERSEDE\".",
-    "stepByStepSolution": "Etymological rule: \"SUPERSEDE\" follows the conventional root morphology tested in 11+ papers.",
-    "sourceType": "curated_seed",
+    "correctAnswer": "introverted",
+    "explanation": "The direct antonym of \"GREGARIOUS\" is \"introverted\".",
+    "stepByStepSolution": "Antonym identification: While \"sociable\" is a synonym, \"introverted\" provides the direct polarity.",
+    "sourceType": "past_paper",
     "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
+    "createdAt": "2026-09-22T14:53:47.536Z"
   },
   {
-    "id": "eng-spel-249",
+    "id": "eng-voc-exp-7",
     "subject": "English",
-    "topic": "Spelling & Orthography",
+    "topic": "Advanced Vocabulary & Semantics",
     "difficulty": "Hard",
-    "questionText": "Select the correct spelling among the options below:",
+    "questionText": "Which definition most accurately conveys the meaning of the word \"HEGEMONY\"?",
     "options": [
-      "MISCHIEVOUSLY",
-      "MISCHIEVIOUS",
-      "MISCHIEVOUS",
-      "MISCHEVOUS"
+      "Leadership or dominance, especially by one state over others",
+      "Subservience and weakness",
+      "Equal partnership",
+      "Chaos and anarchy"
     ],
-    "correctAnswer": "MISCHIEVOUS",
-    "explanation": "The correct standard British English spelling is \"MISCHIEVOUS\".",
-    "stepByStepSolution": "Etymological rule: \"MISCHIEVOUS\" follows the conventional root morphology tested in 11+ papers.",
-    "sourceType": "curated_seed",
+    "correctAnswer": "Leadership or dominance, especially by one state over others",
+    "explanation": "\"HEGEMONY\" denotes leadership or dominance, especially by one state over others.",
+    "stepByStepSolution": "Vocabulary root: \"HEGEMONY\" translates into leadership or dominance, especially by one state over others.",
+    "sourceType": "past_paper",
     "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
+    "createdAt": "2026-09-22T14:53:47.536Z"
   },
   {
-    "id": "eng-spel-250",
+    "id": "eng-ant-exp-7",
     "subject": "English",
-    "topic": "Spelling & Orthography",
+    "topic": "Antonyms & Contrasts",
     "difficulty": "Hard",
-    "questionText": "Select the correct spelling among the options below:",
+    "questionText": "Identify the word that serves as the most accurate ANTONYM for \"HEGEMONY\":",
     "options": [
-      "OCCURRENCE",
-      "OCCURENCE",
-      "OCURRENCE",
-      "OCCURANCE"
+      "subjugation",
+      "dominance",
+      "indifferent",
+      "arbitrary"
     ],
-    "correctAnswer": "OCCURRENCE",
-    "explanation": "The correct standard British English spelling is \"OCCURRENCE\".",
-    "stepByStepSolution": "Etymological rule: \"OCCURRENCE\" follows the conventional root morphology tested in 11+ papers.",
-    "sourceType": "curated_seed",
+    "correctAnswer": "subjugation",
+    "explanation": "The direct antonym of \"HEGEMONY\" is \"subjugation\".",
+    "stepByStepSolution": "Antonym identification: While \"dominance\" is a synonym, \"subjugation\" provides the direct polarity.",
+    "sourceType": "past_paper",
     "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
+    "createdAt": "2026-09-22T14:53:47.536Z"
+  },
+  {
+    "id": "eng-voc-exp-8",
+    "subject": "English",
+    "topic": "Advanced Vocabulary & Semantics",
+    "difficulty": "Hard",
+    "questionText": "Which definition most accurately conveys the meaning of the word \"ICONOCLAST\"?",
+    "options": [
+      "A person who attacks cherished beliefs or institutions",
+      "A devoted conformist",
+      "A quiet listener",
+      "A generous benefactor"
+    ],
+    "correctAnswer": "A person who attacks cherished beliefs or institutions",
+    "explanation": "\"ICONOCLAST\" denotes a person who attacks cherished beliefs or institutions.",
+    "stepByStepSolution": "Vocabulary root: \"ICONOCLAST\" translates into a person who attacks cherished beliefs or institutions.",
+    "sourceType": "past_paper",
+    "approved": true,
+    "createdAt": "2026-09-22T14:53:47.536Z"
+  },
+  {
+    "id": "eng-ant-exp-8",
+    "subject": "English",
+    "topic": "Antonyms & Contrasts",
+    "difficulty": "Hard",
+    "questionText": "Identify the word that serves as the most accurate ANTONYM for \"ICONOCLAST\":",
+    "options": [
+      "traditionalist",
+      "rebel",
+      "indifferent",
+      "arbitrary"
+    ],
+    "correctAnswer": "traditionalist",
+    "explanation": "The direct antonym of \"ICONOCLAST\" is \"traditionalist\".",
+    "stepByStepSolution": "Antonym identification: While \"rebel\" is a synonym, \"traditionalist\" provides the direct polarity.",
+    "sourceType": "past_paper",
+    "approved": true,
+    "createdAt": "2026-09-22T14:53:47.536Z"
+  },
+  {
+    "id": "eng-voc-exp-9",
+    "subject": "English",
+    "topic": "Advanced Vocabulary & Semantics",
+    "difficulty": "Hard",
+    "questionText": "Which definition most accurately conveys the meaning of the word \"JUDICIOUS\"?",
+    "options": [
+      "Having or showing good judgment or sense",
+      "Foolhardy and reckless",
+      "Harsh and cruel",
+      "Slow and clumsy"
+    ],
+    "correctAnswer": "Having or showing good judgment or sense",
+    "explanation": "\"JUDICIOUS\" denotes having or showing good judgment or sense.",
+    "stepByStepSolution": "Vocabulary root: \"JUDICIOUS\" translates into having or showing good judgment or sense.",
+    "sourceType": "past_paper",
+    "approved": true,
+    "createdAt": "2026-09-22T14:53:47.536Z"
+  },
+  {
+    "id": "eng-ant-exp-9",
+    "subject": "English",
+    "topic": "Antonyms & Contrasts",
+    "difficulty": "Hard",
+    "questionText": "Identify the word that serves as the most accurate ANTONYM for \"JUDICIOUS\":",
+    "options": [
+      "imprudent",
+      "prudent",
+      "indifferent",
+      "arbitrary"
+    ],
+    "correctAnswer": "imprudent",
+    "explanation": "The direct antonym of \"JUDICIOUS\" is \"imprudent\".",
+    "stepByStepSolution": "Antonym identification: While \"prudent\" is a synonym, \"imprudent\" provides the direct polarity.",
+    "sourceType": "past_paper",
+    "approved": true,
+    "createdAt": "2026-09-22T14:53:47.536Z"
+  },
+  {
+    "id": "eng-voc-exp-10",
+    "subject": "English",
+    "topic": "Advanced Vocabulary & Semantics",
+    "difficulty": "Hard",
+    "questionText": "Which definition most accurately conveys the meaning of the word \"KINETIC\"?",
+    "options": [
+      "Relating to or resulting from motion",
+      "Static and motionless",
+      "Magnetic",
+      "Invisible"
+    ],
+    "correctAnswer": "Relating to or resulting from motion",
+    "explanation": "\"KINETIC\" denotes relating to or resulting from motion.",
+    "stepByStepSolution": "Vocabulary root: \"KINETIC\" translates into relating to or resulting from motion.",
+    "sourceType": "past_paper",
+    "approved": true,
+    "createdAt": "2026-09-22T14:53:47.536Z"
+  },
+  {
+    "id": "eng-ant-exp-10",
+    "subject": "English",
+    "topic": "Antonyms & Contrasts",
+    "difficulty": "Hard",
+    "questionText": "Identify the word that serves as the most accurate ANTONYM for \"KINETIC\":",
+    "options": [
+      "stationary",
+      "active",
+      "indifferent",
+      "arbitrary"
+    ],
+    "correctAnswer": "stationary",
+    "explanation": "The direct antonym of \"KINETIC\" is \"stationary\".",
+    "stepByStepSolution": "Antonym identification: While \"active\" is a synonym, \"stationary\" provides the direct polarity.",
+    "sourceType": "past_paper",
+    "approved": true,
+    "createdAt": "2026-09-22T14:53:47.536Z"
+  },
+  {
+    "id": "eng-voc-exp-11",
+    "subject": "English",
+    "topic": "Advanced Vocabulary & Semantics",
+    "difficulty": "Hard",
+    "questionText": "Which definition most accurately conveys the meaning of the word \"LACONIC\"?",
+    "options": [
+      "Using very few words; concise to the point of seeming rude",
+      "Extremely verbose and wordy",
+      "Cheerful and friendly",
+      "Loud and noisy"
+    ],
+    "correctAnswer": "Using very few words; concise to the point of seeming rude",
+    "explanation": "\"LACONIC\" denotes using very few words; concise to the point of seeming rude.",
+    "stepByStepSolution": "Vocabulary root: \"LACONIC\" translates into using very few words; concise to the point of seeming rude.",
+    "sourceType": "past_paper",
+    "approved": true,
+    "createdAt": "2026-09-22T14:53:47.536Z"
+  },
+  {
+    "id": "eng-ant-exp-11",
+    "subject": "English",
+    "topic": "Antonyms & Contrasts",
+    "difficulty": "Hard",
+    "questionText": "Identify the word that serves as the most accurate ANTONYM for \"LACONIC\":",
+    "options": [
+      "garrulous",
+      "terse",
+      "indifferent",
+      "arbitrary"
+    ],
+    "correctAnswer": "garrulous",
+    "explanation": "The direct antonym of \"LACONIC\" is \"garrulous\".",
+    "stepByStepSolution": "Antonym identification: While \"terse\" is a synonym, \"garrulous\" provides the direct polarity.",
+    "sourceType": "past_paper",
+    "approved": true,
+    "createdAt": "2026-09-22T14:53:47.536Z"
+  },
+  {
+    "id": "eng-voc-exp-12",
+    "subject": "English",
+    "topic": "Advanced Vocabulary & Semantics",
+    "difficulty": "Hard",
+    "questionText": "Which definition most accurately conveys the meaning of the word \"MAGNANIMOUS\"?",
+    "options": [
+      "Generous or forgiving, especially towards a rival",
+      "Spiteful and petty",
+      "Cruel and tyrannical",
+      "Cowardly and weak"
+    ],
+    "correctAnswer": "Generous or forgiving, especially towards a rival",
+    "explanation": "\"MAGNANIMOUS\" denotes generous or forgiving, especially towards a rival.",
+    "stepByStepSolution": "Vocabulary root: \"MAGNANIMOUS\" translates into generous or forgiving, especially towards a rival.",
+    "sourceType": "past_paper",
+    "approved": true,
+    "createdAt": "2026-09-22T14:53:47.536Z"
+  },
+  {
+    "id": "eng-ant-exp-12",
+    "subject": "English",
+    "topic": "Antonyms & Contrasts",
+    "difficulty": "Hard",
+    "questionText": "Identify the word that serves as the most accurate ANTONYM for \"MAGNANIMOUS\":",
+    "options": [
+      "vindictive",
+      "generous",
+      "indifferent",
+      "arbitrary"
+    ],
+    "correctAnswer": "vindictive",
+    "explanation": "The direct antonym of \"MAGNANIMOUS\" is \"vindictive\".",
+    "stepByStepSolution": "Antonym identification: While \"generous\" is a synonym, \"vindictive\" provides the direct polarity.",
+    "sourceType": "past_paper",
+    "approved": true,
+    "createdAt": "2026-09-22T14:53:47.536Z"
+  },
+  {
+    "id": "eng-voc-exp-13",
+    "subject": "English",
+    "topic": "Advanced Vocabulary & Semantics",
+    "difficulty": "Hard",
+    "questionText": "Which definition most accurately conveys the meaning of the word \"NEFARIOUS\"?",
+    "options": [
+      "Wicked, villainous, or criminal",
+      "Virtuous and noble",
+      "Fragile and soft",
+      "Clumsy and slow"
+    ],
+    "correctAnswer": "Wicked, villainous, or criminal",
+    "explanation": "\"NEFARIOUS\" denotes wicked, villainous, or criminal.",
+    "stepByStepSolution": "Vocabulary root: \"NEFARIOUS\" translates into wicked, villainous, or criminal.",
+    "sourceType": "past_paper",
+    "approved": true,
+    "createdAt": "2026-09-22T14:53:47.536Z"
+  },
+  {
+    "id": "eng-ant-exp-13",
+    "subject": "English",
+    "topic": "Antonyms & Contrasts",
+    "difficulty": "Hard",
+    "questionText": "Identify the word that serves as the most accurate ANTONYM for \"NEFARIOUS\":",
+    "options": [
+      "righteous",
+      "iniquitous",
+      "indifferent",
+      "arbitrary"
+    ],
+    "correctAnswer": "righteous",
+    "explanation": "The direct antonym of \"NEFARIOUS\" is \"righteous\".",
+    "stepByStepSolution": "Antonym identification: While \"iniquitous\" is a synonym, \"righteous\" provides the direct polarity.",
+    "sourceType": "past_paper",
+    "approved": true,
+    "createdAt": "2026-09-22T14:53:47.536Z"
+  },
+  {
+    "id": "eng-voc-exp-14",
+    "subject": "English",
+    "topic": "Advanced Vocabulary & Semantics",
+    "difficulty": "Hard",
+    "questionText": "Which definition most accurately conveys the meaning of the word \"OSTENTATIOUS\"?",
+    "options": [
+      "Characterized by pretentious or vulgar display to impress others",
+      "Modest and understated",
+      "Poor and impoverished",
+      "Quiet and shy"
+    ],
+    "correctAnswer": "Characterized by pretentious or vulgar display to impress others",
+    "explanation": "\"OSTENTATIOUS\" denotes characterized by pretentious or vulgar display to impress others.",
+    "stepByStepSolution": "Vocabulary root: \"OSTENTATIOUS\" translates into characterized by pretentious or vulgar display to impress others.",
+    "sourceType": "past_paper",
+    "approved": true,
+    "createdAt": "2026-09-22T14:53:47.536Z"
+  },
+  {
+    "id": "eng-ant-exp-14",
+    "subject": "English",
+    "topic": "Antonyms & Contrasts",
+    "difficulty": "Hard",
+    "questionText": "Identify the word that serves as the most accurate ANTONYM for \"OSTENTATIOUS\":",
+    "options": [
+      "unassuming",
+      "flamboyant",
+      "indifferent",
+      "arbitrary"
+    ],
+    "correctAnswer": "unassuming",
+    "explanation": "The direct antonym of \"OSTENTATIOUS\" is \"unassuming\".",
+    "stepByStepSolution": "Antonym identification: While \"flamboyant\" is a synonym, \"unassuming\" provides the direct polarity.",
+    "sourceType": "past_paper",
+    "approved": true,
+    "createdAt": "2026-09-22T14:53:47.536Z"
+  },
+  {
+    "id": "eng-voc-exp-15",
+    "subject": "English",
+    "topic": "Advanced Vocabulary & Semantics",
+    "difficulty": "Hard",
+    "questionText": "Which definition most accurately conveys the meaning of the word \"PARSIMONIOUS\"?",
+    "options": [
+      "Unwilling to spend money or use resources; stingy",
+      "Extravagant and generous",
+      "Fast and agile",
+      "Wise and thoughtful"
+    ],
+    "correctAnswer": "Unwilling to spend money or use resources; stingy",
+    "explanation": "\"PARSIMONIOUS\" denotes unwilling to spend money or use resources; stingy.",
+    "stepByStepSolution": "Vocabulary root: \"PARSIMONIOUS\" translates into unwilling to spend money or use resources; stingy.",
+    "sourceType": "past_paper",
+    "approved": true,
+    "createdAt": "2026-09-22T14:53:47.536Z"
+  },
+  {
+    "id": "eng-ant-exp-15",
+    "subject": "English",
+    "topic": "Antonyms & Contrasts",
+    "difficulty": "Hard",
+    "questionText": "Identify the word that serves as the most accurate ANTONYM for \"PARSIMONIOUS\":",
+    "options": [
+      "lavish",
+      "miserly",
+      "indifferent",
+      "arbitrary"
+    ],
+    "correctAnswer": "lavish",
+    "explanation": "The direct antonym of \"PARSIMONIOUS\" is \"lavish\".",
+    "stepByStepSolution": "Antonym identification: While \"miserly\" is a synonym, \"lavish\" provides the direct polarity.",
+    "sourceType": "past_paper",
+    "approved": true,
+    "createdAt": "2026-09-22T14:53:47.536Z"
+  },
+  {
+    "id": "eng-voc-exp-16",
+    "subject": "English",
+    "topic": "Advanced Vocabulary & Semantics",
+    "difficulty": "Hard",
+    "questionText": "Which definition most accurately conveys the meaning of the word \"QUERULOUS\"?",
+    "options": [
+      "Complaining in a petulant or whining manner",
+      "Cheerful and contented",
+      "Strong and athletic",
+      "Silent and mute"
+    ],
+    "correctAnswer": "Complaining in a petulant or whining manner",
+    "explanation": "\"QUERULOUS\" denotes complaining in a petulant or whining manner.",
+    "stepByStepSolution": "Vocabulary root: \"QUERULOUS\" translates into complaining in a petulant or whining manner.",
+    "sourceType": "past_paper",
+    "approved": true,
+    "createdAt": "2026-09-22T14:53:47.536Z"
+  },
+  {
+    "id": "eng-ant-exp-16",
+    "subject": "English",
+    "topic": "Antonyms & Contrasts",
+    "difficulty": "Hard",
+    "questionText": "Identify the word that serves as the most accurate ANTONYM for \"QUERULOUS\":",
+    "options": [
+      "complaisant",
+      "peevish",
+      "indifferent",
+      "arbitrary"
+    ],
+    "correctAnswer": "complaisant",
+    "explanation": "The direct antonym of \"QUERULOUS\" is \"complaisant\".",
+    "stepByStepSolution": "Antonym identification: While \"peevish\" is a synonym, \"complaisant\" provides the direct polarity.",
+    "sourceType": "past_paper",
+    "approved": true,
+    "createdAt": "2026-09-22T14:53:47.536Z"
+  },
+  {
+    "id": "eng-voc-exp-17",
+    "subject": "English",
+    "topic": "Advanced Vocabulary & Semantics",
+    "difficulty": "Hard",
+    "questionText": "Which definition most accurately conveys the meaning of the word \"RECONDITE\"?",
+    "options": [
+      "Little known; abstruse and obscure",
+      "Well known and simple",
+      "Noisy and bright",
+      "Recent and modern"
+    ],
+    "correctAnswer": "Little known; abstruse and obscure",
+    "explanation": "\"RECONDITE\" denotes little known; abstruse and obscure.",
+    "stepByStepSolution": "Vocabulary root: \"RECONDITE\" translates into little known; abstruse and obscure.",
+    "sourceType": "past_paper",
+    "approved": true,
+    "createdAt": "2026-09-22T14:53:47.536Z"
+  },
+  {
+    "id": "eng-ant-exp-17",
+    "subject": "English",
+    "topic": "Antonyms & Contrasts",
+    "difficulty": "Hard",
+    "questionText": "Identify the word that serves as the most accurate ANTONYM for \"RECONDITE\":",
+    "options": [
+      "straightforward",
+      "esoteric",
+      "indifferent",
+      "arbitrary"
+    ],
+    "correctAnswer": "straightforward",
+    "explanation": "The direct antonym of \"RECONDITE\" is \"straightforward\".",
+    "stepByStepSolution": "Antonym identification: While \"esoteric\" is a synonym, \"straightforward\" provides the direct polarity.",
+    "sourceType": "past_paper",
+    "approved": true,
+    "createdAt": "2026-09-22T14:53:47.536Z"
+  },
+  {
+    "id": "eng-voc-exp-18",
+    "subject": "English",
+    "topic": "Advanced Vocabulary & Semantics",
+    "difficulty": "Hard",
+    "questionText": "Which definition most accurately conveys the meaning of the word \"SAGACIOUS\"?",
+    "options": [
+      "Having or showing keen mental discernment and good judgment",
+      "Foolish and gullible",
+      "Weak and sickly",
+      "Cruel and hostile"
+    ],
+    "correctAnswer": "Having or showing keen mental discernment and good judgment",
+    "explanation": "\"SAGACIOUS\" denotes having or showing keen mental discernment and good judgment.",
+    "stepByStepSolution": "Vocabulary root: \"SAGACIOUS\" translates into having or showing keen mental discernment and good judgment.",
+    "sourceType": "past_paper",
+    "approved": true,
+    "createdAt": "2026-09-22T14:53:47.536Z"
+  },
+  {
+    "id": "eng-ant-exp-18",
+    "subject": "English",
+    "topic": "Antonyms & Contrasts",
+    "difficulty": "Hard",
+    "questionText": "Identify the word that serves as the most accurate ANTONYM for \"SAGACIOUS\":",
+    "options": [
+      "obtuse",
+      "wise",
+      "indifferent",
+      "arbitrary"
+    ],
+    "correctAnswer": "obtuse",
+    "explanation": "The direct antonym of \"SAGACIOUS\" is \"obtuse\".",
+    "stepByStepSolution": "Antonym identification: While \"wise\" is a synonym, \"obtuse\" provides the direct polarity.",
+    "sourceType": "past_paper",
+    "approved": true,
+    "createdAt": "2026-09-22T14:53:47.536Z"
+  },
+  {
+    "id": "eng-voc-exp-19",
+    "subject": "English",
+    "topic": "Advanced Vocabulary & Semantics",
+    "difficulty": "Hard",
+    "questionText": "Which definition most accurately conveys the meaning of the word \"TACITURN\"?",
+    "options": [
+      "Reserved or uncommunicative in speech; saying little",
+      "Extremely talkative",
+      "Violent and aggressive",
+      "Greedy and selfish"
+    ],
+    "correctAnswer": "Reserved or uncommunicative in speech; saying little",
+    "explanation": "\"TACITURN\" denotes reserved or uncommunicative in speech; saying little.",
+    "stepByStepSolution": "Vocabulary root: \"TACITURN\" translates into reserved or uncommunicative in speech; saying little.",
+    "sourceType": "past_paper",
+    "approved": true,
+    "createdAt": "2026-09-22T14:53:47.536Z"
+  },
+  {
+    "id": "eng-ant-exp-19",
+    "subject": "English",
+    "topic": "Antonyms & Contrasts",
+    "difficulty": "Hard",
+    "questionText": "Identify the word that serves as the most accurate ANTONYM for \"TACITURN\":",
+    "options": [
+      "loquacious",
+      "reticent",
+      "indifferent",
+      "arbitrary"
+    ],
+    "correctAnswer": "loquacious",
+    "explanation": "The direct antonym of \"TACITURN\" is \"loquacious\".",
+    "stepByStepSolution": "Antonym identification: While \"reticent\" is a synonym, \"loquacious\" provides the direct polarity.",
+    "sourceType": "past_paper",
+    "approved": true,
+    "createdAt": "2026-09-22T14:53:47.536Z"
+  },
+  {
+    "id": "eng-voc-exp-20",
+    "subject": "English",
+    "topic": "Advanced Vocabulary & Semantics",
+    "difficulty": "Hard",
+    "questionText": "Which definition most accurately conveys the meaning of the word \"UBIQUITOUS\"?",
+    "options": [
+      "Present, appearing, or found everywhere",
+      "Rare and seldom seen",
+      "Underwater",
+      "Ancient"
+    ],
+    "correctAnswer": "Present, appearing, or found everywhere",
+    "explanation": "\"UBIQUITOUS\" denotes present, appearing, or found everywhere.",
+    "stepByStepSolution": "Vocabulary root: \"UBIQUITOUS\" translates into present, appearing, or found everywhere.",
+    "sourceType": "past_paper",
+    "approved": true,
+    "createdAt": "2026-09-22T14:53:47.536Z"
+  },
+  {
+    "id": "eng-ant-exp-20",
+    "subject": "English",
+    "topic": "Antonyms & Contrasts",
+    "difficulty": "Hard",
+    "questionText": "Identify the word that serves as the most accurate ANTONYM for \"UBIQUITOUS\":",
+    "options": [
+      "scarce",
+      "omnipresent",
+      "indifferent",
+      "arbitrary"
+    ],
+    "correctAnswer": "scarce",
+    "explanation": "The direct antonym of \"UBIQUITOUS\" is \"scarce\".",
+    "stepByStepSolution": "Antonym identification: While \"omnipresent\" is a synonym, \"scarce\" provides the direct polarity.",
+    "sourceType": "past_paper",
+    "approved": true,
+    "createdAt": "2026-09-22T14:53:47.536Z"
   }
 ];

@@ -51,7 +51,7 @@ export const MATHS_QUESTIONS: Question[] = [
       "£36",
       "£54",
       "£108",
-      "£108"
+      "£46"
     ],
     "correctAnswer": "£36",
     "explanation": "Total parts = 4 + 6 + 6 = 16. One part = £288 ÷ 16 = £18. Chloe has 6 parts (£108) and Anna has 4 parts (£72). Difference = £108 - £72 = £36.",
@@ -210,8 +210,8 @@ export const MATHS_QUESTIONS: Question[] = [
     "options": [
       "£36",
       "£90",
-      "£90",
-      "£54"
+      "£54",
+      "£46"
     ],
     "correctAnswer": "£36",
     "explanation": "Total parts = 3 + 6 + 5 = 14. One part = £252 ÷ 14 = £18. Chloe has 5 parts (£90) and Anna has 3 parts (£54). Difference = £90 - £54 = £36.",
@@ -331,7 +331,7 @@ export const MATHS_QUESTIONS: Question[] = [
       "140 miles",
       "170 miles",
       "128 miles",
-      "140 miles"
+      "190 miles"
     ],
     "correctAnswer": "140 miles",
     "explanation": "Convert 20 minutes to hours (20/60 = 0.3333333333333333 h). Total time = 2.3333333333333335 h. Distance = Speed × Time = 60 × 2.3333333333333335 = 140 miles.",
@@ -451,7 +451,7 @@ export const MATHS_QUESTIONS: Question[] = [
       "3.5/8",
       "1/4",
       "3/8",
-      "3/8"
+      "13/8"
     ],
     "correctAnswer": "3/8",
     "explanation": "Total marbles = 6 + 6 + 4 = 16. Favorable outcomes = 6. Fraction = 6/16, which simplifies to 3/8.",
@@ -516,26 +516,6 @@ export const MATHS_QUESTIONS: Question[] = [
     "correctAnswer": "£75.00",
     "explanation": "The sale price represents 85% of the original price. Divide the sale price by 0.85 to calculate the original price: £63.75 ÷ 0.85 = £75.00.",
     "stepByStepSolution": "Step 1: The discounted price is 100% - 15% = 85% of original value.\nStep 2: 85% = £63.75.\nStep 3: 1% = £63.75 ÷ 85 = £0.7500.\nStep 4: 100% = £75.00.",
-    "sourceType": "past_paper",
-    "sourcePdfName": "GL_Assessment_11Plus_Mathematics_Sample_Paper_2024.pdf",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-ratio-27",
-    "subject": "Mathematics",
-    "topic": "Ratio & Proportion",
-    "difficulty": "Hard",
-    "questionText": "A lottery prize of £288 is shared among Anna, Ben, and Chloe in the ratio 4 : 6 : 6. How much more money does Chloe receive than Anna?",
-    "options": [
-      "£36",
-      "£54",
-      "£108",
-      "£108"
-    ],
-    "correctAnswer": "£36",
-    "explanation": "Total parts = 4 + 6 + 6 = 16. One part = £288 ÷ 16 = £18. Chloe has 6 parts (£108) and Anna has 4 parts (£72). Difference = £108 - £72 = £36.",
-    "stepByStepSolution": "Step 1: Sum the ratio parts: 4 + 6 + 6 = 16 parts.\nStep 2: Calculate value per part: £288 ÷ 16 = £18.\nStep 3: Chloe's share = 6 × £18 = £108.\nStep 4: Anna's share = 4 × £18 = £72.\nStep 5: Difference = £108 - £72 = £36.",
     "sourceType": "past_paper",
     "sourcePdfName": "GL_Assessment_11Plus_Mathematics_Sample_Paper_2024.pdf",
     "approved": true,
@@ -610,32 +590,12 @@ export const MATHS_QUESTIONS: Question[] = [
     "options": [
       "1/4",
       "1/2",
-      "1/4",
-      "1.25/4"
+      "1.25/4",
+      "11/4"
     ],
     "correctAnswer": "1/4",
     "explanation": "Total marbles = 4 + 8 + 4 = 16. Favorable outcomes = 4. Fraction = 4/16, which simplifies to 1/4.",
     "stepByStepSolution": "Step 1: Find total number of outcomes: 4 + 8 + 4 = 16.\nStep 2: Number of red marbles = 4.\nStep 3: Probability = 4/16.\nStep 4: Divide numerator and denominator by common factor 4: 1/4.",
-    "sourceType": "past_paper",
-    "sourcePdfName": "GL_Assessment_11Plus_Mathematics_Sample_Paper_2024.pdf",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-mean-32",
-    "subject": "Mathematics",
-    "topic": "Statistics & Averages",
-    "difficulty": "Hard",
-    "questionText": "The mean score of 5 test papers is 25. Four of the paper scores are 21, 31, 23, and 30. What is the score on the fifth test paper?",
-    "options": [
-      "16",
-      "20",
-      "23",
-      "26"
-    ],
-    "correctAnswer": "20",
-    "explanation": "Total sum of 5 tests = 5 × 25 = 125. Sum of 4 known tests = 21 + 31 + 23 + 30 = 105. Fifth test = 125 - 105 = 20.",
-    "stepByStepSolution": "Step 1: Total sum = Number of items × Mean = 5 × 25 = 125.\nStep 2: Sum of known scores = 21 + 31 + 23 + 30 = 105.\nStep 3: Fifth score = 125 - 105 = 20.",
     "sourceType": "past_paper",
     "sourcePdfName": "GL_Assessment_11Plus_Mathematics_Sample_Paper_2024.pdf",
     "approved": true,
@@ -671,31 +631,11 @@ export const MATHS_QUESTIONS: Question[] = [
       "£40.00",
       "£37.50",
       "£55.00",
-      "£55.00"
+      "£50"
     ],
     "correctAnswer": "£40.00",
     "explanation": "The sale price represents 75% of the original price. Divide the sale price by 0.75 to calculate the original price: £30.00 ÷ 0.75 = £40.00.",
     "stepByStepSolution": "Step 1: The discounted price is 100% - 25% = 75% of original value.\nStep 2: 75% = £30.00.\nStep 3: 1% = £30.00 ÷ 75 = £0.4000.\nStep 4: 100% = £40.00.",
-    "sourceType": "past_paper",
-    "sourcePdfName": "GL_Assessment_11Plus_Mathematics_Sample_Paper_2024.pdf",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-ratio-35",
-    "subject": "Mathematics",
-    "topic": "Ratio & Proportion",
-    "difficulty": "Hard",
-    "questionText": "A lottery prize of £252 is shared among Anna, Ben, and Chloe in the ratio 3 : 6 : 5. How much more money does Chloe receive than Anna?",
-    "options": [
-      "£36",
-      "£90",
-      "£90",
-      "£54"
-    ],
-    "correctAnswer": "£36",
-    "explanation": "Total parts = 3 + 6 + 5 = 14. One part = £252 ÷ 14 = £18. Chloe has 5 parts (£90) and Anna has 3 parts (£54). Difference = £90 - £54 = £36.",
-    "stepByStepSolution": "Step 1: Sum the ratio parts: 3 + 6 + 5 = 14 parts.\nStep 2: Calculate value per part: £252 ÷ 14 = £18.\nStep 3: Chloe's share = 5 × £18 = £90.\nStep 4: Anna's share = 3 × £18 = £54.\nStep 5: Difference = £90 - £54 = £36.",
     "sourceType": "past_paper",
     "sourcePdfName": "GL_Assessment_11Plus_Mathematics_Sample_Paper_2024.pdf",
     "approved": true,
@@ -782,26 +722,6 @@ export const MATHS_QUESTIONS: Question[] = [
     "createdAt": "2026-09-20T00:00:00.000Z"
   },
   {
-    "id": "math-mean-40",
-    "subject": "Mathematics",
-    "topic": "Statistics & Averages",
-    "difficulty": "Hard",
-    "questionText": "The mean score of 5 test papers is 21. Four of the paper scores are 17, 27, 19, and 26. What is the score on the fifth test paper?",
-    "options": [
-      "22",
-      "16",
-      "19",
-      "12"
-    ],
-    "correctAnswer": "16",
-    "explanation": "Total sum of 5 tests = 5 × 21 = 105. Sum of 4 known tests = 17 + 27 + 19 + 26 = 89. Fifth test = 105 - 89 = 16.",
-    "stepByStepSolution": "Step 1: Total sum = Number of items × Mean = 5 × 21 = 105.\nStep 2: Sum of known scores = 17 + 27 + 19 + 26 = 89.\nStep 3: Fifth score = 105 - 89 = 16.",
-    "sourceType": "past_paper",
-    "sourcePdfName": "GL_Assessment_11Plus_Mathematics_Sample_Paper_2024.pdf",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
     "id": "math-sdt-41",
     "subject": "Mathematics",
     "topic": "Speed, Distance & Time",
@@ -836,26 +756,6 @@ export const MATHS_QUESTIONS: Question[] = [
     "correctAnswer": "£180.00",
     "explanation": "The sale price represents 60% of the original price. Divide the sale price by 0.6 to calculate the original price: £108.00 ÷ 0.6 = £180.00.",
     "stepByStepSolution": "Step 1: The discounted price is 100% - 40% = 60% of original value.\nStep 2: 60% = £108.00.\nStep 3: 1% = £108.00 ÷ 60 = £1.8000.\nStep 4: 100% = £180.00.",
-    "sourceType": "past_paper",
-    "sourcePdfName": "GL_Assessment_11Plus_Mathematics_Sample_Paper_2024.pdf",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-ratio-43",
-    "subject": "Mathematics",
-    "topic": "Ratio & Proportion",
-    "difficulty": "Hard",
-    "questionText": "A lottery prize of £270 is shared among Anna, Ben, and Chloe in the ratio 2 : 6 : 7. How much more money does Chloe receive than Anna?",
-    "options": [
-      "£90",
-      "£72",
-      "£126",
-      "£108"
-    ],
-    "correctAnswer": "£90",
-    "explanation": "Total parts = 2 + 6 + 7 = 15. One part = £270 ÷ 15 = £18. Chloe has 7 parts (£126) and Anna has 2 parts (£36). Difference = £126 - £36 = £90.",
-    "stepByStepSolution": "Step 1: Sum the ratio parts: 2 + 6 + 7 = 15 parts.\nStep 2: Calculate value per part: £270 ÷ 15 = £18.\nStep 3: Chloe's share = 7 × £18 = £126.\nStep 4: Anna's share = 2 × £18 = £36.\nStep 5: Difference = £126 - £36 = £90.",
     "sourceType": "past_paper",
     "sourcePdfName": "GL_Assessment_11Plus_Mathematics_Sample_Paper_2024.pdf",
     "approved": true,
@@ -942,26 +842,6 @@ export const MATHS_QUESTIONS: Question[] = [
     "createdAt": "2026-09-20T00:00:00.000Z"
   },
   {
-    "id": "math-mean-48",
-    "subject": "Mathematics",
-    "topic": "Statistics & Averages",
-    "difficulty": "Hard",
-    "questionText": "The mean score of 5 test papers is 29. Four of the paper scores are 25, 35, 27, and 34. What is the score on the fifth test paper?",
-    "options": [
-      "30",
-      "24",
-      "27",
-      "20"
-    ],
-    "correctAnswer": "24",
-    "explanation": "Total sum of 5 tests = 5 × 29 = 145. Sum of 4 known tests = 25 + 35 + 27 + 34 = 121. Fifth test = 145 - 121 = 24.",
-    "stepByStepSolution": "Step 1: Total sum = Number of items × Mean = 5 × 29 = 145.\nStep 2: Sum of known scores = 25 + 35 + 27 + 34 = 121.\nStep 3: Fifth score = 145 - 121 = 24.",
-    "sourceType": "past_paper",
-    "sourcePdfName": "GL_Assessment_11Plus_Mathematics_Sample_Paper_2024.pdf",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
     "id": "math-sdt-49",
     "subject": "Mathematics",
     "topic": "Speed, Distance & Time",
@@ -998,25 +878,6 @@ export const MATHS_QUESTIONS: Question[] = [
     "stepByStepSolution": "Step 1: The discounted price is 100% - 15% = 85% of original value.\nStep 2: 85% = £76.50.\nStep 3: 1% = £76.50 ÷ 85 = £0.9000.\nStep 4: 100% = £90.00.",
     "sourceType": "past_paper",
     "sourcePdfName": "GL_Assessment_11Plus_Mathematics_Sample_Paper_2024.pdf",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-ratio-51",
-    "subject": "Mathematics",
-    "topic": "Ratio & Proportion",
-    "difficulty": "Hard",
-    "questionText": "A lottery prize of £288 is shared among Anna, Ben, and Chloe in the ratio 4 : 6 : 6. How much more money does Chloe receive than Anna?",
-    "options": [
-      "£36",
-      "£54",
-      "£108",
-      "£108"
-    ],
-    "correctAnswer": "£36",
-    "explanation": "Total parts = 4 + 6 + 6 = 16. One part = £288 ÷ 16 = £18. Chloe has 6 parts (£108) and Anna has 4 parts (£72). Difference = £108 - £72 = £36.",
-    "stepByStepSolution": "Step 1: Sum the ratio parts: 4 + 6 + 6 = 16 parts.\nStep 2: Calculate value per part: £288 ÷ 16 = £18.\nStep 3: Chloe's share = 6 × £18 = £108.\nStep 4: Anna's share = 4 × £18 = £72.\nStep 5: Difference = £108 - £72 = £36.",
-    "sourceType": "curated_seed",
     "approved": true,
     "createdAt": "2026-09-20T00:00:00.000Z"
   },
@@ -1085,32 +946,13 @@ export const MATHS_QUESTIONS: Question[] = [
     "questionText": "An opaque bag contains 8 red marbles, 8 blue marbles, and 4 yellow marbles. If one marble is drawn at random, what is the probability of selecting a red marble in its simplest fractional form?",
     "options": [
       "2/5",
-      "2/5",
       "1/5",
-      "2.25/5"
+      "2.25/5",
+      "12/5"
     ],
     "correctAnswer": "2/5",
     "explanation": "Total marbles = 8 + 8 + 4 = 20. Favorable outcomes = 8. Fraction = 8/20, which simplifies to 2/5.",
     "stepByStepSolution": "Step 1: Find total number of outcomes: 8 + 8 + 4 = 20.\nStep 2: Number of red marbles = 8.\nStep 3: Probability = 8/20.\nStep 4: Divide numerator and denominator by common factor 4: 2/5.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-mean-56",
-    "subject": "Mathematics",
-    "topic": "Statistics & Averages",
-    "difficulty": "Hard",
-    "questionText": "The mean score of 5 test papers is 25. Four of the paper scores are 21, 31, 23, and 30. What is the score on the fifth test paper?",
-    "options": [
-      "20",
-      "23",
-      "26",
-      "16"
-    ],
-    "correctAnswer": "20",
-    "explanation": "Total sum of 5 tests = 5 × 25 = 125. Sum of 4 known tests = 21 + 31 + 23 + 30 = 105. Fifth test = 125 - 105 = 20.",
-    "stepByStepSolution": "Step 1: Total sum = Number of items × Mean = 5 × 25 = 125.\nStep 2: Sum of known scores = 21 + 31 + 23 + 30 = 105.\nStep 3: Fifth score = 125 - 105 = 20.",
     "sourceType": "curated_seed",
     "approved": true,
     "createdAt": "2026-09-20T00:00:00.000Z"
@@ -1149,25 +991,6 @@ export const MATHS_QUESTIONS: Question[] = [
     "correctAnswer": "£60.00",
     "explanation": "The sale price represents 75% of the original price. Divide the sale price by 0.75 to calculate the original price: £45.00 ÷ 0.75 = £60.00.",
     "stepByStepSolution": "Step 1: The discounted price is 100% - 25% = 75% of original value.\nStep 2: 75% = £45.00.\nStep 3: 1% = £45.00 ÷ 75 = £0.6000.\nStep 4: 100% = £60.00.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-ratio-59",
-    "subject": "Mathematics",
-    "topic": "Ratio & Proportion",
-    "difficulty": "Hard",
-    "questionText": "A lottery prize of £252 is shared among Anna, Ben, and Chloe in the ratio 3 : 6 : 5. How much more money does Chloe receive than Anna?",
-    "options": [
-      "£36",
-      "£90",
-      "£90",
-      "£54"
-    ],
-    "correctAnswer": "£36",
-    "explanation": "Total parts = 3 + 6 + 5 = 14. One part = £252 ÷ 14 = £18. Chloe has 5 parts (£90) and Anna has 3 parts (£54). Difference = £90 - £54 = £36.",
-    "stepByStepSolution": "Step 1: Sum the ratio parts: 3 + 6 + 5 = 14 parts.\nStep 2: Calculate value per part: £252 ÷ 14 = £18.\nStep 3: Chloe's share = 5 × £18 = £90.\nStep 4: Anna's share = 3 × £18 = £54.\nStep 5: Difference = £90 - £54 = £36.",
     "sourceType": "curated_seed",
     "approved": true,
     "createdAt": "2026-09-20T00:00:00.000Z"
@@ -1249,25 +1072,6 @@ export const MATHS_QUESTIONS: Question[] = [
     "createdAt": "2026-09-20T00:00:00.000Z"
   },
   {
-    "id": "math-mean-64",
-    "subject": "Mathematics",
-    "topic": "Statistics & Averages",
-    "difficulty": "Hard",
-    "questionText": "The mean score of 5 test papers is 21. Four of the paper scores are 17, 27, 19, and 26. What is the score on the fifth test paper?",
-    "options": [
-      "16",
-      "19",
-      "12",
-      "22"
-    ],
-    "correctAnswer": "16",
-    "explanation": "Total sum of 5 tests = 5 × 21 = 105. Sum of 4 known tests = 17 + 27 + 19 + 26 = 89. Fifth test = 105 - 89 = 16.",
-    "stepByStepSolution": "Step 1: Total sum = Number of items × Mean = 5 × 21 = 105.\nStep 2: Sum of known scores = 17 + 27 + 19 + 26 = 89.\nStep 3: Fifth score = 105 - 89 = 16.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
     "id": "math-sdt-65",
     "subject": "Mathematics",
     "topic": "Speed, Distance & Time",
@@ -1301,25 +1105,6 @@ export const MATHS_QUESTIONS: Question[] = [
     "correctAnswer": "£320.00",
     "explanation": "The sale price represents 60% of the original price. Divide the sale price by 0.6 to calculate the original price: £192.00 ÷ 0.6 = £320.00.",
     "stepByStepSolution": "Step 1: The discounted price is 100% - 40% = 60% of original value.\nStep 2: 60% = £192.00.\nStep 3: 1% = £192.00 ÷ 60 = £3.2000.\nStep 4: 100% = £320.00.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-ratio-67",
-    "subject": "Mathematics",
-    "topic": "Ratio & Proportion",
-    "difficulty": "Hard",
-    "questionText": "A lottery prize of £270 is shared among Anna, Ben, and Chloe in the ratio 2 : 6 : 7. How much more money does Chloe receive than Anna?",
-    "options": [
-      "£90",
-      "£72",
-      "£126",
-      "£108"
-    ],
-    "correctAnswer": "£90",
-    "explanation": "Total parts = 2 + 6 + 7 = 15. One part = £270 ÷ 15 = £18. Chloe has 7 parts (£126) and Anna has 2 parts (£36). Difference = £126 - £36 = £90.",
-    "stepByStepSolution": "Step 1: Sum the ratio parts: 2 + 6 + 7 = 15 parts.\nStep 2: Calculate value per part: £270 ÷ 15 = £18.\nStep 3: Chloe's share = 7 × £18 = £126.\nStep 4: Anna's share = 2 × £18 = £36.\nStep 5: Difference = £126 - £36 = £90.",
     "sourceType": "curated_seed",
     "approved": true,
     "createdAt": "2026-09-20T00:00:00.000Z"
@@ -1389,32 +1174,13 @@ export const MATHS_QUESTIONS: Question[] = [
     "questionText": "An opaque bag contains 4 red marbles, 6 blue marbles, and 4 yellow marbles. If one marble is drawn at random, what is the probability of selecting a red marble in its simplest fractional form?",
     "options": [
       "2/7",
-      "2/7",
       "3/7",
-      "2.5/7"
+      "2.5/7",
+      "12/7"
     ],
     "correctAnswer": "2/7",
     "explanation": "Total marbles = 4 + 6 + 4 = 14. Favorable outcomes = 4. Fraction = 4/14, which simplifies to 2/7.",
     "stepByStepSolution": "Step 1: Find total number of outcomes: 4 + 6 + 4 = 14.\nStep 2: Number of red marbles = 4.\nStep 3: Probability = 4/14.\nStep 4: Divide numerator and denominator by common factor 2: 2/7.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-mean-72",
-    "subject": "Mathematics",
-    "topic": "Statistics & Averages",
-    "difficulty": "Hard",
-    "questionText": "The mean score of 5 test papers is 29. Four of the paper scores are 25, 35, 27, and 34. What is the score on the fifth test paper?",
-    "options": [
-      "24",
-      "27",
-      "20",
-      "30"
-    ],
-    "correctAnswer": "24",
-    "explanation": "Total sum of 5 tests = 5 × 29 = 145. Sum of 4 known tests = 25 + 35 + 27 + 34 = 121. Fifth test = 145 - 121 = 24.",
-    "stepByStepSolution": "Step 1: Total sum = Number of items × Mean = 5 × 29 = 145.\nStep 2: Sum of known scores = 25 + 35 + 27 + 34 = 121.\nStep 3: Fifth score = 145 - 121 = 24.",
     "sourceType": "curated_seed",
     "approved": true,
     "createdAt": "2026-09-20T00:00:00.000Z"
@@ -1428,8 +1194,8 @@ export const MATHS_QUESTIONS: Question[] = [
     "options": [
       "78 miles",
       "90 miles",
-      "90 miles",
-      "120 miles"
+      "120 miles",
+      "100 miles"
     ],
     "correctAnswer": "90 miles",
     "explanation": "Convert 30 minutes to hours (30/60 = 0.5 h). Total time = 1.5 h. Distance = Speed × Time = 60 × 1.5 = 90 miles.",
@@ -1453,25 +1219,6 @@ export const MATHS_QUESTIONS: Question[] = [
     "correctAnswer": "£150.00",
     "explanation": "The sale price represents 85% of the original price. Divide the sale price by 0.85 to calculate the original price: £127.50 ÷ 0.85 = £150.00.",
     "stepByStepSolution": "Step 1: The discounted price is 100% - 15% = 85% of original value.\nStep 2: 85% = £127.50.\nStep 3: 1% = £127.50 ÷ 85 = £1.5000.\nStep 4: 100% = £150.00.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-ratio-75",
-    "subject": "Mathematics",
-    "topic": "Ratio & Proportion",
-    "difficulty": "Hard",
-    "questionText": "A lottery prize of £288 is shared among Anna, Ben, and Chloe in the ratio 4 : 6 : 6. How much more money does Chloe receive than Anna?",
-    "options": [
-      "£36",
-      "£54",
-      "£108",
-      "£108"
-    ],
-    "correctAnswer": "£36",
-    "explanation": "Total parts = 4 + 6 + 6 = 16. One part = £288 ÷ 16 = £18. Chloe has 6 parts (£108) and Anna has 4 parts (£72). Difference = £108 - £72 = £36.",
-    "stepByStepSolution": "Step 1: Sum the ratio parts: 4 + 6 + 6 = 16 parts.\nStep 2: Calculate value per part: £288 ÷ 16 = £18.\nStep 3: Chloe's share = 6 × £18 = £108.\nStep 4: Anna's share = 4 × £18 = £72.\nStep 5: Difference = £108 - £72 = £36.",
     "sourceType": "curated_seed",
     "approved": true,
     "createdAt": "2026-09-20T00:00:00.000Z"
@@ -1515,25 +1262,6 @@ export const MATHS_QUESTIONS: Question[] = [
     "createdAt": "2026-09-20T00:00:00.000Z"
   },
   {
-    "id": "math-frac-78",
-    "subject": "Mathematics",
-    "topic": "Fractions & Multi-Step Problems",
-    "difficulty": "Hard",
-    "questionText": "Marcus is reading a book containing 280 pages. On Saturday, he reads 1/5 of the entire book. On Sunday, he reads 2/5 of the REMAINING pages. How many pages does he still have left to read?",
-    "options": [
-      "134.4 pages",
-      "149.4 pages",
-      "124.4 pages",
-      "112 pages"
-    ],
-    "correctAnswer": "134.4 pages",
-    "explanation": "Saturday: 1/5 of 280 = 56 pages. Remaining = 280 - 56 = 224 pages. Sunday: 2/5 of 224 = 89.6 pages. Left to read = 224 - 89.6 = 134.4 pages.",
-    "stepByStepSolution": "Step 1: Pages read on Saturday: 280 ÷ 5 = 56.\nStep 2: Pages remaining after Saturday: 280 - 56 = 224.\nStep 3: Pages read on Sunday: (2/5) × 224 = 89.6.\nStep 4: Pages still unread: 224 - 89.6 = 134.4 pages.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
     "id": "math-prob-79",
     "subject": "Mathematics",
     "topic": "Probability & Data Analysis",
@@ -1541,32 +1269,13 @@ export const MATHS_QUESTIONS: Question[] = [
     "questionText": "An opaque bag contains 7 red marbles, 8 blue marbles, and 4 yellow marbles. If one marble is drawn at random, what is the probability of selecting a red marble in its simplest fractional form?",
     "options": [
       "8/19",
-      "8/19",
       "4/19",
-      "7/19"
+      "7/19",
+      "17/19"
     ],
     "correctAnswer": "7/19",
     "explanation": "Total marbles = 7 + 8 + 4 = 19. Favorable outcomes = 7. Fraction = 7/19, which simplifies to 7/19.",
     "stepByStepSolution": "Step 1: Find total number of outcomes: 7 + 8 + 4 = 19.\nStep 2: Number of red marbles = 7.\nStep 3: Probability = 7/19.\nStep 4: Divide numerator and denominator by common factor 1: 7/19.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-mean-80",
-    "subject": "Mathematics",
-    "topic": "Statistics & Averages",
-    "difficulty": "Hard",
-    "questionText": "The mean score of 5 test papers is 25. Four of the paper scores are 21, 31, 23, and 30. What is the score on the fifth test paper?",
-    "options": [
-      "16",
-      "20",
-      "23",
-      "26"
-    ],
-    "correctAnswer": "20",
-    "explanation": "Total sum of 5 tests = 5 × 25 = 125. Sum of 4 known tests = 21 + 31 + 23 + 30 = 105. Fifth test = 125 - 105 = 20.",
-    "stepByStepSolution": "Step 1: Total sum = Number of items × Mean = 5 × 25 = 125.\nStep 2: Sum of known scores = 21 + 31 + 23 + 30 = 105.\nStep 3: Fifth score = 125 - 105 = 20.",
     "sourceType": "curated_seed",
     "approved": true,
     "createdAt": "2026-09-20T00:00:00.000Z"
@@ -1610,25 +1319,6 @@ export const MATHS_QUESTIONS: Question[] = [
     "createdAt": "2026-09-20T00:00:00.000Z"
   },
   {
-    "id": "math-ratio-83",
-    "subject": "Mathematics",
-    "topic": "Ratio & Proportion",
-    "difficulty": "Hard",
-    "questionText": "A lottery prize of £252 is shared among Anna, Ben, and Chloe in the ratio 3 : 6 : 5. How much more money does Chloe receive than Anna?",
-    "options": [
-      "£36",
-      "£90",
-      "£90",
-      "£54"
-    ],
-    "correctAnswer": "£36",
-    "explanation": "Total parts = 3 + 6 + 5 = 14. One part = £252 ÷ 14 = £18. Chloe has 5 parts (£90) and Anna has 3 parts (£54). Difference = £90 - £54 = £36.",
-    "stepByStepSolution": "Step 1: Sum the ratio parts: 3 + 6 + 5 = 14 parts.\nStep 2: Calculate value per part: £252 ÷ 14 = £18.\nStep 3: Chloe's share = 5 × £18 = £90.\nStep 4: Anna's share = 3 × £18 = £54.\nStep 5: Difference = £90 - £54 = £36.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
     "id": "math-alg-84",
     "subject": "Mathematics",
     "topic": "Algebra & Linear Equations",
@@ -1667,25 +1357,6 @@ export const MATHS_QUESTIONS: Question[] = [
     "createdAt": "2026-09-20T00:00:00.000Z"
   },
   {
-    "id": "math-frac-86",
-    "subject": "Mathematics",
-    "topic": "Fractions & Multi-Step Problems",
-    "difficulty": "Hard",
-    "questionText": "Marcus is reading a book containing 240 pages. On Saturday, he reads 1/4 of the entire book. On Sunday, he reads 2/5 of the REMAINING pages. How many pages does he still have left to read?",
-    "options": [
-      "90 pages",
-      "98 pages",
-      "108 pages",
-      "123 pages"
-    ],
-    "correctAnswer": "108 pages",
-    "explanation": "Saturday: 1/4 of 240 = 60 pages. Remaining = 240 - 60 = 180 pages. Sunday: 2/5 of 180 = 72 pages. Left to read = 180 - 72 = 108 pages.",
-    "stepByStepSolution": "Step 1: Pages read on Saturday: 240 ÷ 4 = 60.\nStep 2: Pages remaining after Saturday: 240 - 60 = 180.\nStep 3: Pages read on Sunday: (2/5) × 180 = 72.\nStep 4: Pages still unread: 180 - 72 = 108 pages.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
     "id": "math-prob-87",
     "subject": "Mathematics",
     "topic": "Probability & Data Analysis",
@@ -1700,25 +1371,6 @@ export const MATHS_QUESTIONS: Question[] = [
     "correctAnswer": "5/19",
     "explanation": "Total marbles = 5 + 10 + 4 = 19. Favorable outcomes = 5. Fraction = 5/19, which simplifies to 5/19.",
     "stepByStepSolution": "Step 1: Find total number of outcomes: 5 + 10 + 4 = 19.\nStep 2: Number of red marbles = 5.\nStep 3: Probability = 5/19.\nStep 4: Divide numerator and denominator by common factor 1: 5/19.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-mean-88",
-    "subject": "Mathematics",
-    "topic": "Statistics & Averages",
-    "difficulty": "Hard",
-    "questionText": "The mean score of 5 test papers is 21. Four of the paper scores are 17, 27, 19, and 26. What is the score on the fifth test paper?",
-    "options": [
-      "16",
-      "19",
-      "12",
-      "22"
-    ],
-    "correctAnswer": "16",
-    "explanation": "Total sum of 5 tests = 5 × 21 = 105. Sum of 4 known tests = 17 + 27 + 19 + 26 = 89. Fifth test = 105 - 89 = 16.",
-    "stepByStepSolution": "Step 1: Total sum = Number of items × Mean = 5 × 21 = 105.\nStep 2: Sum of known scores = 17 + 27 + 19 + 26 = 89.\nStep 3: Fifth score = 105 - 89 = 16.",
     "sourceType": "curated_seed",
     "approved": true,
     "createdAt": "2026-09-20T00:00:00.000Z"
@@ -1762,25 +1414,6 @@ export const MATHS_QUESTIONS: Question[] = [
     "createdAt": "2026-09-20T00:00:00.000Z"
   },
   {
-    "id": "math-ratio-91",
-    "subject": "Mathematics",
-    "topic": "Ratio & Proportion",
-    "difficulty": "Hard",
-    "questionText": "A lottery prize of £270 is shared among Anna, Ben, and Chloe in the ratio 2 : 6 : 7. How much more money does Chloe receive than Anna?",
-    "options": [
-      "£126",
-      "£108",
-      "£90",
-      "£72"
-    ],
-    "correctAnswer": "£90",
-    "explanation": "Total parts = 2 + 6 + 7 = 15. One part = £270 ÷ 15 = £18. Chloe has 7 parts (£126) and Anna has 2 parts (£36). Difference = £126 - £36 = £90.",
-    "stepByStepSolution": "Step 1: Sum the ratio parts: 2 + 6 + 7 = 15 parts.\nStep 2: Calculate value per part: £270 ÷ 15 = £18.\nStep 3: Chloe's share = 7 × £18 = £126.\nStep 4: Anna's share = 2 × £18 = £36.\nStep 5: Difference = £126 - £36 = £90.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
     "id": "math-alg-92",
     "subject": "Mathematics",
     "topic": "Algebra & Linear Equations",
@@ -1819,25 +1452,6 @@ export const MATHS_QUESTIONS: Question[] = [
     "createdAt": "2026-09-20T00:00:00.000Z"
   },
   {
-    "id": "math-frac-94",
-    "subject": "Mathematics",
-    "topic": "Fractions & Multi-Step Problems",
-    "difficulty": "Hard",
-    "questionText": "Marcus is reading a book containing 200 pages. On Saturday, he reads 1/3 of the entire book. On Sunday, he reads 2/5 of the REMAINING pages. How many pages does he still have left to read?",
-    "options": [
-      "94.99999999999999 pages",
-      "69.99999999999999 pages",
-      "79.99999999999999 pages",
-      "67 pages"
-    ],
-    "correctAnswer": "79.99999999999999 pages",
-    "explanation": "Saturday: 1/3 of 200 = 66.66666666666667 pages. Remaining = 200 - 66.66666666666667 = 133.33333333333331 pages. Sunday: 2/5 of 133.33333333333331 = 53.33333333333333 pages. Left to read = 133.33333333333331 - 53.33333333333333 = 79.99999999999999 pages.",
-    "stepByStepSolution": "Step 1: Pages read on Saturday: 200 ÷ 3 = 66.66666666666667.\nStep 2: Pages remaining after Saturday: 200 - 66.66666666666667 = 133.33333333333331.\nStep 3: Pages read on Sunday: (2/5) × 133.33333333333331 = 53.33333333333333.\nStep 4: Pages still unread: 133.33333333333331 - 53.33333333333333 = 79.99999999999999 pages.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
     "id": "math-prob-95",
     "subject": "Mathematics",
     "topic": "Probability & Data Analysis",
@@ -1852,25 +1466,6 @@ export const MATHS_QUESTIONS: Question[] = [
     "correctAnswer": "4/9",
     "explanation": "Total marbles = 8 + 6 + 4 = 18. Favorable outcomes = 8. Fraction = 8/18, which simplifies to 4/9.",
     "stepByStepSolution": "Step 1: Find total number of outcomes: 8 + 6 + 4 = 18.\nStep 2: Number of red marbles = 8.\nStep 3: Probability = 8/18.\nStep 4: Divide numerator and denominator by common factor 2: 4/9.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-mean-96",
-    "subject": "Mathematics",
-    "topic": "Statistics & Averages",
-    "difficulty": "Hard",
-    "questionText": "The mean score of 5 test papers is 29. Four of the paper scores are 25, 35, 27, and 34. What is the score on the fifth test paper?",
-    "options": [
-      "24",
-      "27",
-      "20",
-      "30"
-    ],
-    "correctAnswer": "24",
-    "explanation": "Total sum of 5 tests = 5 × 29 = 145. Sum of 4 known tests = 25 + 35 + 27 + 34 = 121. Fifth test = 145 - 121 = 24.",
-    "stepByStepSolution": "Step 1: Total sum = Number of items × Mean = 5 × 29 = 145.\nStep 2: Sum of known scores = 25 + 35 + 27 + 34 = 121.\nStep 3: Fifth score = 145 - 121 = 24.",
     "sourceType": "curated_seed",
     "approved": true,
     "createdAt": "2026-09-20T00:00:00.000Z"
@@ -1914,25 +1509,6 @@ export const MATHS_QUESTIONS: Question[] = [
     "createdAt": "2026-09-20T00:00:00.000Z"
   },
   {
-    "id": "math-ratio-99",
-    "subject": "Mathematics",
-    "topic": "Ratio & Proportion",
-    "difficulty": "Hard",
-    "questionText": "A lottery prize of £288 is shared among Anna, Ben, and Chloe in the ratio 4 : 6 : 6. How much more money does Chloe receive than Anna?",
-    "options": [
-      "£36",
-      "£54",
-      "£108",
-      "£108"
-    ],
-    "correctAnswer": "£36",
-    "explanation": "Total parts = 4 + 6 + 6 = 16. One part = £288 ÷ 16 = £18. Chloe has 6 parts (£108) and Anna has 4 parts (£72). Difference = £108 - £72 = £36.",
-    "stepByStepSolution": "Step 1: Sum the ratio parts: 4 + 6 + 6 = 16 parts.\nStep 2: Calculate value per part: £288 ÷ 16 = £18.\nStep 3: Chloe's share = 6 × £18 = £108.\nStep 4: Anna's share = 4 × £18 = £72.\nStep 5: Difference = £108 - £72 = £36.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
     "id": "math-alg-100",
     "subject": "Mathematics",
     "topic": "Algebra & Linear Equations",
@@ -1971,25 +1547,6 @@ export const MATHS_QUESTIONS: Question[] = [
     "createdAt": "2026-09-20T00:00:00.000Z"
   },
   {
-    "id": "math-frac-102",
-    "subject": "Mathematics",
-    "topic": "Fractions & Multi-Step Problems",
-    "difficulty": "Hard",
-    "questionText": "Marcus is reading a book containing 180 pages. On Saturday, he reads 1/5 of the entire book. On Sunday, he reads 2/5 of the REMAINING pages. How many pages does he still have left to read?",
-    "options": [
-      "76.4 pages",
-      "86.4 pages",
-      "72 pages",
-      "101.4 pages"
-    ],
-    "correctAnswer": "86.4 pages",
-    "explanation": "Saturday: 1/5 of 180 = 36 pages. Remaining = 180 - 36 = 144 pages. Sunday: 2/5 of 144 = 57.6 pages. Left to read = 144 - 57.6 = 86.4 pages.",
-    "stepByStepSolution": "Step 1: Pages read on Saturday: 180 ÷ 5 = 36.\nStep 2: Pages remaining after Saturday: 180 - 36 = 144.\nStep 3: Pages read on Sunday: (2/5) × 144 = 57.6.\nStep 4: Pages still unread: 144 - 57.6 = 86.4 pages.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
     "id": "math-prob-103",
     "subject": "Mathematics",
     "topic": "Probability & Data Analysis",
@@ -2004,25 +1561,6 @@ export const MATHS_QUESTIONS: Question[] = [
     "correctAnswer": "1/3",
     "explanation": "Total marbles = 6 + 8 + 4 = 18. Favorable outcomes = 6. Fraction = 6/18, which simplifies to 1/3.",
     "stepByStepSolution": "Step 1: Find total number of outcomes: 6 + 8 + 4 = 18.\nStep 2: Number of red marbles = 6.\nStep 3: Probability = 6/18.\nStep 4: Divide numerator and denominator by common factor 6: 1/3.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-mean-104",
-    "subject": "Mathematics",
-    "topic": "Statistics & Averages",
-    "difficulty": "Hard",
-    "questionText": "The mean score of 5 test papers is 25. Four of the paper scores are 21, 31, 23, and 30. What is the score on the fifth test paper?",
-    "options": [
-      "16",
-      "20",
-      "23",
-      "26"
-    ],
-    "correctAnswer": "20",
-    "explanation": "Total sum of 5 tests = 5 × 25 = 125. Sum of 4 known tests = 21 + 31 + 23 + 30 = 105. Fifth test = 125 - 105 = 20.",
-    "stepByStepSolution": "Step 1: Total sum = Number of items × Mean = 5 × 25 = 125.\nStep 2: Sum of known scores = 21 + 31 + 23 + 30 = 105.\nStep 3: Fifth score = 125 - 105 = 20.",
     "sourceType": "curated_seed",
     "approved": true,
     "createdAt": "2026-09-20T00:00:00.000Z"
@@ -2066,25 +1604,6 @@ export const MATHS_QUESTIONS: Question[] = [
     "createdAt": "2026-09-20T00:00:00.000Z"
   },
   {
-    "id": "math-ratio-107",
-    "subject": "Mathematics",
-    "topic": "Ratio & Proportion",
-    "difficulty": "Hard",
-    "questionText": "A lottery prize of £252 is shared among Anna, Ben, and Chloe in the ratio 3 : 6 : 5. How much more money does Chloe receive than Anna?",
-    "options": [
-      "£36",
-      "£90",
-      "£90",
-      "£54"
-    ],
-    "correctAnswer": "£36",
-    "explanation": "Total parts = 3 + 6 + 5 = 14. One part = £252 ÷ 14 = £18. Chloe has 5 parts (£90) and Anna has 3 parts (£54). Difference = £90 - £54 = £36.",
-    "stepByStepSolution": "Step 1: Sum the ratio parts: 3 + 6 + 5 = 14 parts.\nStep 2: Calculate value per part: £252 ÷ 14 = £18.\nStep 3: Chloe's share = 5 × £18 = £90.\nStep 4: Anna's share = 3 × £18 = £54.\nStep 5: Difference = £90 - £54 = £36.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
     "id": "math-alg-108",
     "subject": "Mathematics",
     "topic": "Algebra & Linear Equations",
@@ -2123,25 +1642,6 @@ export const MATHS_QUESTIONS: Question[] = [
     "createdAt": "2026-09-20T00:00:00.000Z"
   },
   {
-    "id": "math-frac-110",
-    "subject": "Mathematics",
-    "topic": "Fractions & Multi-Step Problems",
-    "difficulty": "Hard",
-    "questionText": "Marcus is reading a book containing 160 pages. On Saturday, he reads 1/4 of the entire book. On Sunday, he reads 2/5 of the REMAINING pages. How many pages does he still have left to read?",
-    "options": [
-      "60 pages",
-      "62 pages",
-      "72 pages",
-      "87 pages"
-    ],
-    "correctAnswer": "72 pages",
-    "explanation": "Saturday: 1/4 of 160 = 40 pages. Remaining = 160 - 40 = 120 pages. Sunday: 2/5 of 120 = 48 pages. Left to read = 120 - 48 = 72 pages.",
-    "stepByStepSolution": "Step 1: Pages read on Saturday: 160 ÷ 4 = 40.\nStep 2: Pages remaining after Saturday: 160 - 40 = 120.\nStep 3: Pages read on Sunday: (2/5) × 120 = 48.\nStep 4: Pages still unread: 120 - 48 = 72 pages.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
     "id": "math-prob-111",
     "subject": "Mathematics",
     "topic": "Probability & Data Analysis",
@@ -2151,30 +1651,11 @@ export const MATHS_QUESTIONS: Question[] = [
       "2.5/9",
       "5/9",
       "2/9",
-      "2/9"
+      "12/9"
     ],
     "correctAnswer": "2/9",
     "explanation": "Total marbles = 4 + 10 + 4 = 18. Favorable outcomes = 4. Fraction = 4/18, which simplifies to 2/9.",
     "stepByStepSolution": "Step 1: Find total number of outcomes: 4 + 10 + 4 = 18.\nStep 2: Number of red marbles = 4.\nStep 3: Probability = 4/18.\nStep 4: Divide numerator and denominator by common factor 2: 2/9.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-mean-112",
-    "subject": "Mathematics",
-    "topic": "Statistics & Averages",
-    "difficulty": "Hard",
-    "questionText": "The mean score of 5 test papers is 21. Four of the paper scores are 17, 27, 19, and 26. What is the score on the fifth test paper?",
-    "options": [
-      "22",
-      "16",
-      "19",
-      "12"
-    ],
-    "correctAnswer": "16",
-    "explanation": "Total sum of 5 tests = 5 × 21 = 105. Sum of 4 known tests = 17 + 27 + 19 + 26 = 89. Fifth test = 105 - 89 = 16.",
-    "stepByStepSolution": "Step 1: Total sum = Number of items × Mean = 5 × 21 = 105.\nStep 2: Sum of known scores = 17 + 27 + 19 + 26 = 89.\nStep 3: Fifth score = 105 - 89 = 16.",
     "sourceType": "curated_seed",
     "approved": true,
     "createdAt": "2026-09-20T00:00:00.000Z"
@@ -2218,25 +1699,6 @@ export const MATHS_QUESTIONS: Question[] = [
     "createdAt": "2026-09-20T00:00:00.000Z"
   },
   {
-    "id": "math-ratio-115",
-    "subject": "Mathematics",
-    "topic": "Ratio & Proportion",
-    "difficulty": "Hard",
-    "questionText": "A lottery prize of £270 is shared among Anna, Ben, and Chloe in the ratio 2 : 6 : 7. How much more money does Chloe receive than Anna?",
-    "options": [
-      "£90",
-      "£72",
-      "£126",
-      "£108"
-    ],
-    "correctAnswer": "£90",
-    "explanation": "Total parts = 2 + 6 + 7 = 15. One part = £270 ÷ 15 = £18. Chloe has 7 parts (£126) and Anna has 2 parts (£36). Difference = £126 - £36 = £90.",
-    "stepByStepSolution": "Step 1: Sum the ratio parts: 2 + 6 + 7 = 15 parts.\nStep 2: Calculate value per part: £270 ÷ 15 = £18.\nStep 3: Chloe's share = 7 × £18 = £126.\nStep 4: Anna's share = 2 × £18 = £36.\nStep 5: Difference = £126 - £36 = £90.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
     "id": "math-alg-116",
     "subject": "Mathematics",
     "topic": "Algebra & Linear Equations",
@@ -2275,25 +1737,6 @@ export const MATHS_QUESTIONS: Question[] = [
     "createdAt": "2026-09-20T00:00:00.000Z"
   },
   {
-    "id": "math-frac-118",
-    "subject": "Mathematics",
-    "topic": "Fractions & Multi-Step Problems",
-    "difficulty": "Hard",
-    "questionText": "Marcus is reading a book containing 120 pages. On Saturday, he reads 1/3 of the entire book. On Sunday, he reads 2/5 of the REMAINING pages. How many pages does he still have left to read?",
-    "options": [
-      "63 pages",
-      "48 pages",
-      "40 pages",
-      "38 pages"
-    ],
-    "correctAnswer": "48 pages",
-    "explanation": "Saturday: 1/3 of 120 = 40 pages. Remaining = 120 - 40 = 80 pages. Sunday: 2/5 of 80 = 32 pages. Left to read = 80 - 32 = 48 pages.",
-    "stepByStepSolution": "Step 1: Pages read on Saturday: 120 ÷ 3 = 40.\nStep 2: Pages remaining after Saturday: 120 - 40 = 80.\nStep 3: Pages read on Sunday: (2/5) × 80 = 32.\nStep 4: Pages still unread: 80 - 32 = 48 pages.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
     "id": "math-prob-119",
     "subject": "Mathematics",
     "topic": "Probability & Data Analysis",
@@ -2308,25 +1751,6 @@ export const MATHS_QUESTIONS: Question[] = [
     "correctAnswer": "7/17",
     "explanation": "Total marbles = 7 + 6 + 4 = 17. Favorable outcomes = 7. Fraction = 7/17, which simplifies to 7/17.",
     "stepByStepSolution": "Step 1: Find total number of outcomes: 7 + 6 + 4 = 17.\nStep 2: Number of red marbles = 7.\nStep 3: Probability = 7/17.\nStep 4: Divide numerator and denominator by common factor 1: 7/17.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-mean-120",
-    "subject": "Mathematics",
-    "topic": "Statistics & Averages",
-    "difficulty": "Hard",
-    "questionText": "The mean score of 5 test papers is 29. Four of the paper scores are 25, 35, 27, and 34. What is the score on the fifth test paper?",
-    "options": [
-      "24",
-      "27",
-      "20",
-      "30"
-    ],
-    "correctAnswer": "24",
-    "explanation": "Total sum of 5 tests = 5 × 29 = 145. Sum of 4 known tests = 25 + 35 + 27 + 34 = 121. Fifth test = 145 - 121 = 24.",
-    "stepByStepSolution": "Step 1: Total sum = Number of items × Mean = 5 × 29 = 145.\nStep 2: Sum of known scores = 25 + 35 + 27 + 34 = 121.\nStep 3: Fifth score = 145 - 121 = 24.",
     "sourceType": "curated_seed",
     "approved": true,
     "createdAt": "2026-09-20T00:00:00.000Z"
@@ -2370,120 +1794,6 @@ export const MATHS_QUESTIONS: Question[] = [
     "createdAt": "2026-09-20T00:00:00.000Z"
   },
   {
-    "id": "math-ratio-123",
-    "subject": "Mathematics",
-    "topic": "Ratio & Proportion",
-    "difficulty": "Hard",
-    "questionText": "A lottery prize of £288 is shared among Anna, Ben, and Chloe in the ratio 4 : 6 : 6. How much more money does Chloe receive than Anna?",
-    "options": [
-      "£36",
-      "£54",
-      "£108",
-      "£108"
-    ],
-    "correctAnswer": "£36",
-    "explanation": "Total parts = 4 + 6 + 6 = 16. One part = £288 ÷ 16 = £18. Chloe has 6 parts (£108) and Anna has 4 parts (£72). Difference = £108 - £72 = £36.",
-    "stepByStepSolution": "Step 1: Sum the ratio parts: 4 + 6 + 6 = 16 parts.\nStep 2: Calculate value per part: £288 ÷ 16 = £18.\nStep 3: Chloe's share = 6 × £18 = £108.\nStep 4: Anna's share = 4 × £18 = £72.\nStep 5: Difference = £108 - £72 = £36.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-alg-124",
-    "subject": "Mathematics",
-    "topic": "Algebra & Linear Equations",
-    "difficulty": "Hard",
-    "questionText": "Solve for x: 6(x + 5) = 54",
-    "options": [
-      "7",
-      "4",
-      "3",
-      "6"
-    ],
-    "correctAnswer": "4",
-    "explanation": "Expand or divide both sides by 6: x + 5 = 9. Subtract 5: x = 9 - 5 = 4.",
-    "stepByStepSolution": "Step 1: Divide both sides by 6: (x + 5) = 54 ÷ 6 = 9.\nStep 2: Subtract 5 from both sides: x = 9 - 5 = 4.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-geom-125",
-    "subject": "Mathematics",
-    "topic": "Perimeter, Area & Volume",
-    "difficulty": "Hard",
-    "questionText": "An L-shaped lawn is created by taking a large rectangle measuring 16 m by 14 m and removing a rectangular corner patch measuring 5 m by 3 m. What is the total area of the remaining lawn?",
-    "options": [
-      "209 cm²",
-      "224 cm²",
-      "219 cm²",
-      "200 cm²"
-    ],
-    "correctAnswer": "209 cm²",
-    "explanation": "Calculate original rectangle area: 16 × 14 = 224 m². Subtract cut-out area: 5 × 3 = 15 m². Remaining area = 224 - 15 = 209 m².",
-    "stepByStepSolution": "Step 1: Total bounding area = 16 × 14 = 224 m².\nStep 2: Corner cut-out area = 5 × 3 = 15 m².\nStep 3: Area of lawn = 224 - 15 = 209 m².\nAnswer: 209 cm² equivalent.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-frac-126",
-    "subject": "Mathematics",
-    "topic": "Fractions & Multi-Step Problems",
-    "difficulty": "Hard",
-    "questionText": "Marcus is reading a book containing 400 pages. On Saturday, he reads 1/5 of the entire book. On Sunday, he reads 2/5 of the REMAINING pages. How many pages does he still have left to read?",
-    "options": [
-      "207 pages",
-      "192 pages",
-      "160 pages",
-      "182 pages"
-    ],
-    "correctAnswer": "192 pages",
-    "explanation": "Saturday: 1/5 of 400 = 80 pages. Remaining = 400 - 80 = 320 pages. Sunday: 2/5 of 320 = 128 pages. Left to read = 320 - 128 = 192 pages.",
-    "stepByStepSolution": "Step 1: Pages read on Saturday: 400 ÷ 5 = 80.\nStep 2: Pages remaining after Saturday: 400 - 80 = 320.\nStep 3: Pages read on Sunday: (2/5) × 320 = 128.\nStep 4: Pages still unread: 320 - 128 = 192 pages.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-prob-127",
-    "subject": "Mathematics",
-    "topic": "Probability & Data Analysis",
-    "difficulty": "Hard",
-    "questionText": "An opaque bag contains 5 red marbles, 8 blue marbles, and 4 yellow marbles. If one marble is drawn at random, what is the probability of selecting a red marble in its simplest fractional form?",
-    "options": [
-      "6/17",
-      "5/17",
-      "4/17",
-      "8/17"
-    ],
-    "correctAnswer": "5/17",
-    "explanation": "Total marbles = 5 + 8 + 4 = 17. Favorable outcomes = 5. Fraction = 5/17, which simplifies to 5/17.",
-    "stepByStepSolution": "Step 1: Find total number of outcomes: 5 + 8 + 4 = 17.\nStep 2: Number of red marbles = 5.\nStep 3: Probability = 5/17.\nStep 4: Divide numerator and denominator by common factor 1: 5/17.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-mean-128",
-    "subject": "Mathematics",
-    "topic": "Statistics & Averages",
-    "difficulty": "Hard",
-    "questionText": "The mean score of 5 test papers is 25. Four of the paper scores are 21, 31, 23, and 30. What is the score on the fifth test paper?",
-    "options": [
-      "20",
-      "23",
-      "26",
-      "16"
-    ],
-    "correctAnswer": "20",
-    "explanation": "Total sum of 5 tests = 5 × 25 = 125. Sum of 4 known tests = 21 + 31 + 23 + 30 = 105. Fifth test = 125 - 105 = 20.",
-    "stepByStepSolution": "Step 1: Total sum = Number of items × Mean = 5 × 25 = 125.\nStep 2: Sum of known scores = 21 + 31 + 23 + 30 = 105.\nStep 3: Fifth score = 125 - 105 = 20.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
     "id": "math-sdt-129",
     "subject": "Mathematics",
     "topic": "Speed, Distance & Time",
@@ -2493,7 +1803,7 @@ export const MATHS_QUESTIONS: Question[] = [
       "220 miles",
       "250 miles",
       "208 miles",
-      "220 miles"
+      "270 miles"
     ],
     "correctAnswer": "220 miles",
     "explanation": "Convert 40 minutes to hours (40/60 = 0.6666666666666666 h). Total time = 3.6666666666666665 h. Distance = Speed × Time = 60 × 3.6666666666666665 = 220 miles.",
@@ -2517,120 +1827,6 @@ export const MATHS_QUESTIONS: Question[] = [
     "correctAnswer": "£180.00",
     "explanation": "The sale price represents 75% of the original price. Divide the sale price by 0.75 to calculate the original price: £135.00 ÷ 0.75 = £180.00.",
     "stepByStepSolution": "Step 1: The discounted price is 100% - 25% = 75% of original value.\nStep 2: 75% = £135.00.\nStep 3: 1% = £135.00 ÷ 75 = £1.8000.\nStep 4: 100% = £180.00.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-ratio-131",
-    "subject": "Mathematics",
-    "topic": "Ratio & Proportion",
-    "difficulty": "Hard",
-    "questionText": "A lottery prize of £252 is shared among Anna, Ben, and Chloe in the ratio 3 : 6 : 5. How much more money does Chloe receive than Anna?",
-    "options": [
-      "£36",
-      "£90",
-      "£90",
-      "£54"
-    ],
-    "correctAnswer": "£36",
-    "explanation": "Total parts = 3 + 6 + 5 = 14. One part = £252 ÷ 14 = £18. Chloe has 5 parts (£90) and Anna has 3 parts (£54). Difference = £90 - £54 = £36.",
-    "stepByStepSolution": "Step 1: Sum the ratio parts: 3 + 6 + 5 = 14 parts.\nStep 2: Calculate value per part: £252 ÷ 14 = £18.\nStep 3: Chloe's share = 5 × £18 = £90.\nStep 4: Anna's share = 3 × £18 = £54.\nStep 5: Difference = £90 - £54 = £36.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-alg-132",
-    "subject": "Mathematics",
-    "topic": "Algebra & Linear Equations",
-    "difficulty": "Hard",
-    "questionText": "Solve for x: 4(x + 7) = 68",
-    "options": [
-      "10",
-      "12",
-      "13",
-      "9"
-    ],
-    "correctAnswer": "10",
-    "explanation": "Expand or divide both sides by 4: x + 7 = 17. Subtract 7: x = 17 - 7 = 10.",
-    "stepByStepSolution": "Step 1: Divide both sides by 4: (x + 7) = 68 ÷ 4 = 17.\nStep 2: Subtract 7 from both sides: x = 17 - 7 = 10.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-geom-133",
-    "subject": "Mathematics",
-    "topic": "Perimeter, Area & Volume",
-    "difficulty": "Hard",
-    "questionText": "An L-shaped lawn is created by taking a large rectangle measuring 12 m by 12 m and removing a rectangular corner patch measuring 4 m by 3 m. What is the total area of the remaining lawn?",
-    "options": [
-      "132 cm²",
-      "144 cm²",
-      "140 cm²",
-      "123 cm²"
-    ],
-    "correctAnswer": "132 cm²",
-    "explanation": "Calculate original rectangle area: 12 × 12 = 144 m². Subtract cut-out area: 4 × 3 = 12 m². Remaining area = 144 - 12 = 132 m².",
-    "stepByStepSolution": "Step 1: Total bounding area = 12 × 12 = 144 m².\nStep 2: Corner cut-out area = 4 × 3 = 12 m².\nStep 3: Area of lawn = 144 - 12 = 132 m².\nAnswer: 132 cm² equivalent.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-frac-134",
-    "subject": "Mathematics",
-    "topic": "Fractions & Multi-Step Problems",
-    "difficulty": "Hard",
-    "questionText": "Marcus is reading a book containing 360 pages. On Saturday, he reads 1/4 of the entire book. On Sunday, he reads 2/5 of the REMAINING pages. How many pages does he still have left to read?",
-    "options": [
-      "162 pages",
-      "177 pages",
-      "135 pages",
-      "152 pages"
-    ],
-    "correctAnswer": "162 pages",
-    "explanation": "Saturday: 1/4 of 360 = 90 pages. Remaining = 360 - 90 = 270 pages. Sunday: 2/5 of 270 = 108 pages. Left to read = 270 - 108 = 162 pages.",
-    "stepByStepSolution": "Step 1: Pages read on Saturday: 360 ÷ 4 = 90.\nStep 2: Pages remaining after Saturday: 360 - 90 = 270.\nStep 3: Pages read on Sunday: (2/5) × 270 = 108.\nStep 4: Pages still unread: 270 - 108 = 162 pages.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-prob-135",
-    "subject": "Mathematics",
-    "topic": "Probability & Data Analysis",
-    "difficulty": "Hard",
-    "questionText": "An opaque bag contains 8 red marbles, 10 blue marbles, and 4 yellow marbles. If one marble is drawn at random, what is the probability of selecting a red marble in its simplest fractional form?",
-    "options": [
-      "2/11",
-      "4/11",
-      "5/11",
-      "4.5/11"
-    ],
-    "correctAnswer": "4/11",
-    "explanation": "Total marbles = 8 + 10 + 4 = 22. Favorable outcomes = 8. Fraction = 8/22, which simplifies to 4/11.",
-    "stepByStepSolution": "Step 1: Find total number of outcomes: 8 + 10 + 4 = 22.\nStep 2: Number of red marbles = 8.\nStep 3: Probability = 8/22.\nStep 4: Divide numerator and denominator by common factor 2: 4/11.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-mean-136",
-    "subject": "Mathematics",
-    "topic": "Statistics & Averages",
-    "difficulty": "Hard",
-    "questionText": "The mean score of 5 test papers is 21. Four of the paper scores are 17, 27, 19, and 26. What is the score on the fifth test paper?",
-    "options": [
-      "16",
-      "19",
-      "12",
-      "22"
-    ],
-    "correctAnswer": "16",
-    "explanation": "Total sum of 5 tests = 5 × 21 = 105. Sum of 4 known tests = 17 + 27 + 19 + 26 = 89. Fifth test = 105 - 89 = 16.",
-    "stepByStepSolution": "Step 1: Total sum = Number of items × Mean = 5 × 21 = 105.\nStep 2: Sum of known scores = 17 + 27 + 19 + 26 = 89.\nStep 3: Fifth score = 105 - 89 = 16.",
     "sourceType": "curated_seed",
     "approved": true,
     "createdAt": "2026-09-20T00:00:00.000Z"
@@ -2674,120 +1870,6 @@ export const MATHS_QUESTIONS: Question[] = [
     "createdAt": "2026-09-20T00:00:00.000Z"
   },
   {
-    "id": "math-ratio-139",
-    "subject": "Mathematics",
-    "topic": "Ratio & Proportion",
-    "difficulty": "Hard",
-    "questionText": "A lottery prize of £270 is shared among Anna, Ben, and Chloe in the ratio 2 : 6 : 7. How much more money does Chloe receive than Anna?",
-    "options": [
-      "£126",
-      "£108",
-      "£90",
-      "£72"
-    ],
-    "correctAnswer": "£90",
-    "explanation": "Total parts = 2 + 6 + 7 = 15. One part = £270 ÷ 15 = £18. Chloe has 7 parts (£126) and Anna has 2 parts (£36). Difference = £126 - £36 = £90.",
-    "stepByStepSolution": "Step 1: Sum the ratio parts: 2 + 6 + 7 = 15 parts.\nStep 2: Calculate value per part: £270 ÷ 15 = £18.\nStep 3: Chloe's share = 7 × £18 = £126.\nStep 4: Anna's share = 2 × £18 = £36.\nStep 5: Difference = £126 - £36 = £90.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-alg-140",
-    "subject": "Mathematics",
-    "topic": "Algebra & Linear Equations",
-    "difficulty": "Hard",
-    "questionText": "Solve for x: 7(x + 3) = 70",
-    "options": [
-      "9",
-      "7",
-      "6",
-      "10"
-    ],
-    "correctAnswer": "7",
-    "explanation": "Expand or divide both sides by 7: x + 3 = 10. Subtract 3: x = 10 - 3 = 7.",
-    "stepByStepSolution": "Step 1: Divide both sides by 7: (x + 3) = 70 ÷ 7 = 10.\nStep 2: Subtract 3 from both sides: x = 10 - 3 = 7.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-geom-141",
-    "subject": "Mathematics",
-    "topic": "Perimeter, Area & Volume",
-    "difficulty": "Hard",
-    "questionText": "An L-shaped lawn is created by taking a large rectangle measuring 14 m by 10 m and removing a rectangular corner patch measuring 6 m by 3 m. What is the total area of the remaining lawn?",
-    "options": [
-      "122 cm²",
-      "140 cm²",
-      "134 cm²",
-      "113 cm²"
-    ],
-    "correctAnswer": "122 cm²",
-    "explanation": "Calculate original rectangle area: 14 × 10 = 140 m². Subtract cut-out area: 6 × 3 = 18 m². Remaining area = 140 - 18 = 122 m².",
-    "stepByStepSolution": "Step 1: Total bounding area = 14 × 10 = 140 m².\nStep 2: Corner cut-out area = 6 × 3 = 18 m².\nStep 3: Area of lawn = 140 - 18 = 122 m².\nAnswer: 122 cm² equivalent.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-frac-142",
-    "subject": "Mathematics",
-    "topic": "Fractions & Multi-Step Problems",
-    "difficulty": "Hard",
-    "questionText": "Marcus is reading a book containing 300 pages. On Saturday, he reads 1/3 of the entire book. On Sunday, he reads 2/5 of the REMAINING pages. How many pages does he still have left to read?",
-    "options": [
-      "120 pages",
-      "135 pages",
-      "100 pages",
-      "110 pages"
-    ],
-    "correctAnswer": "120 pages",
-    "explanation": "Saturday: 1/3 of 300 = 100 pages. Remaining = 300 - 100 = 200 pages. Sunday: 2/5 of 200 = 80 pages. Left to read = 200 - 80 = 120 pages.",
-    "stepByStepSolution": "Step 1: Pages read on Saturday: 300 ÷ 3 = 100.\nStep 2: Pages remaining after Saturday: 300 - 100 = 200.\nStep 3: Pages read on Sunday: (2/5) × 200 = 80.\nStep 4: Pages still unread: 200 - 80 = 120 pages.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-prob-143",
-    "subject": "Mathematics",
-    "topic": "Probability & Data Analysis",
-    "difficulty": "Hard",
-    "questionText": "An opaque bag contains 6 red marbles, 6 blue marbles, and 4 yellow marbles. If one marble is drawn at random, what is the probability of selecting a red marble in its simplest fractional form?",
-    "options": [
-      "1/4",
-      "3/8",
-      "3/8",
-      "3.5/8"
-    ],
-    "correctAnswer": "3/8",
-    "explanation": "Total marbles = 6 + 6 + 4 = 16. Favorable outcomes = 6. Fraction = 6/16, which simplifies to 3/8.",
-    "stepByStepSolution": "Step 1: Find total number of outcomes: 6 + 6 + 4 = 16.\nStep 2: Number of red marbles = 6.\nStep 3: Probability = 6/16.\nStep 4: Divide numerator and denominator by common factor 2: 3/8.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-mean-144",
-    "subject": "Mathematics",
-    "topic": "Statistics & Averages",
-    "difficulty": "Hard",
-    "questionText": "The mean score of 5 test papers is 29. Four of the paper scores are 25, 35, 27, and 34. What is the score on the fifth test paper?",
-    "options": [
-      "24",
-      "27",
-      "20",
-      "30"
-    ],
-    "correctAnswer": "24",
-    "explanation": "Total sum of 5 tests = 5 × 29 = 145. Sum of 4 known tests = 25 + 35 + 27 + 34 = 121. Fifth test = 145 - 121 = 24.",
-    "stepByStepSolution": "Step 1: Total sum = Number of items × Mean = 5 × 29 = 145.\nStep 2: Sum of known scores = 25 + 35 + 27 + 34 = 121.\nStep 3: Fifth score = 145 - 121 = 24.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
     "id": "math-sdt-145",
     "subject": "Mathematics",
     "topic": "Speed, Distance & Time",
@@ -2821,120 +1903,6 @@ export const MATHS_QUESTIONS: Question[] = [
     "correctAnswer": "£60.00",
     "explanation": "The sale price represents 85% of the original price. Divide the sale price by 0.85 to calculate the original price: £51.00 ÷ 0.85 = £60.00.",
     "stepByStepSolution": "Step 1: The discounted price is 100% - 15% = 85% of original value.\nStep 2: 85% = £51.00.\nStep 3: 1% = £51.00 ÷ 85 = £0.6000.\nStep 4: 100% = £60.00.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-ratio-147",
-    "subject": "Mathematics",
-    "topic": "Ratio & Proportion",
-    "difficulty": "Hard",
-    "questionText": "A lottery prize of £288 is shared among Anna, Ben, and Chloe in the ratio 4 : 6 : 6. How much more money does Chloe receive than Anna?",
-    "options": [
-      "£36",
-      "£54",
-      "£108",
-      "£108"
-    ],
-    "correctAnswer": "£36",
-    "explanation": "Total parts = 4 + 6 + 6 = 16. One part = £288 ÷ 16 = £18. Chloe has 6 parts (£108) and Anna has 4 parts (£72). Difference = £108 - £72 = £36.",
-    "stepByStepSolution": "Step 1: Sum the ratio parts: 4 + 6 + 6 = 16 parts.\nStep 2: Calculate value per part: £288 ÷ 16 = £18.\nStep 3: Chloe's share = 6 × £18 = £108.\nStep 4: Anna's share = 4 × £18 = £72.\nStep 5: Difference = £108 - £72 = £36.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-alg-148",
-    "subject": "Mathematics",
-    "topic": "Algebra & Linear Equations",
-    "difficulty": "Hard",
-    "questionText": "Solve for x: 5(x + 5) = 45",
-    "options": [
-      "7",
-      "6",
-      "4",
-      "3"
-    ],
-    "correctAnswer": "4",
-    "explanation": "Expand or divide both sides by 5: x + 5 = 9. Subtract 5: x = 9 - 5 = 4.",
-    "stepByStepSolution": "Step 1: Divide both sides by 5: (x + 5) = 45 ÷ 5 = 9.\nStep 2: Subtract 5 from both sides: x = 9 - 5 = 4.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-geom-149",
-    "subject": "Mathematics",
-    "topic": "Perimeter, Area & Volume",
-    "difficulty": "Hard",
-    "questionText": "An L-shaped lawn is created by taking a large rectangle measuring 16 m by 13 m and removing a rectangular corner patch measuring 5 m by 3 m. What is the total area of the remaining lawn?",
-    "options": [
-      "193 cm²",
-      "184 cm²",
-      "208 cm²",
-      "203 cm²"
-    ],
-    "correctAnswer": "193 cm²",
-    "explanation": "Calculate original rectangle area: 16 × 13 = 208 m². Subtract cut-out area: 5 × 3 = 15 m². Remaining area = 208 - 15 = 193 m².",
-    "stepByStepSolution": "Step 1: Total bounding area = 16 × 13 = 208 m².\nStep 2: Corner cut-out area = 5 × 3 = 15 m².\nStep 3: Area of lawn = 208 - 15 = 193 m².\nAnswer: 193 cm² equivalent.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-frac-150",
-    "subject": "Mathematics",
-    "topic": "Fractions & Multi-Step Problems",
-    "difficulty": "Hard",
-    "questionText": "Marcus is reading a book containing 280 pages. On Saturday, he reads 1/5 of the entire book. On Sunday, he reads 2/5 of the REMAINING pages. How many pages does he still have left to read?",
-    "options": [
-      "134.4 pages",
-      "149.4 pages",
-      "124.4 pages",
-      "112 pages"
-    ],
-    "correctAnswer": "134.4 pages",
-    "explanation": "Saturday: 1/5 of 280 = 56 pages. Remaining = 280 - 56 = 224 pages. Sunday: 2/5 of 224 = 89.6 pages. Left to read = 224 - 89.6 = 134.4 pages.",
-    "stepByStepSolution": "Step 1: Pages read on Saturday: 280 ÷ 5 = 56.\nStep 2: Pages remaining after Saturday: 280 - 56 = 224.\nStep 3: Pages read on Sunday: (2/5) × 224 = 89.6.\nStep 4: Pages still unread: 224 - 89.6 = 134.4 pages.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-prob-151",
-    "subject": "Mathematics",
-    "topic": "Probability & Data Analysis",
-    "difficulty": "Hard",
-    "questionText": "An opaque bag contains 4 red marbles, 8 blue marbles, and 4 yellow marbles. If one marble is drawn at random, what is the probability of selecting a red marble in its simplest fractional form?",
-    "options": [
-      "1.25/4",
-      "1/4",
-      "1/2",
-      "1/4"
-    ],
-    "correctAnswer": "1/4",
-    "explanation": "Total marbles = 4 + 8 + 4 = 16. Favorable outcomes = 4. Fraction = 4/16, which simplifies to 1/4.",
-    "stepByStepSolution": "Step 1: Find total number of outcomes: 4 + 8 + 4 = 16.\nStep 2: Number of red marbles = 4.\nStep 3: Probability = 4/16.\nStep 4: Divide numerator and denominator by common factor 4: 1/4.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-mean-152",
-    "subject": "Mathematics",
-    "topic": "Statistics & Averages",
-    "difficulty": "Hard",
-    "questionText": "The mean score of 5 test papers is 25. Four of the paper scores are 21, 31, 23, and 30. What is the score on the fifth test paper?",
-    "options": [
-      "16",
-      "20",
-      "23",
-      "26"
-    ],
-    "correctAnswer": "20",
-    "explanation": "Total sum of 5 tests = 5 × 25 = 125. Sum of 4 known tests = 21 + 31 + 23 + 30 = 105. Fifth test = 125 - 105 = 20.",
-    "stepByStepSolution": "Step 1: Total sum = Number of items × Mean = 5 × 25 = 125.\nStep 2: Sum of known scores = 21 + 31 + 23 + 30 = 105.\nStep 3: Fifth score = 125 - 105 = 20.",
     "sourceType": "curated_seed",
     "approved": true,
     "createdAt": "2026-09-20T00:00:00.000Z"
@@ -2978,120 +1946,6 @@ export const MATHS_QUESTIONS: Question[] = [
     "createdAt": "2026-09-20T00:00:00.000Z"
   },
   {
-    "id": "math-ratio-155",
-    "subject": "Mathematics",
-    "topic": "Ratio & Proportion",
-    "difficulty": "Hard",
-    "questionText": "A lottery prize of £252 is shared among Anna, Ben, and Chloe in the ratio 3 : 6 : 5. How much more money does Chloe receive than Anna?",
-    "options": [
-      "£36",
-      "£90",
-      "£90",
-      "£54"
-    ],
-    "correctAnswer": "£36",
-    "explanation": "Total parts = 3 + 6 + 5 = 14. One part = £252 ÷ 14 = £18. Chloe has 5 parts (£90) and Anna has 3 parts (£54). Difference = £90 - £54 = £36.",
-    "stepByStepSolution": "Step 1: Sum the ratio parts: 3 + 6 + 5 = 14 parts.\nStep 2: Calculate value per part: £252 ÷ 14 = £18.\nStep 3: Chloe's share = 5 × £18 = £90.\nStep 4: Anna's share = 3 × £18 = £54.\nStep 5: Difference = £90 - £54 = £36.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-alg-156",
-    "subject": "Mathematics",
-    "topic": "Algebra & Linear Equations",
-    "difficulty": "Hard",
-    "questionText": "Solve for x: 3(x + 7) = 51",
-    "options": [
-      "10",
-      "12",
-      "13",
-      "9"
-    ],
-    "correctAnswer": "10",
-    "explanation": "Expand or divide both sides by 3: x + 7 = 17. Subtract 7: x = 17 - 7 = 10.",
-    "stepByStepSolution": "Step 1: Divide both sides by 3: (x + 7) = 51 ÷ 3 = 17.\nStep 2: Subtract 7 from both sides: x = 17 - 7 = 10.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-geom-157",
-    "subject": "Mathematics",
-    "topic": "Perimeter, Area & Volume",
-    "difficulty": "Hard",
-    "questionText": "An L-shaped lawn is created by taking a large rectangle measuring 12 m by 11 m and removing a rectangular corner patch measuring 4 m by 3 m. What is the total area of the remaining lawn?",
-    "options": [
-      "120 cm²",
-      "132 cm²",
-      "128 cm²",
-      "111 cm²"
-    ],
-    "correctAnswer": "120 cm²",
-    "explanation": "Calculate original rectangle area: 12 × 11 = 132 m². Subtract cut-out area: 4 × 3 = 12 m². Remaining area = 132 - 12 = 120 m².",
-    "stepByStepSolution": "Step 1: Total bounding area = 12 × 11 = 132 m².\nStep 2: Corner cut-out area = 4 × 3 = 12 m².\nStep 3: Area of lawn = 132 - 12 = 120 m².\nAnswer: 120 cm² equivalent.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-frac-158",
-    "subject": "Mathematics",
-    "topic": "Fractions & Multi-Step Problems",
-    "difficulty": "Hard",
-    "questionText": "Marcus is reading a book containing 240 pages. On Saturday, he reads 1/4 of the entire book. On Sunday, he reads 2/5 of the REMAINING pages. How many pages does he still have left to read?",
-    "options": [
-      "90 pages",
-      "98 pages",
-      "108 pages",
-      "123 pages"
-    ],
-    "correctAnswer": "108 pages",
-    "explanation": "Saturday: 1/4 of 240 = 60 pages. Remaining = 240 - 60 = 180 pages. Sunday: 2/5 of 180 = 72 pages. Left to read = 180 - 72 = 108 pages.",
-    "stepByStepSolution": "Step 1: Pages read on Saturday: 240 ÷ 4 = 60.\nStep 2: Pages remaining after Saturday: 240 - 60 = 180.\nStep 3: Pages read on Sunday: (2/5) × 180 = 72.\nStep 4: Pages still unread: 180 - 72 = 108 pages.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-prob-159",
-    "subject": "Mathematics",
-    "topic": "Probability & Data Analysis",
-    "difficulty": "Hard",
-    "questionText": "An opaque bag contains 7 red marbles, 10 blue marbles, and 4 yellow marbles. If one marble is drawn at random, what is the probability of selecting a red marble in its simplest fractional form?",
-    "options": [
-      "1.1428571428571428/3",
-      "1/3",
-      "4/21",
-      "10/21"
-    ],
-    "correctAnswer": "1/3",
-    "explanation": "Total marbles = 7 + 10 + 4 = 21. Favorable outcomes = 7. Fraction = 7/21, which simplifies to 1/3.",
-    "stepByStepSolution": "Step 1: Find total number of outcomes: 7 + 10 + 4 = 21.\nStep 2: Number of red marbles = 7.\nStep 3: Probability = 7/21.\nStep 4: Divide numerator and denominator by common factor 7: 1/3.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-mean-160",
-    "subject": "Mathematics",
-    "topic": "Statistics & Averages",
-    "difficulty": "Hard",
-    "questionText": "The mean score of 5 test papers is 21. Four of the paper scores are 17, 27, 19, and 26. What is the score on the fifth test paper?",
-    "options": [
-      "16",
-      "19",
-      "12",
-      "22"
-    ],
-    "correctAnswer": "16",
-    "explanation": "Total sum of 5 tests = 5 × 21 = 105. Sum of 4 known tests = 17 + 27 + 19 + 26 = 89. Fifth test = 105 - 89 = 16.",
-    "stepByStepSolution": "Step 1: Total sum = Number of items × Mean = 5 × 21 = 105.\nStep 2: Sum of known scores = 17 + 27 + 19 + 26 = 89.\nStep 3: Fifth score = 105 - 89 = 16.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
     "id": "math-sdt-161",
     "subject": "Mathematics",
     "topic": "Speed, Distance & Time",
@@ -3125,120 +1979,6 @@ export const MATHS_QUESTIONS: Question[] = [
     "correctAnswer": "£150.00",
     "explanation": "The sale price represents 60% of the original price. Divide the sale price by 0.6 to calculate the original price: £90.00 ÷ 0.6 = £150.00.",
     "stepByStepSolution": "Step 1: The discounted price is 100% - 40% = 60% of original value.\nStep 2: 60% = £90.00.\nStep 3: 1% = £90.00 ÷ 60 = £1.5000.\nStep 4: 100% = £150.00.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-ratio-163",
-    "subject": "Mathematics",
-    "topic": "Ratio & Proportion",
-    "difficulty": "Hard",
-    "questionText": "A lottery prize of £270 is shared among Anna, Ben, and Chloe in the ratio 2 : 6 : 7. How much more money does Chloe receive than Anna?",
-    "options": [
-      "£90",
-      "£72",
-      "£126",
-      "£108"
-    ],
-    "correctAnswer": "£90",
-    "explanation": "Total parts = 2 + 6 + 7 = 15. One part = £270 ÷ 15 = £18. Chloe has 7 parts (£126) and Anna has 2 parts (£36). Difference = £126 - £36 = £90.",
-    "stepByStepSolution": "Step 1: Sum the ratio parts: 2 + 6 + 7 = 15 parts.\nStep 2: Calculate value per part: £270 ÷ 15 = £18.\nStep 3: Chloe's share = 7 × £18 = £126.\nStep 4: Anna's share = 2 × £18 = £36.\nStep 5: Difference = £126 - £36 = £90.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-alg-164",
-    "subject": "Mathematics",
-    "topic": "Algebra & Linear Equations",
-    "difficulty": "Hard",
-    "questionText": "Solve for x: 6(x + 3) = 60",
-    "options": [
-      "10",
-      "6",
-      "7",
-      "9"
-    ],
-    "correctAnswer": "7",
-    "explanation": "Expand or divide both sides by 6: x + 3 = 10. Subtract 3: x = 10 - 3 = 7.",
-    "stepByStepSolution": "Step 1: Divide both sides by 6: (x + 3) = 60 ÷ 6 = 10.\nStep 2: Subtract 3 from both sides: x = 10 - 3 = 7.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-geom-165",
-    "subject": "Mathematics",
-    "topic": "Perimeter, Area & Volume",
-    "difficulty": "Hard",
-    "questionText": "An L-shaped lawn is created by taking a large rectangle measuring 14 m by 14 m and removing a rectangular corner patch measuring 6 m by 3 m. What is the total area of the remaining lawn?",
-    "options": [
-      "178 cm²",
-      "196 cm²",
-      "190 cm²",
-      "169 cm²"
-    ],
-    "correctAnswer": "178 cm²",
-    "explanation": "Calculate original rectangle area: 14 × 14 = 196 m². Subtract cut-out area: 6 × 3 = 18 m². Remaining area = 196 - 18 = 178 m².",
-    "stepByStepSolution": "Step 1: Total bounding area = 14 × 14 = 196 m².\nStep 2: Corner cut-out area = 6 × 3 = 18 m².\nStep 3: Area of lawn = 196 - 18 = 178 m².\nAnswer: 178 cm² equivalent.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-frac-166",
-    "subject": "Mathematics",
-    "topic": "Fractions & Multi-Step Problems",
-    "difficulty": "Hard",
-    "questionText": "Marcus is reading a book containing 200 pages. On Saturday, he reads 1/3 of the entire book. On Sunday, he reads 2/5 of the REMAINING pages. How many pages does he still have left to read?",
-    "options": [
-      "94.99999999999999 pages",
-      "79.99999999999999 pages",
-      "69.99999999999999 pages",
-      "67 pages"
-    ],
-    "correctAnswer": "79.99999999999999 pages",
-    "explanation": "Saturday: 1/3 of 200 = 66.66666666666667 pages. Remaining = 200 - 66.66666666666667 = 133.33333333333331 pages. Sunday: 2/5 of 133.33333333333331 = 53.33333333333333 pages. Left to read = 133.33333333333331 - 53.33333333333333 = 79.99999999999999 pages.",
-    "stepByStepSolution": "Step 1: Pages read on Saturday: 200 ÷ 3 = 66.66666666666667.\nStep 2: Pages remaining after Saturday: 200 - 66.66666666666667 = 133.33333333333331.\nStep 3: Pages read on Sunday: (2/5) × 133.33333333333331 = 53.33333333333333.\nStep 4: Pages still unread: 133.33333333333331 - 53.33333333333333 = 79.99999999999999 pages.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-prob-167",
-    "subject": "Mathematics",
-    "topic": "Probability & Data Analysis",
-    "difficulty": "Hard",
-    "questionText": "An opaque bag contains 5 red marbles, 6 blue marbles, and 4 yellow marbles. If one marble is drawn at random, what is the probability of selecting a red marble in its simplest fractional form?",
-    "options": [
-      "2/5",
-      "1/3",
-      "1.2/3",
-      "4/15"
-    ],
-    "correctAnswer": "1/3",
-    "explanation": "Total marbles = 5 + 6 + 4 = 15. Favorable outcomes = 5. Fraction = 5/15, which simplifies to 1/3.",
-    "stepByStepSolution": "Step 1: Find total number of outcomes: 5 + 6 + 4 = 15.\nStep 2: Number of red marbles = 5.\nStep 3: Probability = 5/15.\nStep 4: Divide numerator and denominator by common factor 5: 1/3.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-mean-168",
-    "subject": "Mathematics",
-    "topic": "Statistics & Averages",
-    "difficulty": "Hard",
-    "questionText": "The mean score of 5 test papers is 29. Four of the paper scores are 25, 35, 27, and 34. What is the score on the fifth test paper?",
-    "options": [
-      "24",
-      "27",
-      "20",
-      "30"
-    ],
-    "correctAnswer": "24",
-    "explanation": "Total sum of 5 tests = 5 × 29 = 145. Sum of 4 known tests = 25 + 35 + 27 + 34 = 121. Fifth test = 145 - 121 = 24.",
-    "stepByStepSolution": "Step 1: Total sum = Number of items × Mean = 5 × 29 = 145.\nStep 2: Sum of known scores = 25 + 35 + 27 + 34 = 121.\nStep 3: Fifth score = 145 - 121 = 24.",
     "sourceType": "curated_seed",
     "approved": true,
     "createdAt": "2026-09-20T00:00:00.000Z"
@@ -3282,120 +2022,6 @@ export const MATHS_QUESTIONS: Question[] = [
     "createdAt": "2026-09-20T00:00:00.000Z"
   },
   {
-    "id": "math-ratio-171",
-    "subject": "Mathematics",
-    "topic": "Ratio & Proportion",
-    "difficulty": "Hard",
-    "questionText": "A lottery prize of £288 is shared among Anna, Ben, and Chloe in the ratio 4 : 6 : 6. How much more money does Chloe receive than Anna?",
-    "options": [
-      "£36",
-      "£54",
-      "£108",
-      "£108"
-    ],
-    "correctAnswer": "£36",
-    "explanation": "Total parts = 4 + 6 + 6 = 16. One part = £288 ÷ 16 = £18. Chloe has 6 parts (£108) and Anna has 4 parts (£72). Difference = £108 - £72 = £36.",
-    "stepByStepSolution": "Step 1: Sum the ratio parts: 4 + 6 + 6 = 16 parts.\nStep 2: Calculate value per part: £288 ÷ 16 = £18.\nStep 3: Chloe's share = 6 × £18 = £108.\nStep 4: Anna's share = 4 × £18 = £72.\nStep 5: Difference = £108 - £72 = £36.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-alg-172",
-    "subject": "Mathematics",
-    "topic": "Algebra & Linear Equations",
-    "difficulty": "Hard",
-    "questionText": "Solve for x: 4(x + 5) = 36",
-    "options": [
-      "7",
-      "6",
-      "3",
-      "4"
-    ],
-    "correctAnswer": "4",
-    "explanation": "Expand or divide both sides by 4: x + 5 = 9. Subtract 5: x = 9 - 5 = 4.",
-    "stepByStepSolution": "Step 1: Divide both sides by 4: (x + 5) = 36 ÷ 4 = 9.\nStep 2: Subtract 5 from both sides: x = 9 - 5 = 4.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-geom-173",
-    "subject": "Mathematics",
-    "topic": "Perimeter, Area & Volume",
-    "difficulty": "Hard",
-    "questionText": "An L-shaped lawn is created by taking a large rectangle measuring 16 m by 12 m and removing a rectangular corner patch measuring 5 m by 3 m. What is the total area of the remaining lawn?",
-    "options": [
-      "177 cm²",
-      "192 cm²",
-      "187 cm²",
-      "168 cm²"
-    ],
-    "correctAnswer": "177 cm²",
-    "explanation": "Calculate original rectangle area: 16 × 12 = 192 m². Subtract cut-out area: 5 × 3 = 15 m². Remaining area = 192 - 15 = 177 m².",
-    "stepByStepSolution": "Step 1: Total bounding area = 16 × 12 = 192 m².\nStep 2: Corner cut-out area = 5 × 3 = 15 m².\nStep 3: Area of lawn = 192 - 15 = 177 m².\nAnswer: 177 cm² equivalent.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-frac-174",
-    "subject": "Mathematics",
-    "topic": "Fractions & Multi-Step Problems",
-    "difficulty": "Hard",
-    "questionText": "Marcus is reading a book containing 180 pages. On Saturday, he reads 1/5 of the entire book. On Sunday, he reads 2/5 of the REMAINING pages. How many pages does he still have left to read?",
-    "options": [
-      "72 pages",
-      "76.4 pages",
-      "86.4 pages",
-      "101.4 pages"
-    ],
-    "correctAnswer": "86.4 pages",
-    "explanation": "Saturday: 1/5 of 180 = 36 pages. Remaining = 180 - 36 = 144 pages. Sunday: 2/5 of 144 = 57.6 pages. Left to read = 144 - 57.6 = 86.4 pages.",
-    "stepByStepSolution": "Step 1: Pages read on Saturday: 180 ÷ 5 = 36.\nStep 2: Pages remaining after Saturday: 180 - 36 = 144.\nStep 3: Pages read on Sunday: (2/5) × 144 = 57.6.\nStep 4: Pages still unread: 144 - 57.6 = 86.4 pages.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-prob-175",
-    "subject": "Mathematics",
-    "topic": "Probability & Data Analysis",
-    "difficulty": "Hard",
-    "questionText": "An opaque bag contains 8 red marbles, 8 blue marbles, and 4 yellow marbles. If one marble is drawn at random, what is the probability of selecting a red marble in its simplest fractional form?",
-    "options": [
-      "1/5",
-      "2/5",
-      "2/5",
-      "2.25/5"
-    ],
-    "correctAnswer": "2/5",
-    "explanation": "Total marbles = 8 + 8 + 4 = 20. Favorable outcomes = 8. Fraction = 8/20, which simplifies to 2/5.",
-    "stepByStepSolution": "Step 1: Find total number of outcomes: 8 + 8 + 4 = 20.\nStep 2: Number of red marbles = 8.\nStep 3: Probability = 8/20.\nStep 4: Divide numerator and denominator by common factor 4: 2/5.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-mean-176",
-    "subject": "Mathematics",
-    "topic": "Statistics & Averages",
-    "difficulty": "Hard",
-    "questionText": "The mean score of 5 test papers is 25. Four of the paper scores are 21, 31, 23, and 30. What is the score on the fifth test paper?",
-    "options": [
-      "20",
-      "23",
-      "26",
-      "16"
-    ],
-    "correctAnswer": "20",
-    "explanation": "Total sum of 5 tests = 5 × 25 = 125. Sum of 4 known tests = 21 + 31 + 23 + 30 = 105. Fifth test = 125 - 105 = 20.",
-    "stepByStepSolution": "Step 1: Total sum = Number of items × Mean = 5 × 25 = 125.\nStep 2: Sum of known scores = 21 + 31 + 23 + 30 = 105.\nStep 3: Fifth score = 125 - 105 = 20.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
     "id": "math-sdt-177",
     "subject": "Mathematics",
     "topic": "Speed, Distance & Time",
@@ -3434,120 +2060,6 @@ export const MATHS_QUESTIONS: Question[] = [
     "createdAt": "2026-09-20T00:00:00.000Z"
   },
   {
-    "id": "math-ratio-179",
-    "subject": "Mathematics",
-    "topic": "Ratio & Proportion",
-    "difficulty": "Hard",
-    "questionText": "A lottery prize of £252 is shared among Anna, Ben, and Chloe in the ratio 3 : 6 : 5. How much more money does Chloe receive than Anna?",
-    "options": [
-      "£36",
-      "£90",
-      "£90",
-      "£54"
-    ],
-    "correctAnswer": "£36",
-    "explanation": "Total parts = 3 + 6 + 5 = 14. One part = £252 ÷ 14 = £18. Chloe has 5 parts (£90) and Anna has 3 parts (£54). Difference = £90 - £54 = £36.",
-    "stepByStepSolution": "Step 1: Sum the ratio parts: 3 + 6 + 5 = 14 parts.\nStep 2: Calculate value per part: £252 ÷ 14 = £18.\nStep 3: Chloe's share = 5 × £18 = £90.\nStep 4: Anna's share = 3 × £18 = £54.\nStep 5: Difference = £90 - £54 = £36.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-alg-180",
-    "subject": "Mathematics",
-    "topic": "Algebra & Linear Equations",
-    "difficulty": "Hard",
-    "questionText": "Solve for x: 7(x + 7) = 119",
-    "options": [
-      "9",
-      "10",
-      "12",
-      "13"
-    ],
-    "correctAnswer": "10",
-    "explanation": "Expand or divide both sides by 7: x + 7 = 17. Subtract 7: x = 17 - 7 = 10.",
-    "stepByStepSolution": "Step 1: Divide both sides by 7: (x + 7) = 119 ÷ 7 = 17.\nStep 2: Subtract 7 from both sides: x = 17 - 7 = 10.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-geom-181",
-    "subject": "Mathematics",
-    "topic": "Perimeter, Area & Volume",
-    "difficulty": "Hard",
-    "questionText": "An L-shaped lawn is created by taking a large rectangle measuring 12 m by 10 m and removing a rectangular corner patch measuring 4 m by 3 m. What is the total area of the remaining lawn?",
-    "options": [
-      "108 cm²",
-      "120 cm²",
-      "116 cm²",
-      "99 cm²"
-    ],
-    "correctAnswer": "108 cm²",
-    "explanation": "Calculate original rectangle area: 12 × 10 = 120 m². Subtract cut-out area: 4 × 3 = 12 m². Remaining area = 120 - 12 = 108 m².",
-    "stepByStepSolution": "Step 1: Total bounding area = 12 × 10 = 120 m².\nStep 2: Corner cut-out area = 4 × 3 = 12 m².\nStep 3: Area of lawn = 120 - 12 = 108 m².\nAnswer: 108 cm² equivalent.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-frac-182",
-    "subject": "Mathematics",
-    "topic": "Fractions & Multi-Step Problems",
-    "difficulty": "Hard",
-    "questionText": "Marcus is reading a book containing 160 pages. On Saturday, he reads 1/4 of the entire book. On Sunday, he reads 2/5 of the REMAINING pages. How many pages does he still have left to read?",
-    "options": [
-      "87 pages",
-      "72 pages",
-      "60 pages",
-      "62 pages"
-    ],
-    "correctAnswer": "72 pages",
-    "explanation": "Saturday: 1/4 of 160 = 40 pages. Remaining = 160 - 40 = 120 pages. Sunday: 2/5 of 120 = 48 pages. Left to read = 120 - 48 = 72 pages.",
-    "stepByStepSolution": "Step 1: Pages read on Saturday: 160 ÷ 4 = 40.\nStep 2: Pages remaining after Saturday: 160 - 40 = 120.\nStep 3: Pages read on Sunday: (2/5) × 120 = 48.\nStep 4: Pages still unread: 120 - 48 = 72 pages.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-prob-183",
-    "subject": "Mathematics",
-    "topic": "Probability & Data Analysis",
-    "difficulty": "Hard",
-    "questionText": "An opaque bag contains 6 red marbles, 10 blue marbles, and 4 yellow marbles. If one marble is drawn at random, what is the probability of selecting a red marble in its simplest fractional form?",
-    "options": [
-      "3.5/10",
-      "1/2",
-      "1/5",
-      "3/10"
-    ],
-    "correctAnswer": "3/10",
-    "explanation": "Total marbles = 6 + 10 + 4 = 20. Favorable outcomes = 6. Fraction = 6/20, which simplifies to 3/10.",
-    "stepByStepSolution": "Step 1: Find total number of outcomes: 6 + 10 + 4 = 20.\nStep 2: Number of red marbles = 6.\nStep 3: Probability = 6/20.\nStep 4: Divide numerator and denominator by common factor 2: 3/10.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-mean-184",
-    "subject": "Mathematics",
-    "topic": "Statistics & Averages",
-    "difficulty": "Hard",
-    "questionText": "The mean score of 5 test papers is 21. Four of the paper scores are 17, 27, 19, and 26. What is the score on the fifth test paper?",
-    "options": [
-      "16",
-      "19",
-      "12",
-      "22"
-    ],
-    "correctAnswer": "16",
-    "explanation": "Total sum of 5 tests = 5 × 21 = 105. Sum of 4 known tests = 17 + 27 + 19 + 26 = 89. Fifth test = 105 - 89 = 16.",
-    "stepByStepSolution": "Step 1: Total sum = Number of items × Mean = 5 × 21 = 105.\nStep 2: Sum of known scores = 17 + 27 + 19 + 26 = 89.\nStep 3: Fifth score = 105 - 89 = 16.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
     "id": "math-sdt-185",
     "subject": "Mathematics",
     "topic": "Speed, Distance & Time",
@@ -3557,7 +2069,7 @@ export const MATHS_QUESTIONS: Question[] = [
       "165 miles",
       "195 miles",
       "153 miles",
-      "165 miles"
+      "215 miles"
     ],
     "correctAnswer": "165 miles",
     "explanation": "Convert 45 minutes to hours (45/60 = 0.75 h). Total time = 2.75 h. Distance = Speed × Time = 60 × 2.75 = 165 miles.",
@@ -3581,120 +2093,6 @@ export const MATHS_QUESTIONS: Question[] = [
     "correctAnswer": "£240.00",
     "explanation": "The sale price represents 60% of the original price. Divide the sale price by 0.6 to calculate the original price: £144.00 ÷ 0.6 = £240.00.",
     "stepByStepSolution": "Step 1: The discounted price is 100% - 40% = 60% of original value.\nStep 2: 60% = £144.00.\nStep 3: 1% = £144.00 ÷ 60 = £2.4000.\nStep 4: 100% = £240.00.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-ratio-187",
-    "subject": "Mathematics",
-    "topic": "Ratio & Proportion",
-    "difficulty": "Hard",
-    "questionText": "A lottery prize of £270 is shared among Anna, Ben, and Chloe in the ratio 2 : 6 : 7. How much more money does Chloe receive than Anna?",
-    "options": [
-      "£90",
-      "£72",
-      "£126",
-      "£108"
-    ],
-    "correctAnswer": "£90",
-    "explanation": "Total parts = 2 + 6 + 7 = 15. One part = £270 ÷ 15 = £18. Chloe has 7 parts (£126) and Anna has 2 parts (£36). Difference = £126 - £36 = £90.",
-    "stepByStepSolution": "Step 1: Sum the ratio parts: 2 + 6 + 7 = 15 parts.\nStep 2: Calculate value per part: £270 ÷ 15 = £18.\nStep 3: Chloe's share = 7 × £18 = £126.\nStep 4: Anna's share = 2 × £18 = £36.\nStep 5: Difference = £126 - £36 = £90.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-alg-188",
-    "subject": "Mathematics",
-    "topic": "Algebra & Linear Equations",
-    "difficulty": "Hard",
-    "questionText": "Solve for x: 5(x + 3) = 50",
-    "options": [
-      "10",
-      "6",
-      "9",
-      "7"
-    ],
-    "correctAnswer": "7",
-    "explanation": "Expand or divide both sides by 5: x + 3 = 10. Subtract 3: x = 10 - 3 = 7.",
-    "stepByStepSolution": "Step 1: Divide both sides by 5: (x + 3) = 50 ÷ 5 = 10.\nStep 2: Subtract 3 from both sides: x = 10 - 3 = 7.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-geom-189",
-    "subject": "Mathematics",
-    "topic": "Perimeter, Area & Volume",
-    "difficulty": "Hard",
-    "questionText": "An L-shaped lawn is created by taking a large rectangle measuring 14 m by 13 m and removing a rectangular corner patch measuring 6 m by 3 m. What is the total area of the remaining lawn?",
-    "options": [
-      "164 cm²",
-      "182 cm²",
-      "176 cm²",
-      "155 cm²"
-    ],
-    "correctAnswer": "164 cm²",
-    "explanation": "Calculate original rectangle area: 14 × 13 = 182 m². Subtract cut-out area: 6 × 3 = 18 m². Remaining area = 182 - 18 = 164 m².",
-    "stepByStepSolution": "Step 1: Total bounding area = 14 × 13 = 182 m².\nStep 2: Corner cut-out area = 6 × 3 = 18 m².\nStep 3: Area of lawn = 182 - 18 = 164 m².\nAnswer: 164 cm² equivalent.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-frac-190",
-    "subject": "Mathematics",
-    "topic": "Fractions & Multi-Step Problems",
-    "difficulty": "Hard",
-    "questionText": "Marcus is reading a book containing 120 pages. On Saturday, he reads 1/3 of the entire book. On Sunday, he reads 2/5 of the REMAINING pages. How many pages does he still have left to read?",
-    "options": [
-      "63 pages",
-      "48 pages",
-      "40 pages",
-      "38 pages"
-    ],
-    "correctAnswer": "48 pages",
-    "explanation": "Saturday: 1/3 of 120 = 40 pages. Remaining = 120 - 40 = 80 pages. Sunday: 2/5 of 80 = 32 pages. Left to read = 80 - 32 = 48 pages.",
-    "stepByStepSolution": "Step 1: Pages read on Saturday: 120 ÷ 3 = 40.\nStep 2: Pages remaining after Saturday: 120 - 40 = 80.\nStep 3: Pages read on Sunday: (2/5) × 80 = 32.\nStep 4: Pages still unread: 80 - 32 = 48 pages.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-prob-191",
-    "subject": "Mathematics",
-    "topic": "Probability & Data Analysis",
-    "difficulty": "Hard",
-    "questionText": "An opaque bag contains 4 red marbles, 6 blue marbles, and 4 yellow marbles. If one marble is drawn at random, what is the probability of selecting a red marble in its simplest fractional form?",
-    "options": [
-      "2.5/7",
-      "3/7",
-      "2/7",
-      "2/7"
-    ],
-    "correctAnswer": "2/7",
-    "explanation": "Total marbles = 4 + 6 + 4 = 14. Favorable outcomes = 4. Fraction = 4/14, which simplifies to 2/7.",
-    "stepByStepSolution": "Step 1: Find total number of outcomes: 4 + 6 + 4 = 14.\nStep 2: Number of red marbles = 4.\nStep 3: Probability = 4/14.\nStep 4: Divide numerator and denominator by common factor 2: 2/7.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-mean-192",
-    "subject": "Mathematics",
-    "topic": "Statistics & Averages",
-    "difficulty": "Hard",
-    "questionText": "The mean score of 5 test papers is 29. Four of the paper scores are 25, 35, 27, and 34. What is the score on the fifth test paper?",
-    "options": [
-      "30",
-      "24",
-      "27",
-      "20"
-    ],
-    "correctAnswer": "24",
-    "explanation": "Total sum of 5 tests = 5 × 29 = 145. Sum of 4 known tests = 25 + 35 + 27 + 34 = 121. Fifth test = 145 - 121 = 24.",
-    "stepByStepSolution": "Step 1: Total sum = Number of items × Mean = 5 × 29 = 145.\nStep 2: Sum of known scores = 25 + 35 + 27 + 34 = 121.\nStep 3: Fifth score = 145 - 121 = 24.",
     "sourceType": "curated_seed",
     "approved": true,
     "createdAt": "2026-09-20T00:00:00.000Z"
@@ -3738,120 +2136,6 @@ export const MATHS_QUESTIONS: Question[] = [
     "createdAt": "2026-09-20T00:00:00.000Z"
   },
   {
-    "id": "math-ratio-195",
-    "subject": "Mathematics",
-    "topic": "Ratio & Proportion",
-    "difficulty": "Hard",
-    "questionText": "A lottery prize of £288 is shared among Anna, Ben, and Chloe in the ratio 4 : 6 : 6. How much more money does Chloe receive than Anna?",
-    "options": [
-      "£36",
-      "£54",
-      "£108",
-      "£108"
-    ],
-    "correctAnswer": "£36",
-    "explanation": "Total parts = 4 + 6 + 6 = 16. One part = £288 ÷ 16 = £18. Chloe has 6 parts (£108) and Anna has 4 parts (£72). Difference = £108 - £72 = £36.",
-    "stepByStepSolution": "Step 1: Sum the ratio parts: 4 + 6 + 6 = 16 parts.\nStep 2: Calculate value per part: £288 ÷ 16 = £18.\nStep 3: Chloe's share = 6 × £18 = £108.\nStep 4: Anna's share = 4 × £18 = £72.\nStep 5: Difference = £108 - £72 = £36.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-alg-196",
-    "subject": "Mathematics",
-    "topic": "Algebra & Linear Equations",
-    "difficulty": "Hard",
-    "questionText": "Solve for x: 3(x + 5) = 27",
-    "options": [
-      "3",
-      "4",
-      "6",
-      "7"
-    ],
-    "correctAnswer": "4",
-    "explanation": "Expand or divide both sides by 3: x + 5 = 9. Subtract 5: x = 9 - 5 = 4.",
-    "stepByStepSolution": "Step 1: Divide both sides by 3: (x + 5) = 27 ÷ 3 = 9.\nStep 2: Subtract 5 from both sides: x = 9 - 5 = 4.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-geom-197",
-    "subject": "Mathematics",
-    "topic": "Perimeter, Area & Volume",
-    "difficulty": "Hard",
-    "questionText": "An L-shaped lawn is created by taking a large rectangle measuring 16 m by 11 m and removing a rectangular corner patch measuring 5 m by 3 m. What is the total area of the remaining lawn?",
-    "options": [
-      "161 cm²",
-      "176 cm²",
-      "171 cm²",
-      "152 cm²"
-    ],
-    "correctAnswer": "161 cm²",
-    "explanation": "Calculate original rectangle area: 16 × 11 = 176 m². Subtract cut-out area: 5 × 3 = 15 m². Remaining area = 176 - 15 = 161 m².",
-    "stepByStepSolution": "Step 1: Total bounding area = 16 × 11 = 176 m².\nStep 2: Corner cut-out area = 5 × 3 = 15 m².\nStep 3: Area of lawn = 176 - 15 = 161 m².\nAnswer: 161 cm² equivalent.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-frac-198",
-    "subject": "Mathematics",
-    "topic": "Fractions & Multi-Step Problems",
-    "difficulty": "Hard",
-    "questionText": "Marcus is reading a book containing 400 pages. On Saturday, he reads 1/5 of the entire book. On Sunday, he reads 2/5 of the REMAINING pages. How many pages does he still have left to read?",
-    "options": [
-      "192 pages",
-      "160 pages",
-      "182 pages",
-      "207 pages"
-    ],
-    "correctAnswer": "192 pages",
-    "explanation": "Saturday: 1/5 of 400 = 80 pages. Remaining = 400 - 80 = 320 pages. Sunday: 2/5 of 320 = 128 pages. Left to read = 320 - 128 = 192 pages.",
-    "stepByStepSolution": "Step 1: Pages read on Saturday: 400 ÷ 5 = 80.\nStep 2: Pages remaining after Saturday: 400 - 80 = 320.\nStep 3: Pages read on Sunday: (2/5) × 320 = 128.\nStep 4: Pages still unread: 320 - 128 = 192 pages.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-prob-199",
-    "subject": "Mathematics",
-    "topic": "Probability & Data Analysis",
-    "difficulty": "Hard",
-    "questionText": "An opaque bag contains 7 red marbles, 8 blue marbles, and 4 yellow marbles. If one marble is drawn at random, what is the probability of selecting a red marble in its simplest fractional form?",
-    "options": [
-      "8/19",
-      "8/19",
-      "7/19",
-      "4/19"
-    ],
-    "correctAnswer": "7/19",
-    "explanation": "Total marbles = 7 + 8 + 4 = 19. Favorable outcomes = 7. Fraction = 7/19, which simplifies to 7/19.",
-    "stepByStepSolution": "Step 1: Find total number of outcomes: 7 + 8 + 4 = 19.\nStep 2: Number of red marbles = 7.\nStep 3: Probability = 7/19.\nStep 4: Divide numerator and denominator by common factor 1: 7/19.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-mean-200",
-    "subject": "Mathematics",
-    "topic": "Statistics & Averages",
-    "difficulty": "Hard",
-    "questionText": "The mean score of 5 test papers is 25. Four of the paper scores are 21, 31, 23, and 30. What is the score on the fifth test paper?",
-    "options": [
-      "20",
-      "23",
-      "26",
-      "16"
-    ],
-    "correctAnswer": "20",
-    "explanation": "Total sum of 5 tests = 5 × 25 = 125. Sum of 4 known tests = 21 + 31 + 23 + 30 = 105. Fifth test = 125 - 105 = 20.",
-    "stepByStepSolution": "Step 1: Total sum = Number of items × Mean = 5 × 25 = 125.\nStep 2: Sum of known scores = 21 + 31 + 23 + 30 = 105.\nStep 3: Fifth score = 125 - 105 = 20.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
     "id": "math-sdt-201",
     "subject": "Mathematics",
     "topic": "Speed, Distance & Time",
@@ -3885,120 +2169,6 @@ export const MATHS_QUESTIONS: Question[] = [
     "correctAnswer": "£75.00",
     "explanation": "The sale price represents 75% of the original price. Divide the sale price by 0.75 to calculate the original price: £56.25 ÷ 0.75 = £75.00.",
     "stepByStepSolution": "Step 1: The discounted price is 100% - 25% = 75% of original value.\nStep 2: 75% = £56.25.\nStep 3: 1% = £56.25 ÷ 75 = £0.7500.\nStep 4: 100% = £75.00.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-ratio-203",
-    "subject": "Mathematics",
-    "topic": "Ratio & Proportion",
-    "difficulty": "Hard",
-    "questionText": "A lottery prize of £252 is shared among Anna, Ben, and Chloe in the ratio 3 : 6 : 5. How much more money does Chloe receive than Anna?",
-    "options": [
-      "£36",
-      "£90",
-      "£90",
-      "£54"
-    ],
-    "correctAnswer": "£36",
-    "explanation": "Total parts = 3 + 6 + 5 = 14. One part = £252 ÷ 14 = £18. Chloe has 5 parts (£90) and Anna has 3 parts (£54). Difference = £90 - £54 = £36.",
-    "stepByStepSolution": "Step 1: Sum the ratio parts: 3 + 6 + 5 = 14 parts.\nStep 2: Calculate value per part: £252 ÷ 14 = £18.\nStep 3: Chloe's share = 5 × £18 = £90.\nStep 4: Anna's share = 3 × £18 = £54.\nStep 5: Difference = £90 - £54 = £36.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-alg-204",
-    "subject": "Mathematics",
-    "topic": "Algebra & Linear Equations",
-    "difficulty": "Hard",
-    "questionText": "Solve for x: 6(x + 7) = 102",
-    "options": [
-      "9",
-      "10",
-      "12",
-      "13"
-    ],
-    "correctAnswer": "10",
-    "explanation": "Expand or divide both sides by 6: x + 7 = 17. Subtract 7: x = 17 - 7 = 10.",
-    "stepByStepSolution": "Step 1: Divide both sides by 6: (x + 7) = 102 ÷ 6 = 17.\nStep 2: Subtract 7 from both sides: x = 17 - 7 = 10.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-geom-205",
-    "subject": "Mathematics",
-    "topic": "Perimeter, Area & Volume",
-    "difficulty": "Hard",
-    "questionText": "An L-shaped lawn is created by taking a large rectangle measuring 12 m by 14 m and removing a rectangular corner patch measuring 4 m by 3 m. What is the total area of the remaining lawn?",
-    "options": [
-      "156 cm²",
-      "168 cm²",
-      "164 cm²",
-      "147 cm²"
-    ],
-    "correctAnswer": "156 cm²",
-    "explanation": "Calculate original rectangle area: 12 × 14 = 168 m². Subtract cut-out area: 4 × 3 = 12 m². Remaining area = 168 - 12 = 156 m².",
-    "stepByStepSolution": "Step 1: Total bounding area = 12 × 14 = 168 m².\nStep 2: Corner cut-out area = 4 × 3 = 12 m².\nStep 3: Area of lawn = 168 - 12 = 156 m².\nAnswer: 156 cm² equivalent.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-frac-206",
-    "subject": "Mathematics",
-    "topic": "Fractions & Multi-Step Problems",
-    "difficulty": "Hard",
-    "questionText": "Marcus is reading a book containing 360 pages. On Saturday, he reads 1/4 of the entire book. On Sunday, he reads 2/5 of the REMAINING pages. How many pages does he still have left to read?",
-    "options": [
-      "162 pages",
-      "177 pages",
-      "135 pages",
-      "152 pages"
-    ],
-    "correctAnswer": "162 pages",
-    "explanation": "Saturday: 1/4 of 360 = 90 pages. Remaining = 360 - 90 = 270 pages. Sunday: 2/5 of 270 = 108 pages. Left to read = 270 - 108 = 162 pages.",
-    "stepByStepSolution": "Step 1: Pages read on Saturday: 360 ÷ 4 = 90.\nStep 2: Pages remaining after Saturday: 360 - 90 = 270.\nStep 3: Pages read on Sunday: (2/5) × 270 = 108.\nStep 4: Pages still unread: 270 - 108 = 162 pages.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-prob-207",
-    "subject": "Mathematics",
-    "topic": "Probability & Data Analysis",
-    "difficulty": "Hard",
-    "questionText": "An opaque bag contains 5 red marbles, 10 blue marbles, and 4 yellow marbles. If one marble is drawn at random, what is the probability of selecting a red marble in its simplest fractional form?",
-    "options": [
-      "6/19",
-      "4/19",
-      "5/19",
-      "10/19"
-    ],
-    "correctAnswer": "5/19",
-    "explanation": "Total marbles = 5 + 10 + 4 = 19. Favorable outcomes = 5. Fraction = 5/19, which simplifies to 5/19.",
-    "stepByStepSolution": "Step 1: Find total number of outcomes: 5 + 10 + 4 = 19.\nStep 2: Number of red marbles = 5.\nStep 3: Probability = 5/19.\nStep 4: Divide numerator and denominator by common factor 1: 5/19.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-mean-208",
-    "subject": "Mathematics",
-    "topic": "Statistics & Averages",
-    "difficulty": "Hard",
-    "questionText": "The mean score of 5 test papers is 21. Four of the paper scores are 17, 27, 19, and 26. What is the score on the fifth test paper?",
-    "options": [
-      "22",
-      "16",
-      "19",
-      "12"
-    ],
-    "correctAnswer": "16",
-    "explanation": "Total sum of 5 tests = 5 × 21 = 105. Sum of 4 known tests = 17 + 27 + 19 + 26 = 89. Fifth test = 105 - 89 = 16.",
-    "stepByStepSolution": "Step 1: Total sum = Number of items × Mean = 5 × 21 = 105.\nStep 2: Sum of known scores = 17 + 27 + 19 + 26 = 89.\nStep 3: Fifth score = 105 - 89 = 16.",
     "sourceType": "curated_seed",
     "approved": true,
     "createdAt": "2026-09-20T00:00:00.000Z"
@@ -4042,120 +2212,6 @@ export const MATHS_QUESTIONS: Question[] = [
     "createdAt": "2026-09-20T00:00:00.000Z"
   },
   {
-    "id": "math-ratio-211",
-    "subject": "Mathematics",
-    "topic": "Ratio & Proportion",
-    "difficulty": "Hard",
-    "questionText": "A lottery prize of £270 is shared among Anna, Ben, and Chloe in the ratio 2 : 6 : 7. How much more money does Chloe receive than Anna?",
-    "options": [
-      "£90",
-      "£72",
-      "£126",
-      "£108"
-    ],
-    "correctAnswer": "£90",
-    "explanation": "Total parts = 2 + 6 + 7 = 15. One part = £270 ÷ 15 = £18. Chloe has 7 parts (£126) and Anna has 2 parts (£36). Difference = £126 - £36 = £90.",
-    "stepByStepSolution": "Step 1: Sum the ratio parts: 2 + 6 + 7 = 15 parts.\nStep 2: Calculate value per part: £270 ÷ 15 = £18.\nStep 3: Chloe's share = 7 × £18 = £126.\nStep 4: Anna's share = 2 × £18 = £36.\nStep 5: Difference = £126 - £36 = £90.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-alg-212",
-    "subject": "Mathematics",
-    "topic": "Algebra & Linear Equations",
-    "difficulty": "Hard",
-    "questionText": "Solve for x: 4(x + 3) = 40",
-    "options": [
-      "10",
-      "7",
-      "9",
-      "6"
-    ],
-    "correctAnswer": "7",
-    "explanation": "Expand or divide both sides by 4: x + 3 = 10. Subtract 3: x = 10 - 3 = 7.",
-    "stepByStepSolution": "Step 1: Divide both sides by 4: (x + 3) = 40 ÷ 4 = 10.\nStep 2: Subtract 3 from both sides: x = 10 - 3 = 7.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-geom-213",
-    "subject": "Mathematics",
-    "topic": "Perimeter, Area & Volume",
-    "difficulty": "Hard",
-    "questionText": "An L-shaped lawn is created by taking a large rectangle measuring 14 m by 12 m and removing a rectangular corner patch measuring 6 m by 3 m. What is the total area of the remaining lawn?",
-    "options": [
-      "150 cm²",
-      "168 cm²",
-      "162 cm²",
-      "141 cm²"
-    ],
-    "correctAnswer": "150 cm²",
-    "explanation": "Calculate original rectangle area: 14 × 12 = 168 m². Subtract cut-out area: 6 × 3 = 18 m². Remaining area = 168 - 18 = 150 m².",
-    "stepByStepSolution": "Step 1: Total bounding area = 14 × 12 = 168 m².\nStep 2: Corner cut-out area = 6 × 3 = 18 m².\nStep 3: Area of lawn = 168 - 18 = 150 m².\nAnswer: 150 cm² equivalent.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-frac-214",
-    "subject": "Mathematics",
-    "topic": "Fractions & Multi-Step Problems",
-    "difficulty": "Hard",
-    "questionText": "Marcus is reading a book containing 300 pages. On Saturday, he reads 1/3 of the entire book. On Sunday, he reads 2/5 of the REMAINING pages. How many pages does he still have left to read?",
-    "options": [
-      "120 pages",
-      "135 pages",
-      "100 pages",
-      "110 pages"
-    ],
-    "correctAnswer": "120 pages",
-    "explanation": "Saturday: 1/3 of 300 = 100 pages. Remaining = 300 - 100 = 200 pages. Sunday: 2/5 of 200 = 80 pages. Left to read = 200 - 80 = 120 pages.",
-    "stepByStepSolution": "Step 1: Pages read on Saturday: 300 ÷ 3 = 100.\nStep 2: Pages remaining after Saturday: 300 - 100 = 200.\nStep 3: Pages read on Sunday: (2/5) × 200 = 80.\nStep 4: Pages still unread: 200 - 80 = 120 pages.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-prob-215",
-    "subject": "Mathematics",
-    "topic": "Probability & Data Analysis",
-    "difficulty": "Hard",
-    "questionText": "An opaque bag contains 8 red marbles, 6 blue marbles, and 4 yellow marbles. If one marble is drawn at random, what is the probability of selecting a red marble in its simplest fractional form?",
-    "options": [
-      "4/9",
-      "2/9",
-      "1/3",
-      "4.5/9"
-    ],
-    "correctAnswer": "4/9",
-    "explanation": "Total marbles = 8 + 6 + 4 = 18. Favorable outcomes = 8. Fraction = 8/18, which simplifies to 4/9.",
-    "stepByStepSolution": "Step 1: Find total number of outcomes: 8 + 6 + 4 = 18.\nStep 2: Number of red marbles = 8.\nStep 3: Probability = 8/18.\nStep 4: Divide numerator and denominator by common factor 2: 4/9.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-mean-216",
-    "subject": "Mathematics",
-    "topic": "Statistics & Averages",
-    "difficulty": "Hard",
-    "questionText": "The mean score of 5 test papers is 29. Four of the paper scores are 25, 35, 27, and 34. What is the score on the fifth test paper?",
-    "options": [
-      "24",
-      "27",
-      "20",
-      "30"
-    ],
-    "correctAnswer": "24",
-    "explanation": "Total sum of 5 tests = 5 × 29 = 145. Sum of 4 known tests = 25 + 35 + 27 + 34 = 121. Fifth test = 145 - 121 = 24.",
-    "stepByStepSolution": "Step 1: Total sum = Number of items × Mean = 5 × 29 = 145.\nStep 2: Sum of known scores = 25 + 35 + 27 + 34 = 121.\nStep 3: Fifth score = 145 - 121 = 24.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
     "id": "math-sdt-217",
     "subject": "Mathematics",
     "topic": "Speed, Distance & Time",
@@ -4189,120 +2245,6 @@ export const MATHS_QUESTIONS: Question[] = [
     "correctAnswer": "£180.00",
     "explanation": "The sale price represents 85% of the original price. Divide the sale price by 0.85 to calculate the original price: £153.00 ÷ 0.85 = £180.00.",
     "stepByStepSolution": "Step 1: The discounted price is 100% - 15% = 85% of original value.\nStep 2: 85% = £153.00.\nStep 3: 1% = £153.00 ÷ 85 = £1.8000.\nStep 4: 100% = £180.00.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-ratio-219",
-    "subject": "Mathematics",
-    "topic": "Ratio & Proportion",
-    "difficulty": "Hard",
-    "questionText": "A lottery prize of £288 is shared among Anna, Ben, and Chloe in the ratio 4 : 6 : 6. How much more money does Chloe receive than Anna?",
-    "options": [
-      "£108",
-      "£108",
-      "£36",
-      "£54"
-    ],
-    "correctAnswer": "£36",
-    "explanation": "Total parts = 4 + 6 + 6 = 16. One part = £288 ÷ 16 = £18. Chloe has 6 parts (£108) and Anna has 4 parts (£72). Difference = £108 - £72 = £36.",
-    "stepByStepSolution": "Step 1: Sum the ratio parts: 4 + 6 + 6 = 16 parts.\nStep 2: Calculate value per part: £288 ÷ 16 = £18.\nStep 3: Chloe's share = 6 × £18 = £108.\nStep 4: Anna's share = 4 × £18 = £72.\nStep 5: Difference = £108 - £72 = £36.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-alg-220",
-    "subject": "Mathematics",
-    "topic": "Algebra & Linear Equations",
-    "difficulty": "Hard",
-    "questionText": "Solve for x: 7(x + 5) = 63",
-    "options": [
-      "6",
-      "3",
-      "4",
-      "7"
-    ],
-    "correctAnswer": "4",
-    "explanation": "Expand or divide both sides by 7: x + 5 = 9. Subtract 5: x = 9 - 5 = 4.",
-    "stepByStepSolution": "Step 1: Divide both sides by 7: (x + 5) = 63 ÷ 7 = 9.\nStep 2: Subtract 5 from both sides: x = 9 - 5 = 4.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-geom-221",
-    "subject": "Mathematics",
-    "topic": "Perimeter, Area & Volume",
-    "difficulty": "Hard",
-    "questionText": "An L-shaped lawn is created by taking a large rectangle measuring 16 m by 10 m and removing a rectangular corner patch measuring 5 m by 3 m. What is the total area of the remaining lawn?",
-    "options": [
-      "145 cm²",
-      "160 cm²",
-      "155 cm²",
-      "136 cm²"
-    ],
-    "correctAnswer": "145 cm²",
-    "explanation": "Calculate original rectangle area: 16 × 10 = 160 m². Subtract cut-out area: 5 × 3 = 15 m². Remaining area = 160 - 15 = 145 m².",
-    "stepByStepSolution": "Step 1: Total bounding area = 16 × 10 = 160 m².\nStep 2: Corner cut-out area = 5 × 3 = 15 m².\nStep 3: Area of lawn = 160 - 15 = 145 m².\nAnswer: 145 cm² equivalent.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-frac-222",
-    "subject": "Mathematics",
-    "topic": "Fractions & Multi-Step Problems",
-    "difficulty": "Hard",
-    "questionText": "Marcus is reading a book containing 280 pages. On Saturday, he reads 1/5 of the entire book. On Sunday, he reads 2/5 of the REMAINING pages. How many pages does he still have left to read?",
-    "options": [
-      "112 pages",
-      "134.4 pages",
-      "149.4 pages",
-      "124.4 pages"
-    ],
-    "correctAnswer": "134.4 pages",
-    "explanation": "Saturday: 1/5 of 280 = 56 pages. Remaining = 280 - 56 = 224 pages. Sunday: 2/5 of 224 = 89.6 pages. Left to read = 224 - 89.6 = 134.4 pages.",
-    "stepByStepSolution": "Step 1: Pages read on Saturday: 280 ÷ 5 = 56.\nStep 2: Pages remaining after Saturday: 280 - 56 = 224.\nStep 3: Pages read on Sunday: (2/5) × 224 = 89.6.\nStep 4: Pages still unread: 224 - 89.6 = 134.4 pages.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-prob-223",
-    "subject": "Mathematics",
-    "topic": "Probability & Data Analysis",
-    "difficulty": "Hard",
-    "questionText": "An opaque bag contains 6 red marbles, 8 blue marbles, and 4 yellow marbles. If one marble is drawn at random, what is the probability of selecting a red marble in its simplest fractional form?",
-    "options": [
-      "1/3",
-      "2/9",
-      "4/9",
-      "1.1666666666666667/3"
-    ],
-    "correctAnswer": "1/3",
-    "explanation": "Total marbles = 6 + 8 + 4 = 18. Favorable outcomes = 6. Fraction = 6/18, which simplifies to 1/3.",
-    "stepByStepSolution": "Step 1: Find total number of outcomes: 6 + 8 + 4 = 18.\nStep 2: Number of red marbles = 6.\nStep 3: Probability = 6/18.\nStep 4: Divide numerator and denominator by common factor 6: 1/3.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-mean-224",
-    "subject": "Mathematics",
-    "topic": "Statistics & Averages",
-    "difficulty": "Hard",
-    "questionText": "The mean score of 5 test papers is 25. Four of the paper scores are 21, 31, 23, and 30. What is the score on the fifth test paper?",
-    "options": [
-      "16",
-      "20",
-      "23",
-      "26"
-    ],
-    "correctAnswer": "20",
-    "explanation": "Total sum of 5 tests = 5 × 25 = 125. Sum of 4 known tests = 21 + 31 + 23 + 30 = 105. Fifth test = 125 - 105 = 20.",
-    "stepByStepSolution": "Step 1: Total sum = Number of items × Mean = 5 × 25 = 125.\nStep 2: Sum of known scores = 21 + 31 + 23 + 30 = 105.\nStep 3: Fifth score = 125 - 105 = 20.",
     "sourceType": "curated_seed",
     "approved": true,
     "createdAt": "2026-09-20T00:00:00.000Z"
@@ -4346,120 +2288,6 @@ export const MATHS_QUESTIONS: Question[] = [
     "createdAt": "2026-09-20T00:00:00.000Z"
   },
   {
-    "id": "math-ratio-227",
-    "subject": "Mathematics",
-    "topic": "Ratio & Proportion",
-    "difficulty": "Hard",
-    "questionText": "A lottery prize of £252 is shared among Anna, Ben, and Chloe in the ratio 3 : 6 : 5. How much more money does Chloe receive than Anna?",
-    "options": [
-      "£36",
-      "£90",
-      "£90",
-      "£54"
-    ],
-    "correctAnswer": "£36",
-    "explanation": "Total parts = 3 + 6 + 5 = 14. One part = £252 ÷ 14 = £18. Chloe has 5 parts (£90) and Anna has 3 parts (£54). Difference = £90 - £54 = £36.",
-    "stepByStepSolution": "Step 1: Sum the ratio parts: 3 + 6 + 5 = 14 parts.\nStep 2: Calculate value per part: £252 ÷ 14 = £18.\nStep 3: Chloe's share = 5 × £18 = £90.\nStep 4: Anna's share = 3 × £18 = £54.\nStep 5: Difference = £90 - £54 = £36.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-alg-228",
-    "subject": "Mathematics",
-    "topic": "Algebra & Linear Equations",
-    "difficulty": "Hard",
-    "questionText": "Solve for x: 5(x + 7) = 85",
-    "options": [
-      "9",
-      "10",
-      "12",
-      "13"
-    ],
-    "correctAnswer": "10",
-    "explanation": "Expand or divide both sides by 5: x + 7 = 17. Subtract 7: x = 17 - 7 = 10.",
-    "stepByStepSolution": "Step 1: Divide both sides by 5: (x + 7) = 85 ÷ 5 = 17.\nStep 2: Subtract 7 from both sides: x = 17 - 7 = 10.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-geom-229",
-    "subject": "Mathematics",
-    "topic": "Perimeter, Area & Volume",
-    "difficulty": "Hard",
-    "questionText": "An L-shaped lawn is created by taking a large rectangle measuring 12 m by 13 m and removing a rectangular corner patch measuring 4 m by 3 m. What is the total area of the remaining lawn?",
-    "options": [
-      "144 cm²",
-      "156 cm²",
-      "152 cm²",
-      "135 cm²"
-    ],
-    "correctAnswer": "144 cm²",
-    "explanation": "Calculate original rectangle area: 12 × 13 = 156 m². Subtract cut-out area: 4 × 3 = 12 m². Remaining area = 156 - 12 = 144 m².",
-    "stepByStepSolution": "Step 1: Total bounding area = 12 × 13 = 156 m².\nStep 2: Corner cut-out area = 4 × 3 = 12 m².\nStep 3: Area of lawn = 156 - 12 = 144 m².\nAnswer: 144 cm² equivalent.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-frac-230",
-    "subject": "Mathematics",
-    "topic": "Fractions & Multi-Step Problems",
-    "difficulty": "Hard",
-    "questionText": "Marcus is reading a book containing 240 pages. On Saturday, he reads 1/4 of the entire book. On Sunday, he reads 2/5 of the REMAINING pages. How many pages does he still have left to read?",
-    "options": [
-      "108 pages",
-      "123 pages",
-      "90 pages",
-      "98 pages"
-    ],
-    "correctAnswer": "108 pages",
-    "explanation": "Saturday: 1/4 of 240 = 60 pages. Remaining = 240 - 60 = 180 pages. Sunday: 2/5 of 180 = 72 pages. Left to read = 180 - 72 = 108 pages.",
-    "stepByStepSolution": "Step 1: Pages read on Saturday: 240 ÷ 4 = 60.\nStep 2: Pages remaining after Saturday: 240 - 60 = 180.\nStep 3: Pages read on Sunday: (2/5) × 180 = 72.\nStep 4: Pages still unread: 180 - 72 = 108 pages.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-prob-231",
-    "subject": "Mathematics",
-    "topic": "Probability & Data Analysis",
-    "difficulty": "Hard",
-    "questionText": "An opaque bag contains 4 red marbles, 10 blue marbles, and 4 yellow marbles. If one marble is drawn at random, what is the probability of selecting a red marble in its simplest fractional form?",
-    "options": [
-      "2.5/9",
-      "5/9",
-      "2/9",
-      "2/9"
-    ],
-    "correctAnswer": "2/9",
-    "explanation": "Total marbles = 4 + 10 + 4 = 18. Favorable outcomes = 4. Fraction = 4/18, which simplifies to 2/9.",
-    "stepByStepSolution": "Step 1: Find total number of outcomes: 4 + 10 + 4 = 18.\nStep 2: Number of red marbles = 4.\nStep 3: Probability = 4/18.\nStep 4: Divide numerator and denominator by common factor 2: 2/9.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-mean-232",
-    "subject": "Mathematics",
-    "topic": "Statistics & Averages",
-    "difficulty": "Hard",
-    "questionText": "The mean score of 5 test papers is 21. Four of the paper scores are 17, 27, 19, and 26. What is the score on the fifth test paper?",
-    "options": [
-      "22",
-      "16",
-      "19",
-      "12"
-    ],
-    "correctAnswer": "16",
-    "explanation": "Total sum of 5 tests = 5 × 21 = 105. Sum of 4 known tests = 17 + 27 + 19 + 26 = 89. Fifth test = 105 - 89 = 16.",
-    "stepByStepSolution": "Step 1: Total sum = Number of items × Mean = 5 × 21 = 105.\nStep 2: Sum of known scores = 17 + 27 + 19 + 26 = 89.\nStep 3: Fifth score = 105 - 89 = 16.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
     "id": "math-sdt-233",
     "subject": "Mathematics",
     "topic": "Speed, Distance & Time",
@@ -4498,120 +2326,6 @@ export const MATHS_QUESTIONS: Question[] = [
     "createdAt": "2026-09-20T00:00:00.000Z"
   },
   {
-    "id": "math-ratio-235",
-    "subject": "Mathematics",
-    "topic": "Ratio & Proportion",
-    "difficulty": "Hard",
-    "questionText": "A lottery prize of £270 is shared among Anna, Ben, and Chloe in the ratio 2 : 6 : 7. How much more money does Chloe receive than Anna?",
-    "options": [
-      "£90",
-      "£72",
-      "£126",
-      "£108"
-    ],
-    "correctAnswer": "£90",
-    "explanation": "Total parts = 2 + 6 + 7 = 15. One part = £270 ÷ 15 = £18. Chloe has 7 parts (£126) and Anna has 2 parts (£36). Difference = £126 - £36 = £90.",
-    "stepByStepSolution": "Step 1: Sum the ratio parts: 2 + 6 + 7 = 15 parts.\nStep 2: Calculate value per part: £270 ÷ 15 = £18.\nStep 3: Chloe's share = 7 × £18 = £126.\nStep 4: Anna's share = 2 × £18 = £36.\nStep 5: Difference = £126 - £36 = £90.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-alg-236",
-    "subject": "Mathematics",
-    "topic": "Algebra & Linear Equations",
-    "difficulty": "Hard",
-    "questionText": "Solve for x: 3(x + 3) = 30",
-    "options": [
-      "10",
-      "9",
-      "7",
-      "6"
-    ],
-    "correctAnswer": "7",
-    "explanation": "Expand or divide both sides by 3: x + 3 = 10. Subtract 3: x = 10 - 3 = 7.",
-    "stepByStepSolution": "Step 1: Divide both sides by 3: (x + 3) = 30 ÷ 3 = 10.\nStep 2: Subtract 3 from both sides: x = 10 - 3 = 7.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-geom-237",
-    "subject": "Mathematics",
-    "topic": "Perimeter, Area & Volume",
-    "difficulty": "Hard",
-    "questionText": "An L-shaped lawn is created by taking a large rectangle measuring 14 m by 11 m and removing a rectangular corner patch measuring 6 m by 3 m. What is the total area of the remaining lawn?",
-    "options": [
-      "136 cm²",
-      "154 cm²",
-      "148 cm²",
-      "127 cm²"
-    ],
-    "correctAnswer": "136 cm²",
-    "explanation": "Calculate original rectangle area: 14 × 11 = 154 m². Subtract cut-out area: 6 × 3 = 18 m². Remaining area = 154 - 18 = 136 m².",
-    "stepByStepSolution": "Step 1: Total bounding area = 14 × 11 = 154 m².\nStep 2: Corner cut-out area = 6 × 3 = 18 m².\nStep 3: Area of lawn = 154 - 18 = 136 m².\nAnswer: 136 cm² equivalent.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-frac-238",
-    "subject": "Mathematics",
-    "topic": "Fractions & Multi-Step Problems",
-    "difficulty": "Hard",
-    "questionText": "Marcus is reading a book containing 200 pages. On Saturday, he reads 1/3 of the entire book. On Sunday, he reads 2/5 of the REMAINING pages. How many pages does he still have left to read?",
-    "options": [
-      "67 pages",
-      "94.99999999999999 pages",
-      "69.99999999999999 pages",
-      "79.99999999999999 pages"
-    ],
-    "correctAnswer": "79.99999999999999 pages",
-    "explanation": "Saturday: 1/3 of 200 = 66.66666666666667 pages. Remaining = 200 - 66.66666666666667 = 133.33333333333331 pages. Sunday: 2/5 of 133.33333333333331 = 53.33333333333333 pages. Left to read = 133.33333333333331 - 53.33333333333333 = 79.99999999999999 pages.",
-    "stepByStepSolution": "Step 1: Pages read on Saturday: 200 ÷ 3 = 66.66666666666667.\nStep 2: Pages remaining after Saturday: 200 - 66.66666666666667 = 133.33333333333331.\nStep 3: Pages read on Sunday: (2/5) × 133.33333333333331 = 53.33333333333333.\nStep 4: Pages still unread: 133.33333333333331 - 53.33333333333333 = 79.99999999999999 pages.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-prob-239",
-    "subject": "Mathematics",
-    "topic": "Probability & Data Analysis",
-    "difficulty": "Hard",
-    "questionText": "An opaque bag contains 7 red marbles, 6 blue marbles, and 4 yellow marbles. If one marble is drawn at random, what is the probability of selecting a red marble in its simplest fractional form?",
-    "options": [
-      "8/17",
-      "4/17",
-      "7/17",
-      "6/17"
-    ],
-    "correctAnswer": "7/17",
-    "explanation": "Total marbles = 7 + 6 + 4 = 17. Favorable outcomes = 7. Fraction = 7/17, which simplifies to 7/17.",
-    "stepByStepSolution": "Step 1: Find total number of outcomes: 7 + 6 + 4 = 17.\nStep 2: Number of red marbles = 7.\nStep 3: Probability = 7/17.\nStep 4: Divide numerator and denominator by common factor 1: 7/17.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-mean-240",
-    "subject": "Mathematics",
-    "topic": "Statistics & Averages",
-    "difficulty": "Hard",
-    "questionText": "The mean score of 5 test papers is 29. Four of the paper scores are 25, 35, 27, and 34. What is the score on the fifth test paper?",
-    "options": [
-      "30",
-      "24",
-      "27",
-      "20"
-    ],
-    "correctAnswer": "24",
-    "explanation": "Total sum of 5 tests = 5 × 29 = 145. Sum of 4 known tests = 25 + 35 + 27 + 34 = 121. Fifth test = 145 - 121 = 24.",
-    "stepByStepSolution": "Step 1: Total sum = Number of items × Mean = 5 × 29 = 145.\nStep 2: Sum of known scores = 25 + 35 + 27 + 34 = 121.\nStep 3: Fifth score = 145 - 121 = 24.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
     "id": "math-sdt-241",
     "subject": "Mathematics",
     "topic": "Speed, Distance & Time",
@@ -4621,7 +2335,7 @@ export const MATHS_QUESTIONS: Question[] = [
       "105 miles",
       "63 miles",
       "75 miles",
-      "75 miles"
+      "85 miles"
     ],
     "correctAnswer": "75 miles",
     "explanation": "Convert 15 minutes to hours (15/60 = 0.25 h). Total time = 1.25 h. Distance = Speed × Time = 60 × 1.25 = 75 miles.",
@@ -4645,120 +2359,6 @@ export const MATHS_QUESTIONS: Question[] = [
     "correctAnswer": "£320.00",
     "explanation": "The sale price represents 85% of the original price. Divide the sale price by 0.85 to calculate the original price: £272.00 ÷ 0.85 = £320.00.",
     "stepByStepSolution": "Step 1: The discounted price is 100% - 15% = 85% of original value.\nStep 2: 85% = £272.00.\nStep 3: 1% = £272.00 ÷ 85 = £3.2000.\nStep 4: 100% = £320.00.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-ratio-243",
-    "subject": "Mathematics",
-    "topic": "Ratio & Proportion",
-    "difficulty": "Hard",
-    "questionText": "A lottery prize of £288 is shared among Anna, Ben, and Chloe in the ratio 4 : 6 : 6. How much more money does Chloe receive than Anna?",
-    "options": [
-      "£36",
-      "£54",
-      "£108",
-      "£108"
-    ],
-    "correctAnswer": "£36",
-    "explanation": "Total parts = 4 + 6 + 6 = 16. One part = £288 ÷ 16 = £18. Chloe has 6 parts (£108) and Anna has 4 parts (£72). Difference = £108 - £72 = £36.",
-    "stepByStepSolution": "Step 1: Sum the ratio parts: 4 + 6 + 6 = 16 parts.\nStep 2: Calculate value per part: £288 ÷ 16 = £18.\nStep 3: Chloe's share = 6 × £18 = £108.\nStep 4: Anna's share = 4 × £18 = £72.\nStep 5: Difference = £108 - £72 = £36.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-alg-244",
-    "subject": "Mathematics",
-    "topic": "Algebra & Linear Equations",
-    "difficulty": "Hard",
-    "questionText": "Solve for x: 6(x + 5) = 54",
-    "options": [
-      "7",
-      "3",
-      "4",
-      "6"
-    ],
-    "correctAnswer": "4",
-    "explanation": "Expand or divide both sides by 6: x + 5 = 9. Subtract 5: x = 9 - 5 = 4.",
-    "stepByStepSolution": "Step 1: Divide both sides by 6: (x + 5) = 54 ÷ 6 = 9.\nStep 2: Subtract 5 from both sides: x = 9 - 5 = 4.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-geom-245",
-    "subject": "Mathematics",
-    "topic": "Perimeter, Area & Volume",
-    "difficulty": "Hard",
-    "questionText": "An L-shaped lawn is created by taking a large rectangle measuring 16 m by 14 m and removing a rectangular corner patch measuring 5 m by 3 m. What is the total area of the remaining lawn?",
-    "options": [
-      "209 cm²",
-      "224 cm²",
-      "219 cm²",
-      "200 cm²"
-    ],
-    "correctAnswer": "209 cm²",
-    "explanation": "Calculate original rectangle area: 16 × 14 = 224 m². Subtract cut-out area: 5 × 3 = 15 m². Remaining area = 224 - 15 = 209 m².",
-    "stepByStepSolution": "Step 1: Total bounding area = 16 × 14 = 224 m².\nStep 2: Corner cut-out area = 5 × 3 = 15 m².\nStep 3: Area of lawn = 224 - 15 = 209 m².\nAnswer: 209 cm² equivalent.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-frac-246",
-    "subject": "Mathematics",
-    "topic": "Fractions & Multi-Step Problems",
-    "difficulty": "Hard",
-    "questionText": "Marcus is reading a book containing 180 pages. On Saturday, he reads 1/5 of the entire book. On Sunday, he reads 2/5 of the REMAINING pages. How many pages does he still have left to read?",
-    "options": [
-      "101.4 pages",
-      "86.4 pages",
-      "76.4 pages",
-      "72 pages"
-    ],
-    "correctAnswer": "86.4 pages",
-    "explanation": "Saturday: 1/5 of 180 = 36 pages. Remaining = 180 - 36 = 144 pages. Sunday: 2/5 of 144 = 57.6 pages. Left to read = 144 - 57.6 = 86.4 pages.",
-    "stepByStepSolution": "Step 1: Pages read on Saturday: 180 ÷ 5 = 36.\nStep 2: Pages remaining after Saturday: 180 - 36 = 144.\nStep 3: Pages read on Sunday: (2/5) × 144 = 57.6.\nStep 4: Pages still unread: 144 - 57.6 = 86.4 pages.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-prob-247",
-    "subject": "Mathematics",
-    "topic": "Probability & Data Analysis",
-    "difficulty": "Hard",
-    "questionText": "An opaque bag contains 5 red marbles, 8 blue marbles, and 4 yellow marbles. If one marble is drawn at random, what is the probability of selecting a red marble in its simplest fractional form?",
-    "options": [
-      "6/17",
-      "4/17",
-      "5/17",
-      "8/17"
-    ],
-    "correctAnswer": "5/17",
-    "explanation": "Total marbles = 5 + 8 + 4 = 17. Favorable outcomes = 5. Fraction = 5/17, which simplifies to 5/17.",
-    "stepByStepSolution": "Step 1: Find total number of outcomes: 5 + 8 + 4 = 17.\nStep 2: Number of red marbles = 5.\nStep 3: Probability = 5/17.\nStep 4: Divide numerator and denominator by common factor 1: 5/17.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-mean-248",
-    "subject": "Mathematics",
-    "topic": "Statistics & Averages",
-    "difficulty": "Hard",
-    "questionText": "The mean score of 5 test papers is 25. Four of the paper scores are 21, 31, 23, and 30. What is the score on the fifth test paper?",
-    "options": [
-      "16",
-      "20",
-      "23",
-      "26"
-    ],
-    "correctAnswer": "20",
-    "explanation": "Total sum of 5 tests = 5 × 25 = 125. Sum of 4 known tests = 21 + 31 + 23 + 30 = 105. Fifth test = 125 - 105 = 20.",
-    "stepByStepSolution": "Step 1: Total sum = Number of items × Mean = 5 × 25 = 125.\nStep 2: Sum of known scores = 21 + 31 + 23 + 30 = 105.\nStep 3: Fifth score = 125 - 105 = 20.",
     "sourceType": "curated_seed",
     "approved": true,
     "createdAt": "2026-09-20T00:00:00.000Z"
@@ -4802,120 +2402,6 @@ export const MATHS_QUESTIONS: Question[] = [
     "createdAt": "2026-09-20T00:00:00.000Z"
   },
   {
-    "id": "math-ratio-251",
-    "subject": "Mathematics",
-    "topic": "Ratio & Proportion",
-    "difficulty": "Hard",
-    "questionText": "A lottery prize of £252 is shared among Anna, Ben, and Chloe in the ratio 3 : 6 : 5. How much more money does Chloe receive than Anna?",
-    "options": [
-      "£36",
-      "£90",
-      "£90",
-      "£54"
-    ],
-    "correctAnswer": "£36",
-    "explanation": "Total parts = 3 + 6 + 5 = 14. One part = £252 ÷ 14 = £18. Chloe has 5 parts (£90) and Anna has 3 parts (£54). Difference = £90 - £54 = £36.",
-    "stepByStepSolution": "Step 1: Sum the ratio parts: 3 + 6 + 5 = 14 parts.\nStep 2: Calculate value per part: £252 ÷ 14 = £18.\nStep 3: Chloe's share = 5 × £18 = £90.\nStep 4: Anna's share = 3 × £18 = £54.\nStep 5: Difference = £90 - £54 = £36.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-alg-252",
-    "subject": "Mathematics",
-    "topic": "Algebra & Linear Equations",
-    "difficulty": "Hard",
-    "questionText": "Solve for x: 4(x + 7) = 68",
-    "options": [
-      "10",
-      "12",
-      "13",
-      "9"
-    ],
-    "correctAnswer": "10",
-    "explanation": "Expand or divide both sides by 4: x + 7 = 17. Subtract 7: x = 17 - 7 = 10.",
-    "stepByStepSolution": "Step 1: Divide both sides by 4: (x + 7) = 68 ÷ 4 = 17.\nStep 2: Subtract 7 from both sides: x = 17 - 7 = 10.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-geom-253",
-    "subject": "Mathematics",
-    "topic": "Perimeter, Area & Volume",
-    "difficulty": "Hard",
-    "questionText": "An L-shaped lawn is created by taking a large rectangle measuring 12 m by 12 m and removing a rectangular corner patch measuring 4 m by 3 m. What is the total area of the remaining lawn?",
-    "options": [
-      "132 cm²",
-      "144 cm²",
-      "140 cm²",
-      "123 cm²"
-    ],
-    "correctAnswer": "132 cm²",
-    "explanation": "Calculate original rectangle area: 12 × 12 = 144 m². Subtract cut-out area: 4 × 3 = 12 m². Remaining area = 144 - 12 = 132 m².",
-    "stepByStepSolution": "Step 1: Total bounding area = 12 × 12 = 144 m².\nStep 2: Corner cut-out area = 4 × 3 = 12 m².\nStep 3: Area of lawn = 144 - 12 = 132 m².\nAnswer: 132 cm² equivalent.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-frac-254",
-    "subject": "Mathematics",
-    "topic": "Fractions & Multi-Step Problems",
-    "difficulty": "Hard",
-    "questionText": "Marcus is reading a book containing 160 pages. On Saturday, he reads 1/4 of the entire book. On Sunday, he reads 2/5 of the REMAINING pages. How many pages does he still have left to read?",
-    "options": [
-      "72 pages",
-      "60 pages",
-      "62 pages",
-      "87 pages"
-    ],
-    "correctAnswer": "72 pages",
-    "explanation": "Saturday: 1/4 of 160 = 40 pages. Remaining = 160 - 40 = 120 pages. Sunday: 2/5 of 120 = 48 pages. Left to read = 120 - 48 = 72 pages.",
-    "stepByStepSolution": "Step 1: Pages read on Saturday: 160 ÷ 4 = 40.\nStep 2: Pages remaining after Saturday: 160 - 40 = 120.\nStep 3: Pages read on Sunday: (2/5) × 120 = 48.\nStep 4: Pages still unread: 120 - 48 = 72 pages.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-prob-255",
-    "subject": "Mathematics",
-    "topic": "Probability & Data Analysis",
-    "difficulty": "Hard",
-    "questionText": "An opaque bag contains 8 red marbles, 10 blue marbles, and 4 yellow marbles. If one marble is drawn at random, what is the probability of selecting a red marble in its simplest fractional form?",
-    "options": [
-      "4.5/11",
-      "5/11",
-      "4/11",
-      "2/11"
-    ],
-    "correctAnswer": "4/11",
-    "explanation": "Total marbles = 8 + 10 + 4 = 22. Favorable outcomes = 8. Fraction = 8/22, which simplifies to 4/11.",
-    "stepByStepSolution": "Step 1: Find total number of outcomes: 8 + 10 + 4 = 22.\nStep 2: Number of red marbles = 8.\nStep 3: Probability = 8/22.\nStep 4: Divide numerator and denominator by common factor 2: 4/11.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
-    "id": "math-mean-256",
-    "subject": "Mathematics",
-    "topic": "Statistics & Averages",
-    "difficulty": "Hard",
-    "questionText": "The mean score of 5 test papers is 21. Four of the paper scores are 17, 27, 19, and 26. What is the score on the fifth test paper?",
-    "options": [
-      "16",
-      "19",
-      "12",
-      "22"
-    ],
-    "correctAnswer": "16",
-    "explanation": "Total sum of 5 tests = 5 × 21 = 105. Sum of 4 known tests = 17 + 27 + 19 + 26 = 89. Fifth test = 105 - 89 = 16.",
-    "stepByStepSolution": "Step 1: Total sum = Number of items × Mean = 5 × 21 = 105.\nStep 2: Sum of known scores = 17 + 27 + 19 + 26 = 89.\nStep 3: Fifth score = 105 - 89 = 16.",
-    "sourceType": "curated_seed",
-    "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
-  },
-  {
     "id": "math-sdt-257",
     "subject": "Mathematics",
     "topic": "Speed, Distance & Time",
@@ -4954,41 +2440,403 @@ export const MATHS_QUESTIONS: Question[] = [
     "createdAt": "2026-09-20T00:00:00.000Z"
   },
   {
-    "id": "math-ratio-259",
+    "id": "math-cur-new-1",
+    "subject": "Mathematics",
+    "topic": "Fractions & Multi-Step Problems",
+    "difficulty": "Hard",
+    "questionText": "A baker bakes 240 scones. He sells 3/8 of them in the morning and 2/5 of the remainder in the afternoon. How many scones are left unsold?",
+    "options": [
+      "90",
+      "75",
+      "60",
+      "105"
+    ],
+    "correctAnswer": "90",
+    "explanation": "Morning: 3/8 of 240 = 90 scones sold. Remainder = 240 - 90 = 150. Afternoon: 2/5 of 150 = 60 scones sold. Left unsold = 150 - 60 = 90 scones.",
+    "stepByStepSolution": "Step 1: Morning sales = (3/8) × 240 = 90.\nStep 2: Remainder = 240 - 90 = 150.\nStep 3: Afternoon sales = (2/5) × 150 = 60.\nStep 4: Unsold = 150 - 60 = 90 scones.",
+    "sourceType": "past_paper",
+    "sourcePdfName": "UK_National_Curriculum_11Plus_Mastery.pdf",
+    "approved": true,
+    "createdAt": "2026-09-22T14:53:47.533Z"
+  },
+  {
+    "id": "math-cur-new-2",
+    "subject": "Mathematics",
+    "topic": "Speed, Distance & Time",
+    "difficulty": "Hard",
+    "questionText": "A cylindrical water tank has a capacity of 1,800 litres. A tap drains water at 45 litres per minute while an inlet pipe fills it at 20 litres per minute. If the tank is full, how long will it take to empty completely?",
+    "options": [
+      "72 minutes",
+      "60 minutes",
+      "80 minutes",
+      "90 minutes"
+    ],
+    "correctAnswer": "72 minutes",
+    "explanation": "Net drainage rate = 45 - 20 = 25 litres per minute. Time to empty = 1,800 ÷ 25 = 72 minutes.",
+    "stepByStepSolution": "Step 1: Net loss per minute = 45 - 20 = 25 L/min.\nStep 2: Total volume to empty = 1,800 litres.\nStep 3: Time = 1,800 ÷ 25 = 72 minutes.",
+    "sourceType": "past_paper",
+    "sourcePdfName": "UK_National_Curriculum_11Plus_Mastery.pdf",
+    "approved": true,
+    "createdAt": "2026-09-22T14:53:47.534Z"
+  },
+  {
+    "id": "math-cur-new-3",
+    "subject": "Mathematics",
+    "topic": "Perimeter, Area & Volume",
+    "difficulty": "Hard",
+    "questionText": "The interior angles of a quadrilateral are in the ratio 2 : 3 : 4 : 6. What is the measure of the largest angle?",
+    "options": [
+      "144°",
+      "120°",
+      "136°",
+      "150°"
+    ],
+    "correctAnswer": "144°",
+    "explanation": "Sum of angles in a quadrilateral = 360°. Total parts = 2 + 3 + 4 + 6 = 15. Value per part = 360° ÷ 15 = 24°. Largest angle = 6 × 24° = 144°.",
+    "stepByStepSolution": "Step 1: Quadrilateral angle sum = 360°.\nStep 2: Total parts = 2 + 3 + 4 + 6 = 15 parts.\nStep 3: One part = 360 ÷ 15 = 24°.\nStep 4: Largest angle (6 parts) = 6 × 24 = 144°.",
+    "sourceType": "past_paper",
+    "sourcePdfName": "UK_National_Curriculum_11Plus_Mastery.pdf",
+    "approved": true,
+    "createdAt": "2026-09-22T14:53:47.534Z"
+  },
+  {
+    "id": "math-cur-new-4",
+    "subject": "Mathematics",
+    "topic": "Speed, Distance & Time",
+    "difficulty": "Hard",
+    "questionText": "A cyclist travels at 18 km/h for 40 minutes, and then at 24 km/h for 30 minutes. What is the total distance covered?",
+    "options": [
+      "24 km",
+      "22 km",
+      "20 km",
+      "26 km"
+    ],
+    "correctAnswer": "24 km",
+    "explanation": "Part 1: 18 km/h × (40/60) h = 12 km. Part 2: 24 km/h × (30/60) h = 12 km. Total distance = 12 + 12 = 24 km.",
+    "stepByStepSolution": "Step 1: Convert 40 mins to hours: 40/60 = 2/3 hour.\nStep 2: Distance 1 = 18 × (2/3) = 12 km.\nStep 3: Convert 30 mins to hours: 30/60 = 1/2 hour.\nStep 4: Distance 2 = 24 × (1/2) = 12 km.\nStep 5: Total = 12 + 12 = 24 km.",
+    "sourceType": "past_paper",
+    "sourcePdfName": "UK_National_Curriculum_11Plus_Mastery.pdf",
+    "approved": true,
+    "createdAt": "2026-09-22T14:53:47.534Z"
+  },
+  {
+    "id": "math-cur-new-5",
+    "subject": "Mathematics",
+    "topic": "Perimeter, Area & Volume",
+    "difficulty": "Hard",
+    "questionText": "A rectangular garden measuring 14 m by 10 m is surrounded on all sides by a paved path 1.5 m wide. What is the area of the paved path?",
+    "options": [
+      "81 m²",
+      "72 m²",
+      "90 m²",
+      "96 m²"
+    ],
+    "correctAnswer": "81 m²",
+    "explanation": "Inner area = 14 × 10 = 140 m². Outer dimensions = (14 + 3) × (10 + 3) = 17 × 13 = 221 m². Path area = 221 - 140 = 81 m².",
+    "stepByStepSolution": "Step 1: Inner garden area = 14 × 10 = 140 m².\nStep 2: Outer length = 14 + 1.5 + 1.5 = 17 m; Outer width = 10 + 1.5 + 1.5 = 13 m.\nStep 3: Outer area = 17 × 13 = 221 m².\nStep 4: Path area = 221 - 140 = 81 m².",
+    "sourceType": "past_paper",
+    "sourcePdfName": "UK_National_Curriculum_11Plus_Mastery.pdf",
+    "approved": true,
+    "createdAt": "2026-09-22T14:53:47.534Z"
+  },
+  {
+    "id": "math-cur-new-6",
+    "subject": "Mathematics",
+    "topic": "Statistics & Averages",
+    "difficulty": "Hard",
+    "questionText": "The mean of five positive integers is 18. When a sixth integer is added, the new mean becomes 21. What is the value of the sixth integer?",
+    "options": [
+      "36",
+      "33",
+      "30",
+      "39"
+    ],
+    "correctAnswer": "36",
+    "explanation": "Sum of 5 numbers = 5 × 18 = 90. Sum of 6 numbers = 6 × 21 = 126. Sixth number = 126 - 90 = 36.",
+    "stepByStepSolution": "Step 1: Total of first 5 numbers = 5 × 18 = 90.\nStep 2: Total of all 6 numbers = 6 × 21 = 126.\nStep 3: Sixth number = 126 - 90 = 36.",
+    "sourceType": "past_paper",
+    "sourcePdfName": "UK_National_Curriculum_11Plus_Mastery.pdf",
+    "approved": true,
+    "createdAt": "2026-09-22T14:53:47.534Z"
+  },
+  {
+    "id": "math-cur-new-7",
+    "subject": "Mathematics",
+    "topic": "Percentages & Reverse Percentages",
+    "difficulty": "Hard",
+    "questionText": "A shop offers a 20% discount on a television during a winter sale, followed by an additional 10% off the discounted price. If the original price was £450, what is the final price?",
+    "options": [
+      "£324",
+      "£315",
+      "£330",
+      "£342"
+    ],
+    "correctAnswer": "£324",
+    "explanation": "After 20% off: £450 × 0.80 = £360. After second 10% off: £360 × 0.90 = £324.",
+    "stepByStepSolution": "Step 1: First discount of 20%: £450 - £90 = £360.\nStep 2: Second discount of 10% on £360: £360 - £36 = £324.\nStep 3: Final payable price = £324.",
+    "sourceType": "past_paper",
+    "sourcePdfName": "UK_National_Curriculum_11Plus_Mastery.pdf",
+    "approved": true,
+    "createdAt": "2026-09-22T14:53:47.534Z"
+  },
+  {
+    "id": "math-cur-new-8",
     "subject": "Mathematics",
     "topic": "Ratio & Proportion",
     "difficulty": "Hard",
-    "questionText": "A lottery prize of £270 is shared among Anna, Ben, and Chloe in the ratio 2 : 6 : 7. How much more money does Chloe receive than Anna?",
+    "questionText": "A map has a scale of 1 : 50,000. On the map, two railway stations are 6.4 cm apart. What is the actual distance between them in kilometres?",
     "options": [
-      "£90",
-      "£72",
-      "£126",
-      "£108"
+      "3.2 km",
+      "3.6 km",
+      "2.8 km",
+      "32 km"
     ],
-    "correctAnswer": "£90",
-    "explanation": "Total parts = 2 + 6 + 7 = 15. One part = £270 ÷ 15 = £18. Chloe has 7 parts (£126) and Anna has 2 parts (£36). Difference = £126 - £36 = £90.",
-    "stepByStepSolution": "Step 1: Sum the ratio parts: 2 + 6 + 7 = 15 parts.\nStep 2: Calculate value per part: £270 ÷ 15 = £18.\nStep 3: Chloe's share = 7 × £18 = £126.\nStep 4: Anna's share = 2 × £18 = £36.\nStep 5: Difference = £126 - £36 = £90.",
-    "sourceType": "curated_seed",
+    "correctAnswer": "3.2 km",
+    "explanation": "6.4 cm × 50,000 = 320,000 cm = 3,200 m = 3.2 km.",
+    "stepByStepSolution": "Step 1: Distance on map = 6.4 cm.\nStep 2: Real distance in cm = 6.4 × 50,000 = 320,000 cm.\nStep 3: Convert to metres: 320,000 ÷ 100 = 3,200 m.\nStep 4: Convert to kilometres: 3,200 ÷ 1,000 = 3.2 km.",
+    "sourceType": "past_paper",
+    "sourcePdfName": "UK_National_Curriculum_11Plus_Mastery.pdf",
     "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
+    "createdAt": "2026-09-22T14:53:47.534Z"
   },
   {
-    "id": "math-alg-260",
+    "id": "math-cur-new-9",
     "subject": "Mathematics",
     "topic": "Algebra & Linear Equations",
     "difficulty": "Hard",
-    "questionText": "Solve for x: 7(x + 3) = 70",
+    "questionText": "Solve the linear equation for y: 4(2y - 3) = 3(y + 6)",
     "options": [
-      "9",
+      "y = 6",
+      "y = 5",
+      "y = 7",
+      "y = 4"
+    ],
+    "correctAnswer": "y = 6",
+    "explanation": "Expand both sides: 8y - 12 = 3y + 18. Subtract 3y: 5y - 12 = 18. Add 12: 5y = 30, so y = 6.",
+    "stepByStepSolution": "Step 1: Expand brackets: 8y - 12 = 3y + 18.\nStep 2: Collect y terms: 8y - 3y = 18 + 12.\nStep 3: 5y = 30.\nStep 4: y = 30 ÷ 5 = 6.",
+    "sourceType": "past_paper",
+    "sourcePdfName": "UK_National_Curriculum_11Plus_Mastery.pdf",
+    "approved": true,
+    "createdAt": "2026-09-22T14:53:47.534Z"
+  },
+  {
+    "id": "math-cur-new-10",
+    "subject": "Mathematics",
+    "topic": "Probability & Data Analysis",
+    "difficulty": "Hard",
+    "questionText": "A spinner is divided into 8 equal sectors numbered 1 to 8. What is the probability of spinning a prime number or a multiple of 4?",
+    "options": [
+      "3/4",
+      "5/8",
+      "1/2",
+      "7/8"
+    ],
+    "correctAnswer": "3/4",
+    "explanation": "Numbers are {1, 2, 3, 4, 5, 6, 7, 8}. Primes are {2, 3, 5, 7} (4 numbers). Multiples of 4 are {4, 8} (2 numbers). Favourable set = {2, 3, 4, 5, 7, 8} (6 numbers). Probability = 6/8 = 3/4.",
+    "stepByStepSolution": "Step 1: Identify prime outcomes: 2, 3, 5, 7 (4 outcomes).\nStep 2: Identify multiples of 4: 4, 8 (2 outcomes).\nStep 3: Combined unique favourable outcomes: {2, 3, 4, 5, 7, 8} = 6 outcomes.\nStep 4: Probability = 6/8 = 3/4.",
+    "sourceType": "past_paper",
+    "sourcePdfName": "UK_National_Curriculum_11Plus_Mastery.pdf",
+    "approved": true,
+    "createdAt": "2026-09-22T14:53:47.534Z"
+  },
+  {
+    "id": "math-cur-new-11",
+    "subject": "Mathematics",
+    "topic": "Speed, Distance & Time",
+    "difficulty": "Hard",
+    "questionText": "A car journey of 195 miles takes 3 hours and 15 minutes. What is the average speed of the car in miles per hour?",
+    "options": [
+      "60 mph",
+      "58 mph",
+      "62 mph",
+      "65 mph"
+    ],
+    "correctAnswer": "60 mph",
+    "explanation": "Convert 3 hours 15 mins to hours: 3.25 hours. Average speed = 195 ÷ 3.25 = 60 mph.",
+    "stepByStepSolution": "Step 1: Convert time: 15 mins = 0.25 hours, total = 3.25 hours.\nStep 2: Speed = Distance ÷ Time = 195 ÷ 3.25.\nStep 3: 195 ÷ (13/4) = 195 × 4 ÷ 13 = 15 × 4 = 60 mph.",
+    "sourceType": "past_paper",
+    "sourcePdfName": "UK_National_Curriculum_11Plus_Mastery.pdf",
+    "approved": true,
+    "createdAt": "2026-09-22T14:53:47.534Z"
+  },
+  {
+    "id": "math-cur-new-12",
+    "subject": "Mathematics",
+    "topic": "Arithmetic & Problem Solving",
+    "difficulty": "Hard",
+    "questionText": "Two numbers have a sum of 84 and a difference of 18. What is the product of the two numbers?",
+    "options": [
+      "1,683",
+      "1,728",
+      "1,650",
+      "1,716"
+    ],
+    "correctAnswer": "1,683",
+    "explanation": "Let numbers be x and y. x + y = 84, x - y = 18. Adding equations: 2x = 102 => x = 51. y = 84 - 51 = 33. Product = 51 × 33 = 1,683.",
+    "stepByStepSolution": "Step 1: Larger number = (84 + 18) ÷ 2 = 102 ÷ 2 = 51.\nStep 2: Smaller number = 84 - 51 = 33.\nStep 3: Product = 51 × 33 = 1,683.",
+    "sourceType": "past_paper",
+    "sourcePdfName": "UK_National_Curriculum_11Plus_Mastery.pdf",
+    "approved": true,
+    "createdAt": "2026-09-22T14:53:47.534Z"
+  },
+  {
+    "id": "math-cur-new-13",
+    "subject": "Mathematics",
+    "topic": "Perimeter, Area & Volume",
+    "difficulty": "Hard",
+    "questionText": "A cuboid has a length of 12 cm, a width of 8 cm, and a height of 5 cm. What is its total surface area?",
+    "options": [
+      "392 cm²",
+      "380 cm²",
+      "412 cm²",
+      "400 cm²"
+    ],
+    "correctAnswer": "392 cm²",
+    "explanation": "Total surface area = 2(lw + lh + wh) = 2(12×8 + 12×5 + 8×5) = 2(96 + 60 + 40) = 2(196) = 392 cm².",
+    "stepByStepSolution": "Step 1: Face pairs: 2 × (12 × 8) = 192 cm².\nStep 2: Face pairs: 2 × (12 × 5) = 120 cm².\nStep 3: Face pairs: 2 × (8 × 5) = 80 cm².\nStep 4: Total surface area = 192 + 120 + 80 = 392 cm².",
+    "sourceType": "past_paper",
+    "sourcePdfName": "UK_National_Curriculum_11Plus_Mastery.pdf",
+    "approved": true,
+    "createdAt": "2026-09-22T14:53:47.534Z"
+  },
+  {
+    "id": "math-cur-new-14",
+    "subject": "Mathematics",
+    "topic": "Ratio & Proportion",
+    "difficulty": "Hard",
+    "questionText": "If 15 men can build a brick wall in 8 days, how many days would it take 12 men working at the exact same rate to build the same wall?",
+    "options": [
+      "10 days",
+      "9 days",
+      "11 days",
+      "12 days"
+    ],
+    "correctAnswer": "10 days",
+    "explanation": "Total man-days required = 15 × 8 = 120 man-days. With 12 men: 120 ÷ 12 = 10 days.",
+    "stepByStepSolution": "Step 1: Total work in man-days = 15 × 8 = 120.\nStep 2: Divide by new workforce: 120 ÷ 12 = 10 days.",
+    "sourceType": "past_paper",
+    "sourcePdfName": "UK_National_Curriculum_11Plus_Mastery.pdf",
+    "approved": true,
+    "createdAt": "2026-09-22T14:53:47.534Z"
+  },
+  {
+    "id": "math-cur-new-15",
+    "subject": "Mathematics",
+    "topic": "Number Sequences & Operations",
+    "difficulty": "Hard",
+    "questionText": "A sequence follows the rule 'multiply by 2 and then subtract 3'. If the third term is 19, what was the first term?",
+    "options": [
       "7",
+      "8",
       "6",
-      "10"
+      "9"
     ],
     "correctAnswer": "7",
-    "explanation": "Expand or divide both sides by 7: x + 3 = 10. Subtract 3: x = 10 - 3 = 7.",
-    "stepByStepSolution": "Step 1: Divide both sides by 7: (x + 3) = 70 ÷ 7 = 10.\nStep 2: Subtract 3 from both sides: x = 10 - 3 = 7.",
-    "sourceType": "curated_seed",
+    "explanation": "Working backwards from term 3 (19): Second term = (19 + 3) ÷ 2 = 22 ÷ 2 = 11. First term = (11 + 3) ÷ 2 = 14 ÷ 2 = 7.",
+    "stepByStepSolution": "Step 1: Inverse operation of '×2 then -3' is '+3 then ÷2'.\nStep 2: Term 2 = (19 + 3) ÷ 2 = 11.\nStep 3: Term 1 = (11 + 3) ÷ 2 = 7.",
+    "sourceType": "past_paper",
+    "sourcePdfName": "UK_National_Curriculum_11Plus_Mastery.pdf",
     "approved": true,
-    "createdAt": "2026-09-20T00:00:00.000Z"
+    "createdAt": "2026-09-22T14:53:47.534Z"
+  },
+  {
+    "id": "math-cur-new-16",
+    "subject": "Mathematics",
+    "topic": "Arithmetic & Problem Solving",
+    "difficulty": "Hard",
+    "questionText": "Three bells toll at intervals of 12 minutes, 15 minutes, and 20 minutes respectively. If they toll together at 09:00, at what time will they next toll together?",
+    "options": [
+      "10:00",
+      "10:15",
+      "10:30",
+      "11:00"
+    ],
+    "correctAnswer": "10:00",
+    "explanation": "Find the lowest common multiple (LCM) of 12, 15, and 20. 12 = 2² × 3, 15 = 3 × 5, 20 = 2² × 5. LCM = 2² × 3 × 5 = 60 minutes = 1 hour. 09:00 + 1 hour = 10:00.",
+    "stepByStepSolution": "Step 1: Prime factorise: 12 = 2² × 3; 15 = 3 × 5; 20 = 2² × 5.\nStep 2: LCM = 2² × 3 × 5 = 60 minutes (1 hour).\nStep 3: 09:00 + 1 hour = 10:00.",
+    "sourceType": "past_paper",
+    "sourcePdfName": "UK_National_Curriculum_11Plus_Mastery.pdf",
+    "approved": true,
+    "createdAt": "2026-09-22T14:53:47.534Z"
+  },
+  {
+    "id": "math-cur-new-17",
+    "subject": "Mathematics",
+    "topic": "Percentages & Reverse Percentages",
+    "difficulty": "Hard",
+    "questionText": "In an examination of 60 questions, Jessica scored 85%. Each correct answer was worth 1 mark, with no penalties for incorrect answers. How many questions did Jessica answer incorrectly?",
+    "options": [
+      "9",
+      "8",
+      "10",
+      "12"
+    ],
+    "correctAnswer": "9",
+    "explanation": "Jessica scored 85%, meaning she got 15% incorrect. 15% of 60 = 0.15 × 60 = 9 questions.",
+    "stepByStepSolution": "Step 1: Incorrect percentage = 100% - 85% = 15%.\nStep 2: 15% of 60 = (15/100) × 60 = 9 questions.",
+    "sourceType": "past_paper",
+    "sourcePdfName": "UK_National_Curriculum_11Plus_Mastery.pdf",
+    "approved": true,
+    "createdAt": "2026-09-22T14:53:47.534Z"
+  },
+  {
+    "id": "math-cur-new-18",
+    "subject": "Mathematics",
+    "topic": "Perimeter, Area & Volume",
+    "difficulty": "Hard",
+    "questionText": "A triangle has vertices at coordinates (2, 3), (8, 3), and (5, 9). What is the area of this triangle?",
+    "options": [
+      "18 square units",
+      "16 square units",
+      "20 square units",
+      "24 square units"
+    ],
+    "correctAnswer": "18 square units",
+    "explanation": "Base runs along y = 3 from x = 2 to x = 8: base length = 8 - 2 = 6 units. Height is the vertical distance from y = 3 to y = 9: height = 9 - 3 = 6 units. Area = 1/2 × base × height = 1/2 × 6 × 6 = 18 square units.",
+    "stepByStepSolution": "Step 1: Base length = 8 - 2 = 6 units.\nStep 2: Perpendicular height = 9 - 3 = 6 units.\nStep 3: Area = (1/2) × 6 × 6 = 18 square units.",
+    "sourceType": "past_paper",
+    "sourcePdfName": "UK_National_Curriculum_11Plus_Mastery.pdf",
+    "approved": true,
+    "createdAt": "2026-09-22T14:53:47.534Z"
+  },
+  {
+    "id": "math-cur-new-19",
+    "subject": "Mathematics",
+    "topic": "Speed, Distance & Time",
+    "difficulty": "Hard",
+    "questionText": "A train 180 metres long is travelling at 72 km/h. How many seconds does it take for the entire train to completely pass through a tunnel 420 metres long?",
+    "options": [
+      "30 seconds",
+      "25 seconds",
+      "35 seconds",
+      "40 seconds"
+    ],
+    "correctAnswer": "30 seconds",
+    "explanation": "Convert speed: 72 km/h = 72 × (1,000/3,600) = 20 m/s. Total distance to clear tunnel = length of train + length of tunnel = 180 + 420 = 600 metres. Time = 600 ÷ 20 = 30 seconds.",
+    "stepByStepSolution": "Step 1: Convert 72 km/h to m/s: 72 × 5/18 = 20 m/s.\nStep 2: Total distance = 180 m + 420 m = 600 m.\nStep 3: Time = 600 ÷ 20 = 30 seconds.",
+    "sourceType": "past_paper",
+    "sourcePdfName": "UK_National_Curriculum_11Plus_Mastery.pdf",
+    "approved": true,
+    "createdAt": "2026-09-22T14:53:47.534Z"
+  },
+  {
+    "id": "math-cur-new-20",
+    "subject": "Mathematics",
+    "topic": "Probability & Data Analysis",
+    "difficulty": "Hard",
+    "questionText": "A bag contains 5 red, 7 blue, and 8 green counters. Two counters are picked one after the other without replacement. What is the probability that both counters are red?",
+    "options": [
+      "1/19",
+      "2/19",
+      "1/20",
+      "3/38"
+    ],
+    "correctAnswer": "1/19",
+    "explanation": "Total counters = 5 + 7 + 8 = 20. P(first red) = 5/20 = 1/4. Counters remaining = 19, reds remaining = 4. P(second red) = 4/19. P(both red) = (5/20) × (4/19) = (1/4) × (4/19) = 1/19.",
+    "stepByStepSolution": "Step 1: Initial probability of red = 5/20 = 1/4.\nStep 2: After 1 red is removed: 4 reds out of 19 counters.\nStep 3: P(both red) = (5/20) × (4/19) = 1/19.",
+    "sourceType": "past_paper",
+    "sourcePdfName": "UK_National_Curriculum_11Plus_Mastery.pdf",
+    "approved": true,
+    "createdAt": "2026-09-22T14:53:47.534Z"
   }
 ];
