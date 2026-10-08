@@ -9,7 +9,8 @@ interface ExamSetupModalProps {
   defaultSubject: ExamMode;
   defaultEmail?: string;
   isUserLoggedIn?: boolean;
-  onStartExam: (candidateName: string, subject: ExamMode, candidateEmail?: string) => void;
+  defaultLevel?: string;
+  onStartExam: (candidateName: string, subject: ExamMode, candidateEmail?: string, schoolLevel?: string) => void;
 }
 
 export const ExamSetupModal: React.FC<ExamSetupModalProps> = ({
@@ -19,11 +20,13 @@ export const ExamSetupModal: React.FC<ExamSetupModalProps> = ({
   defaultSubject,
   defaultEmail = '',
   isUserLoggedIn = false,
+  defaultLevel = 'Primary 11+ Grammar School',
   onStartExam,
 }) => {
   const [candidateName, setCandidateName] = useState(defaultName || '');
   const [candidateEmail, setCandidateEmail] = useState(defaultEmail || '');
   const [subject, setSubject] = useState<ExamMode>(defaultSubject || 'Mathematics');
+  const [selectedLevel, setSelectedLevel] = useState<string>(defaultLevel);
   const [error, setError] = useState('');
 
   if (!isOpen) return null;
@@ -34,7 +37,7 @@ export const ExamSetupModal: React.FC<ExamSetupModalProps> = ({
       return;
     }
     setError('');
-    onStartExam(candidateName.trim(), subject, candidateEmail.trim() || undefined);
+    onStartExam(candidateName.trim(), subject, candidateEmail.trim() || undefined, selectedLevel);
   };
 
   return (
@@ -51,7 +54,7 @@ export const ExamSetupModal: React.FC<ExamSetupModalProps> = ({
                 referrerPolicy="no-referrer"
               />
               <span className="text-xs font-semibold uppercase tracking-wider text-blue-300">
-                FUTURE STARS • 11+ Examination
+                FUTURE STARS • British Curriculum Examination
               </span>
             </div>
             <button
@@ -64,7 +67,7 @@ export const ExamSetupModal: React.FC<ExamSetupModalProps> = ({
           </div>
           <h2 className="text-xl sm:text-2xl font-black mt-2">Start Timed Examination</h2>
           <p className="text-xs sm:text-sm text-blue-200 mt-1">
-            Replicates official UK Grammar School 11+ conditions (50 Questions • 40 Mins).
+            Replicates official British Curriculum & exam board conditions (AQA, Edexcel, GL & CEM).
           </p>
         </div>
 
@@ -76,6 +79,35 @@ export const ExamSetupModal: React.FC<ExamSetupModalProps> = ({
               <span>{error}</span>
             </div>
           )}
+
+          {/* School Level Selector */}
+          <div>
+            <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-1.5">
+              Select School Level & Qualification Tier
+            </label>
+            <div className="grid grid-cols-2 gap-2">
+              {[
+                { id: 'Primary 11+ Grammar School', label: '11+ Primary Entrance', desc: 'GL & CEM Selective Standard' },
+                { id: 'Key Stage 3 (Years 7-9)', label: 'Key Stage 3 Secondary', desc: 'Years 7–9 Foundation' },
+                { id: 'GCSE (Years 10-11)', label: 'GCSE / KS4', desc: 'AQA & Edexcel Higher (9–1)' },
+                { id: 'Sixth Form A-Levels', label: 'Sixth Form / A-Levels', desc: 'Years 12–13 Advanced Pure' }
+              ].map((lvl) => (
+                <button
+                  key={lvl.id}
+                  type="button"
+                  onClick={() => setSelectedLevel(lvl.id)}
+                  className={`p-2.5 rounded-xl border text-left text-xs transition-all cursor-pointer ${
+                    selectedLevel === lvl.id
+                      ? 'border-blue-900 dark:border-blue-500 bg-blue-50/80 dark:bg-blue-950/60 ring-2 ring-blue-900/20 text-blue-950 dark:text-blue-200 font-bold'
+                      : 'border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:border-slate-300'
+                  }`}
+                >
+                  <div className="font-bold">{lvl.label}</div>
+                  <div className="text-[10px] text-slate-400 font-normal mt-0.5">{lvl.desc}</div>
+                </button>
+              ))}
+            </div>
+          </div>
 
           {/* Guest / Unregistered Notice */}
           {!isUserLoggedIn && (

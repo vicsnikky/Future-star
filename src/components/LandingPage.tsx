@@ -23,6 +23,8 @@ import {
 import { ExamMode } from '../types';
 import { CurriculumLadderNavigator } from './CurriculumLadderNavigator';
 import { CURRICULUM_STAGES } from '../data/curriculumStages';
+import { ExamBoardHub } from './ExamBoardHub';
+import { SchoolLevelPracticeModal, PracticeLevelType } from './SchoolLevelPracticeModal';
 
 interface LandingPageProps {
   onStartPractising: () => void;
@@ -46,6 +48,9 @@ export const LandingPage: React.FC<LandingPageProps> = ({
   const [selectedStageId, setSelectedStageId] = useState<string>('primary-education');
   const [isCurriculumDropdownOpen, setIsCurriculumDropdownOpen] = useState<boolean>(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
+  const [isDiagnosticModalOpen, setIsDiagnosticModalOpen] = useState<boolean>(false);
+  const [diagnosticLevel, setDiagnosticLevel] = useState<PracticeLevelType>('GCSE');
+  const [diagnosticAqaSetId, setDiagnosticAqaSetId] = useState<string | undefined>(undefined);
 
   const scrollToSection = (sectionId: string) => {
     setIsCurriculumDropdownOpen(false);
@@ -59,6 +64,12 @@ export const LandingPage: React.FC<LandingPageProps> = ({
   const handleNavigateToStage = (stageId: string) => {
     setSelectedStageId(stageId);
     scrollToSection('curriculum-ladder-section');
+  };
+
+  const handleOpenDiagnostic = (level: PracticeLevelType, setId?: string) => {
+    setDiagnosticLevel(level);
+    setDiagnosticAqaSetId(setId);
+    setIsDiagnosticModalOpen(true);
   };
 
   return (
@@ -132,6 +143,12 @@ export const LandingPage: React.FC<LandingPageProps> = ({
               )}
             </div>
 
+            <button
+              onClick={() => scrollToSection('exam-board-hub-section')}
+              className="px-3 py-2 rounded-lg hover:text-blue-900 dark:hover:text-blue-300 hover:bg-blue-50/70 dark:hover:bg-blue-950/50 transition-colors cursor-pointer text-indigo-700 dark:text-indigo-400 font-bold"
+            >
+              Exam Board Hub
+            </button>
             <button
               onClick={() => scrollToSection('subjects-section')}
               className="px-3 py-2 rounded-lg hover:text-blue-900 dark:hover:text-blue-300 hover:bg-blue-50/70 dark:hover:bg-blue-950/50 transition-colors cursor-pointer"
@@ -247,6 +264,12 @@ export const LandingPage: React.FC<LandingPageProps> = ({
             </div>
 
             <div className="pt-2 border-t border-slate-100 dark:border-slate-800 flex flex-col gap-1 text-sm font-medium">
+              <button
+                onClick={() => scrollToSection('exam-board-hub-section')}
+                className="text-left py-2 px-3 text-indigo-700 dark:text-indigo-400 font-bold"
+              >
+                Exam Board Hub (AQA & Edexcel)
+              </button>
               <button
                 onClick={() => scrollToSection('subjects-section')}
                 className="text-left py-2 px-3 text-slate-700 dark:text-slate-300 hover:text-blue-900"
@@ -384,6 +407,13 @@ export const LandingPage: React.FC<LandingPageProps> = ({
         onSelectSubject={onSelectSubject}
         onStartPractising={onStartPractising}
         onRegisterClick={onLoginClick}
+        onOpenDiagnostic={handleOpenDiagnostic}
+      />
+
+      {/* AQA & Edexcel UK Examination Board Hub, Timelines & Checklists */}
+      <ExamBoardHub
+        onOpenDiagnostic={handleOpenDiagnostic}
+        onSelectStage={handleNavigateToStage}
       />
 
       {/* Dedicated 1-on-1 Tutoring Referral Section (WhatsApp: +234 706 271 2735) */}
@@ -781,6 +811,25 @@ export const LandingPage: React.FC<LandingPageProps> = ({
           <span className="text-xs font-black tracking-wide pr-1">1-on-1 Tutoring</span>
         </a>
       </div>
+
+      {/* Level-Specific Diagnostic & Practice Quiz Modal (KS3, GCSE, AQA, A-Level) */}
+      {isDiagnosticModalOpen && (
+        <SchoolLevelPracticeModal
+          isOpen={isDiagnosticModalOpen}
+          onClose={() => setIsDiagnosticModalOpen(false)}
+          defaultLevel={diagnosticLevel}
+          defaultAqaSetId={diagnosticAqaSetId}
+          onBookTutoring={(level) => {
+            setIsDiagnosticModalOpen(false);
+            window.open(
+              `https://wa.me/2347062712735?text=${encodeURIComponent(
+                `Hello FUTURE STARS, I would like to inquire about ${level} one-on-one tutorials for my child.`
+              )}`,
+              '_blank'
+            );
+          }}
+        />
+      )}
     </div>
   );
 };

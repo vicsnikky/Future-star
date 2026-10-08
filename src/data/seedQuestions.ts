@@ -5,10 +5,14 @@ import { VERBAL_QUESTIONS } from './questions/verbalQuestions';
 import { UK_CURRICULUM_MATHS_QUESTIONS } from './questions/ukCurriculumMaths';
 import { UK_CURRICULUM_ENGLISH_QUESTIONS } from './questions/ukCurriculumEnglish';
 import { UK_CURRICULUM_VERBAL_QUESTIONS } from './questions/ukCurriculumVerbal';
+import { SCHOOL_LEVEL_QUESTIONS } from './questions/schoolLevelQuestions';
+import { ALL_AQA_QUESTIONS } from './questions/aqaQuestions';
 import { deduplicateQuestions } from '../services/questionSanitizer';
 
-// Combined authentic 11+ Selective Grammar School Entrance Question Bank (UK National Curriculum & Past Papers)
+// Combined authentic UK National Curriculum Question Bank (11+, Key Stage 3, GCSE AQA/Edexcel, A-Levels)
 export const SEED_QUESTIONS: Question[] = deduplicateQuestions([
+  ...ALL_AQA_QUESTIONS,
+  ...SCHOOL_LEVEL_QUESTIONS,
   ...UK_CURRICULUM_MATHS_QUESTIONS,
   ...UK_CURRICULUM_ENGLISH_QUESTIONS,
   ...UK_CURRICULUM_VERBAL_QUESTIONS,

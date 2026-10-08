@@ -37,6 +37,7 @@ export interface ExamAttempt {
   studentEmail: string;
   isRegistered?: boolean;
   subject: ExamMode;
+  schoolLevel?: string;
   startTime: string; // ISO string
   durationMinutes: number; // 40
   totalQuestions: number; // 50

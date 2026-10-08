@@ -215,7 +215,12 @@ export default function App() {
   }, [currentUser]);
 
   // Start Examination flow
-  const handleStartExamFlow = async (candidateName: string, subject: ExamMode, candidateEmail?: string) => {
+  const handleStartExamFlow = async (
+    candidateName: string,
+    subject: ExamMode,
+    candidateEmail?: string,
+    schoolLevel?: string
+  ) => {
     setIsExamSetupOpen(false);
 
     // Fetch approved pool
@@ -246,6 +251,7 @@ export default function App() {
       studentEmail: cleanEmail,
       isRegistered: !isGuest,
       subject,
+      schoolLevel: schoolLevel || 'Primary 11+ Grammar School',
       startTime: new Date().toISOString(),
       durationMinutes,
       totalQuestions,

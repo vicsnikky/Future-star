@@ -14,7 +14,8 @@ import {
   Award,
   Globe2,
   Compass,
-  Check
+  Check,
+  MessageCircle
 } from 'lucide-react';
 import { CURRICULUM_STAGES, CurriculumStage } from '../data/curriculumStages';
 import { ExamMode } from '../types';
@@ -25,6 +26,7 @@ interface CurriculumLadderNavigatorProps {
   onRegisterClick: () => void;
   selectedStageId?: string;
   onStageChange?: (stageId: string) => void;
+  onOpenDiagnostic?: (level: 'KS3' | 'GCSE' | 'A-Level' | 'AQA') => void;
 }
 
 export const CurriculumLadderNavigator: React.FC<CurriculumLadderNavigatorProps> = ({
@@ -33,6 +35,7 @@ export const CurriculumLadderNavigator: React.FC<CurriculumLadderNavigatorProps>
   onRegisterClick,
   selectedStageId,
   onStageChange,
+  onOpenDiagnostic,
 }) => {
   const [internalStageId, setInternalStageId] = useState<string>('primary-education');
   const activeStageId = selectedStageId || internalStageId;
@@ -185,44 +188,135 @@ export const CurriculumLadderNavigator: React.FC<CurriculumLadderNavigatorProps>
                   </p>
                 </div>
 
-                {/* Primary Action Button */}
-                <div className="shrink-0 flex flex-col sm:flex-row lg:flex-col gap-3">
-                  <button
-                    id="stage-active-action-btn"
-                    onClick={() => {
-                      if (activeStage.id === 'primary-education') {
-                        onSelectSubject('Mixed');
-                      } else {
-                        onSelectSubject('Mathematics');
-                      }
-                    }}
-                    className="px-6 py-3.5 rounded-xl bg-blue-900 hover:bg-blue-800 text-white font-bold text-sm shadow-md hover:shadow-lg flex items-center justify-center gap-2 transition-all cursor-pointer"
-                  >
-                    {activeStage.callToAction.label}
-                    <ArrowRight className="w-4 h-4" />
-                  </button>
+                {/* Primary Action Buttons & Stage Tutoring */}
+                <div className="shrink-0 flex flex-col sm:flex-row lg:flex-col gap-2.5">
+                  {activeStage.id === 'primary-education' ? (
+                    <>
+                      <button
+                        id="stage-active-action-btn"
+                        onClick={() => onSelectSubject('Mixed')}
+                        className="px-6 py-3.5 rounded-xl bg-blue-900 hover:bg-blue-800 text-white font-bold text-sm shadow-md hover:shadow-lg flex items-center justify-center gap-2 transition-all cursor-pointer"
+                      >
+                        Start 150-Q 11+ Mock Exam
+                        <ArrowRight className="w-4 h-4" />
+                      </button>
 
-                  {activeStage.id === 'primary-education' && (
-                    <div className="flex items-center gap-2">
+                      <div className="flex items-center gap-1.5 flex-wrap">
+                        <button
+                          onClick={() => onSelectSubject('Mathematics')}
+                          className="px-2.5 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 text-xs font-bold text-slate-800 dark:text-slate-200 transition-colors"
+                        >
+                          Maths 50Q
+                        </button>
+                        <button
+                          onClick={() => onSelectSubject('English')}
+                          className="px-2.5 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 text-xs font-bold text-slate-800 dark:text-slate-200 transition-colors"
+                        >
+                          English 50Q
+                        </button>
+                        <button
+                          onClick={() => onSelectSubject('Verbal Reasoning')}
+                          className="px-2.5 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 text-xs font-bold text-slate-800 dark:text-slate-200 transition-colors"
+                        >
+                          VR 50Q
+                        </button>
+                      </div>
+
+                      <a
+                        href="https://wa.me/2347062712735?text=Hello%20FUTURE%20STARS%2C%20I%20would%20like%20to%20inquire%20about%2011%2B%20Grammar%20School%20Entrance%20one-on-one%20tutorials%20for%20my%20child."
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-4 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold flex items-center justify-center gap-1.5 shadow-xs transition-colors"
+                        title="Inquire about 11+ Grammar School Tutoring"
+                      >
+                        <MessageCircle className="w-3.5 h-3.5" />
+                        <span>Book 11+ 1-on-1 Tutorial</span>
+                      </a>
+                    </>
+                  ) : activeStage.id === 'junior-secondary' ? (
+                    <>
+                      <button
+                        onClick={() => onOpenDiagnostic ? onOpenDiagnostic('KS3') : onSelectSubject('Mathematics')}
+                        className="px-6 py-3.5 rounded-xl bg-blue-900 hover:bg-blue-800 text-white font-bold text-sm shadow-md hover:shadow-lg flex items-center justify-center gap-2 transition-all cursor-pointer"
+                      >
+                        <Sparkles className="w-4 h-4 text-amber-400" />
+                        Take KS3 Diagnostic Quiz
+                      </button>
+
                       <button
                         onClick={() => onSelectSubject('Mathematics')}
-                        className="px-3 py-2 rounded-lg bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 text-xs font-bold text-slate-800 dark:text-slate-200 transition-colors"
+                        className="px-3 py-2 rounded-lg bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 text-xs font-bold text-slate-800 dark:text-slate-200 transition-colors"
                       >
-                        Maths 50Q
+                        Start 50-Q KS3 Maths Exam
                       </button>
+
+                      <a
+                        href="https://wa.me/2347062712735?text=Hello%20FUTURE%20STARS%2C%20I%20would%20like%20to%20inquire%20about%20Key%20Stage%203%20(Years%207-9)%20one-on-one%20tutorials%20for%20my%20child."
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-4 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold flex items-center justify-center gap-1.5 shadow-xs transition-colors"
+                        title="Inquire about KS3 Tutoring"
+                      >
+                        <MessageCircle className="w-3.5 h-3.5" />
+                        <span>Book KS3 1-on-1 Tutorial</span>
+                      </a>
+                    </>
+                  ) : activeStage.id === 'senior-secondary-ks4' ? (
+                    <>
                       <button
-                        onClick={() => onSelectSubject('English')}
-                        className="px-3 py-2 rounded-lg bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 text-xs font-bold text-slate-800 dark:text-slate-200 transition-colors"
+                        onClick={() => onOpenDiagnostic ? onOpenDiagnostic('GCSE') : onSelectSubject('Mathematics')}
+                        className="px-6 py-3.5 rounded-xl bg-blue-900 hover:bg-blue-800 text-white font-bold text-sm shadow-md hover:shadow-lg flex items-center justify-center gap-2 transition-all cursor-pointer"
                       >
-                        English 50Q
+                        <Sparkles className="w-4 h-4 text-amber-400" />
+                        Start GCSE Mini-Mock (AQA / Edexcel)
                       </button>
+
                       <button
-                        onClick={() => onSelectSubject('Verbal Reasoning')}
-                        className="px-3 py-2 rounded-lg bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 text-xs font-bold text-slate-800 dark:text-slate-200 transition-colors"
+                        onClick={() => onSelectSubject('Mathematics')}
+                        className="px-3 py-2 rounded-lg bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 text-xs font-bold text-slate-800 dark:text-slate-200 transition-colors"
                       >
-                        VR 50Q
+                        Start 50-Q GCSE Higher Maths
                       </button>
-                    </div>
+
+                      <a
+                        href="https://wa.me/2347062712735?text=Hello%20FUTURE%20STARS%2C%20I%20would%20like%20to%20inquire%20about%20GCSE%20(AQA%2FEdexcel)%20one-on-one%20tutorials%20for%20my%20child."
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-4 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold flex items-center justify-center gap-1.5 shadow-xs transition-colors"
+                        title="Inquire about GCSE Tutoring"
+                      >
+                        <MessageCircle className="w-3.5 h-3.5" />
+                        <span>Book GCSE 1-on-1 Tutorial</span>
+                      </a>
+                    </>
+                  ) : (
+                    <>
+                      <button
+                        onClick={() => onOpenDiagnostic ? onOpenDiagnostic('A-Level') : onSelectSubject('Mathematics')}
+                        className="px-6 py-3.5 rounded-xl bg-blue-900 hover:bg-blue-800 text-white font-bold text-sm shadow-md hover:shadow-lg flex items-center justify-center gap-2 transition-all cursor-pointer"
+                      >
+                        <Sparkles className="w-4 h-4 text-amber-400" />
+                        Start A-Level Pure Maths Diagnostic
+                      </button>
+
+                      <button
+                        onClick={() => onSelectSubject('Mathematics')}
+                        className="px-3 py-2 rounded-lg bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 text-xs font-bold text-slate-800 dark:text-slate-200 transition-colors"
+                      >
+                        Start 50-Q Advanced Pure Maths
+                      </button>
+
+                      <a
+                        href="https://wa.me/2347062712735?text=Hello%20FUTURE%20STARS%2C%20I%20would%20like%20to%20inquire%20about%20A-Level%20and%20University%20Admissions%20tutorials."
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-4 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold flex items-center justify-center gap-1.5 shadow-xs transition-colors"
+                        title="Inquire about A-Level Tutoring"
+                      >
+                        <MessageCircle className="w-3.5 h-3.5" />
+                        <span>Book A-Level 1-on-1 Tutorial</span>
+                      </a>
+                    </>
                   )}
                 </div>
               </div>

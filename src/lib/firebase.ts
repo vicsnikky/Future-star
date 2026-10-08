@@ -5,13 +5,15 @@ import firebaseConfig from '../../firebase-applet-config.json';
 
 const app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApp();
 
-// Initialize Firestore with offline persistence and explicit databaseId from config
+// Initialize Firestore with long-polling and local cache persistence
+// experimentalForceLongPolling avoids WebChannel/gRPC stream drops in sandboxed iframes & web views
 export const db = initializeFirestore(
   app,
   {
     localCache: persistentLocalCache({
       tabManager: persistentMultipleTabManager(),
     }),
+    experimentalForceLongPolling: true,
   },
   firebaseConfig.firestoreDatabaseId || '(default)'
 );
